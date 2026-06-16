@@ -1,0 +1,28 @@
+{
+    "$schema": "https://finaegis.io/schemas/module.json",
+    "name": "finaegis/shared",
+    "version": "1.3.0",
+    "description": "Shared contracts, CQRS infrastructure, and domain utilities",
+    "type": "core",
+    "dependencies": {
+        "required": {},
+        "optional": {}
+    },
+    "provides": {
+        "interfaces": [
+            "App\\Domain\\Shared\\Contracts\\AccountQueryInterface",
+            "App\\Domain\\Shared\\Contracts\\AccountOperationsInterface",
+            "App\\Domain\\Shared\\Contracts\\AssetTransferInterface",
+            "App\\Domain\\Shared\\Contracts\\ComplianceCheckInterface",
+            "App\\Domain\\Shared\\Contracts\\ExchangeRateInterface",
+            "App\\Domain\\Shared\\Contracts\\GovernanceVotingInterface",
+            "App\\Domain\\Shared\\Contracts\\PaymentProcessingInterface",
+            "App\\Domain\\Shared\\Contracts\\WalletOperationsInterface"
+        ],
+        "events": [],
+        "commands": []
+    },
+    "paths": {
+        "contracts": "Contracts"
+    }
+}

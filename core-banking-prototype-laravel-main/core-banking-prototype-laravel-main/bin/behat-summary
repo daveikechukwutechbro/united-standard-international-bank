@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# Summary of Behat test configuration for CI/CD
+
+echo "=== Behat CI/CD Configuration Summary ==="
+echo
+echo "1. To run all implemented Behat tests:"
+echo "   ./bin/behat-ci"
+echo
+echo "2. To run a specific feature:"
+echo "   vendor/bin/behat --no-interaction --format=progress --no-colors features/account_management.feature"
+echo
+echo "3. Configuration:"
+echo "   - Scenarios tagged with @wip are skipped (work in progress)"
+echo "   - Scenarios tagged with @web are skipped in acceptance suite"
+echo "   - Uses sync queue driver for testing"
+echo "   - Non-interactive mode prevents undefined step prompts"
+echo
+echo "4. Implemented features:"
+echo "   - account_management.feature (3 scenarios)"
+echo "   - basket_management.feature (1 scenario, 3 @wip)"
+echo
+echo "5. Notes:"
+echo "   - Async workflow operations (deposits/withdrawals with balance updates) are tested in PHPUnit"
+echo "   - Basket decomposition/composition use async workflows and are marked @wip"
+echo "   - CI script exits with proper codes: 0 for success, 1 for failure"

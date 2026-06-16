@@ -1,0 +1,55 @@
+type LoanApplication @model(class: "App\\Domain\\Lending\\Models\\LoanApplication") {
+    id: ID!
+    borrower_id: String
+    requested_amount: Float!
+    term_months: Int
+    purpose: String
+    status: String!
+    credit_score: Int
+    risk_rating: String
+    default_probability: Float
+    approved_amount: Float
+    interest_rate: Float
+    approved_by: String
+    approved_at: DateTime
+    rejected_at: DateTime
+    submitted_at: DateTime
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+input ApplyForLoanInput {
+    requested_amount: Float!
+    term_months: Int!
+    purpose: String!
+}
+
+input ApproveLoanInput {
+    id: ID!
+    approved_amount: Float!
+    interest_rate: Float!
+}
+
+extend type Query {
+    loanApplication(id: ID! @eq): LoanApplication
+        @find
+        @guard(with: ["sanctum"])
+
+    loanApplications(
+        page: Int @rules(apply: ["integer", "min:1"])
+        first: Int @rules(apply: ["integer", "min:1", "max:100"])
+        status: String @where(operator: "=")
+    ): [LoanApplication!]!
+        @paginate(defaultCount: 15, model: "App\\Domain\\Lending\\Models\\LoanApplication")
+        @guard(with: ["sanctum"])
+}
+
+extend type Mutation {
+    applyForLoan(input: ApplyForLoanInput! @spread): LoanApplication!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Mutations\\Lending\\ApplyForLoanMutation")
+
+    approveLoan(input: ApproveLoanInput! @spread): LoanApplication!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Mutations\\Lending\\ApproveLoanMutation")
+}

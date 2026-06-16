@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Payment Errors (Final)</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#df2020",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#171111", 
+                        "surface-dark": "#211616",
+                        "surface-light": "#2a1f1f",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                    boxShadow: {
+                        'glow': '0 0 25px -5px rgba(223, 32, 32, 0.4)',
+                        'inner-glow': 'inset 0 0 20px rgba(223, 32, 32, 0.05)'
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: "Space Grotesk", sans-serif;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white min-h-screen flex flex-col items-center justify-start overflow-x-hidden font-display">
+<main class="w-full max-w-md mx-auto min-h-screen flex flex-col relative bg-background-light dark:bg-background-dark shadow-2xl overflow-hidden">
+<header class="flex items-center justify-between p-4 z-20">
+<button class="text-slate-900 dark:text-white/60 hover:text-primary dark:hover:text-primary transition-colors flex items-center justify-center p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/5">
+<span class="material-symbols-outlined" style="font-size: 24px;">close</span>
+</button>
+<h1 class="text-sm font-semibold tracking-wide uppercase text-slate-500 dark:text-white/30">Payment Issue</h1>
+<div class="w-10"></div>
+</header>
+<div class="flex-1 overflow-y-auto no-scrollbar pb-10 px-6 flex flex-col gap-16 pt-6">
+<section class="flex flex-col items-center justify-center w-full min-h-[50vh] relative group">
+<div class="absolute inset-0 bg-gradient-to-b from-primary/10 via-transparent to-transparent opacity-40 rounded-full blur-3xl transform -translate-y-1/2 pointer-events-none"></div>
+<div class="relative mb-8">
+<div class="absolute inset-0 bg-primary/20 blur-2xl rounded-full scale-125"></div>
+<div class="relative bg-surface-dark border border-white/5 size-24 rounded-full flex items-center justify-center shadow-glow z-10">
+<span class="material-symbols-outlined text-primary" style="font-size: 40px;">public_off</span>
+<div class="absolute -bottom-1 -right-1 bg-background-dark rounded-full p-1 border border-surface-dark">
+<div class="bg-primary rounded-full size-6 flex items-center justify-center shadow-lg">
+<span class="material-symbols-outlined text-white" style="font-size: 14px;">priority_high</span>
+</div>
+</div>
+</div>
+</div>
+<div class="flex flex-col items-center gap-3 text-center z-10 w-full px-4">
+<h2 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white">Wrong Network</h2>
+<p class="text-slate-500 dark:text-white/60 text-base leading-relaxed max-w-[280px]">
+                    Solana network required for this payment.
+                </p>
+</div>
+<div class="mt-10 w-full z-10 flex flex-col gap-4">
+<button class="w-full h-14 bg-gradient-to-r from-primary to-red-600 hover:to-red-500 active:scale-[0.98] transition-all rounded-xl text-white font-bold text-base tracking-wide flex items-center justify-center shadow-lg shadow-primary/20 gap-2">
+<span class="material-symbols-outlined" style="font-size: 20px;">swap_calls</span>
+                    Switch network
+                </button>
+</div>
+</section>
+<div class="w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+<section class="flex flex-col items-center justify-center w-full min-h-[50vh] relative group">
+<div class="absolute inset-0 bg-gradient-to-b from-primary/10 via-transparent to-transparent opacity-40 rounded-full blur-3xl transform -translate-y-1/2 pointer-events-none"></div>
+<div class="relative mb-8">
+<div class="absolute inset-0 bg-primary/20 blur-2xl rounded-full scale-125"></div>
+<div class="relative bg-surface-dark border border-white/5 size-24 rounded-full flex items-center justify-center shadow-glow overflow-hidden z-10">
+<div class="absolute inset-0 flex items-center justify-center opacity-10 rotate-12">
+<span class="material-symbols-outlined text-white" style="font-size: 72px;">toll</span>
+</div>
+<span class="material-symbols-outlined text-primary relative z-10" style="font-size: 40px;">currency_exchange</span>
+</div>
+</div>
+<div class="flex flex-col items-center gap-3 text-center z-10 w-full px-4">
+<h2 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white">Wrong Token</h2>
+<p class="text-slate-500 dark:text-white/60 text-base leading-relaxed max-w-[280px]">
+                     This merchant only accepts USDC.
+                 </p>
+</div>
+<div class="mt-10 w-full z-10 flex flex-col gap-4">
+<button class="w-full h-14 bg-gradient-to-r from-primary to-red-600 hover:to-red-500 active:scale-[0.98] transition-all rounded-xl text-white font-bold text-base tracking-wide flex items-center justify-center shadow-lg shadow-primary/20 gap-2">
+<span class="material-symbols-outlined" style="font-size: 20px;">check_circle</span>
+                    Select USDC
+                 </button>
+</div>
+</section>
+<div class="w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+<section class="flex flex-col items-center justify-center w-full min-h-[50vh] relative group">
+<div class="absolute inset-0 bg-gradient-to-b from-primary/10 via-transparent to-transparent opacity-40 rounded-full blur-3xl transform -translate-y-1/2 pointer-events-none"></div>
+<div class="relative mb-8">
+<div class="absolute inset-0 bg-primary/20 blur-2xl rounded-full scale-125"></div>
+<div class="relative bg-surface-dark border border-white/5 size-24 rounded-full flex items-center justify-center shadow-glow z-10">
+<span class="material-symbols-outlined text-primary" style="font-size: 40px;">local_gas_station</span>
+<div class="absolute -top-1 -right-1 bg-surface-dark rounded-full p-0.5">
+<span class="material-symbols-outlined text-primary drop-shadow-lg" style="font-size: 24px;">error</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col items-center gap-3 text-center z-10 w-full px-4">
+<h2 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white">Insufficient Fees</h2>
+<p class="text-slate-500 dark:text-white/60 text-base leading-relaxed max-w-[280px]">
+                    Insufficient network fees. You need a small amount of SOL to complete this transaction.
+                </p>
+</div>
+<div class="mt-10 w-full z-10 flex flex-col gap-4">
+<button class="w-full h-14 bg-gradient-to-r from-primary to-red-600 hover:to-red-500 active:scale-[0.98] transition-all rounded-xl text-white font-bold text-base tracking-wide flex items-center justify-center shadow-lg shadow-primary/20 gap-2">
+<span class="material-symbols-outlined" style="font-size: 20px;">add_circle</span>
+                    Add SOL for fees
+                </button>
+<button class="w-full h-12 hover:bg-white/5 active:scale-[0.98] transition-all rounded-xl text-slate-500 dark:text-white/40 font-semibold text-sm tracking-wide flex items-center justify-center">
+                    Cancel
+                </button>
+</div>
+</section>
+</div>
+</main>
+</body></html>

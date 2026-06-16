@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Receive Stablecoins</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#3b82f6",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#0B0E14", 
+                        "surface-dark": "#151A23",
+                        "warning-bg": "#451a1a",
+                        "warning-text": "#ff8080",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "2xl": "2rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            min-height: max(884px, 100dvh);
+        }.no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display antialiased min-h-screen flex flex-col items-center justify-center text-slate-900 dark:text-white">
+<div class="relative flex h-full min-h-screen w-full max-w-md flex-col bg-background-light dark:bg-background-dark overflow-hidden shadow-2xl">
+<div class="flex items-center justify-between p-4 pt-6 pb-2">
+<button class="flex items-center justify-center p-2 rounded-full text-slate-900 dark:text-slate-200 hover:bg-black/5 dark:hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-[24px]">arrow_back</span>
+</button>
+<h2 class="text-slate-900 dark:text-white text-lg font-bold tracking-tight">Receive Stablecoins</h2>
+<button class="flex items-center justify-center p-2 rounded-full text-slate-900 dark:text-slate-200 hover:bg-black/5 dark:hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-[24px]">close</span>
+</button>
+</div>
+<div class="flex-1 overflow-y-auto px-6 pb-8 no-scrollbar">
+<div class="mt-4">
+<p class="text-slate-500 dark:text-slate-400 text-xs font-semibold uppercase tracking-wider mb-3 ml-1">Network</p>
+<div class="flex flex-wrap gap-2">
+<button class="group relative flex-1 min-w-[100px] flex items-center justify-center gap-2 px-3 py-3 rounded-xl bg-slate-900 dark:bg-blue-600/20 border border-transparent dark:border-blue-500 text-white font-medium text-sm transition-all shadow-lg shadow-blue-900/20">
+<div class="w-1.5 h-1.5 rounded-full bg-blue-400 shadow-[0_0_8px_rgba(96,165,250,0.8)]"></div>
+                    Solana
+                </button>
+<button class="group flex-1 min-w-[100px] flex items-center justify-center gap-2 px-3 py-3 rounded-xl bg-slate-200 dark:bg-surface-dark text-slate-600 dark:text-slate-400 font-medium text-sm hover:bg-slate-300 dark:hover:bg-[#232936] transition-all">
+                    Ethereum
+                </button>
+<button class="group flex-1 min-w-[100px] flex items-center justify-center gap-2 px-3 py-3 rounded-xl bg-slate-200 dark:bg-surface-dark text-slate-600 dark:text-slate-400 font-medium text-sm hover:bg-slate-300 dark:hover:bg-[#232936] transition-all">
+                    Tron
+                </button>
+</div>
+</div>
+<div class="mt-6">
+<p class="text-slate-500 dark:text-slate-400 text-xs font-semibold uppercase tracking-wider mb-3 ml-1">Asset</p>
+<div class="flex p-1 bg-slate-200 dark:bg-surface-dark rounded-xl relative">
+<div class="w-1/2">
+<input checked="" class="peer hidden" id="usdc" name="token" type="radio"/>
+<label class="flex items-center justify-center w-full py-3 text-sm font-bold rounded-lg cursor-pointer transition-all z-10 relative text-slate-500 dark:text-slate-400 peer-checked:bg-white dark:peer-checked:bg-[#2C3442] peer-checked:text-slate-900 dark:peer-checked:text-white peer-checked:shadow-sm ring-1 ring-transparent peer-checked:ring-black/5 dark:peer-checked:ring-white/10" for="usdc">
+<div class="flex items-center gap-2">
+<img alt="USDC" class="w-5 h-5" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9fe13XmVusGHyX88HpS0m1TalFSuFgMH8WYVfCcvq2TEVaSmCzo9zJHaBh_z1aXKCC2dFP-COw6u5aVndJMI4AvRsE-VDsR11qfL-wr5S2hryC_Cvqt-_nhOU328NPw2dj1Tz231961Raz8GAPFsn0o_kjheS_NHJix-c_VxKyxJAXWwQvTJLcfJdGpJ2bkBMufVNa238IFDmHFPCjKi9iKkk1jBgzz5whO22hZw7xvlxgopp6w5QSEMZqh9hVYMGcq1xXbIs6jRL"/>
+                            USDC
+                        </div>
+</label>
+</div>
+<div class="w-1/2">
+<input class="peer hidden" id="usdt" name="token" type="radio"/>
+<label class="flex items-center justify-center w-full py-3 text-sm font-bold rounded-lg cursor-pointer transition-all z-10 relative text-slate-500 dark:text-slate-400 peer-checked:bg-white dark:peer-checked:bg-[#2C3442] peer-checked:text-slate-900 dark:peer-checked:text-white peer-checked:shadow-sm ring-1 ring-transparent peer-checked:ring-black/5 dark:peer-checked:ring-white/10" for="usdt">
+<div class="flex items-center gap-2">
+<img alt="USDT" class="w-5 h-5" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0LK9ogZhcPaz8tJ2EYcVkvt8NrhInJ6PinHCnt_h-280PeFuiJfOwNrAVolkDdoIaikJ_k_DNZBUGaUbVq2G93Huj_B1QdhwW0kUqtFznA2Hgezsb3Usy3PYC3HWPgGFarxqLG_M5mbkwLXQ0ygU7OO0TNK-5xJ8ypq420r-Rzx6h9lL_9pGqGvavjv1P6mgm-5YQt_6w6XJYNqjZAOvxXHYNZk1UTamuiD-sQ9u9H4aBlc-dWd36Ak4MGtkTQv0xu7bz2rS7SDB0"/>
+                            USDT
+                        </div>
+</label>
+</div>
+</div>
+</div>
+<div class="mt-6 text-center">
+<p class="text-slate-500 dark:text-slate-400 text-xs font-medium">Sender must use the same network and token.</p>
+</div>
+<div class="mt-6 flex flex-col items-center">
+<div class="p-4 bg-white rounded-3xl shadow-xl dark:shadow-none w-full max-w-[260px] aspect-square flex items-center justify-center relative overflow-hidden group border-4 border-slate-100 dark:border-white/5">
+<img alt="Wallet Address QR Code" class="w-full h-full object-contain mix-blend-multiply relative z-10" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCT9-AdSqCWuzsUtle5AT2sSWbjoo_hsCSUqBoNUaZUyluPBoiurAGJNlfaTp_P7azr3Sz_HQHI3quyWOQvKefRfrsaf7nIqTV2Uathd8h29L3nmISa0Kcazl32oIhEMZCsiJtHoas2nFKG8pITlpbtSxU1kEb_POdkQS5MXlcfSVFsIPQVvJs27SkUQXOcQgQCxpVvmDjhtuii_OgWTubqnpktaBSeZ0hItaqjL3dkbsd53aQLhyqGekMLhr-makTJxZW1fLA8Wf8p"/>
+<div class="absolute top-3 left-3 w-6 h-6 border-t-2 border-l-2 border-slate-900 rounded-tl-md"></div>
+<div class="absolute top-3 right-3 w-6 h-6 border-t-2 border-r-2 border-slate-900 rounded-tr-md"></div>
+<div class="absolute bottom-3 left-3 w-6 h-6 border-b-2 border-l-2 border-slate-900 rounded-bl-md"></div>
+<div class="absolute bottom-3 right-3 w-6 h-6 border-b-2 border-r-2 border-slate-900 rounded-br-md"></div>
+</div>
+</div>
+<div class="mt-8 flex flex-col items-center gap-3">
+<div class="w-full">
+<div class="flex items-center justify-between gap-3 bg-slate-200 dark:bg-surface-dark p-1.5 pl-4 pr-1.5 rounded-xl border border-transparent dark:border-white/5 group hover:border-blue-500/30 transition-colors">
+<span class="text-slate-900 dark:text-slate-200 font-mono text-sm sm:text-base font-medium tracking-wide truncate">7xR9...4f2Z</span>
+<button class="flex items-center justify-center w-10 h-10 rounded-lg bg-white dark:bg-[#232936] text-slate-700 dark:text-slate-300 hover:text-blue-500 dark:hover:text-blue-400 shadow-sm transition-colors">
+<span class="material-symbols-outlined text-[20px]">content_copy</span>
+</button>
+</div>
+</div>
+<div class="flex gap-6 mt-1">
+<button class="text-xs font-semibold text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">share</span> Share
+                </button>
+</div>
+</div>
+<div class="mt-8 p-4 rounded-xl bg-red-50 dark:bg-red-900/20 border border-red-100 dark:border-red-500/30 flex gap-3 items-start">
+<span class="material-symbols-outlined text-red-600 dark:text-red-400 shrink-0 mt-0.5">warning</span>
+<div class="flex flex-col gap-1">
+<p class="text-red-800 dark:text-red-200 text-sm leading-relaxed font-bold">
+                    Only send USDC on Solana to this address.
+                </p>
+<p class="text-red-600 dark:text-red-400 text-xs font-medium opacity-90">
+                    Using other tokens or networks may result in loss.
+                </p>
+</div>
+</div>
+</div>
+</div>
+</body></html>

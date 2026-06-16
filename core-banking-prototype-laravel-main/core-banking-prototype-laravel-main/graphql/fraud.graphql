@@ -1,0 +1,45 @@
+type FraudCase @model(class: "App\\Domain\\Fraud\\Models\\FraudCase") {
+    id: ID!
+    uuid: String!
+    case_number: String!
+    status: String!
+    severity: String!
+    type: String!
+    subject_account_uuid: String
+    amount: Float
+    currency: String
+    risk_score: Float
+    description: String
+    detected_at: DateTime
+    resolved_at: DateTime
+    resolution_notes: String
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+extend type Query {
+    fraudCase(id: ID! @eq): FraudCase
+        @find
+        @guard(with: ["sanctum"])
+
+    fraudCases(
+        page: Int @rules(apply: ["integer", "min:1"])
+        first: Int @rules(apply: ["integer", "min:1", "max:100"])
+        status: String @where(operator: "=")
+        severity: String @where(operator: "=")
+    ): [FraudCase!]!
+        @paginate(defaultCount: 15, model: "App\\Domain\\Fraud\\Models\\FraudCase")
+        @guard(with: ["sanctum"])
+}
+
+input EscalateFraudCaseInput {
+    id: ID!
+    severity: String!
+    notes: String
+}
+
+extend type Mutation {
+    escalateFraudCase(input: EscalateFraudCaseInput! @spread): FraudCase!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Mutations\\Fraud\\EscalateFraudCaseMutation")
+}

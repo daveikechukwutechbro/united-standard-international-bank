@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Super-KYC Certificate</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#277bf1",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#0B0E14",
+                        "surface-dark": "#161b22",
+                        "accent-gold": "#F59E0B",
+                        "accent-bronze": "#78350f",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    backgroundImage: {
+                        'gold-shimmer': 'linear-gradient(45deg, rgba(255,215,0,0.1) 25%, transparent 25%, transparent 50%, rgba(255,215,0,0.1) 50%, rgba(255,215,0,0.1) 75%, transparent 75%, transparent)',
+                    }
+                },
+            },
+        }
+    </script>
+<style>.noise-bg {
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuBQ_XmPQr9hAa2e-FLEzfdpt724EvKe5d0kZhg3TvlzUzu_eyKWvFAbQ2_yWXwVuJwT9H8_E4zG7vydjNIlXYBFiZyoVJQC3Mh_Ur2Dsr_LcJ41xMuLKQ_S2Hu9A94GtF133cSV3wdBM4eMxzOfwKllEY_WJYbipIC7-uzT8c8j14_acQQkgAFxef9AEkee2RtKD-Dkr7RmbqcVFZt_CLjejgmA8UXWb9BehJkYqGwpadc8YJ7oC3XuPHeLPXUu9nkObFGpWadcmPBl)
+    }
+.holo-badge {
+    background: linear-gradient(135deg, #FDE68A 0%, #D97706 40%, #92400E 100%);
+    position: relative;
+    overflow: hidden
+    }
+.holo-badge::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(to right, transparent 0%, rgba(255, 255, 255, 0.4) 50%, transparent 100%);
+    transform: rotate(45deg);
+    animation: shine 4s infinite linear
+    }
+@keyframes shine {
+    0% {
+        transform: translateX(-100%) rotate(45deg);
+        } 20% {
+        transform: translateX(100%) rotate(45deg);
+        } 100% {
+        transform: translateX(100%) rotate(45deg);
+        }
+    }
+.gold-text-gradient {
+    background: linear-gradient(to right, #FCD34D, #F59E0B, #D97706);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent
+    }
+.certificate-border {
+    position: relative;
+    background: #161b22
+    }
+.certificate-border::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 1rem;
+    padding: 1px;
+    background: linear-gradient(180deg, rgba(217, 119, 6, 0.5), rgba(217, 119, 6, 0.1));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none
+    }</style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-dark font-display antialiased min-h-screen flex flex-col items-center justify-center text-slate-200">
+<div class="relative flex h-full w-full flex-col max-w-md mx-auto min-h-screen bg-background-dark border-x border-slate-800 overflow-hidden">
+<div class="flex items-center justify-between p-6 z-10">
+<button class="p-2 -ml-2 text-slate-400 hover:text-white transition-colors">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-accent-gold text-lg">shield</span>
+<span class="text-sm font-bold tracking-widest uppercase text-slate-300">ShieldPay Trust</span>
+</div>
+<button class="p-2 -mr-2 text-slate-400 hover:text-white transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+<div class="flex-1 px-5 flex flex-col items-center justify-center relative z-10">
+<div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-64 h-64 bg-accent-gold/10 rounded-full blur-[100px] pointer-events-none"></div>
+<div class="w-full relative certificate-border rounded-2xl shadow-2xl shadow-black/50 overflow-hidden">
+<div class="absolute inset-0 noise-bg mix-blend-overlay opacity-30 pointer-events-none"></div>
+<div class="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 mix-blend-soft-light"></div>
+<div class="h-1 w-full bg-gradient-to-r from-transparent via-accent-gold to-transparent opacity-50"></div>
+<div class="p-8 flex flex-col items-center">
+<div class="relative mb-6 group">
+<div class="absolute inset-0 bg-accent-gold/20 blur-xl rounded-full"></div>
+<div class="holo-badge w-20 h-20 rounded-full flex items-center justify-center shadow-lg shadow-amber-900/40 relative z-10 border border-white/10">
+<span class="material-symbols-outlined text-4xl text-white drop-shadow-md">workspace_premium</span>
+</div>
+<span class="material-symbols-outlined absolute -top-2 -right-4 text-accent-gold animate-pulse text-sm">spark</span>
+<span class="material-symbols-outlined absolute bottom-0 -left-4 text-accent-gold animate-pulse text-xs delay-700">spark</span>
+</div>
+<h1 class="text-2xl font-bold mb-1 gold-text-gradient tracking-tight">Super-KYC Verified</h1>
+<p class="text-slate-500 text-xs tracking-widest uppercase mb-8">Official Identity Certificate</p>
+<div class="w-full space-y-6 relative">
+<div class="absolute left-[11px] top-2 bottom-2 w-[1px] bg-slate-800"></div>
+<div class="relative pl-8">
+<div class="absolute left-0 top-1 w-6 h-6 rounded-full bg-surface-dark border border-slate-700 flex items-center justify-center z-10">
+<div class="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.6)]"></div>
+</div>
+<p class="text-[10px] uppercase tracking-wider text-slate-500 font-semibold mb-0.5">Verification Status</p>
+<div class="flex items-center gap-2">
+<span class="text-white font-medium text-lg">Fully Verified</span>
+<span class="material-symbols-outlined text-emerald-500 text-lg filled">check_circle</span>
+</div>
+</div>
+<div class="relative pl-8">
+<div class="absolute left-[9px] top-2 w-1.5 h-1.5 rounded-full bg-slate-700"></div>
+<p class="text-[10px] uppercase tracking-wider text-slate-500 font-semibold mb-0.5">Identity ID</p>
+<p class="text-slate-200 font-mono text-base tracking-wide bg-slate-800/50 inline-block px-2 py-0.5 rounded border border-slate-700/50">SP-9921-X</p>
+</div>
+<div class="relative pl-8">
+<div class="absolute left-[9px] top-2 w-1.5 h-1.5 rounded-full bg-slate-700"></div>
+<p class="text-[10px] uppercase tracking-wider text-slate-500 font-semibold mb-0.5">Scope</p>
+<p class="text-slate-200 text-base">Individual Global Account</p>
+</div>
+<div class="relative pl-8">
+<div class="absolute left-[9px] top-2 w-1.5 h-1.5 rounded-full bg-slate-700"></div>
+<p class="text-[10px] uppercase tracking-wider text-slate-500 font-semibold mb-0.5">Valid Until</p>
+<p class="text-slate-200 text-base">December 31, 2025</p>
+</div>
+</div>
+<div class="w-full h-px bg-gradient-to-r from-transparent via-slate-700 to-transparent my-8"></div>
+<div class="flex gap-3">
+<span class="material-symbols-outlined text-slate-600 text-2xl">security</span>
+<p class="text-[10px] leading-relaxed text-slate-500 italic text-justify">
+                            This certificate confirms identity trust within the ShieldPay ecosystem and partner banks. Authenticity is cryptographically signed and can be verified via the QR code below.
+                        </p>
+</div>
+</div>
+<div class="h-2 w-full bg-[repeating-linear-gradient(45deg,transparent,transparent_5px,rgba(245,158,11,0.1)_5px,rgba(245,158,11,0.1)_10px)] opacity-30"></div>
+</div>
+</div>
+<div class="w-full p-6 space-y-3 z-20 bg-background-dark/95 backdrop-blur-sm border-t border-slate-800">
+<button class="w-full group relative overflow-hidden rounded-xl bg-gradient-to-r from-amber-600 to-yellow-500 p-[1px] shadow-lg shadow-amber-900/20 active:scale-[0.98] transition-transform">
+<span class="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2E8F0_0%,#312e81_50%,#E2E8F0_100%)] opacity-0 group-hover:opacity-30 transition-opacity"></span>
+<div class="relative flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-amber-500 to-yellow-600 px-4 py-3.5 text-sm font-bold text-white transition-all hover:bg-transparent">
+<span class="material-symbols-outlined">picture_as_pdf</span>
+<span>Export as PDF</span>
+</div>
+</button>
+<button class="w-full flex items-center justify-center gap-2 rounded-xl border border-slate-700 bg-surface-dark px-4 py-3.5 text-sm font-semibold text-slate-300 hover:bg-slate-800 hover:text-white transition-colors active:scale-[0.98]">
+<span class="material-symbols-outlined">qr_code_2</span>
+<span>Show QR Code</span>
+</button>
+</div>
+</div>
+
+</body></html>

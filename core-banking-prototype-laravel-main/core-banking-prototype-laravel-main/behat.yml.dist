@@ -1,0 +1,36 @@
+default:
+    suites:
+        acceptance:
+            paths:
+                features: features
+            contexts:
+                - FeatureContext
+                - LaravelFeatureContext
+            filters:
+                tags: "~@web"
+        api:
+            paths:
+                features: features/api
+            contexts:
+                - ApiContext
+        web:
+            paths:
+                features: features
+            contexts:
+                - WebContext
+                - SubproductContext
+            filters:
+                tags: "@web"
+
+    extensions:
+        Behat\MinkExtension:
+            base_url: 'http://finaegis.local'
+            sessions:
+                default:
+                    browserkit_http: ~
+
+    formatters:
+        pretty:
+            verbose: true
+            paths: false
+            snippets: false

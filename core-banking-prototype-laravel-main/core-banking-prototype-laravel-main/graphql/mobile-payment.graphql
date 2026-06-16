@@ -1,0 +1,49 @@
+type PaymentIntent @model(class: "App\\Domain\\MobilePayment\\Models\\PaymentIntent") {
+    id: ID!
+    public_id: String!
+    user_id: ID!
+    merchant_id: String
+    asset: String!
+    network: String!
+    amount: String!
+    status: String!
+    shield_enabled: Boolean!
+    tx_hash: String
+    confirmations: Int
+    required_confirmations: Int
+    error_code: String
+    error_message: String
+    expires_at: DateTime
+    submitted_at: DateTime
+    confirmed_at: DateTime
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+input CreatePaymentIntentInput {
+    asset: String!
+    network: String!
+    amount: String!
+    merchant_id: String
+    shield_enabled: Boolean
+}
+
+extend type Query {
+    paymentIntent(id: ID! @eq): PaymentIntent
+        @find
+        @guard(with: ["sanctum"])
+
+    paymentIntents(
+        page: Int @rules(apply: ["integer", "min:1"])
+        first: Int @rules(apply: ["integer", "min:1", "max:100"])
+        status: String @where(operator: "=")
+    ): [PaymentIntent!]!
+        @paginate(defaultCount: 15, model: "App\\Domain\\MobilePayment\\Models\\PaymentIntent")
+        @guard(with: ["sanctum"])
+}
+
+extend type Mutation {
+    createPaymentIntent(input: CreatePaymentIntentInput! @spread): PaymentIntent!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Mutations\\MobilePayment\\CreatePaymentIntentMutation")
+}

@@ -1,0 +1,54 @@
+type PaymentRailTransaction {
+    id: ID!
+    rail: String!
+    amount: String!
+    currency: String!
+    status: String!
+    direction: String!
+    external_id: String
+    completed_at: String
+    created_at: String!
+}
+
+type RoutingDecision {
+    recommended_rail: String!
+    score: Float!
+    alternatives: [String!]!
+}
+
+type SendPaymentResult {
+    transaction_id: String!
+    rail: String!
+    status: String!
+    routing_decision: RoutingDecision
+}
+
+input BeneficiaryInput {
+    name: String!
+    account_number: String
+    routing_number: String
+    iban: String
+    bic: String
+}
+
+extend type Query {
+    paymentRailsSupportedRails(country: String!): [String!]!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Queries\\PaymentRails\\SupportedRailsQuery")
+
+    paymentRailsTransaction(id: ID!): PaymentRailTransaction
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Queries\\PaymentRails\\TransactionQuery")
+}
+
+extend type Mutation {
+    paymentRailsSend(
+        amount: String!
+        currency: String!
+        country: String!
+        urgency: String
+        beneficiary: BeneficiaryInput!
+    ): SendPaymentResult!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Mutations\\PaymentRails\\SendPaymentMutation")
+}

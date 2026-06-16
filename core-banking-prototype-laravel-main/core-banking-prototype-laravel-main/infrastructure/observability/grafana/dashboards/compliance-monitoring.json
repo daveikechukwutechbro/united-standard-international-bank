@@ -1,0 +1,102 @@
+{
+  "description": "FinAegis Compliance Monitoring - KYC, AML, and regulatory metrics",
+  "editable": true,
+  "id": null,
+  "panels": [
+    {
+      "datasource": {"type": "prometheus", "uid": "prometheus"},
+      "fieldConfig": {"defaults": {"color": {"mode": "thresholds"}, "thresholds": {"steps": [{"color": "green", "value": null}]}, "unit": "short"}},
+      "gridPos": {"h": 4, "w": 6, "x": 0, "y": 0},
+      "id": 1,
+      "options": {"colorMode": "value", "graphMode": "area", "reduceOptions": {"calcs": ["lastNotNull"]}},
+      "title": "KYC Verifications (24h)",
+      "type": "stat",
+      "targets": [{"expr": "increase(compliance_kyc_verifications_total[24h])", "refId": "A"}]
+    },
+    {
+      "datasource": {"type": "prometheus", "uid": "prometheus"},
+      "fieldConfig": {"defaults": {"color": {"mode": "thresholds"}, "thresholds": {"steps": [{"color": "green", "value": null}, {"color": "yellow", "value": 5}, {"color": "red", "value": 20}]}, "unit": "short"}},
+      "gridPos": {"h": 4, "w": 6, "x": 6, "y": 0},
+      "id": 2,
+      "options": {"colorMode": "value", "graphMode": "area", "reduceOptions": {"calcs": ["lastNotNull"]}},
+      "title": "Open Compliance Alerts",
+      "type": "stat",
+      "targets": [{"expr": "compliance_alerts_open_total", "refId": "A"}]
+    },
+    {
+      "datasource": {"type": "prometheus", "uid": "prometheus"},
+      "fieldConfig": {"defaults": {"color": {"mode": "thresholds"}, "thresholds": {"steps": [{"color": "green", "value": null}]}, "unit": "short"}},
+      "gridPos": {"h": 4, "w": 6, "x": 12, "y": 0},
+      "id": 3,
+      "options": {"colorMode": "value", "graphMode": "area", "reduceOptions": {"calcs": ["lastNotNull"]}},
+      "title": "AML Screenings (24h)",
+      "type": "stat",
+      "targets": [{"expr": "increase(compliance_aml_screenings_total[24h])", "refId": "A"}]
+    },
+    {
+      "datasource": {"type": "prometheus", "uid": "prometheus"},
+      "fieldConfig": {"defaults": {"color": {"mode": "thresholds"}, "thresholds": {"steps": [{"color": "green", "value": null}, {"color": "yellow", "value": 1}, {"color": "red", "value": 5}]}, "unit": "short"}},
+      "gridPos": {"h": 4, "w": 6, "x": 18, "y": 0},
+      "id": 4,
+      "options": {"colorMode": "value", "graphMode": "area", "reduceOptions": {"calcs": ["lastNotNull"]}},
+      "title": "EDD Workflows Active",
+      "type": "stat",
+      "targets": [{"expr": "compliance_edd_workflows_active", "refId": "A"}]
+    },
+    {
+      "datasource": {"type": "prometheus", "uid": "prometheus"},
+      "fieldConfig": {"defaults": {"custom": {"drawStyle": "line", "fillOpacity": 10, "lineWidth": 2}}},
+      "gridPos": {"h": 8, "w": 12, "x": 0, "y": 4},
+      "id": 5,
+      "title": "KYC Verification Status",
+      "type": "timeseries",
+      "targets": [
+        {"expr": "rate(compliance_kyc_verifications_total{status=\"approved\"}[5m])", "legendFormat": "Approved", "refId": "A"},
+        {"expr": "rate(compliance_kyc_verifications_total{status=\"rejected\"}[5m])", "legendFormat": "Rejected", "refId": "B"},
+        {"expr": "rate(compliance_kyc_verifications_total{status=\"pending\"}[5m])", "legendFormat": "Pending", "refId": "C"}
+      ]
+    },
+    {
+      "datasource": {"type": "prometheus", "uid": "prometheus"},
+      "fieldConfig": {"defaults": {"custom": {"drawStyle": "line", "fillOpacity": 10, "lineWidth": 2}}},
+      "gridPos": {"h": 8, "w": 12, "x": 12, "y": 4},
+      "id": 6,
+      "title": "Compliance Alerts by Severity",
+      "type": "timeseries",
+      "targets": [
+        {"expr": "compliance_alerts_open_total{severity=\"critical\"}", "legendFormat": "Critical", "refId": "A"},
+        {"expr": "compliance_alerts_open_total{severity=\"high\"}", "legendFormat": "High", "refId": "B"},
+        {"expr": "compliance_alerts_open_total{severity=\"medium\"}", "legendFormat": "Medium", "refId": "C"},
+        {"expr": "compliance_alerts_open_total{severity=\"low\"}", "legendFormat": "Low", "refId": "D"}
+      ]
+    },
+    {
+      "datasource": {"type": "prometheus", "uid": "prometheus"},
+      "fieldConfig": {"defaults": {"custom": {"drawStyle": "bars", "fillOpacity": 100}}},
+      "gridPos": {"h": 8, "w": 12, "x": 0, "y": 12},
+      "id": 7,
+      "title": "Suspicious Activity Reports",
+      "type": "timeseries",
+      "targets": [{"expr": "rate(compliance_sar_filed_total[5m])", "legendFormat": "SARs Filed", "refId": "A"}]
+    },
+    {
+      "datasource": {"type": "prometheus", "uid": "prometheus"},
+      "fieldConfig": {"defaults": {"custom": {"drawStyle": "line", "fillOpacity": 10, "lineWidth": 2}, "unit": "ms"}},
+      "gridPos": {"h": 8, "w": 12, "x": 12, "y": 12},
+      "id": 8,
+      "title": "Compliance Check Latency",
+      "type": "timeseries",
+      "targets": [
+        {"expr": "histogram_quantile(0.50, rate(compliance_check_duration_seconds_bucket[5m])) * 1000", "legendFormat": "p50", "refId": "A"},
+        {"expr": "histogram_quantile(0.99, rate(compliance_check_duration_seconds_bucket[5m])) * 1000", "legendFormat": "p99", "refId": "B"}
+      ]
+    }
+  ],
+  "refresh": "30s",
+  "schemaVersion": 38,
+  "tags": ["finaegis", "compliance", "kyc", "aml"],
+  "time": {"from": "now-1h", "to": "now"},
+  "title": "FinAegis Compliance Monitoring",
+  "uid": "finaegis-compliance",
+  "version": 1
+}

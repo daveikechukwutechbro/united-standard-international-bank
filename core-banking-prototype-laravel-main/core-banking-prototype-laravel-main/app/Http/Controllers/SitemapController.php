@@ -1,0 +1,602 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Carbon\Carbon;
+use Illuminate\Http\Response;
+use OpenApi\Attributes as OA;
+
+#[OA\Tag(
+    name: 'Sitemap',
+    description: 'XML sitemap and robots.txt generation'
+)]
+class SitemapController extends Controller
+{
+        #[OA\Get(
+            path: '/sitemap.xml',
+            operationId: 'sitemapIndex',
+            tags: ['Sitemap'],
+            summary: 'Get XML sitemap',
+            description: 'Returns the XML sitemap for search engines'
+        )]
+    #[OA\Response(
+        response: 200,
+        description: 'Successful operation'
+    )]
+    #[OA\Response(
+        response: 500,
+        description: 'Server error'
+    )]
+    public function index(): Response
+    {
+        $sitemap = $this->generateSitemap();
+
+        return response(
+            $sitemap,
+            200,
+            [
+                'Content-Type' => 'application/xml',
+            ]
+        );
+    }
+
+    /**
+     * Generate the sitemap XML.
+     */
+    private function generateSitemap(): string
+    {
+        $xml = '<?xml version="1.0" encoding="UTF-8"?>';
+        $xml .= '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
+
+        $routes = $this->getPublicRoutes();
+
+        foreach ($routes as $route) {
+            $xml .= $this->generateUrlEntry($route);
+        }
+
+        $xml .= '</urlset>';
+
+        return $xml;
+    }
+
+    /**
+     * Generate a single URL entry.
+     */
+    private function generateUrlEntry(array $route): string
+    {
+        $url = '<url>';
+        $url .= '<loc>' . htmlspecialchars($route['url']) . '</loc>';
+        $url .= '<lastmod>' . $route['lastmod'] . '</lastmod>';
+        $url .= '<changefreq>' . $route['changefreq'] . '</changefreq>';
+        $url .= '<priority>' . $route['priority'] . '</priority>';
+        $url .= '</url>';
+
+        return $url;
+    }
+
+    /**
+     * Get all public routes for the sitemap.
+     */
+    private function getPublicRoutes(): array
+    {
+        $baseUrl = config('app.url');
+        $now = Carbon::now()->toW3cString();
+        $showPromo = (bool) config('brand.show_promo_pages', true);
+
+        $routes = [
+            // Homepage - always included
+            [
+                'url'        => $baseUrl,
+                'lastmod'    => $now,
+                'changefreq' => 'daily',
+                'priority'   => '1.0',
+            ],
+        ];
+
+        // Legal pages — always included regardless of promo mode
+        $legalRoutes = [
+            [
+                'url'        => $baseUrl . '/legal/terms',
+                'lastmod'    => $now,
+                'changefreq' => 'monthly',
+                'priority'   => '0.5',
+            ],
+            [
+                'url'        => $baseUrl . '/legal/privacy',
+                'lastmod'    => $now,
+                'changefreq' => 'monthly',
+                'priority'   => '0.5',
+            ],
+            [
+                'url'        => $baseUrl . '/legal/cookies',
+                'lastmod'    => $now,
+                'changefreq' => 'monthly',
+                'priority'   => '0.5',
+            ],
+            [
+                'url'        => $baseUrl . '/legal/delete-account',
+                'lastmod'    => $now,
+                'changefreq' => 'monthly',
+                'priority'   => '0.5',
+            ],
+        ];
+
+        // Promo/marketing pages — only when SHOW_PROMO_PAGES=true (e.g. finaegis.org)
+        if (! $showPromo) {
+            return array_merge($routes, $legalRoutes);
+        }
+
+        $promoRoutes = [
+            // Main pages - high priority
+            [
+                'url'        => $baseUrl . '/about',
+                'lastmod'    => $now,
+                'changefreq' => 'weekly',
+                'priority'   => '0.9',
+            ],
+            [
+                'url'        => $baseUrl . '/platform',
+                'lastmod'    => $now,
+                'changefreq' => 'weekly',
+                'priority'   => '0.9',
+            ],
+            [
+                'url'        => $baseUrl . '/gcu',
+                'lastmod'    => $now,
+                'changefreq' => 'weekly',
+                'priority'   => '0.9',
+            ],
+            [
+                'url'        => $baseUrl . '/pricing',
+                'lastmod'    => $now,
+                'changefreq' => 'weekly',
+                'priority'   => '0.9',
+            ],
+
+            // Feature pages
+            [
+                'url'        => $baseUrl . '/features',
+                'lastmod'    => $now,
+                'changefreq' => 'weekly',
+                'priority'   => '0.8',
+            ],
+            [
+                'url'        => $baseUrl . '/changelog',
+                'lastmod'    => $now,
+                'changefreq' => 'weekly',
+                'priority'   => '0.8',
+            ],
+            [
+                'url'        => $baseUrl . '/features/multi-asset',
+                'lastmod'    => $now,
+                'changefreq' => 'monthly',
+                'priority'   => '0.7',
+            ],
+            [
+                'url'        => $baseUrl . '/features/settlements',
+                'lastmod'    => $now,
+                'changefreq' => 'monthly',
+                'priority'   => '0.7',
+            ],
+            [
+                'url'        => $baseUrl . '/features/governance',
+                'lastmod'    => $now,
+                'changefreq' => 'monthly',
+                'priority'   => '0.7',
+            ],
+            [
+                'url'        => $baseUrl . '/features/bank-integration',
+                'lastmod'    => $now,
+                'changefreq' => 'monthly',
+                'priority'   => '0.7',
+            ],
+            [
+                'url'        => $baseUrl . '/features/api',
+                'lastmod'    => $now,
+                'changefreq' => 'weekly',
+                'priority'   => '0.8',
+            ],
+            [
+                'url'        => $baseUrl . '/features/crosschain-defi',
+                'lastmod'    => $now,
+                'changefreq' => 'monthly',
+                'priority'   => '0.7',
+            ],
+            [
+                'url'        => $baseUrl . '/features/privacy-identity',
+                'lastmod'    => $now,
+                'changefreq' => 'monthly',
+                'priority'   => '0.7',
+            ],
+            [
+                'url'        => $baseUrl . '/features/mobile-payments',
+                'lastmod'    => $now,
+                'changefreq' => 'monthly',
+                'priority'   => '0.7',
+            ],
+            [
+                'url'        => $baseUrl . '/features/regtech-compliance',
+                'lastmod'    => $now,
+                'changefreq' => 'monthly',
+                'priority'   => '0.7',
+            ],
+            [
+                'url'        => $baseUrl . '/features/baas-platform',
+                'lastmod'    => $now,
+                'changefreq' => 'monthly',
+                'priority'   => '0.7',
+            ],
+            [
+                'url'        => $baseUrl . '/features/ai-framework',
+                'lastmod'    => $now,
+                'changefreq' => 'weekly',
+                'priority'   => '0.7',
+            ],
+            [
+                'url'        => $baseUrl . '/ai-framework',
+                'lastmod'    => $now,
+                'changefreq' => 'weekly',
+                'priority'   => '0.8',
+            ],
+            [
+                'url'        => $baseUrl . '/ai-framework/demo',
+                'lastmod'    => $now,
+                'changefreq' => 'monthly',
+                'priority'   => '0.7',
+            ],
+            [
+                'url'        => $baseUrl . '/ai-framework/docs',
+                'lastmod'    => $now,
+                'changefreq' => 'monthly',
+                'priority'   => '0.7',
+            ],
+            [
+                'url'        => $baseUrl . '/features/multi-tenancy',
+                'lastmod'    => $now,
+                'changefreq' => 'monthly',
+                'priority'   => '0.6',
+            ],
+            [
+                'url'        => $baseUrl . '/features/x402-protocol',
+                'lastmod'    => $now,
+                'changefreq' => 'weekly',
+                'priority'   => '0.8',
+            ],
+            [
+                'url'        => $baseUrl . '/features/visa-cli',
+                'lastmod'    => $now,
+                'changefreq' => 'weekly',
+                'priority'   => '0.7',
+            ],
+            [
+                'url'        => $baseUrl . '/features/virtuals-protocol',
+                'lastmod'    => $now,
+                'changefreq' => 'weekly',
+                'priority'   => '0.7',
+            ],
+            [
+                'url'        => $baseUrl . '/features/plugin-marketplace',
+                'lastmod'    => $now,
+                'changefreq' => 'monthly',
+                'priority'   => '0.6',
+            ],
+            [
+                'url'        => $baseUrl . '/marketplace',
+                'lastmod'    => $now,
+                'changefreq' => 'monthly',
+                'priority'   => '0.7',
+            ],
+            [
+                'url'        => $baseUrl . '/features/machine-payments',
+                'lastmod'    => $now,
+                'changefreq' => 'monthly',
+                'priority'   => '0.7',
+            ],
+            [
+                'url'        => $baseUrl . '/features/agent-protocol',
+                'lastmod'    => $now,
+                'changefreq' => 'monthly',
+                'priority'   => '0.7',
+            ],
+            [
+                'url'        => $baseUrl . '/features/zelta-cli',
+                'lastmod'    => $now,
+                'changefreq' => 'monthly',
+                'priority'   => '0.7',
+            ],
+            [
+                'url'        => $baseUrl . '/features/iso20022',
+                'lastmod'    => $now,
+                'changefreq' => 'monthly',
+                'priority'   => '0.7',
+            ],
+            [
+                'url'        => $baseUrl . '/features/open-banking',
+                'lastmod'    => $now,
+                'changefreq' => 'monthly',
+                'priority'   => '0.7',
+            ],
+            [
+                'url'        => $baseUrl . '/features/payment-rails',
+                'lastmod'    => $now,
+                'changefreq' => 'monthly',
+                'priority'   => '0.7',
+            ],
+            [
+                'url'        => $baseUrl . '/features/interledger',
+                'lastmod'    => $now,
+                'changefreq' => 'monthly',
+                'priority'   => '0.7',
+            ],
+            [
+                'url'        => $baseUrl . '/features/ledger',
+                'lastmod'    => $now,
+                'changefreq' => 'monthly',
+                'priority'   => '0.7',
+            ],
+            [
+                'url'        => $baseUrl . '/features/microfinance',
+                'lastmod'    => $now,
+                'changefreq' => 'monthly',
+                'priority'   => '0.7',
+            ],
+            [
+                'url'        => $baseUrl . '/features/developer-experience',
+                'lastmod'    => $now,
+                'changefreq' => 'monthly',
+                'priority'   => '0.7',
+            ],
+            [
+                'url'        => $baseUrl . '/features/mcp',
+                'lastmod'    => $now,
+                'changefreq' => 'monthly',
+                'priority'   => '0.8',
+            ],
+            [
+                'url'        => $baseUrl . '/security',
+                'lastmod'    => $now,
+                'changefreq' => 'monthly',
+                'priority'   => '0.8',
+            ],
+            [
+                'url'        => $baseUrl . '/compliance',
+                'lastmod'    => $now,
+                'changefreq' => 'monthly',
+                'priority'   => '0.8',
+            ],
+
+            // Sub-products
+            [
+                'url'        => $baseUrl . '/sub-products',
+                'lastmod'    => $now,
+                'changefreq' => 'weekly',
+                'priority'   => '0.8',
+            ],
+            [
+                'url'        => $baseUrl . '/subproducts/exchange',
+                'lastmod'    => $now,
+                'changefreq' => 'weekly',
+                'priority'   => '0.7',
+            ],
+            [
+                'url'        => $baseUrl . '/subproducts/lending',
+                'lastmod'    => $now,
+                'changefreq' => 'weekly',
+                'priority'   => '0.7',
+            ],
+            [
+                'url'        => $baseUrl . '/subproducts/stablecoins',
+                'lastmod'    => $now,
+                'changefreq' => 'weekly',
+                'priority'   => '0.7',
+            ],
+            [
+                'url'        => $baseUrl . '/subproducts/treasury',
+                'lastmod'    => $now,
+                'changefreq' => 'weekly',
+                'priority'   => '0.7',
+            ],
+
+            // Developer resources
+            [
+                'url'        => $baseUrl . '/developers',
+                'lastmod'    => $now,
+                'changefreq' => 'weekly',
+                'priority'   => '0.7',
+            ],
+            [
+                'url'        => $baseUrl . '/developers/sdks',
+                'lastmod'    => $now,
+                'changefreq' => 'monthly',
+                'priority'   => '0.7',
+            ],
+            [
+                'url'        => $baseUrl . '/developers/api-docs',
+                'lastmod'    => $now,
+                'changefreq' => 'weekly',
+                'priority'   => '0.7',
+            ],
+            [
+                'url'        => $baseUrl . '/developers/graphql',
+                'lastmod'    => $now,
+                'changefreq' => 'monthly',
+                'priority'   => '0.6',
+            ],
+            [
+                'url'        => $baseUrl . '/developers/webhooks',
+                'lastmod'    => $now,
+                'changefreq' => 'monthly',
+                'priority'   => '0.6',
+            ],
+            [
+                'url'        => $baseUrl . '/developers/event-streaming',
+                'lastmod'    => $now,
+                'changefreq' => 'monthly',
+                'priority'   => '0.6',
+            ],
+            [
+                'url'        => $baseUrl . '/developers/mcp-tools',
+                'lastmod'    => $now,
+                'changefreq' => 'monthly',
+                'priority'   => '0.6',
+            ],
+            [
+                'url'        => $baseUrl . '/developers/postman',
+                'lastmod'    => $now,
+                'changefreq' => 'monthly',
+                'priority'   => '0.6',
+            ],
+            [
+                'url'        => $baseUrl . '/developers/sandbox',
+                'lastmod'    => $now,
+                'changefreq' => 'monthly',
+                'priority'   => '0.6',
+            ],
+            [
+                'url'        => $baseUrl . '/developers/examples',
+                'lastmod'    => $now,
+                'changefreq' => 'monthly',
+                'priority'   => '0.6',
+            ],
+            [
+                'url'        => $baseUrl . '/developers/plugins',
+                'lastmod'    => $now,
+                'changefreq' => 'monthly',
+                'priority'   => '0.6',
+            ],
+
+            // Support pages
+            [
+                'url'        => $baseUrl . '/support',
+                'lastmod'    => $now,
+                'changefreq' => 'weekly',
+                'priority'   => '0.7',
+            ],
+            [
+                'url'        => $baseUrl . '/support/contact',
+                'lastmod'    => $now,
+                'changefreq' => 'monthly',
+                'priority'   => '0.6',
+            ],
+            [
+                'url'        => $baseUrl . '/support/faq',
+                'lastmod'    => $now,
+                'changefreq' => 'weekly',
+                'priority'   => '0.6',
+            ],
+            [
+                'url'        => $baseUrl . '/support/guides',
+                'lastmod'    => $now,
+                'changefreq' => 'weekly',
+                'priority'   => '0.6',
+            ],
+
+            // Other pages
+            [
+                'url'        => $baseUrl . '/cgo',
+                'lastmod'    => $now,
+                'changefreq' => 'weekly',
+                'priority'   => '0.7',
+            ],
+            [
+                'url'        => $baseUrl . '/partners',
+                'lastmod'    => $now,
+                'changefreq' => 'monthly',
+                'priority'   => '0.6',
+            ],
+            [
+                'url'        => $baseUrl . '/blog',
+                'lastmod'    => $now,
+                'changefreq' => 'daily',
+                'priority'   => '0.7',
+            ],
+
+            [
+                'url'        => $baseUrl . '/cgo/terms',
+                'lastmod'    => $now,
+                'changefreq' => 'monthly',
+                'priority'   => '0.5',
+            ],
+
+            // Status page
+            [
+                'url'        => $baseUrl . '/status',
+                'lastmod'    => $now,
+                'changefreq' => 'hourly',
+                'priority'   => '0.6',
+            ],
+
+            // Financial institutions
+            [
+                'url'        => $baseUrl . '/financial-institutions/apply',
+                'lastmod'    => $now,
+                'changefreq' => 'monthly',
+                'priority'   => '0.6',
+            ],
+        ];
+
+        // Auth pages excluded from sitemap — they provide no SEO value
+        // and are blocked by robots.txt anyway
+
+        return array_merge($routes, $promoRoutes, $legalRoutes);
+    }
+
+        #[OA\Get(
+            path: '/robots.txt',
+            operationId: 'sitemapRobots',
+            tags: ['Sitemap'],
+            summary: 'Get robots.txt',
+            description: 'Returns the robots.txt file'
+        )]
+    #[OA\Response(
+        response: 200,
+        description: 'Successful operation'
+    )]
+    #[OA\Response(
+        response: 500,
+        description: 'Server error'
+    )]
+    public function robots(): Response
+    {
+        $content = "User-agent: *\n";
+        $content .= "Allow: /\n";
+        $content .= "Disallow: /admin/\n";
+        $content .= "Disallow: /api/\n";
+        $content .= "Disallow: /dashboard/\n";
+        $content .= "Disallow: /user/\n";
+        $content .= "Disallow: /wallet/\n";
+        $content .= "Disallow: /exchange/\n";
+        $content .= "Disallow: /lending/\n";
+        $content .= "Disallow: /liquidity/\n";
+        $content .= "Disallow: /compliance/\n";
+        $content .= "Disallow: /audit/\n";
+        $content .= "Disallow: /risk/\n";
+        $content .= "Disallow: /monitoring/\n";
+        $content .= "Disallow: /api-keys/\n";
+        $content .= "Disallow: /profile/\n";
+        $content .= "Disallow: /teams/\n";
+        $content .= "Disallow: /subscriber/unsubscribe/\n";
+        $content .= "Disallow: /login\n";
+        $content .= "Disallow: /register\n";
+        $content .= "Disallow: /forgot-password\n";
+        $content .= "Disallow: /reset-password\n";
+        $content .= "Disallow: /email/verify\n";
+
+        // In production, also disallow API documentation paths
+        if (app()->environment('production')) {
+            $content .= "Disallow: /api/documentation/\n";
+            $content .= "Disallow: /docs/\n";
+        }
+
+        $content .= "\n";
+        $content .= 'Sitemap: ' . config('app.url') . "/sitemap.xml\n";
+
+        return response(
+            $content,
+            200,
+            [
+                'Content-Type' => 'text/plain',
+            ]
+        );
+    }
+}

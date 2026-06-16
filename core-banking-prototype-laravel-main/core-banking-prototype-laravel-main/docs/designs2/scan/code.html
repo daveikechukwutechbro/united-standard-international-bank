@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Scan Merchant QR</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2b7cee",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101822",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                    animation: {
+                        'pulse-glow': 'pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'scan-line': 'scan-line 2.5s linear infinite',
+                    },
+                    keyframes: {
+                        'pulse-glow': {
+                            '0%, 100%': { boxShadow: '0 0 15px 0px rgba(43, 124, 238, 0.3)' },
+                            '50%': { boxShadow: '0 0 25px 5px rgba(43, 124, 238, 0.6)' },
+                        },
+                        'scan-line': {
+                            '0%': { transform: 'translateY(-100%)' },
+                            '100%': { transform: 'translateY(100%)' },
+                        }
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom styles for camera overlay simulation */
+        .camera-overlay {
+            background: rgba(0, 0, 0, 0.6);
+            /* Mask composite to create a transparent hole */
+            -webkit-mask: radial-gradient(transparent, black); /* Fallback */
+            mask: radial-gradient(transparent, black); /* Fallback */
+            
+            /* Creating a hole using CSS Masking or huge borders. Huge borders is safer for cross-browser without complex SVG masks in CSS */
+            /* Using the border trick for the cutout effect */
+            background: transparent;
+            box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.65);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-display bg-background-dark text-white h-screen w-screen overflow-hidden flex flex-col relative">
+<!-- Simulated Camera Feed Background -->
+<div class="absolute inset-0 w-full h-full z-0">
+<img alt="Blurred supermarket aisle background representing camera view" class="w-full h-full object-cover opacity-60 grayscale-[30%]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDW_wOI2lAgtHHfr33Z91gAnruwGsnpLeZV5PxVA9OG2BusYWB2IXNzBliNCkD-iS6PcVKAv8oFQkBUlybS3ud1_2rhj5o8E86INI0rON_RHSeV-5_pxqWKmRnaxr5i-h5ORAqZ8iy46jgbxSGfmMuOS8fWtrGbqjsx7YwH5Ohh0efKiAPSyLe37jvKdLoEuRIaFQ3alJO-jMTyekkClnetHU7kytOiQNdqYca80IvastaEYwVdl8WrlW0-aR2VpD4wE6e5uzT2_h6m"/>
+<!-- Gradient Overlay for better text visibility at top/bottom -->
+<div class="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/80"></div>
+</div>
+<!-- Top Bar Controls -->
+<header class="relative z-20 flex items-center justify-between p-6 pt-12">
+<button class="flex items-center justify-center size-12 rounded-full bg-black/40 backdrop-blur-md text-white hover:bg-black/60 transition-colors">
+<span class="material-symbols-outlined text-[28px]">close</span>
+</button>
+<h1 class="text-white text-lg font-bold tracking-wide sr-only">Scan QR</h1>
+<button class="flex items-center justify-center size-12 rounded-full bg-black/40 backdrop-blur-md text-white hover:bg-black/60 transition-colors">
+<span class="material-symbols-outlined text-[24px]">flashlight_on</span>
+</button>
+</header>
+<!-- Main Scanning Area -->
+<main class="relative z-10 flex-1 flex flex-col items-center justify-center w-full px-8">
+<!-- Instruction Text -->
+<div class="mb-8 text-center animate-fade-in-down">
+<p class="text-white text-lg font-medium tracking-wide drop-shadow-md bg-black/30 backdrop-blur-sm py-2 px-4 rounded-lg inline-block">
+                Scan merchant QR code to pay
+            </p>
+</div>
+<!-- Scanning Frame Wrapper -->
+<div class="relative w-72 h-72 sm:w-80 sm:h-80">
+<!-- Dark Overlay Cutout Effect using box-shadow trick -->
+<div class="absolute inset-0 rounded-3xl pointer-events-none shadow-[0_0_0_9999px_rgba(0,0,0,0.65)] z-0"></div>
+<!-- The Active Scanning Frame -->
+<div class="absolute inset-0 rounded-3xl z-10 border-2 border-primary/50 animate-pulse-glow flex items-center justify-center overflow-hidden">
+<!-- Corner Brackets -->
+<div class="absolute top-0 left-0 w-8 h-8 border-t-4 border-l-4 border-primary rounded-tl-xl"></div>
+<div class="absolute top-0 right-0 w-8 h-8 border-t-4 border-r-4 border-primary rounded-tr-xl"></div>
+<div class="absolute bottom-0 left-0 w-8 h-8 border-b-4 border-l-4 border-primary rounded-bl-xl"></div>
+<div class="absolute bottom-0 right-0 w-8 h-8 border-b-4 border-r-4 border-primary rounded-br-xl"></div>
+<!-- Scanning Laser Line Animation -->
+<div class="w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent absolute top-0 shadow-[0_0_20px_2px_rgba(43,124,238,0.8)] animate-scan-line"></div>
+<!-- Central Icon (Optional subtle hint) -->
+<span class="material-symbols-outlined text-primary/20 text-6xl">qr_code_scanner</span>
+</div>
+</div>
+<!-- Secondary Actions / Feedback -->
+<div class="mt-12 flex flex-col items-center gap-6 z-20">
+<!-- Gallery / Recent (Optional for modern scanners) -->
+<div class="flex gap-8">
+<button class="flex flex-col items-center gap-2 group">
+<div class="flex items-center justify-center size-14 rounded-full bg-white/10 backdrop-blur-md border border-white/10 text-white group-hover:bg-primary/20 transition-all">
+<span class="material-symbols-outlined text-[28px]">image</span>
+</div>
+<span class="text-xs font-medium text-white/80">Gallery</span>
+</button>
+<button class="flex flex-col items-center gap-2 group">
+<div class="flex items-center justify-center size-14 rounded-full bg-white/10 backdrop-blur-md border border-white/10 text-white group-hover:bg-primary/20 transition-all">
+<span class="material-symbols-outlined text-[28px]">history</span>
+</div>
+<span class="text-xs font-medium text-white/80">History</span>
+</button>
+</div>
+</div>
+</main>
+<!-- Bottom Action -->
+<footer class="relative z-20 p-8 pb-10 w-full flex justify-center bg-transparent">
+<button class="flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-primary hover:bg-primary/90 text-white font-bold text-base shadow-lg shadow-primary/25 transition-all transform hover:scale-[1.02] active:scale-[0.98] w-full max-w-sm">
+<span class="material-symbols-outlined text-[20px]">keyboard</span>
+<span>Enter code manually</span>
+</button>
+</footer>
+</body></html>

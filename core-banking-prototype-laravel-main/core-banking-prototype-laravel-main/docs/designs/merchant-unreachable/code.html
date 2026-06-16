@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Merchant Connection Unavailable</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#277bf1",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101722",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display antialiased overflow-hidden selection:bg-primary/30">
+<div class="relative flex h-screen w-full flex-col justify-between p-6">
+<!-- Header / Top Bar -->
+<div class="flex items-center justify-between pt-2">
+<button class="flex size-10 shrink-0 items-center justify-center rounded-full bg-slate-200/50 dark:bg-slate-800/50 text-slate-700 dark:text-white transition-colors hover:bg-slate-300 dark:hover:bg-slate-700">
+<span class="material-symbols-outlined" style="font-size: 24px;">arrow_back</span>
+</button>
+<div class="text-sm font-medium tracking-wide text-slate-500 dark:text-slate-400 uppercase">Status</div>
+<div class="size-10"></div> <!-- Spacer for alignment -->
+</div>
+<!-- Main Content -->
+<div class="flex flex-1 flex-col items-center justify-center gap-8 -mt-10">
+<!-- Abstract Illustration Area -->
+<div class="relative flex items-center justify-center">
+<!-- Outer Glow -->
+<div class="absolute inset-0 scale-150 rounded-full bg-gradient-to-tr from-slate-500/10 to-primary/5 blur-3xl"></div>
+<!-- Icon Container -->
+<div class="relative flex h-32 w-32 items-center justify-center rounded-3xl bg-white dark:bg-[#1a2230] shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.4)] border border-slate-100 dark:border-slate-800">
+<span class="material-symbols-outlined text-slate-400 dark:text-slate-500" style="font-size: 64px; font-variation-settings: 'FILL' 0, 'wght' 300;">point_of_sale</span>
+<!-- Status Indicator Badge -->
+<div class="absolute -right-2 -top-2 flex h-10 w-10 items-center justify-center rounded-full bg-background-light dark:bg-background-dark border-4 border-background-light dark:border-background-dark">
+<span class="material-symbols-outlined text-red-500" style="font-size: 20px; font-variation-settings: 'wght' 700;">close</span>
+</div>
+</div>
+</div>
+<!-- Text Content -->
+<div class="flex max-w-[320px] flex-col items-center gap-3 text-center">
+<h2 class="text-2xl font-bold leading-tight tracking-tight text-slate-900 dark:text-white">Terminal unreachable</h2>
+<p class="text-base font-normal leading-relaxed text-slate-500 dark:text-slate-400">We couldn't connect to the merchant. This might be a temporary timeout or signal issue.</p>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="flex flex-col gap-4 pb-6 w-full max-w-sm mx-auto">
+<button class="flex h-14 w-full cursor-pointer items-center justify-center gap-2 rounded-xl bg-primary text-white shadow-lg shadow-primary/20 hover:bg-primary/90 hover:shadow-primary/30 active:scale-[0.98] transition-all duration-200">
+<span class="material-symbols-outlined" style="font-size: 20px;">refresh</span>
+<span class="text-base font-bold tracking-wide">Try again</span>
+</button>
+<button class="flex h-12 w-full cursor-pointer items-center justify-center rounded-xl bg-transparent text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-white/5 active:scale-[0.98] transition-all duration-200">
+<span class="text-base font-medium">Cancel</span>
+</button>
+</div>
+</div>
+</body></html>

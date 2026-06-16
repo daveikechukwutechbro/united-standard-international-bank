@@ -1,0 +1,34 @@
+{
+    "$schema": "https://finaegis.io/schemas/module.json",
+    "name": "finaegis/basket",
+    "version": "1.3.0",
+    "description": "Asset basket management for diversified portfolios",
+    "type": "optional",
+    "dependencies": {
+        "required": {
+            "finaegis/shared": "^1.0",
+            "finaegis/account": "^1.0",
+            "finaegis/asset": "^1.0"
+        },
+        "optional": {
+            "finaegis/exchange": "^1.0"
+        }
+    },
+    "provides": {
+        "interfaces": [],
+        "events": [
+            "BasketCreated",
+            "BasketRebalanced",
+            "BasketAssetAdded",
+            "BasketAssetRemoved"
+        ],
+        "commands": [
+            "CreateBasketCommand",
+            "RebalanceBasketCommand"
+        ]
+    },
+    "paths": {
+        "migrations": "Database/Migrations",
+        "tests": "Tests"
+    }
+}

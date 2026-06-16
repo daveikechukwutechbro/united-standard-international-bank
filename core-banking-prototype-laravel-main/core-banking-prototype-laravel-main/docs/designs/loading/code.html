@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Loading &amp; Shimmer States</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#df2020",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#211111",
+                        "shimmer-base": "#2C2C2E",
+                        "shimmer-highlight": "#3A3A3C",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                    animation: {
+                        shimmer: 'shimmer 1.5s infinite linear',
+                    },
+                    keyframes: {
+                        shimmer: {
+                            '0%': { backgroundPosition: '-1000px 0' },
+                            '100%': { backgroundPosition: '1000px 0' },
+                        }
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        /* Shimmer Effect Utilities */
+        .animate-shimmer {
+            animation: shimmer 2s infinite linear;
+            background: linear-gradient(to right, #2C2C2E 4%, #3A3A3C 25%, #2C2C2E 36%);
+            background-size: 1000px 100%;
+        }
+        
+        /* Specific Shimmer for Cards/Blocks */
+        .shimmer-block {
+            @apply animate-shimmer bg-shimmer-base rounded-lg;
+        }
+
+        /* Hide scrollbar for clean mobile look */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display antialiased selection:bg-primary selection:text-white h-screen overflow-hidden flex flex-col">
+<!-- Status Bar Area (Mock) -->
+<div class="w-full h-12 shrink-0 bg-background-light dark:bg-background-dark flex items-end justify-between px-6 pb-2 text-black dark:text-white text-xs font-medium z-10">
+<span>9:41</span>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px]">signal_cellular_alt</span>
+<span class="material-symbols-outlined text-[18px]">wifi</span>
+<span class="material-symbols-outlined text-[18px]">battery_full</span>
+</div>
+</div>
+<!-- Top App Bar -->
+<div class="flex items-center bg-background-light dark:bg-background-dark p-4 pb-2 justify-between shrink-0 z-10">
+<div class="w-12 flex items-center justify-start">
+<!-- Back button placeholder if needed, empty for now to center title -->
+</div>
+<h2 class="text-black dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Loading...</h2>
+<div class="flex w-12 items-center justify-end">
+<button class="text-primary text-base font-bold leading-normal tracking-[0.015em] shrink-0 hover:opacity-80 transition-opacity">
+                Cancel
+            </button>
+</div>
+</div>
+<!-- Main Content Container -->
+<div class="flex-1 overflow-y-auto no-scrollbar pb-8 relative w-full max-w-md mx-auto">
+<!-- Segmented Control -->
+<div class="px-4 py-4 sticky top-0 bg-background-light dark:bg-background-dark z-20">
+<div class="flex h-10 w-full items-center justify-center rounded-xl bg-gray-200 dark:bg-[#382929] p-1">
+<div class="relative flex w-full h-full">
+<!-- Active Indicator (Sliding Background) -->
+<div class="absolute left-0 top-0 h-full w-1/2 rounded-lg bg-white dark:bg-background-dark shadow-sm transition-all"></div>
+<button class="relative z-10 flex h-full flex-1 items-center justify-center rounded-lg text-sm font-medium leading-normal text-black dark:text-white transition-colors">
+                        Activity
+                    </button>
+<button class="relative z-10 flex h-full flex-1 items-center justify-center rounded-lg text-sm font-medium leading-normal text-gray-500 dark:text-[#b79e9e] hover:text-black dark:hover:text-white transition-colors">
+                        Details
+                    </button>
+</div>
+</div>
+</div>
+<!-- Content Area: Activity List Shimmer -->
+<div class="space-y-1 px-0">
+<!-- List Header Shimmer -->
+<div class="px-4 py-2 mt-2 mb-1 flex items-center justify-between">
+<div class="h-4 w-24 bg-shimmer-base rounded animate-shimmer"></div>
+</div>
+<!-- Item 1 -->
+<div class="flex items-center gap-4 px-4 py-3 border-b border-gray-100 dark:border-gray-800/50">
+<div class="h-12 w-12 shrink-0 rounded-full bg-shimmer-base animate-shimmer"></div>
+<div class="flex flex-1 flex-col gap-2">
+<div class="h-4 w-32 rounded bg-shimmer-base animate-shimmer"></div>
+<div class="h-3 w-20 rounded bg-shimmer-base animate-shimmer opacity-70"></div>
+</div>
+<div class="h-5 w-16 rounded bg-shimmer-base animate-shimmer"></div>
+</div>
+<!-- Item 2 -->
+<div class="flex items-center gap-4 px-4 py-3 border-b border-gray-100 dark:border-gray-800/50">
+<div class="h-12 w-12 shrink-0 rounded-full bg-shimmer-base animate-shimmer"></div>
+<div class="flex flex-1 flex-col gap-2">
+<div class="h-4 w-40 rounded bg-shimmer-base animate-shimmer"></div>
+<div class="h-3 w-24 rounded bg-shimmer-base animate-shimmer opacity-70"></div>
+</div>
+<div class="h-5 w-20 rounded bg-shimmer-base animate-shimmer"></div>
+</div>
+<!-- Item 3 -->
+<div class="flex items-center gap-4 px-4 py-3 border-b border-gray-100 dark:border-gray-800/50">
+<div class="h-12 w-12 shrink-0 rounded-full bg-shimmer-base animate-shimmer"></div>
+<div class="flex flex-1 flex-col gap-2">
+<div class="h-4 w-28 rounded bg-shimmer-base animate-shimmer"></div>
+<div class="h-3 w-16 rounded bg-shimmer-base animate-shimmer opacity-70"></div>
+</div>
+<div class="h-5 w-14 rounded bg-shimmer-base animate-shimmer"></div>
+</div>
+<!-- Item 4 -->
+<div class="flex items-center gap-4 px-4 py-3 border-b border-gray-100 dark:border-gray-800/50">
+<div class="h-12 w-12 shrink-0 rounded-full bg-shimmer-base animate-shimmer"></div>
+<div class="flex flex-1 flex-col gap-2">
+<div class="h-4 w-36 rounded bg-shimmer-base animate-shimmer"></div>
+<div class="h-3 w-28 rounded bg-shimmer-base animate-shimmer opacity-70"></div>
+</div>
+<div class="h-5 w-16 rounded bg-shimmer-base animate-shimmer"></div>
+</div>
+<!-- Item 5 -->
+<div class="flex items-center gap-4 px-4 py-3 border-b border-gray-100 dark:border-gray-800/50">
+<div class="h-12 w-12 shrink-0 rounded-full bg-shimmer-base animate-shimmer"></div>
+<div class="flex flex-1 flex-col gap-2">
+<div class="h-4 w-24 rounded bg-shimmer-base animate-shimmer"></div>
+<div class="h-3 w-14 rounded bg-shimmer-base animate-shimmer opacity-70"></div>
+</div>
+<div class="h-5 w-12 rounded bg-shimmer-base animate-shimmer"></div>
+</div>
+</div>
+<!-- Divider / Visual break to show the second variant below as per "Two variants shown" requirement -->
+<div class="my-8 px-4">
+<div class="text-xs text-gray-500 dark:text-[#b79e9e] font-mono text-center mb-4 uppercase tracking-widest opacity-60">- Details Variant Preview -</div>
+<div class="h-px w-full bg-gray-200 dark:bg-[#382929]"></div>
+</div>
+<!-- Content Area: Transaction Details Shimmer -->
+<div class="flex flex-col items-center px-4 pt-2 pb-10">
+<!-- Hero Logo -->
+<div class="h-24 w-24 rounded-full bg-shimmer-base animate-shimmer mb-6 shadow-lg shadow-black/20"></div>
+<!-- Amount Block -->
+<div class="h-10 w-48 rounded-lg bg-shimmer-base animate-shimmer mb-2"></div>
+<!-- Status Pill -->
+<div class="h-6 w-20 rounded-full bg-shimmer-base animate-shimmer opacity-60 mb-8"></div>
+<!-- Details Card -->
+<div class="w-full bg-white dark:bg-[#1a0d0d] rounded-xl p-5 border border-gray-100 dark:border-gray-800/30 space-y-6">
+<!-- Row 1 -->
+<div class="flex justify-between items-center">
+<div class="h-4 w-20 rounded bg-shimmer-base animate-shimmer opacity-60"></div>
+<div class="h-4 w-32 rounded bg-shimmer-base animate-shimmer"></div>
+</div>
+<!-- Row 2 -->
+<div class="flex justify-between items-center">
+<div class="h-4 w-24 rounded bg-shimmer-base animate-shimmer opacity-60"></div>
+<div class="h-4 w-28 rounded bg-shimmer-base animate-shimmer"></div>
+</div>
+<!-- Row 3 (Multi-line text simulation) -->
+<div class="flex justify-between items-start">
+<div class="h-4 w-16 rounded bg-shimmer-base animate-shimmer opacity-60 mt-1"></div>
+<div class="flex flex-col items-end gap-2">
+<div class="h-4 w-40 rounded bg-shimmer-base animate-shimmer"></div>
+<div class="h-3 w-32 rounded bg-shimmer-base animate-shimmer opacity-80"></div>
+</div>
+</div>
+<!-- Divider -->
+<div class="h-px w-full bg-gray-100 dark:bg-white/5 my-2"></div>
+<!-- Row 4 -->
+<div class="flex justify-between items-center">
+<div class="h-4 w-24 rounded bg-shimmer-base animate-shimmer opacity-60"></div>
+<div class="flex items-center gap-2">
+<div class="h-6 w-6 rounded-full bg-shimmer-base animate-shimmer"></div>
+<div class="h-4 w-24 rounded bg-shimmer-base animate-shimmer"></div>
+</div>
+</div>
+</div>
+<!-- Action Buttons Shimmer -->
+<div class="w-full grid grid-cols-2 gap-4 mt-8">
+<div class="h-12 rounded-xl bg-shimmer-base animate-shimmer opacity-40"></div>
+<div class="h-12 rounded-xl bg-shimmer-base animate-shimmer"></div>
+</div>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Secure Authentication</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1152d4",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom animation for the pulsing effect */
+        @keyframes pulse-ring {
+            0% { transform: scale(0.8); opacity: 0.0; }
+            50% { opacity: 0.3; }
+            100% { transform: scale(1.3); opacity: 0.0; }
+        }
+        .animate-pulse-ring::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 0;
+            width: 100%; height: 100%;
+            border-radius: 9999px;
+            background-color: #1152d4;
+            animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+            z-index: -1;
+        }
+        /* Glassmorphism backdrop */
+        .backdrop-blur-custom {
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display antialiased overflow-hidden">
+<div class="relative flex h-screen w-full flex-col items-center justify-end overflow-hidden">
+<!-- Background Image/Content Placeholder representing the app behind the modal -->
+<div class="absolute inset-0 z-0 bg-cover bg-center opacity-30 dark:opacity-20" data-alt="Abstract dark blue wavy background pattern representing a secure data stream" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC08Tp0DIAcDClIWOjLZyRFOjUQjHC4-dfRXdIJYZyn20dsr2pPt-Z-TnMcG-uVlhZVlEZLvP7kKWhaeo9i77ShrvVwl9ksoL79oLe6_IMmX9in9blTd7J9skmZVM0enypArsmEZB-bM5LkIGpgXv8AJkRQUGe4ng3RnIf8xBZ1eW3spQl5MaNiRWW6tGYV2e4R7Xs4qQqGkwVyYftQIs_gQNhgy2BBOAUsJhyqZK3SqykKLWgPFLvF-VjR5t6zIt5Nm2mmhPGAFsEm');">
+</div>
+<!-- Main App Content Mock (Blurred behind modal) -->
+<div class="absolute inset-0 z-0 flex flex-col p-6 space-y-6 opacity-20 pointer-events-none">
+<div class="h-8 w-1/3 bg-slate-300 dark:bg-slate-700 rounded-lg"></div>
+<div class="space-y-3">
+<div class="h-32 w-full bg-slate-200 dark:bg-slate-800 rounded-xl"></div>
+<div class="h-32 w-full bg-slate-200 dark:bg-slate-800 rounded-xl"></div>
+<div class="h-32 w-full bg-slate-200 dark:bg-slate-800 rounded-xl"></div>
+</div>
+</div>
+<!-- Overlay Backdrop -->
+<div class="absolute inset-0 bg-black/60 backdrop-blur-custom z-10 transition-opacity duration-300"></div>
+<!-- Authentication Modal -->
+<div class="relative z-20 w-full max-w-md px-4 pb-8">
+<div class="flex flex-col items-stretch bg-white dark:bg-[#151a23] rounded-t-xl sm:rounded-xl shadow-2xl border-t border-white/10 dark:border-slate-700/50 overflow-hidden ring-1 ring-white/10">
+<!-- Bottom Sheet Handle (Visual indicator) -->
+<div class="flex h-6 w-full items-center justify-center pt-3 pb-1">
+<div class="h-1.5 w-12 rounded-full bg-slate-300 dark:bg-slate-600"></div>
+</div>
+<div class="flex flex-col px-6 pt-2 pb-8">
+<!-- Secure Header -->
+<div class="flex items-center justify-center gap-2 mb-8 opacity-60">
+<span class="material-symbols-outlined text-sm text-slate-500 dark:text-slate-400">verified_user</span>
+<span class="text-xs font-medium tracking-widest uppercase text-slate-500 dark:text-slate-400">Secure System Auth</span>
+</div>
+<div class="flex flex-col items-center gap-8">
+<!-- Biometric Icon Area -->
+<div class="relative flex items-center justify-center">
+<!-- Pulsing Background Effect -->
+<div class="absolute w-24 h-24 rounded-full bg-primary/10 animate-pulse-ring"></div>
+<!-- Icon Container -->
+<div class="relative flex items-center justify-center w-20 h-20 rounded-full bg-primary/10 dark:bg-primary/20 text-primary">
+<span class="material-symbols-outlined text-[48px]" style="font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 48;">face</span>
+</div>
+<!-- Status Indicator -->
+<div class="absolute -bottom-1 -right-1 bg-green-500 border-4 border-white dark:border-[#151a23] rounded-full w-6 h-6 flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-[14px] font-bold">check</span>
+</div>
+</div>
+<!-- Text Content -->
+<div class="flex flex-col items-center gap-3 text-center">
+<h2 class="text-slate-900 dark:text-white text-2xl font-bold leading-tight tracking-tight">
+                                Authenticate to continue
+                            </h2>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-normal leading-relaxed max-w-[280px]">
+                                Confirm your identity to access your secure vault and private keys.
+                            </p>
+</div>
+<!-- Action Buttons -->
+<div class="w-full flex flex-col gap-3 mt-2">
+<button class="group relative flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-xl h-12 px-4 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors text-slate-900 dark:text-white text-sm font-bold leading-normal tracking-[0.015em]">
+<div class="absolute left-4 flex items-center text-slate-500 dark:text-slate-400 group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">password</span>
+</div>
+<span class="truncate">Use Passkey instead</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Footer / Cancel -->
+<div class="border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-[#11141b] px-4 py-4">
+<button class="w-full cursor-pointer flex items-center justify-center rounded-xl h-11 px-4 bg-transparent hover:bg-slate-200 dark:hover:bg-white/5 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-all text-sm font-bold leading-normal tracking-[0.015em]">
+                        Cancel
+                    </button>
+</div>
+</div>
+<!-- Home Indicator Safe Area Spacer -->
+<div class="h-6 w-full"></div>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="39Ap2givRLcJIc138gxYH03yeeVGzz3aUgkLSmWr">
+
+    <title>finaegis - Open Source Core Banking Infrastructure</title>
+
+    <!-- Favicon and Touch Icons -->
+<link rel="icon" type="image/x-icon" href="/brand/finaegis/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="/brand/finaegis/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/brand/finaegis/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/brand/finaegis/favicon-48x48.png">
+<link rel="icon" type="image/svg+xml" href="/brand/finaegis/favicon.svg">
+
+<!-- Apple Touch Icons -->
+<link rel="apple-touch-icon" href="/brand/finaegis/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/brand/finaegis/apple-touch-icon.png">
+
+<!-- Android Chrome Icons -->
+<link rel="icon" type="image/png" sizes="192x192" href="/brand/finaegis/android-chrome-192x192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/brand/finaegis/android-chrome-512x512.png">
+
+<!-- Microsoft Tiles -->
+<meta name="msapplication-TileColor" content="">
+
+<!-- Theme Color -->
+<meta name="theme-color" content="">
+
+<!-- Safari Pinned Tab -->
+<link rel="mask-icon" href="/brand/finaegis/favicon.svg" color="">
+
+        <meta name="description" content="Open-source core banking platform with 61 modules: payments, lending, compliance, DeFi, and a public MCP server for AI agents. ISO 20022, PSD2, ACH, SEPA. Apache-2.0 licensed, built with Laravel.">
+<meta name="keywords" content="finaegis, open source banking, core banking infrastructure, GCU, ISO 20022, PSD2, open banking, ACH, SEPA, Interledger, microfinance, event sourcing, DeFi, RegTech, banking API, Laravel fintech">
+<meta name="author" content="finaegis">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="http://127.0.0.1:8000">
+
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="http://127.0.0.1:8000">
+<meta property="og:title" content="finaegis - Open Source Core Banking Infrastructure">
+<meta property="og:description" content="Open-source core banking platform with 61 modules: payments, lending, compliance, DeFi, and a public MCP server for AI agents. ISO 20022, PSD2, ACH, SEPA. Apache-2.0 licensed, built with Laravel.">
+<meta property="og:image" content="http://127.0.0.1:8000/images/og-default.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="finaegis">
+<meta property="og:locale" content="en_US">
+
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="http://127.0.0.1:8000">
+<meta name="twitter:title" content="finaegis - Open Source Core Banking Infrastructure">
+<meta name="twitter:description" content="Open-source core banking platform with 61 modules: payments, lending, compliance, DeFi, and a public MCP server for AI agents. ISO 20022, PSD2, ACH, SEPA. Apache-2.0 licensed, built with Laravel.">
+<meta name="twitter:image" content="http://127.0.0.1:8000/images/og-twitter.png">
+<meta name="twitter:domain" content="localhost">
+
+
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="finaegis">
+<meta name="application-name" content="finaegis">
+
+
+
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "finaegis",
+    "url": "http://localhost",
+    "logo": "http://localhost/images/og-default.png",
+    "sameAs": [
+        "https://github.com/FinAegis/core-banking-prototype-laravel"
+    ],
+    "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer support",
+        "email": "info@finaegis.org",
+        "url": "http://localhost/support/contact"
+    },
+    "description": "finaegis — Non-custodial stablecoin wallet with passkey sign-in, virtual Visa & Mastercard cards, bank-rail deposits, and an agent-callable MCP API. Six networks: Solana, Tron, Polygon, Base, Arbitrum, Ethereum.",
+    "foundingDate": "2024",
+    "slogan": "No seed phrase. Tap to pay. Truly yours.",
+    "knowsAbout": [
+        "Non-Custodial Wallets",
+        "Stablecoin Cards",
+        "Virtual Visa & Mastercard",
+        "Passkey Authentication",
+        "Agent-Callable Payment API",
+        "Financial Technology"
+    ]
+}
+</script>    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "finaegis",
+    "url": "http://localhost"
+}
+</script>
+    <!-- DNS Prefetch & Preconnect -->
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link rel="dns-prefetch" href="https://fonts.bunny.net">
+        <link rel="preconnect" href="https://www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600,700,800|plus-jakarta-sans:500,600,700,800&display=swap" rel="stylesheet" />
+
+    <!-- Scripts -->
+    <link rel="preload" as="style" href="http://127.0.0.1:8000/build/assets/app-CaMStSET.css" /><link rel="modulepreload" as="script" href="http://127.0.0.1:8000/build/assets/app-C7zZ2Xli.js" /><link rel="modulepreload" as="script" href="http://127.0.0.1:8000/build/assets/rolldown-runtime-DtYLEda7.js" /><link rel="stylesheet" href="http://127.0.0.1:8000/build/assets/app-CaMStSET.css" data-navigate-track="reload" /><script type="module" src="http://127.0.0.1:8000/build/assets/app-C7zZ2Xli.js" data-navigate-track="reload"></script>    
+    <!-- Custom Styles -->
+    
+        <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-X65KH9NFMY"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-X65KH9NFMY');
+    </script>
+    </head>
+<body class="font-sans antialiased bg-white text-slate-900">
+    
+    <!-- Navigation -->
+    <!-- Navigation -->
+<nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-white/[0.04]" style="color:#fff;background:rgba(12,18,34,0.85);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-16">
+            <div class="flex items-center">
+                <!-- Logo -->
+                <a href="/" class="flex items-center gap-0.5 group">
+                    <span class="text-xl font-display font-bold text-white tracking-tight">finaegis</span>
+                </a>
+
+                <!-- Main Navigation -->
+                <div class="hidden md:ml-10 md:flex md:items-center md:space-x-1">
+                    <a href="http://127.0.0.1:8000" class="nav-link nav-link-active">Home</a>
+
+                    <!-- Products Dropdown -->
+                    <div class="relative group" data-dropdown>
+                        <button class="nav-link inline-flex items-center " aria-haspopup="true" aria-expanded="false">
+                            Products
+                            <svg class="ml-1 h-3.5 w-3.5 opacity-50 transition-transform duration-200 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="absolute left-0 mt-1 w-56 rounded-lg bg-fa-navy-light/95 backdrop-blur-xl border border-white/[0.06] shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 origin-top-left scale-95 group-hover:scale-100" role="menu">
+                            <div class="p-1.5">
+                                <a href="http://127.0.0.1:8000/platform" class="dropdown-link ">
+                                    <div class="w-8 h-8 rounded-md bg-blue-500/10 flex items-center justify-center flex-shrink-0">
+                                        <svg class="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+                                    </div>
+                                    <div>
+                                        <div class="text-sm font-medium text-slate-200">Core Banking</div>
+                                        <div class="text-xs text-slate-500">Platform overview</div>
+                                    </div>
+                                </a>
+                                <a href="http://127.0.0.1:8000/features" class="dropdown-link ">
+                                    <div class="w-8 h-8 rounded-md bg-teal-500/10 flex items-center justify-center flex-shrink-0">
+                                        <svg class="w-4 h-4 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
+                                    </div>
+                                    <div>
+                                        <div class="text-sm font-medium text-slate-200">All Features</div>
+                                        <div class="text-xs text-slate-500">61 domain modules</div>
+                                    </div>
+                                </a>
+                                <a href="http://127.0.0.1:8000/gcu" class="dropdown-link ">
+                                    <div class="w-8 h-8 rounded-md bg-amber-500/10 flex items-center justify-center flex-shrink-0">
+                                        <span class="text-sm font-bold text-amber-400">&#x01A4;</span>
+                                    </div>
+                                    <div>
+                                        <div class="text-sm font-medium text-slate-200">Global Currency Unit</div>
+                                        <div class="text-xs text-slate-500">Democratic basket currency</div>
+                                    </div>
+                                </a>
+                                <a href="http://127.0.0.1:8000/ai-framework" class="dropdown-link ">
+                                    <div class="w-8 h-8 rounded-md bg-purple-500/10 flex items-center justify-center flex-shrink-0">
+                                        <svg class="w-4 h-4 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                                    </div>
+                                    <div>
+                                        <div class="text-sm font-medium text-slate-200">AI Framework</div>
+                                        <div class="text-xs text-slate-500">A2A, ML analytics</div>
+                                    </div>
+                                </a>
+                                <a href="http://127.0.0.1:8000/features/mcp" class="dropdown-link">
+                                    <div class="w-8 h-8 rounded-md bg-emerald-500/10 flex items-center justify-center flex-shrink-0">
+                                        <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                                    </div>
+                                    <div>
+                                        <div class="text-sm font-medium text-slate-200">MCP <span class="ml-1 text-[9px] font-bold text-emerald-300 align-middle">NEW</span></div>
+                                        <div class="text-xs text-slate-500">Connect Claude, Cursor, any agent</div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Resources Dropdown -->
+                    <div class="relative group" data-dropdown>
+                        <button class="nav-link inline-flex items-center " aria-haspopup="true" aria-expanded="false">
+                            Resources
+                            <svg class="ml-1 h-3.5 w-3.5 opacity-50 transition-transform duration-200 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="absolute left-0 mt-1 w-56 rounded-lg bg-fa-navy-light/95 backdrop-blur-xl border border-white/[0.06] shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 origin-top-left scale-95 group-hover:scale-100" role="menu">
+                            <div class="p-1.5">
+                                <a href="http://127.0.0.1:8000/developers" class="dropdown-link ">
+                                    <div class="w-8 h-8 rounded-md bg-green-500/10 flex items-center justify-center flex-shrink-0">
+                                        <svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                                    </div>
+                                    <div>
+                                        <div class="text-sm font-medium text-slate-200">Developers</div>
+                                        <div class="text-xs text-slate-500">Guides, SDKs, integration</div>
+                                    </div>
+                                </a>
+                                <a href="/api/documentation" class="dropdown-link">
+                                    <div class="w-8 h-8 rounded-md bg-sky-500/10 flex items-center justify-center flex-shrink-0">
+                                        <svg class="w-4 h-4 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                                    </div>
+                                    <div>
+                                        <div class="text-sm font-medium text-slate-200">API Docs</div>
+                                        <div class="text-xs text-slate-500">OpenAPI reference</div>
+                                    </div>
+                                </a>
+                                <a href="http://127.0.0.1:8000/support" class="dropdown-link ">
+                                    <div class="w-8 h-8 rounded-md bg-orange-500/10 flex items-center justify-center flex-shrink-0">
+                                        <svg class="w-4 h-4 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                                    </div>
+                                    <div>
+                                        <div class="text-sm font-medium text-slate-200">Support</div>
+                                        <div class="text-xs text-slate-500">Help center & guides</div>
+                                    </div>
+                                </a>
+                                <a href="http://127.0.0.1:8000/about" class="dropdown-link ">
+                                    <div class="w-8 h-8 rounded-md bg-slate-500/10 flex items-center justify-center flex-shrink-0">
+                                        <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                    </div>
+                                    <div>
+                                        <div class="text-sm font-medium text-slate-200">About</div>
+                                        <div class="text-xs text-slate-500">Our mission</div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="http://127.0.0.1:8000/pricing" class="nav-link ">Pricing</a>
+                    <a href="http://127.0.0.1:8000/cgo" class="nav-link ">Invest</a>
+                </div>
+            </div>
+
+            <!-- Right Navigation -->
+            <div class="hidden md:flex items-center space-x-3">
+                                                    <a href="http://127.0.0.1:8000/login" class="nav-link">Sign in</a>
+                    <a href="http://127.0.0.1:8000/register" class="btn-primary !py-2 !px-5 !text-sm !rounded-md">Get Started</a>
+                            </div>
+
+            <!-- Mobile menu button -->
+            <div class="md:hidden flex items-center">
+                <button id="mobile-menu-button" class="text-slate-400 hover:text-white p-2 rounded-md transition-colors" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+                    <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Navigation -->
+    <div id="mobile-menu" class="hidden md:hidden bg-fa-navy-light/95 backdrop-blur-xl border-t border-white/[0.04]">
+        <div class="px-3 pt-3 pb-4 space-y-1">
+            <a href="http://127.0.0.1:8000" class="mobile-nav-link mobile-nav-link-active">Home</a>
+
+            <div class="border-t border-white/[0.04] pt-2 mt-2">
+                <div class="px-3 py-1.5 text-[10px] font-semibold text-slate-600 uppercase tracking-widest">Products</div>
+                <a href="http://127.0.0.1:8000/platform" class="mobile-nav-link">Core Banking</a>
+                <a href="http://127.0.0.1:8000/features" class="mobile-nav-link">All Features</a>
+                <a href="http://127.0.0.1:8000/gcu" class="mobile-nav-link">Global Currency Unit</a>
+                <a href="http://127.0.0.1:8000/ai-framework" class="mobile-nav-link">AI Framework</a>
+            </div>
+
+            <div class="border-t border-white/[0.04] pt-2 mt-2">
+                <div class="px-3 py-1.5 text-[10px] font-semibold text-slate-600 uppercase tracking-widest">Resources</div>
+                <a href="http://127.0.0.1:8000/developers" class="mobile-nav-link">Developers</a>
+                <a href="/api/documentation" class="mobile-nav-link">API Docs</a>
+                <a href="http://127.0.0.1:8000/support" class="mobile-nav-link">Support</a>
+                <a href="http://127.0.0.1:8000/about" class="mobile-nav-link">About</a>
+            </div>
+
+            <a href="http://127.0.0.1:8000/pricing" class="mobile-nav-link">Pricing</a>
+            <a href="http://127.0.0.1:8000/cgo" class="mobile-nav-link">Invest</a>
+
+            <div class="border-t border-white/[0.04] pt-3 mt-2 space-y-2">
+                                                    <a href="http://127.0.0.1:8000/login" class="mobile-nav-link">Sign in</a>
+                    <a href="http://127.0.0.1:8000/register" class="block mx-3 text-center btn-primary !py-2.5 !text-sm !rounded-md">Get Started</a>
+                            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Nav spacer (fixed nav needs content push) -->
+<div class="h-16"></div>
+
+<style>
+    /* Nav links — inline color ensures visibility even before Tailwind loads */
+    #main-nav .nav-link {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: rgba(203, 213, 225, 1); /* slate-300 — WCAG AA 4.5:1+ on dark nav */
+        border-radius: 0.375rem;
+        transition: color 0.2s;
+    }
+    #main-nav .nav-link:hover { color: #fff; }
+    #main-nav .nav-link-active { color: #fff; }
+
+    .dropdown-link {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.625rem 0.75rem;
+        border-radius: 0.375rem;
+        color: rgba(148, 163, 184, 1);
+        transition: all 0.15s;
+    }
+    .dropdown-link:hover { color: #fff; background: rgba(255,255,255,0.04); }
+    .dropdown-link-active { color: #fff; background: rgba(255,255,255,0.04); }
+
+    .mobile-nav-link {
+        display: block;
+        padding: 0.625rem 0.75rem;
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: rgba(148, 163, 184, 1);
+        border-radius: 0.375rem;
+        transition: color 0.2s;
+    }
+    .mobile-nav-link:hover { color: #fff; background: rgba(255,255,255,0.04); }
+    .mobile-nav-link-active { color: #fff; background: rgba(255,255,255,0.04); }
+
+    /* Scroll state — nav solidifies */
+    #main-nav.nav-scrolled {
+        background: rgba(12, 18, 34, 0.92);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-bottom-color: rgba(255,255,255,0.04);
+        box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    }
+</style>
+
+<script>
+    // Mobile menu toggle
+    document.getElementById('mobile-menu-button').addEventListener('click', function() {
+        const button = this;
+        const menu = document.getElementById('mobile-menu');
+        const isOpen = button.getAttribute('aria-expanded') === 'true';
+        button.setAttribute('aria-expanded', !isOpen);
+        menu.classList.toggle('hidden');
+    });
+
+    // Keyboard-accessible dropdowns
+    document.querySelectorAll('[data-dropdown]').forEach(function(dropdown) {
+        const btn = dropdown.querySelector('button[aria-haspopup]');
+        const menu = dropdown.querySelector('[role="menu"]');
+        const links = menu ? menu.querySelectorAll('a') : [];
+
+        function open() {
+            btn.setAttribute('aria-expanded', 'true');
+            dropdown.classList.add('dropdown-open');
+            menu.classList.add('!opacity-100', '!visible', '!scale-100');
+        }
+        function close() {
+            btn.setAttribute('aria-expanded', 'false');
+            dropdown.classList.remove('dropdown-open');
+            menu.classList.remove('!opacity-100', '!visible', '!scale-100');
+        }
+
+        btn.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ' || e.key === 'ArrowDown') {
+                e.preventDefault();
+                open();
+                if (links.length) links[0].focus();
+            }
+        });
+
+        menu.addEventListener('keydown', function(e) {
+            var idx = Array.from(links).indexOf(document.activeElement);
+            if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                if (idx < links.length - 1) links[idx + 1].focus();
+            } else if (e.key === 'ArrowUp') {
+                e.preventDefault();
+                if (idx > 0) links[idx - 1].focus();
+                else { close(); btn.focus(); }
+            } else if (e.key === 'Escape') {
+                close();
+                btn.focus();
+            }
+        });
+
+        dropdown.addEventListener('focusout', function(e) {
+            setTimeout(function() {
+                if (!dropdown.contains(document.activeElement)) close();
+            }, 0);
+        });
+    });
+
+    // Nav scroll effect
+    (function() {
+        const nav = document.getElementById('main-nav');
+        let ticking = false;
+        window.addEventListener('scroll', function() {
+            if (!ticking) {
+                window.requestAnimationFrame(function() {
+                    if (window.scrollY > 20) {
+                        nav.classList.add('nav-scrolled');
+                    } else {
+                        nav.classList.remove('nav-scrolled');
+                    }
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
+    })();
+</script>
+
+    <!-- Page Content -->
+    <main class="page-enter">
+        
+    <!-- ═══════════════════════════════════════
+         HERO
+         ═══════════════════════════════════════ -->
+    <section class="relative bg-fa-navy overflow-hidden">
+        <!-- Background effects -->
+        <div class="absolute inset-0 bg-grid-pattern"></div>
+        <div class="absolute top-1/4 -left-32 w-96 h-96 bg-blue-500/10 rounded-full blur-[120px] animate-glow-pulse"></div>
+        <div class="absolute bottom-1/4 -right-32 w-96 h-96 bg-teal-500/8 rounded-full blur-[120px] animate-glow-pulse" style="animation-delay: 1.5s"></div>
+
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-28 lg:pt-28 lg:pb-36">
+            <div class="text-center max-w-4xl mx-auto">
+                <!-- Badge -->
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-sm text-slate-400 mb-4 animate-fade-in-down">
+                    <svg class="w-4 h-4 text-fa-teal" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                    </svg>
+                    Open Source &middot; Apache-2.0 Licensed &middot; 61 Domains
+                </div>
+
+                <!-- MCP-compatible badge -->
+                <a href="http://127.0.0.1:8000/features/mcp" class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-300 border border-emerald-400/30 text-xs font-semibold mb-8 animate-fade-in-down hover:bg-emerald-500/15 transition-colors" style="animation-delay: 0.05s">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                    Now MCP-compatible — connect Claude Desktop, Cursor, or any agent
+                </a>
+
+                <!-- Heading -->
+                <h1 class="font-display text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.08] mb-6 animate-fade-in-up">
+                    The Banking Infrastructure
+                    <span class="text-gradient block sm:inline"> Developers Deserve</span>
+                </h1>
+
+                <!-- Subheading -->
+                <p class="text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed animate-fade-in-up" style="animation-delay: 0.15s">
+                    Ship compliant banking products in weeks, not years. 61 production-ready modules cover payments, lending, compliance, and cross-border transfers — so you build features, not infrastructure.
+                </p>
+
+                <!-- CTA Buttons -->
+                <div class="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up" style="animation-delay: 0.3s">
+                    <a href="http://127.0.0.1:8000/register" class="btn-primary !py-3.5 !px-8 !text-base !rounded-lg group">
+                        Get Started Free
+                        <svg class="w-4 h-4 ml-2 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path></svg>
+                    </a>
+                    <a href="https://github.com/FinAegis/core-banking-prototype-laravel" target="_blank" class="btn-outline !py-3.5 !px-8 !text-base !rounded-lg group">
+                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"/></svg>
+                        View on GitHub
+                    </a>
+                </div>
+
+                <!-- Tech stack pills -->
+                <div class="flex flex-wrap justify-center gap-3 mt-12 animate-fade-in" style="animation-delay: 0.5s">
+                                            <span class="px-3 py-1 text-xs font-medium text-slate-500 bg-white/[0.03] border border-white/[0.06] rounded-full">Laravel</span>
+                                            <span class="px-3 py-1 text-xs font-medium text-slate-500 bg-white/[0.03] border border-white/[0.06] rounded-full">Event Sourcing</span>
+                                            <span class="px-3 py-1 text-xs font-medium text-slate-500 bg-white/[0.03] border border-white/[0.06] rounded-full">CQRS</span>
+                                            <span class="px-3 py-1 text-xs font-medium text-slate-500 bg-white/[0.03] border border-white/[0.06] rounded-full">GraphQL</span>
+                                            <span class="px-3 py-1 text-xs font-medium text-slate-500 bg-white/[0.03] border border-white/[0.06] rounded-full">DDD</span>
+                                            <span class="px-3 py-1 text-xs font-medium text-slate-500 bg-white/[0.03] border border-white/[0.06] rounded-full">ERC-4337</span>
+                                            <span class="px-3 py-1 text-xs font-medium text-slate-500 bg-white/[0.03] border border-white/[0.06] rounded-full">ISO 20022</span>
+                                            <span class="px-3 py-1 text-xs font-medium text-slate-500 bg-white/[0.03] border border-white/[0.06] rounded-full">PSD2</span>
+                                            <span class="px-3 py-1 text-xs font-medium text-slate-500 bg-white/[0.03] border border-white/[0.06] rounded-full">Solana</span>
+                                            <span class="px-3 py-1 text-xs font-medium text-slate-500 bg-white/[0.03] border border-white/[0.06] rounded-full">ILP</span>
+                                    </div>
+            </div>
+        </div>
+
+        <!-- Section transition -->
+        <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/20 to-transparent"></div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         WHAT IS THIS
+         ═══════════════════════════════════════ -->
+    <section class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <!-- Left: Info -->
+                <div class="animate-on-scroll">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-blue-600 text-xs font-semibold mb-6">
+                        <span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
+                        Apache-2.0
+                    </div>
+                    <h2 class="font-display text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight mb-6">
+                        What Is finaegis?
+                    </h2>
+                    <p class="text-lg text-slate-600 leading-relaxed mb-6">
+                        A production-grade core banking platform built with Laravel and domain-driven design. 61 bounded contexts, event sourcing, CQRS, and every integration pattern a modern fintech needs.
+                    </p>
+                    <div class="space-y-3 mb-8">
+                                                    <div class="flex items-start gap-3">
+                                <div class="mt-1 w-5 h-5 rounded-full bg-emerald-100 flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-3 h-3 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                                </div>
+                                <span class="text-slate-700">Cross-chain bridges, DeFi protocols &amp; multi-chain portfolio</span>
+                            </div>
+                                                    <div class="flex items-start gap-3">
+                                <div class="mt-1 w-5 h-5 rounded-full bg-emerald-100 flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-3 h-3 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                                </div>
+                                <span class="text-slate-700">Privacy-preserving identity with ZK-KYC &amp; verifiable credentials</span>
+                            </div>
+                                                    <div class="flex items-start gap-3">
+                                <div class="mt-1 w-5 h-5 rounded-full bg-emerald-100 flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-3 h-3 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                                </div>
+                                <span class="text-slate-700">RegTech compliance, mobile payments &amp; Banking-as-a-Service</span>
+                            </div>
+                                            </div>
+                    <div class="flex flex-col sm:flex-row gap-3">
+                        <a href="http://127.0.0.1:8000/developers" class="btn-primary !bg-slate-900 hover:!bg-slate-800 !rounded-lg">Developer Docs</a>
+                        <a href="http://127.0.0.1:8000/register" class="inline-flex items-center justify-center px-6 py-3 border border-slate-200 text-slate-700 font-semibold rounded-lg hover:bg-slate-50 transition">Explore Demo</a>
+                    </div>
+                </div>
+
+                <!-- Right: Who it's for -->
+                <div class="animate-on-scroll stagger-2">
+                    <div class="bg-slate-50 rounded-2xl p-8 lg:p-10 border border-slate-100">
+                        <h3 class="font-display text-2xl font-bold text-slate-900 mb-8">Built for Builders</h3>
+                        <div class="space-y-8">
+                                                            <div class="flex gap-4">
+                                    <div class="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center flex-shrink-0">
+                                        <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-slate-900 mb-1">Developers &amp; Architects</h4>
+                                        <p class="text-sm text-slate-500 leading-relaxed">See how event sourcing, CQRS, and DDD work in a real financial system — not just theory, but running code.</p>
+                                    </div>
+                                </div>
+                                                            <div class="flex gap-4">
+                                    <div class="w-10 h-10 rounded-lg bg-amber-100 flex items-center justify-center flex-shrink-0">
+                                        <svg class="w-5 h-5 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-slate-900 mb-1">Fintech Founders</h4>
+                                        <p class="text-sm text-slate-500 leading-relaxed">Fork the codebase and build your product on top of battle-tested banking infrastructure.</p>
+                                    </div>
+                                </div>
+                                                            <div class="flex gap-4">
+                                    <div class="w-10 h-10 rounded-lg bg-purple-100 flex items-center justify-center flex-shrink-0">
+                                        <svg class="w-5 h-5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-slate-900 mb-1">AI/ML Engineers</h4>
+                                        <p class="text-sm text-slate-500 leading-relaxed">Integrate AI agents into financial workflows with MCP tools, A2A protocol, and NL transaction queries.</p>
+                                    </div>
+                                </div>
+                                                    </div>
+                        <div class="mt-8 pt-6 border-t border-slate-200">
+                            <p class="text-xs text-slate-400 text-center">
+                                Sandbox environment — all transactions use test data.
+                                <a href="https://github.com/FinAegis/core-banking-prototype-laravel" class="text-blue-500 hover:underline">Contribute on GitHub</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         FEATURES GRID
+         ═══════════════════════════════════════ -->
+    <section id="features" class="py-24 bg-slate-50/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animate-on-scroll">
+                <h2 class="font-display text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight mb-4">61 Production-Ready Modules</h2>
+                <p class="text-lg text-slate-500 max-w-2xl mx-auto">
+                    Every capability you need — payments, lending, compliance, DeFi, privacy, mobile wallets, AI analytics — all in one codebase.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                
+                                    <a href="http://127.0.0.1:8000/features/gcu"
+                       class="card-elevated p-6 block group animate-on-scroll stagger-1">
+                        <div class="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                                                            <span class="text-lg font-bold text-blue-600">Ƥ</span>
+                                                    </div>
+                        <h3 class="font-display text-base font-semibold text-slate-900 mb-2">Global Currency Unit</h3>
+                        <p class="text-sm text-slate-500 leading-relaxed mb-3">A multi-currency basket with democratic governance. Users vote on composition across USD, EUR, GBP, CHF, JPY, and gold.</p>
+                        <span class="text-sm font-medium text-blue-600 group-hover:text-blue-700 inline-flex items-center gap-1">
+                            Learn more
+                            <svg class="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </span>
+                    </a>
+                                    <a href="http://127.0.0.1:8000/features/multi-asset"
+                       class="card-elevated p-6 block group animate-on-scroll stagger-2">
+                        <div class="w-10 h-10 rounded-lg bg-purple-50 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                                                            <svg class="w-5 h-5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                                                    </div>
+                        <h3 class="font-display text-base font-semibold text-slate-900 mb-2">Multi-Asset Accounts</h3>
+                        <p class="text-sm text-slate-500 leading-relaxed mb-3">Hold fiat, crypto, and commodities in a single account with real-time conversion and portfolio tracking.</p>
+                        <span class="text-sm font-medium text-purple-600 group-hover:text-purple-700 inline-flex items-center gap-1">
+                            Learn more
+                            <svg class="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </span>
+                    </a>
+                                    <a href="http://127.0.0.1:8000/features/settlements"
+                       class="card-elevated p-6 block group animate-on-scroll stagger-3">
+                        <div class="w-10 h-10 rounded-lg bg-emerald-50 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                                                            <svg class="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                                                    </div>
+                        <h3 class="font-display text-base font-semibold text-slate-900 mb-2">Event-Sourced Ledger</h3>
+                        <p class="text-sm text-slate-500 leading-relaxed mb-3">Every transaction is an immutable event. Full audit trails, point-in-time reconstruction, and replay capability.</p>
+                        <span class="text-sm font-medium text-emerald-600 group-hover:text-emerald-700 inline-flex items-center gap-1">
+                            Learn more
+                            <svg class="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </span>
+                    </a>
+                                    <a href="http://127.0.0.1:8000/features/governance"
+                       class="card-elevated p-6 block group animate-on-scroll stagger-4">
+                        <div class="w-10 h-10 rounded-lg bg-amber-50 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                                                            <svg class="w-5 h-5 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                                                    </div>
+                        <h3 class="font-display text-base font-semibold text-slate-900 mb-2">Democratic Governance</h3>
+                        <p class="text-sm text-slate-500 leading-relaxed mb-3">Stake-weighted voting on monetary policy. Users shape their currency through on-chain governance proposals.</p>
+                        <span class="text-sm font-medium text-amber-600 group-hover:text-amber-700 inline-flex items-center gap-1">
+                            Learn more
+                            <svg class="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </span>
+                    </a>
+                                    <a href="http://127.0.0.1:8000/features/bank-integration"
+                       class="card-elevated p-6 block group animate-on-scroll stagger-5">
+                        <div class="w-10 h-10 rounded-lg bg-red-50 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                                                            <svg class="w-5 h-5 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                                                    </div>
+                        <h3 class="font-display text-base font-semibold text-slate-900 mb-2">Banking API Patterns</h3>
+                        <p class="text-sm text-slate-500 leading-relaxed mb-3">Open Banking-compliant API patterns with Ondato KYC, Chainalysis sanctions, and Marqeta card issuing.</p>
+                        <span class="text-sm font-medium text-red-600 group-hover:text-red-700 inline-flex items-center gap-1">
+                            Learn more
+                            <svg class="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </span>
+                    </a>
+                                    <a href="http://127.0.0.1:8000/features/api"
+                       class="card-elevated p-6 block group animate-on-scroll stagger-6">
+                        <div class="w-10 h-10 rounded-lg bg-sky-50 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                                                            <svg class="w-5 h-5 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                                                    </div>
+                        <h3 class="font-display text-base font-semibold text-slate-900 mb-2">REST, GraphQL &amp; OpenAPI</h3>
+                        <p class="text-sm text-slate-500 leading-relaxed mb-3">Full REST coverage with OpenAPI specs, GraphQL across 45 domains, real-time subscriptions, and webhooks.</p>
+                        <span class="text-sm font-medium text-sky-600 group-hover:text-sky-700 inline-flex items-center gap-1">
+                            Learn more
+                            <svg class="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </span>
+                    </a>
+                                    <a href="http://127.0.0.1:8000/ai-framework"
+                       class="card-elevated p-6 block group animate-on-scroll stagger-1">
+                        <div class="w-10 h-10 rounded-lg bg-violet-50 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                                                            <svg class="w-5 h-5 text-violet-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                                                    </div>
+                        <h3 class="font-display text-base font-semibold text-slate-900 mb-2">AI Agent Protocol</h3>
+                        <p class="text-sm text-slate-500 leading-relaxed mb-3">Google A2A protocol for autonomous agent commerce. MCP tools, spending limits, and transaction analytics.</p>
+                        <span class="text-sm font-medium text-violet-600 group-hover:text-violet-700 inline-flex items-center gap-1">
+                            Learn more
+                            <svg class="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </span>
+                    </a>
+                                    <a href="http://127.0.0.1:8000/features/mcp"
+                       class="card-elevated p-6 block group animate-on-scroll stagger-2">
+                        <div class="w-10 h-10 rounded-lg bg-emerald-50 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                                                            <svg class="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                                                    </div>
+                        <h3 class="font-display text-base font-semibold text-slate-900 mb-2">MCP Server</h3>
+                        <p class="text-sm text-slate-500 leading-relaxed mb-3">Connect Claude Desktop, Cursor, or any MCP client. 12 OAuth-protected banking tools with per-token spending limits and idempotent writes.</p>
+                        <span class="text-sm font-medium text-emerald-600 group-hover:text-emerald-700 inline-flex items-center gap-1">
+                            Learn more
+                            <svg class="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </span>
+                    </a>
+                                    <a href="http://127.0.0.1:8000/features/crosschain-defi"
+                       class="card-elevated p-6 block group animate-on-scroll stagger-3">
+                        <div class="w-10 h-10 rounded-lg bg-orange-50 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                                                            <svg class="w-5 h-5 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
+                                                    </div>
+                        <h3 class="font-display text-base font-semibold text-slate-900 mb-2">Cross-Chain &amp; DeFi</h3>
+                        <p class="text-sm text-slate-500 leading-relaxed mb-3">Bridge across Wormhole, LayerZero, Axelar. EVM + Solana support with DEX aggregation, yield optimization, and multi-chain portfolios.</p>
+                        <span class="text-sm font-medium text-orange-600 group-hover:text-orange-700 inline-flex items-center gap-1">
+                            Learn more
+                            <svg class="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </span>
+                    </a>
+                                    <a href="http://127.0.0.1:8000/features/privacy-identity"
+                       class="card-elevated p-6 block group animate-on-scroll stagger-4">
+                        <div class="w-10 h-10 rounded-lg bg-teal-50 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                                                            <svg class="w-5 h-5 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                                                    </div>
+                        <h3 class="font-display text-base font-semibold text-slate-900 mb-2">Privacy &amp; Identity</h3>
+                        <p class="text-sm text-slate-500 leading-relaxed mb-3">ZK-KYC proofs, RAILGUN shielded transfers, W3C verifiable credentials, soulbound tokens, Shamir key mgmt.</p>
+                        <span class="text-sm font-medium text-teal-600 group-hover:text-teal-700 inline-flex items-center gap-1">
+                            Learn more
+                            <svg class="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </span>
+                    </a>
+                                    <a href="http://127.0.0.1:8000/features/mobile-payments"
+                       class="card-elevated p-6 block group animate-on-scroll stagger-5">
+                        <div class="w-10 h-10 rounded-lg bg-pink-50 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                                                            <svg class="w-5 h-5 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+                                                    </div>
+                        <h3 class="font-display text-base font-semibold text-slate-900 mb-2">Mobile Payments</h3>
+                        <p class="text-sm text-slate-500 leading-relaxed mb-3">Passkey authentication, payment intents, P2P transfers, push notifications, ERC-4337 abstraction, and Solana wallet integration.</p>
+                        <span class="text-sm font-medium text-pink-600 group-hover:text-pink-700 inline-flex items-center gap-1">
+                            Learn more
+                            <svg class="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </span>
+                    </a>
+                                    <a href="http://127.0.0.1:8000/features/x402-protocol"
+                       class="card-elevated p-6 block group animate-on-scroll stagger-6">
+                        <div class="w-10 h-10 rounded-lg bg-emerald-50 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                                                            <svg class="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                                                    </div>
+                        <h3 class="font-display text-base font-semibold text-slate-900 mb-2">x402 Micropayments</h3>
+                        <p class="text-sm text-slate-500 leading-relaxed mb-3">HTTP-native payments with USDC on Base, Ethereum, and Solana. AI agents pay for APIs on demand with per-agent spending limits.</p>
+                        <span class="text-sm font-medium text-emerald-600 group-hover:text-emerald-700 inline-flex items-center gap-1">
+                            Learn more
+                            <svg class="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </span>
+                    </a>
+                                    <a href="http://127.0.0.1:8000/features/regtech-compliance"
+                       class="card-elevated p-6 block group animate-on-scroll stagger-1">
+                        <div class="w-10 h-10 rounded-lg bg-yellow-50 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                                                            <svg class="w-5 h-5 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                                                    </div>
+                        <h3 class="font-display text-base font-semibold text-slate-900 mb-2">RegTech Compliance</h3>
+                        <p class="text-sm text-slate-500 leading-relaxed mb-3">MiFID II, MiCA, and Travel Rule adapters with jurisdiction-aware routing and automated reporting.</p>
+                        <span class="text-sm font-medium text-yellow-600 group-hover:text-yellow-700 inline-flex items-center gap-1">
+                            Learn more
+                            <svg class="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </span>
+                    </a>
+                                    <a href="http://127.0.0.1:8000/features/baas-platform"
+                       class="card-elevated p-6 block group animate-on-scroll stagger-2">
+                        <div class="w-10 h-10 rounded-lg bg-indigo-50 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                                                            <svg class="w-5 h-5 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+                                                    </div>
+                        <h3 class="font-display text-base font-semibold text-slate-900 mb-2">Banking-as-a-Service</h3>
+                        <p class="text-sm text-slate-500 leading-relaxed mb-3">White-label your banking stack. Partner APIs, auto-generated SDKs, embeddable widgets, and usage billing.</p>
+                        <span class="text-sm font-medium text-indigo-600 group-hover:text-indigo-700 inline-flex items-center gap-1">
+                            Learn more
+                            <svg class="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </span>
+                    </a>
+                            </div>
+
+            <div class="text-center mt-12 animate-on-scroll">
+                <a href="http://127.0.0.1:8000/features" class="btn-primary !bg-slate-900 hover:!bg-slate-800 !rounded-lg group">
+                    See All 61 Domains
+                    <svg class="w-4 h-4 ml-2 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path></svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         PLATFORM ARCHITECTURE
+         ═══════════════════════════════════════ -->
+    <section class="py-24 bg-fa-navy relative overflow-hidden">
+        <div class="absolute inset-0 bg-dot-pattern"></div>
+        <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/20 to-transparent"></div>
+
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animate-on-scroll">
+                <h2 class="font-display text-4xl lg:text-5xl font-bold text-white tracking-tight mb-4">Platform Architecture</h2>
+                <p class="text-lg text-slate-400 max-w-2xl mx-auto">
+                    61 bounded contexts built with DDD, event sourcing, and CQRS. Each module implements specific financial system patterns you can use independently.
+                </p>
+            </div>
+
+            <!-- GCU Flagship -->
+            <div class="card-dark p-8 lg:p-10 mb-8 animate-on-scroll stagger-1">
+                <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6">
+                    <div class="flex items-center gap-4">
+                        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-500/20 to-teal-500/20 border border-white/[0.08] flex items-center justify-center">
+                            <span class="text-3xl font-bold text-gradient">&#x01A4;</span>
+                        </div>
+                        <div>
+                            <h3 class="font-display text-2xl font-bold text-white">Global Currency Unit (GCU)</h3>
+                            <p class="text-sm text-slate-500">Flagship Product</p>
+                        </div>
+                    </div>
+                    <span class="px-3 py-1 text-xs font-semibold rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20">Flagship</span>
+                </div>
+                <p class="text-slate-400 mb-8 max-w-3xl">
+                    A democratically governed basket currency where users vote on composition. The system automatically rebalances across six reserve assets based on community governance.
+                </p>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <div class="text-center p-4 rounded-lg bg-white/[0.02] border border-white/[0.04]">
+                        <div class="text-4xl font-display font-bold text-gradient mb-1">&#x01A4;</div>
+                        <p class="text-xs text-slate-500 uppercase tracking-wider">Currency Symbol</p>
+                    </div>
+                    <div class="text-center p-4 rounded-lg bg-white/[0.02] border border-white/[0.04]">
+                        <div class="text-2xl font-display font-bold text-white mb-1">6 Assets</div>
+                        <p class="text-xs text-slate-500 uppercase tracking-wider">USD, EUR, GBP, CHF, JPY, XAU</p>
+                    </div>
+                    <div class="text-center p-4 rounded-lg bg-white/[0.02] border border-white/[0.04]">
+                        <div class="text-2xl font-display font-bold text-white mb-1">Event-Sourced</div>
+                        <p class="text-xs text-slate-500 uppercase tracking-wider">Full audit trail</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Core Modules Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 animate-on-scroll stagger-3">
+                                    <div class="card-dark p-5 group">
+                        <div class="w-9 h-9 rounded-md bg-blue-500/10 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                            <svg class="w-4.5 h-4.5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"></path></svg>
+                        </div>
+                        <h4 class="font-semibold text-white text-sm mb-1">Exchange</h4>
+                        <p class="text-xs text-slate-500">Order matching engine with limit &amp; market orders</p>
+                    </div>
+                                    <div class="card-dark p-5 group">
+                        <div class="w-9 h-9 rounded-md bg-emerald-500/10 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                            <svg class="w-4.5 h-4.5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                        </div>
+                        <h4 class="font-semibold text-white text-sm mb-1">Lending</h4>
+                        <p class="text-xs text-slate-500">P2P lending with risk assessment</p>
+                    </div>
+                                    <div class="card-dark p-5 group">
+                        <div class="w-9 h-9 rounded-md bg-violet-500/10 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                            <svg class="w-4.5 h-4.5 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        </div>
+                        <h4 class="font-semibold text-white text-sm mb-1">Stablecoin</h4>
+                        <p class="text-xs text-slate-500">Minting, burning, and peg management</p>
+                    </div>
+                                    <div class="card-dark p-5 group">
+                        <div class="w-9 h-9 rounded-md bg-amber-500/10 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                            <svg class="w-4.5 h-4.5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                        </div>
+                        <h4 class="font-semibold text-white text-sm mb-1">Treasury</h4>
+                        <p class="text-xs text-slate-500">Portfolio management and yield optimization</p>
+                    </div>
+                            </div>
+
+            <p class="text-center text-sm text-slate-500 mt-8 animate-on-scroll stagger-4">
+                Each module is independently usable. Explore the code to understand the patterns, or fork and build on them.
+            </p>
+        </div>
+
+        <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/20 to-transparent"></div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         GCU CONCEPT
+         ═══════════════════════════════════════ -->
+    <section class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animate-on-scroll">
+                <h2 class="font-display text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight mb-4">The GCU Concept</h2>
+                <p class="text-lg text-slate-500 max-w-2xl mx-auto">
+                    What if users could vote on their currency's composition? The GCU is a working implementation of democratic monetary policy.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                                    <div class="card-elevated p-8 text-center animate-on-scroll stagger-1">
+                        <div class="w-16 h-16 rounded-2xl bg-blue-50 flex items-center justify-center mx-auto mb-6">
+                            <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        </div>
+                        <h3 class="font-display text-xl font-bold text-slate-900 mb-3">Democratic</h3>
+                        <p class="text-sm text-slate-500 mb-5">Users vote on currency basket composition. Holdings determine voting weight in this governance model.</p>
+                        <ul class="text-left space-y-2">
+                                                            <li class="flex items-center gap-2 text-sm text-slate-600">
+                                    <svg class="w-4 h-4 text-emerald-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    Monthly voting cycles
+                                </li>
+                                                            <li class="flex items-center gap-2 text-sm text-slate-600">
+                                    <svg class="w-4 h-4 text-emerald-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    Transparent tallying
+                                </li>
+                                                            <li class="flex items-center gap-2 text-sm text-slate-600">
+                                    <svg class="w-4 h-4 text-emerald-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    Event-sourced audit trail
+                                </li>
+                                                    </ul>
+                    </div>
+                                    <div class="card-elevated p-8 text-center animate-on-scroll stagger-2">
+                        <div class="w-16 h-16 rounded-2xl bg-emerald-50 flex items-center justify-center mx-auto mb-6">
+                            <svg class="w-8 h-8 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                        </div>
+                        <h3 class="font-display text-xl font-bold text-slate-900 mb-3">Multi-Asset Backed</h3>
+                        <p class="text-sm text-slate-500 mb-5">Basket currency backed by six reserve assets with automatic rebalancing based on governance outcomes.</p>
+                        <ul class="text-left space-y-2">
+                                                            <li class="flex items-center gap-2 text-sm text-slate-600">
+                                    <svg class="w-4 h-4 text-emerald-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    6 reserve assets
+                                </li>
+                                                            <li class="flex items-center gap-2 text-sm text-slate-600">
+                                    <svg class="w-4 h-4 text-emerald-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    Automatic rebalancing
+                                </li>
+                                                            <li class="flex items-center gap-2 text-sm text-slate-600">
+                                    <svg class="w-4 h-4 text-emerald-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    Stability mechanisms
+                                </li>
+                                                    </ul>
+                    </div>
+                                    <div class="card-elevated p-8 text-center animate-on-scroll stagger-3">
+                        <div class="w-16 h-16 rounded-2xl bg-amber-50 flex items-center justify-center mx-auto mb-6">
+                            <svg class="w-8 h-8 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                        </div>
+                        <h3 class="font-display text-xl font-bold text-slate-900 mb-3">Transparent</h3>
+                        <p class="text-sm text-slate-500 mb-5">Every governance decision is recorded as an immutable event. Full audit trail from proposal to execution.</p>
+                        <ul class="text-left space-y-2">
+                                                            <li class="flex items-center gap-2 text-sm text-slate-600">
+                                    <svg class="w-4 h-4 text-emerald-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    Event sourcing
+                                </li>
+                                                            <li class="flex items-center gap-2 text-sm text-slate-600">
+                                    <svg class="w-4 h-4 text-emerald-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    Public audit trail
+                                </li>
+                                                            <li class="flex items-center gap-2 text-sm text-slate-600">
+                                    <svg class="w-4 h-4 text-emerald-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    On-chain governance
+                                </li>
+                                                    </ul>
+                    </div>
+                            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         STATS BAR
+         ═══════════════════════════════════════ -->
+    <section class="py-16 bg-fa-navy relative overflow-hidden">
+        <div class="absolute inset-0 bg-grid-pattern opacity-50"></div>
+        <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/20 to-transparent"></div>
+
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 animate-on-scroll">
+                                    <div class="text-center">
+                        <div class="font-display text-4xl lg:text-5xl font-extrabold text-gradient mb-2">61</div>
+                        <div class="text-xs text-slate-500 uppercase tracking-wider font-medium">Domain Modules</div>
+                    </div>
+                                    <div class="text-center">
+                        <div class="font-display text-4xl lg:text-5xl font-extrabold text-gradient mb-2">45</div>
+                        <div class="text-xs text-slate-500 uppercase tracking-wider font-medium">GraphQL Schemas</div>
+                    </div>
+                                    <div class="text-center">
+                        <div class="font-display text-4xl lg:text-5xl font-extrabold text-gradient mb-2">1,400+</div>
+                        <div class="text-xs text-slate-500 uppercase tracking-wider font-medium">API Routes</div>
+                    </div>
+                                    <div class="text-center">
+                        <div class="font-display text-4xl lg:text-5xl font-extrabold text-gradient mb-2">Apache-2.0</div>
+                        <div class="text-xs text-slate-500 uppercase tracking-wider font-medium">Licensed</div>
+                    </div>
+                            </div>
+        </div>
+
+        <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/20 to-transparent"></div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         CTA
+         ═══════════════════════════════════════ -->
+    <section class="py-24 bg-white">
+        <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8 animate-on-scroll">
+            <h2 class="font-display text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight mb-6">Start Building Today</h2>
+            <p class="text-lg text-slate-500 mb-10 max-w-xl mx-auto">
+                Create an account, explore the API, or dive straight into the source code. Ship your first integration in minutes.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="http://127.0.0.1:8000/register" class="btn-primary btn-lg group">
+                    Explore the Platform
+                    <svg class="w-4 h-4 ml-2 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path></svg>
+                </a>
+                <a href="https://github.com/FinAegis/core-banking-prototype-laravel" target="_blank" class="inline-flex items-center justify-center px-10 py-4 border border-slate-200 text-slate-700 font-semibold rounded-lg hover:bg-slate-50 transition text-base group">
+                    <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"/></svg>
+                    View Source
+                </a>
+            </div>
+        </div>
+    </section>
+
+    </main>
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer class="bg-fa-navy border-t border-white/[0.04]">
+    <!-- Main Footer -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="grid grid-cols-2 md:grid-cols-12 gap-8 lg:gap-12">
+            <!-- Brand Column -->
+            <div class="col-span-2 md:col-span-4 lg:col-span-5">
+                <a href="/" class="flex items-center gap-2 mb-5">
+                    <span class="text-xl font-display font-bold text-white tracking-tight">finaegis</span>
+                </a>
+                <p class="text-slate-500 text-sm leading-relaxed max-w-xs mb-6">
+                                            Open-source core banking infrastructure for the next generation of financial services. Apache-2.0 licensed.
+                                    </p>
+                <div class="flex items-center space-x-3">
+                    <a href="https://github.com/FinAegis/core-banking-prototype-laravel" class="w-9 h-9 rounded-lg bg-white/[0.04] border border-white/[0.06] flex items-center justify-center text-slate-500 hover:text-white hover:border-white/[0.12] transition-all" aria-label="GitHub">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    </a>
+                                                        </div>
+            </div>
+
+            <!-- Product -->
+            <div class="col-span-1 md:col-span-2">
+                <h4 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">Product</h4>
+                <ul class="space-y-2.5">
+                    <li><a href="http://127.0.0.1:8000/platform" class="text-sm text-slate-500 hover:text-white transition-colors">Platform</a></li>                    <li><a href="http://127.0.0.1:8000/features" class="text-sm text-slate-500 hover:text-white transition-colors">Features</a></li>                    <li><a href="http://127.0.0.1:8000/pricing" class="text-sm text-slate-500 hover:text-white transition-colors">Pricing</a></li>                    <li><a href="http://127.0.0.1:8000/security" class="text-sm text-slate-500 hover:text-white transition-colors">Security</a></li>                    <li><a href="http://127.0.0.1:8000/compliance" class="text-sm text-slate-500 hover:text-white transition-colors">Compliance</a></li>                    <li><a href="http://127.0.0.1:8000/changelog" class="text-sm text-slate-500 hover:text-white transition-colors">Changelog</a></li>                    <li><a href="http://127.0.0.1:8000/status" class="text-sm text-slate-500 hover:text-white transition-colors">Status</a></li>                </ul>
+            </div>
+
+            <!-- Developers -->
+            <div class="col-span-1 md:col-span-2">
+                <h4 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">Developers</h4>
+                <ul class="space-y-2.5">
+                    <li><a href="http://127.0.0.1:8000/developers" class="text-sm text-slate-500 hover:text-white transition-colors">Developer Hub</a></li>                    <li><a href="/api/documentation" class="text-sm text-slate-500 hover:text-white transition-colors">API Reference</a></li>
+                    <li><a href="http://127.0.0.1:8000/developers/sdks" class="text-sm text-slate-500 hover:text-white transition-colors">SDKs</a></li>                    <li><a href="http://127.0.0.1:8000/developers/mcp-tools" class="text-sm text-slate-500 hover:text-white transition-colors">MCP &amp; AI Agents</a></li>                    <li><a href="https://github.com/FinAegis/core-banking-prototype-laravel" class="text-sm text-slate-500 hover:text-white transition-colors">GitHub</a></li>
+                    <li><a href="http://127.0.0.1:8000/developers/webhooks" class="text-sm text-slate-500 hover:text-white transition-colors">Webhooks</a></li>                </ul>
+            </div>
+
+            <!-- Company -->
+            <div class="col-span-1 md:col-span-2">
+                <h4 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">Company</h4>
+                <ul class="space-y-2.5">
+                    <li><a href="http://127.0.0.1:8000/about" class="text-sm text-slate-500 hover:text-white transition-colors">About</a></li>                    <li><a href="http://127.0.0.1:8000/blog" class="text-sm text-slate-500 hover:text-white transition-colors">Blog</a></li>                    <li><a href="http://127.0.0.1:8000/cgo" class="text-sm text-slate-500 hover:text-white transition-colors">CGO Concept</a></li>                    <li><a href="http://127.0.0.1:8000/support/contact" class="text-sm text-slate-500 hover:text-white transition-colors">Contact</a></li>                    <li><a href="http://127.0.0.1:8000/support/faq" class="text-sm text-slate-500 hover:text-white transition-colors">FAQ</a></li>                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Legal Disclaimer -->
+    <div class="border-t border-white/[0.04]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <p class="text-xs text-slate-400 leading-relaxed">
+        finaegis is a technology platform providing a user interface for services offered by independent third-party providers. finaegis does not offer, hold, or transmit funds or provide financial, custodial, or regulated services. All wallet functionality is non-custodial &mdash; private keys remain under exclusive user control. Financial services are provided by third-party licensed providers. All investments carry risks, including total loss. The user is responsible for safeguarding their passkeys and any device-bound credentials used to authorize transactions.
+    </p>
+        </div>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="border-t border-white/[0.04]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
+            <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
+                <p class="text-xs text-slate-600">&copy; 2026 FinAegis. All rights reserved.</p>
+                <div class="flex items-center gap-6">
+                    <a href="http://127.0.0.1:8000/legal/terms" class="text-xs text-slate-600 hover:text-slate-400 transition-colors">Terms</a>                    <a href="http://127.0.0.1:8000/legal/privacy" class="text-xs text-slate-600 hover:text-slate-400 transition-colors">Privacy</a>                    <a href="http://127.0.0.1:8000/legal/cookies" class="text-xs text-slate-600 hover:text-slate-400 transition-colors">Cookies</a>                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <!-- Scroll Animation Observer -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    }
+                });
+            }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+            document.querySelectorAll('.animate-on-scroll').forEach(function(el) {
+                observer.observe(el);
+            });
+        });
+    </script>
+
+    </body>
+</html>

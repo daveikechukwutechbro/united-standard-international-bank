@@ -1,0 +1,16 @@
+type Iso20022ValidationResult {
+    valid: Boolean!
+    errors: [String!]!
+}
+
+extend type Query {
+    iso20022SupportedTypes: [String!]!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Queries\\ISO20022\\SupportedTypesQuery")
+}
+
+extend type Mutation {
+    iso20022Validate(xml: String!): Iso20022ValidationResult!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Mutations\\ISO20022\\ValidateMessageMutation")
+}

@@ -1,0 +1,31 @@
+{
+    "$schema": "https://finaegis.io/schemas/module.json",
+    "name": "finaegis/x402",
+    "version": "1.0.0",
+    "description": "HTTP 402 Protocol for native web monetization with USDC on Base",
+    "type": "feature",
+    "dependencies": {
+        "required": {
+            "finaegis/shared": "^1.0"
+        },
+        "optional": {}
+    },
+    "provides": {
+        "interfaces": [
+            "App\\Domain\\X402\\Contracts\\X402SignerInterface"
+        ],
+        "events": [
+            "X402PaymentReceived",
+            "X402PaymentVerified",
+            "X402PaymentSettled",
+            "X402PaymentFailed"
+        ],
+        "commands": []
+    },
+    "paths": {
+        "routes": "Routes/api.php",
+        "migrations": "Database/Migrations",
+        "config": null,
+        "tests": "Tests"
+    }
+}

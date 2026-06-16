@@ -1,0 +1,111 @@
+type Poll @model(class: "App\\Domain\\Governance\\Models\\Poll") {
+    id: ID!
+    uuid: String!
+    title: String!
+    description: String
+    type: String!
+    options: String
+    start_date: DateTime
+    end_date: DateTime
+    status: String!
+    required_participation: Float
+    voting_power_strategy: String
+    execution_workflow: String
+    created_by: String
+    metadata: String
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+type Vote @model(class: "App\\Domain\\Governance\\Models\\Vote") {
+    id: ID!
+    poll_id: ID!
+    user_uuid: String!
+    selected_options: String
+    voting_power: Float
+    voted_at: DateTime
+    signature: String
+    metadata: String
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+type PollResults {
+    poll_id: ID!
+    total_votes: Int!
+    total_voting_power: Float!
+    results: String!
+}
+
+extend type Query {
+    poll(id: ID! @eq): Poll
+        @find
+        @guard(with: ["sanctum"])
+
+    polls(
+        page: Int @rules(apply: ["integer", "min:1"])
+        first: Int @rules(apply: ["integer", "min:1", "max:100"])
+        status: String @where(operator: "=")
+        type: String @where(operator: "=")
+    ): [Poll!]!
+        @paginate(defaultCount: 15, model: "App\\Domain\\Governance\\Models\\Poll")
+        @guard(with: ["sanctum"])
+
+    activePolls: [Poll!]!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Queries\\Governance\\ActivePollsQuery")
+
+    pollResults(poll_id: ID!): PollResults
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Queries\\Governance\\PollResultsQuery")
+
+    vote(id: ID! @eq): Vote
+        @find
+        @guard(with: ["sanctum"])
+
+    pollVotes(
+        page: Int @rules(apply: ["integer", "min:1"])
+        first: Int @rules(apply: ["integer", "min:1", "max:100"])
+        poll_id: ID @where(operator: "=")
+    ): [Vote!]!
+        @paginate(defaultCount: 15, model: "App\\Domain\\Governance\\Models\\Vote")
+        @guard(with: ["sanctum"])
+}
+
+input CreatePollInput {
+    title: String!
+    description: String
+    type: String!
+    options: String!
+    start_date: DateTime!
+    end_date: DateTime!
+    required_participation: Float
+    voting_power_strategy: String
+}
+
+input CastVoteInput {
+    poll_id: ID!
+    selected_options: String!
+}
+
+extend type Mutation {
+    createPoll(input: CreatePollInput! @spread): Poll!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Mutations\\Governance\\CreatePollMutation")
+
+    activatePoll(id: ID!): Poll!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Mutations\\Governance\\ActivatePollMutation")
+
+    castVote(input: CastVoteInput! @spread): Vote!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Mutations\\Governance\\CastVoteMutation")
+
+    completePoll(id: ID!): Poll!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Mutations\\Governance\\CompletePollMutation")
+
+    cancelPoll(id: ID!, reason: String): Poll!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Mutations\\Governance\\CancelPollMutation")
+}

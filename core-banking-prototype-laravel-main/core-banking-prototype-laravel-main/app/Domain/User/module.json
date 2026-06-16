@@ -1,0 +1,26 @@
+{
+    "$schema": "https://finaegis.io/schemas/module.json",
+    "name": "finaegis/user",
+    "version": "1.3.0",
+    "description": "User identity management, authentication, and profile handling",
+    "type": "core",
+    "dependencies": {
+        "required": {
+            "finaegis/shared": "^1.0"
+        },
+        "optional": {}
+    },
+    "provides": {
+        "interfaces": [],
+        "events": [
+            "UserRegistered",
+            "UserUpdated",
+            "UserVerified"
+        ],
+        "commands": []
+    },
+    "paths": {
+        "migrations": "Database/Migrations",
+        "tests": "Tests"
+    }
+}

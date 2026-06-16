@@ -1,0 +1,111 @@
+"An installed plugin in the marketplace."
+type Plugin @model(class: "App\\Domain\\Shared\\Models\\Plugin") {
+    id: ID!
+    "Plugin vendor namespace."
+    vendor: String!
+    "Plugin name within the vendor namespace."
+    name: String!
+    "Semantic version string."
+    version: String
+    "Human-readable display name."
+    display_name: String
+    "Description of the plugin's functionality."
+    description: String
+    "Plugin author name."
+    author: String
+    "Software license identifier."
+    license: String
+    "Plugin homepage URL."
+    homepage: String
+    "Current status: active, inactive, or failed."
+    status: String!
+    "Whether this is a built-in system plugin."
+    is_system: Boolean!
+    "Declared permission categories."
+    permissions: [String]
+    "Plugin dependencies."
+    dependencies: [String]
+    "Arbitrary metadata."
+    metadata: String
+    "Filesystem path to the plugin."
+    path: String
+    "When the plugin was installed."
+    installed_at: DateTime
+    "When the plugin was last activated."
+    activated_at: DateTime
+    "When the plugin was last updated."
+    last_updated_at: DateTime
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+"Aggregate marketplace statistics."
+type PluginMarketplaceStats {
+    "Total number of installed plugins."
+    total: Int!
+    "Number of active plugins."
+    active: Int!
+    "Number of inactive plugins."
+    inactive: Int!
+    "Number of failed plugins."
+    failed: Int!
+    "Number of available hook points in the system."
+    hook_point_count: Int!
+}
+
+"Result of a plugin operation (enable, disable, etc.)."
+type PluginOperationResult {
+    "Whether the operation succeeded."
+    success: Boolean!
+    "Human-readable result message."
+    message: String!
+}
+
+"Result of a security scan on a plugin."
+type PluginScanResult {
+    "The scanned plugin name."
+    plugin: String!
+    "Whether the plugin passed the security scan."
+    safe: Boolean!
+    "Number of security issues found."
+    issue_count: Int!
+}
+
+extend type Query {
+    "List installed plugins with optional filters."
+    plugins(
+        "Filter by plugin status."
+        status: String @rules(apply: ["in:active,inactive,failed"])
+        "Filter by vendor namespace."
+        vendor: String
+    ): [Plugin!]!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Queries\\Plugin\\PluginsQuery")
+
+    "Retrieve a single plugin by ID."
+    plugin(id: ID!): Plugin
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Queries\\Plugin\\PluginQuery")
+
+    "Get aggregate marketplace statistics."
+    pluginMarketplaceStats: PluginMarketplaceStats!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Queries\\Plugin\\PluginMarketplaceStatsQuery")
+}
+
+extend type Mutation {
+    "Enable a disabled plugin."
+    enablePlugin(id: ID!): PluginOperationResult!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Mutations\\Plugin\\EnablePluginMutation")
+
+    "Disable an active plugin."
+    disablePlugin(id: ID!): PluginOperationResult!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Mutations\\Plugin\\DisablePluginMutation")
+
+    "Run a security scan on a plugin."
+    scanPlugin(id: ID!): PluginScanResult!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Mutations\\Plugin\\ScanPluginMutation")
+}

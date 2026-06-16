@@ -1,0 +1,140 @@
+<?php
+
+declare(strict_types=1);
+
+use App\Http\Controllers\Api\Mobile\UserPreferencesController;
+use App\Http\Controllers\Api\MobileController;
+use Illuminate\Support\Facades\Route;
+
+// App status endpoint (no auth required, used by mobile for version/maintenance check)
+Route::prefix('v1/app')->name('api.app.')->group(function () {
+    Route::get('/status', [MobileController::class, 'getAppStatus'])->name('status');
+});
+
+Route::prefix('v1/mobile')->name('api.mobile.v1.')->group(function () {
+    Route::get('/ssl-pins', [MobileController::class, 'getSslPins'])->name('ssl-pins');
+});
+
+Route::prefix('mobile')->name('api.mobile.')->group(function () {
+    // Public endpoints (no auth required)
+    Route::get('/config', [MobileController::class, 'getConfig'])->name('config');
+
+    // Biometric authentication (no auth required - this IS the auth)
+    // Rate limited to prevent brute force attacks (10 requests per minute)
+    Route::prefix('auth/biometric')
+        ->middleware('throttle:10,1')
+        ->name('auth.biometric.')
+        ->group(function () {
+            Route::post('/challenge', [MobileController::class, 'getBiometricChallenge'])->name('challenge');
+            Route::post('/verify', [MobileController::class, 'verifyBiometric'])->name('verify');
+        });
+
+    // Protected endpoints (require authentication)
+    Route::middleware(['auth:sanctum'])->group(function () {
+        // Device management
+        Route::prefix('devices')->name('devices.')->group(function () {
+            Route::get('/', [MobileController::class, 'listDevices'])->name('index');
+            Route::post('/', [MobileController::class, 'registerDevice'])->name('register');
+            Route::delete('/all', [MobileController::class, 'bulkRemoveDevices'])->name('bulk-destroy');
+            Route::get('/{id}', [MobileController::class, 'getDevice'])->name('show');
+            Route::delete('/{id}', [MobileController::class, 'unregisterDevice'])->name('destroy');
+            Route::patch('/{id}/token', [MobileController::class, 'updatePushToken'])->name('token');
+
+            // Device security actions
+            Route::post('/{id}/block', [MobileController::class, 'blockDevice'])->name('block');
+            Route::post('/{id}/unblock', [MobileController::class, 'unblockDevice'])->name('unblock');
+            Route::post('/{id}/trust', [MobileController::class, 'trustDevice'])->name('trust');
+        });
+
+        // Biometric management (requires auth to enable/disable)
+        Route::prefix('auth/biometric')->name('auth.biometric.')->group(function () {
+            Route::post('/enable', [MobileController::class, 'enableBiometric'])->name('enable');
+            Route::delete('/disable', [MobileController::class, 'disableBiometric'])->name('disable');
+        });
+
+        // Token refresh
+        Route::post('/auth/refresh', [MobileController::class, 'refreshToken'])->name('auth.refresh');
+
+        // Session management
+        Route::prefix('sessions')->name('sessions.')->group(function () {
+            Route::get('/', [MobileController::class, 'listSessions'])->name('index');
+            Route::delete('/{id}', [MobileController::class, 'revokeSession'])->name('revoke');
+            Route::delete('/', [MobileController::class, 'revokeAllSessions'])->name('revoke-all');
+        });
+
+        // Push notifications
+        Route::prefix('notifications')->name('notifications.')->group(function () {
+            Route::get('/', [MobileController::class, 'getNotifications'])->name('index');
+            Route::post('/{id}/read', [MobileController::class, 'markNotificationRead'])->name('read');
+            Route::post('/read-all', [MobileController::class, 'markAllNotificationsRead'])->name('read-all');
+
+            // Notification preferences
+            Route::get('/preferences', [MobileController::class, 'getNotificationPreferences'])->name('preferences.index');
+            Route::put('/preferences', [MobileController::class, 'updateNotificationPreferences'])->name('preferences.update');
+        });
+    });
+});
+
+// Notification endpoints — v1 (v5.13.0)
+Route::prefix('v1/notifications')->name('api.v1.notifications.')
+    ->middleware(['auth:sanctum'])
+    ->group(function () {
+        Route::get('/', [App\Http\Controllers\Api\V1\NotificationController::class, 'index'])
+            ->name('index');
+        Route::get('/unread-count', [App\Http\Controllers\Api\V1\NotificationController::class, 'unreadCount'])
+            ->middleware('api.rate_limit:query')
+            ->name('unread-count');
+        Route::get('/{id}', [App\Http\Controllers\Api\V1\NotificationController::class, 'show'])
+            ->name('show');
+        Route::post('/read-all', [App\Http\Controllers\Api\V1\NotificationController::class, 'markAllRead'])
+            ->name('read-all');
+        // Alias: mobile app sends POST /api/v1/notifications/mark-all-read
+        Route::post('/mark-all-read', [App\Http\Controllers\Api\V1\NotificationController::class, 'markAllRead'])
+            ->name('mark-all-read');
+        Route::post('/{id}/read', [App\Http\Controllers\Api\V1\NotificationController::class, 'markRead'])
+            ->name('read');
+        // Alias: mobile app sends PATCH /api/v1/notifications/{id}/read
+        Route::patch('/{id}/read', [App\Http\Controllers\Api\V1\NotificationController::class, 'markRead'])
+            ->name('read.patch');
+    });
+
+// Device management aliases — mobile app expects /api/v1/devices/* (v7.1.0)
+Route::prefix('v1/devices')->name('api.v1.devices.')
+    ->middleware(['auth:sanctum'])
+    ->group(function () {
+        Route::get('/', [MobileController::class, 'listDevices'])->name('index');
+        Route::post('/', [MobileController::class, 'registerDevice'])->name('register');
+        Route::delete('/{id}', [MobileController::class, 'unregisterDevice'])->name('destroy');
+        Route::post('/bulk-remove', [MobileController::class, 'bulkRemoveDevices'])->name('bulk-remove');
+    });
+
+// Push notification device registration — mobile app expects /api/v1/notifications/* (v7.9.0)
+Route::prefix('v1/notifications')->name('api.v1.notifications.device.')
+    ->middleware(['auth:sanctum'])
+    ->group(function () {
+        Route::post('/register-device', [MobileController::class, 'registerDevice'])->name('register');
+        Route::delete('/unregister-device', [MobileController::class, 'unregisterDevice'])->name('unregister');
+        // Alias: mobile sign-out calls DELETE /api/v1/notifications/register-device/{deviceId} (v7.12.1)
+        Route::delete('/register-device/{id}', [MobileController::class, 'unregisterDevice'])->name('unregister-alias');
+    });
+
+// User preferences (v3.3.4) + data export alias (v5.6.0)
+Route::prefix('v1/user')->name('api.user.')
+    ->middleware(['auth:sanctum'])
+    ->group(function () {
+        Route::get('/preferences', [UserPreferencesController::class, 'show'])->name('preferences.show');
+        Route::patch('/preferences', [UserPreferencesController::class, 'update'])->name('preferences.update');
+
+        // Alias for GDPR data export (mobile expects POST /api/v1/user/data-export)
+        Route::post('/data-export', [App\Http\Controllers\Api\GdprController::class, 'requestDataExport'])
+            ->middleware('api.rate_limit:mutation')
+            ->name('data-export');
+
+        // Data export status polling (mobile expects GET /api/v1/user/data-export/{exportId})
+        Route::get('/data-export/{exportId}', [App\Http\Controllers\Api\GdprController::class, 'getExportStatus'])
+            ->name('data-export.status');
+
+        // Data export download (signed URL)
+        Route::get('/data-export/{exportId}/download', [App\Http\Controllers\Api\GdprController::class, 'downloadExport'])
+            ->name('data-export.download');
+    });

@@ -1,0 +1,51 @@
+"A date string with format `Y-m-d`, e.g. `2011-05-23`."
+scalar Date @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\Date")
+
+"A datetime string with format `Y-m-d H:i:s`, e.g. `2018-05-23 13:43:32`."
+scalar DateTime @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\DateTime")
+
+#import directives.graphql
+#import account.graphql
+#import wallet.graphql
+#import exchange.graphql
+#import compliance.graphql
+#import treasury.graphql
+#import payment.graphql
+#import lending.graphql
+#import stablecoin.graphql
+#import crosschain.graphql
+#import defi.graphql
+#import fraud.graphql
+#import iso20022.graphql
+#import mobile.graphql
+#import mobile-payment.graphql
+#import trust-cert.graphql
+#import subscriptions.graphql
+#import agent-protocol.graphql
+#import basket.graphql
+#import batch.graphql
+#import card-issuance.graphql
+#import cgo.graphql
+#import financial-institution.graphql
+#import product.graphql
+#import regulatory.graphql
+#import user.graphql
+#import x402.graphql
+#import banking.graphql
+#import plugin.graphql
+#import rewards.graphql
+#import open-banking.graphql
+#import interledger.graphql
+#import payment-rails.graphql
+#import ledger.graphql
+#import microfinance.graphql
+#import ai.graphql
+#import asset.graphql
+#import commerce.graphql
+#import custodian.graphql
+#import governance.graphql
+#import key-management.graphql
+#import privacy.graphql
+#import regtech.graphql
+#import relayer.graphql
+#import sms.graphql

@@ -1,0 +1,99 @@
+type Merchant @model(class: "App\\Domain\\Commerce\\Models\\Merchant") {
+    id: ID!
+    public_id: String!
+    display_name: String!
+    icon_url: String
+    accepted_assets: String
+    accepted_networks: String
+    status: String!
+    terminal_id: String
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+type MerchantWalletAddress @model(class: "App\\Domain\\Commerce\\Models\\MerchantWalletAddress") {
+    id: ID!
+    merchant_id: ID!
+    network: String!
+    wallet_address: String!
+    is_active: Boolean!
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+type SoulboundTokenResult {
+    token_hash: String!
+    token_type: String!
+    subject: String!
+    issuer: String!
+    issued_at: String!
+    is_valid: Boolean!
+}
+
+extend type Query {
+    merchant(id: ID! @eq): Merchant
+        @find
+        @guard(with: ["sanctum"])
+
+    merchants(
+        page: Int @rules(apply: ["integer", "min:1"])
+        first: Int @rules(apply: ["integer", "min:1", "max:100"])
+        status: String @where(operator: "=")
+    ): [Merchant!]!
+        @paginate(defaultCount: 15, model: "App\\Domain\\Commerce\\Models\\Merchant")
+        @guard(with: ["sanctum"])
+
+    merchantByPublicId(public_id: String! @eq): Merchant
+        @find
+        @guard(with: ["sanctum"])
+
+    merchantWalletAddresses(
+        page: Int @rules(apply: ["integer", "min:1"])
+        first: Int @rules(apply: ["integer", "min:1", "max:100"])
+        merchant_id: ID @where(operator: "=")
+        network: String @where(operator: "=")
+        is_active: Boolean @where(operator: "=")
+    ): [MerchantWalletAddress!]!
+        @paginate(defaultCount: 15, model: "App\\Domain\\Commerce\\Models\\MerchantWalletAddress")
+        @guard(with: ["sanctum"])
+
+    verifySoulboundToken(token_hash: String!): SoulboundTokenResult
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Queries\\Commerce\\VerifySoulboundTokenQuery")
+}
+
+input SubmitMerchantApplicationInput {
+    display_name: String!
+    icon_url: String
+    accepted_assets: String
+    accepted_networks: String
+    terminal_id: String
+}
+
+input IssueSoulboundTokenInput {
+    token_type: String!
+    recipient_address: String!
+    metadata: String
+}
+
+extend type Mutation {
+    submitMerchantApplication(input: SubmitMerchantApplicationInput! @spread): Merchant!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Mutations\\Commerce\\SubmitMerchantApplicationMutation")
+
+    approveMerchant(id: ID!): Merchant!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Mutations\\Commerce\\ApproveMerchantMutation")
+
+    suspendMerchant(id: ID!): Merchant!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Mutations\\Commerce\\SuspendMerchantMutation")
+
+    issueSoulboundToken(input: IssueSoulboundTokenInput! @spread): SoulboundTokenResult!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Mutations\\Commerce\\IssueSoulboundTokenMutation")
+
+    revokeSoulboundToken(token_hash: String!, reason: String!): Boolean!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Mutations\\Commerce\\RevokeSoulboundTokenMutation")
+}

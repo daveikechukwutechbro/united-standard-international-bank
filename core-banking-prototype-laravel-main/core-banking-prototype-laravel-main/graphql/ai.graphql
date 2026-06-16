@@ -1,0 +1,85 @@
+type AiPromptTemplate @model(class: "App\\Domain\\AI\\Models\\AiPromptTemplate") {
+    id: ID!
+    uuid: String!
+    name: String!
+    category: String!
+    system_prompt: String
+    user_template: String
+    variables: String
+    metadata: String
+    version: Int!
+    is_active: Boolean!
+    usage_count: Int!
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+type AiLlmUsage @model(class: "App\\Domain\\AI\\Models\\AiLlmUsage") {
+    id: ID!
+    conversation_id: String
+    user_uuid: String
+    provider: String!
+    model: String!
+    prompt_tokens: Int!
+    completion_tokens: Int!
+    total_tokens: Int!
+    cost_usd: Float
+    latency_ms: Int
+    request_type: String
+    success: Boolean!
+    error_message: String
+    metadata: String
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+type AiConversationResult {
+    conversation_id: String!
+    response: String!
+    tokens_used: Int
+}
+
+extend type Query {
+    aiPromptTemplate(id: ID! @eq): AiPromptTemplate
+        @find
+        @guard(with: ["sanctum"])
+
+    aiPromptTemplates(
+        page: Int @rules(apply: ["integer", "min:1"])
+        first: Int @rules(apply: ["integer", "min:1", "max:100"])
+        category: String @where(operator: "=")
+        is_active: Boolean @where(operator: "=")
+    ): [AiPromptTemplate!]!
+        @paginate(defaultCount: 15, model: "App\\Domain\\AI\\Models\\AiPromptTemplate")
+        @guard(with: ["sanctum"])
+
+    aiLlmUsages(
+        page: Int @rules(apply: ["integer", "min:1"])
+        first: Int @rules(apply: ["integer", "min:1", "max:100"])
+        provider: String @where(operator: "=")
+        model: String @where(operator: "=")
+        success: Boolean @where(operator: "=")
+    ): [AiLlmUsage!]!
+        @paginate(defaultCount: 15, model: "App\\Domain\\AI\\Models\\AiLlmUsage")
+        @guard(with: ["sanctum"])
+
+    aiConversation(conversation_id: String!): AiConversationResult
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Queries\\AI\\AiConversationQuery")
+}
+
+input SendAiMessageInput {
+    conversation_id: String
+    message: String!
+    context: String
+}
+
+extend type Mutation {
+    sendAiMessage(input: SendAiMessageInput! @spread): AiConversationResult!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Mutations\\AI\\SendAiMessageMutation")
+
+    deleteAiConversation(conversation_id: String!): Boolean!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Mutations\\AI\\DeleteAiConversationMutation")
+}

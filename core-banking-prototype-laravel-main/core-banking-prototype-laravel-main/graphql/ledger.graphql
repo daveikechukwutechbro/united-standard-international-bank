@@ -1,0 +1,76 @@
+type LedgerAccount {
+    code: String!
+    name: String!
+    type: String!
+    parent_code: String
+    currency: String!
+    is_active: Boolean!
+}
+
+type JournalEntryResult {
+    id: ID!
+    entry_number: String!
+    description: String!
+    status: String!
+    posted_at: String
+}
+
+type AccountBalance {
+    amount: String!
+    currency: String!
+}
+
+type TrialBalanceEntry {
+    account_code: String!
+    debit: String!
+    credit: String!
+    balance: String!
+}
+
+input JournalLineInput {
+    account_code: String!
+    debit: String!
+    credit: String!
+    narrative: String
+}
+
+input CreateLedgerAccountInput {
+    code: String!
+    name: String!
+    type: String!
+    parent_code: String
+    currency: String
+    description: String
+}
+
+extend type Query {
+    ledgerAccounts: [LedgerAccount!]!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Queries\\Ledger\\AccountsQuery")
+
+    ledgerBalance(account_code: String!): AccountBalance!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Queries\\Ledger\\BalanceQuery")
+
+    ledgerTrialBalance: [TrialBalanceEntry!]!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Queries\\Ledger\\TrialBalanceQuery")
+}
+
+extend type Mutation {
+    ledgerCreateAccount(input: CreateLedgerAccountInput! @spread): LedgerAccount!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Mutations\\Ledger\\CreateAccountMutation")
+
+    ledgerPostEntry(
+        description: String!
+        lines: [JournalLineInput!]!
+        source_domain: String
+    ): JournalEntryResult!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Mutations\\Ledger\\PostEntryMutation")
+
+    ledgerReverseEntry(id: ID!, reason: String!): JournalEntryResult!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Mutations\\Ledger\\ReverseEntryMutation")
+}

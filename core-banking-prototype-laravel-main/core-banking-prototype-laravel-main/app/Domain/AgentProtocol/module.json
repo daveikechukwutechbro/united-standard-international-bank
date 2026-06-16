@@ -1,0 +1,46 @@
+{
+    "$schema": "https://finaegis.io/schemas/module.json",
+    "name": "finaegis/agent-protocol",
+    "version": "1.3.0",
+    "description": "AI Agent Payment Protocol (AP2) with escrow, reputation, and verification",
+    "type": "optional",
+    "dependencies": {
+        "required": {
+            "finaegis/shared": "^1.0",
+            "finaegis/account": "^1.0",
+            "finaegis/compliance": "^1.0"
+        },
+        "optional": {
+            "finaegis/ai": "^1.0",
+            "finaegis/wallet": "^1.0"
+        }
+    },
+    "provides": {
+        "interfaces": [
+            "App\\Domain\\AgentProtocol\\Contracts\\RiskScoringInterface",
+            "App\\Domain\\AgentProtocol\\Contracts\\TransactionVerifierInterface",
+            "App\\Domain\\AgentProtocol\\Contracts\\WalletOperationInterface"
+        ],
+        "events": [
+            "AgentRegistered",
+            "AgentVerified",
+            "EscrowCreated",
+            "EscrowReleased",
+            "EscrowDisputed",
+            "ReputationUpdated",
+            "TransactionVerified"
+        ],
+        "commands": [
+            "RegisterAgentCommand",
+            "CreateEscrowCommand",
+            "ReleaseEscrowCommand",
+            "UpdateReputationCommand"
+        ]
+    },
+    "paths": {
+        "routes": "Routes/api.php",
+        "migrations": "Database/Migrations",
+        "config": "Config/agent_protocol.php",
+        "tests": "Tests"
+    }
+}

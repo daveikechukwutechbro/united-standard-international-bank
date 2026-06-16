@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Network Unavailable State</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#df2020",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#171111", // Using the dark background from the example
+                        "surface-dark": "#211111",
+                        "surface-hover": "#2a1a1a",
+                        "text-secondary": "#b79e9e",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: "Space Grotesk", sans-serif;
+        }
+        /* Custom scrollbar for webkit */
+        ::-webkit-scrollbar {
+            width: 0px;
+            background: transparent;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-gray-900 dark:text-white h-screen w-full flex flex-col font-display overflow-hidden">
+<!-- Mobile Container -->
+<div class="relative flex flex-col w-full h-full max-w-md mx-auto bg-background-light dark:bg-background-dark overflow-hidden shadow-2xl">
+<!-- Header -->
+<header class="flex items-center justify-between p-4 pb-2 z-10 bg-background-light dark:bg-background-dark shrink-0">
+<button class="flex items-center justify-center size-10 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors text-gray-900 dark:text-white">
+<span class="material-symbols-outlined" style="font-size: 24px;">arrow_back</span>
+</button>
+<h2 class="text-lg font-bold leading-tight tracking-tight flex-1 text-center">Receive Assets</h2>
+<button class="flex items-center justify-center size-10 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors text-gray-900 dark:text-white">
+<span class="material-symbols-outlined" style="font-size: 24px;">close</span>
+</button>
+</header>
+<!-- Search Area -->
+<div class="px-4 py-3 shrink-0">
+<div class="relative flex items-center w-full h-12 rounded-xl bg-gray-200 dark:bg-[#2A1F1F] group focus-within:ring-2 ring-primary/50 transition-all">
+<div class="flex items-center justify-center pl-4 pr-2 text-gray-500 dark:text-[#b79e9e]">
+<span class="material-symbols-outlined" style="font-size: 20px;">search</span>
+</div>
+<input class="w-full bg-transparent border-none text-base font-normal placeholder:text-gray-500 dark:placeholder:text-[#b79e9e] text-gray-900 dark:text-white focus:ring-0 focus:outline-none h-full rounded-r-xl" placeholder="Search networks" type="text"/>
+</div>
+</div>
+<!-- Scrollable Content -->
+<div class="flex-1 overflow-y-auto px-4 pb-8 space-y-2">
+<h3 class="text-xl font-bold leading-tight pt-4 pb-2 px-1">Choose a network</h3>
+<!-- Active Network: Bitcoin -->
+<button class="w-full group flex items-center justify-between p-4 rounded-2xl bg-white dark:bg-[#211818] hover:bg-gray-50 dark:hover:bg-[#2a1f1f] transition-all duration-200 border border-transparent dark:border-white/5 shadow-sm">
+<div class="flex items-center gap-4">
+<div class="relative size-10 shrink-0 rounded-full overflow-hidden bg-[#F7931A]">
+<!-- Bitcoin Icon Placeholder -->
+<div class="absolute inset-0 flex items-center justify-center text-white font-bold text-xl">₿</div>
+</div>
+<div class="flex flex-col items-start">
+<span class="text-base font-bold leading-none">Bitcoin</span>
+<span class="text-sm text-gray-500 dark:text-[#b79e9e] mt-1">BTC</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-gray-400 dark:text-[#6e5e5e] group-hover:text-primary transition-colors" style="font-size: 24px;">chevron_right</span>
+</button>
+<!-- Active Network: Solana -->
+<button class="w-full group flex items-center justify-between p-4 rounded-2xl bg-white dark:bg-[#211818] hover:bg-gray-50 dark:hover:bg-[#2a1f1f] transition-all duration-200 border border-transparent dark:border-white/5 shadow-sm">
+<div class="flex items-center gap-4">
+<div class="relative size-10 shrink-0 rounded-full overflow-hidden bg-black border border-white/10">
+<img alt="Solana Logo" class="w-full h-full object-cover p-1.5" data-alt="Solana blockchain gradient logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1Hj5Coc7HF05fwILCJqZoiJkdsWQPFUKhA1ln8hK_xA4twHDlX02BqwgpDu7sczIf3yo1AyESfi-dnLb52rD3snu5PlcthvvMVlbzD90LmT2_adXXkwUKcIvj6L2iVVAl2G8nCjWEGbt7C-a8iGygsRlmkNqHmrdZxKqp4xBhADMMREYGfnI4_RntZq6bqzfp7uRYNAtwQtTSVkPJYyVpYbejcIWW2Utw99i_khosXV914crUhakoY_xocT7Yo7aD2EXlNSRheWEo"/>
+</div>
+<div class="flex flex-col items-start">
+<span class="text-base font-bold leading-none">Solana</span>
+<span class="text-sm text-gray-500 dark:text-[#b79e9e] mt-1">SOL</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-gray-400 dark:text-[#6e5e5e] group-hover:text-primary transition-colors" style="font-size: 24px;">chevron_right</span>
+</button>
+<!-- Disabled Network: Ethereum -->
+<div class="w-full relative flex items-center justify-between p-4 rounded-2xl bg-gray-100 dark:bg-[#1C1616] border border-gray-200 dark:border-white/5 opacity-80 cursor-not-allowed select-none">
+<div class="flex items-center gap-4 w-full">
+<!-- Dimmed Icon -->
+<div class="relative size-10 shrink-0 rounded-full overflow-hidden bg-gray-300 dark:bg-[#2d2424] grayscale opacity-50">
+<img alt="Ethereum Logo" class="w-full h-full object-cover p-1.5" data-alt="Ethereum blockchain diamond logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvPtpCM4SL2LoZDWv4RowhyEC_tZdcPFzIYmVaxCJLVwkLEbzSE7awtyXsmWBGgH8wbTcF7anhF1d4yt39ba1AZei4oF2NCixaQZwjYt_YxePuLVpLoAFnBKDksvEI4IclwK1j5cPonR2UudCRCl_2lqL0ZvMhVtA3Fqt7x-Kowk24Uqw8UeG5rOh2dferfvLp5RHOSo6r9DI_ABzsBOfU7nCoqvL43N-OTESG9_xDIdX339zMb4FlfzOaec5WBlFi572impJfCeyl"/>
+</div>
+<div class="flex flex-col items-start flex-1 min-w-0">
+<div class="flex items-center justify-between w-full">
+<span class="text-base font-bold leading-none text-gray-500 dark:text-gray-400">Ethereum</span>
+</div>
+<!-- Warning Badge -->
+<div class="mt-2 inline-flex items-center px-2.5 py-1 rounded-full bg-primary/10 border border-primary/20">
+<span class="material-symbols-outlined text-primary mr-1.5 animate-pulse" style="font-size: 14px;">warning</span>
+<span class="text-xs font-medium text-primary leading-none pt-0.5">Network temporarily unavailable</span>
+</div>
+</div>
+</div>
+<!-- No Chevron for disabled state -->
+</div>
+<!-- Active Network: Polygon -->
+<button class="w-full group flex items-center justify-between p-4 rounded-2xl bg-white dark:bg-[#211818] hover:bg-gray-50 dark:hover:bg-[#2a1f1f] transition-all duration-200 border border-transparent dark:border-white/5 shadow-sm">
+<div class="flex items-center gap-4">
+<div class="relative size-10 shrink-0 rounded-full overflow-hidden bg-[#8247E5]">
+<img alt="Polygon Logo" class="w-full h-full object-cover p-1.5 invert brightness-0" data-alt="Polygon blockchain s shape logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWVDzo6l02dBanXtmGpWWr3yZwPZMxaDWr4sQudKzLQG7wvY729zQ6w0ff_QCCZTcxxLL0IRSJR2aZqhYAOmMzutV_hpebpLLZ9uO9mR-915oqFc_rOyQ4UT-gqUJmnMbcIjXLkwAX6bd9_S0LG6KE4jOuWMSRBa8rEpcd2wJT38xCzPOKaDRQCRKjaLhL-kOqs1HCwCAS8-0wL_IbO_zcno2GAXZkSz2nCEah9pT3lha0nYfkanub1z0ozgggZYW0oyRYEDG5uA5_"/>
+</div>
+<div class="flex flex-col items-start">
+<span class="text-base font-bold leading-none">Polygon</span>
+<span class="text-sm text-gray-500 dark:text-[#b79e9e] mt-1">MATIC</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-gray-400 dark:text-[#6e5e5e] group-hover:text-primary transition-colors" style="font-size: 24px;">chevron_right</span>
+</button>
+<!-- Active Network: Avalanche -->
+<button class="w-full group flex items-center justify-between p-4 rounded-2xl bg-white dark:bg-[#211818] hover:bg-gray-50 dark:hover:bg-[#2a1f1f] transition-all duration-200 border border-transparent dark:border-white/5 shadow-sm">
+<div class="flex items-center gap-4">
+<div class="relative size-10 shrink-0 rounded-full overflow-hidden bg-[#E84142]">
+<img alt="Avalanche Logo" class="w-full h-full object-cover p-1.5 invert brightness-0" data-alt="Avalanche blockchain triangle logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2Lvn7DhbgKUwrLiV0SS32BcxjkGtP2KFSAYb5KWLvdTHxtAQ_ocHO6eWDItfqL3n_Eqry4v-1zDdfW84y2UyeLQyIhdpZyCXVYuXXsfw44h1faGZyMxZNHNIt4u97TjQeWzME0yCeZf3O4HQPV2ZlRkmGIvfLOju0AeweUNyvcoDEY1Wud4gqTSFZpztwkYw4972nc32MXPYGm8t2f4ulH-rtbF4KrqR5EYjuoKAwFnyDlQ9TVnRcMSiJUTMh6cJACQWWhKt2-buu"/>
+</div>
+<div class="flex flex-col items-start">
+<span class="text-base font-bold leading-none">Avalanche C-Chain</span>
+<span class="text-sm text-gray-500 dark:text-[#b79e9e] mt-1">AVAX</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-gray-400 dark:text-[#6e5e5e] group-hover:text-primary transition-colors" style="font-size: 24px;">chevron_right</span>
+</button>
+<p class="text-center text-xs text-gray-400 dark:text-[#6e5e5e] pt-6 pb-2">
+                Select a network to generate your deposit address
+            </p>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Shield Privacy Explainer</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#277bf1",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101722",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-white antialiased overflow-hidden">
+<div class="relative flex h-screen w-full flex-col overflow-hidden max-w-md mx-auto shadow-2xl">
+<!-- Header / Skip -->
+<div class="flex items-center px-6 py-4 justify-end pt-12 md:pt-4">
+<button class="flex items-center justify-end group">
+<span class="text-slate-500 dark:text-slate-400 text-sm font-bold leading-normal tracking-[0.015em] transition-colors group-hover:text-primary">Skip</span>
+</button>
+</div>
+<!-- Main Content Area -->
+<div class="flex-1 flex flex-col items-center justify-center px-6 pb-8">
+<!-- Hero Illustration -->
+<div class="w-full flex justify-center mb-8 relative">
+<!-- Decorative Glow -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-primary/20 rounded-full blur-3xl"></div>
+<div class="relative z-10 w-48 h-48 rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center mb-4 ring-1 ring-slate-200 dark:ring-slate-700">
+<!-- Illustration Placeholder -->
+<div class="w-full h-full bg-contain bg-center bg-no-repeat transform scale-75" data-alt="3D illustration of a digital wallet with a glowing blue shield in front" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDXSfrmcfilHlJ0MTVLJR782BlbzKYkv7LGIqQBCwpF6uLC1eDx8c8s-2GHKDPdq2VnYQomUNKHeEIJbCXDqQbiDGkdAIm4XFfn8MUdWyzNobJq1NHw2S5O0YjAKJNgDAU9fOqp5PvyuFN2taIzuMTq4S0WQaxbQeVAt2WrDFhYEzK0hM-_KXXXIYm9IbK0S2Qr3eNLwGL_U-8NYAyilLi2bu3z9zJEBdTuAwuDxrujsA7lXVn63pXY8HFjS-CENjwB6s2ga-YKABZ4");'>
+</div>
+</div>
+</div>
+<!-- Title -->
+<h1 class="text-3xl font-bold leading-tight text-center mb-8 px-4 text-slate-900 dark:text-white">
+                Your balance <br/> stays private
+            </h1>
+<!-- Feature List -->
+<div class="w-full max-w-sm space-y-6">
+<!-- Item 1 -->
+<div class="flex items-start gap-4">
+<div class="flex-shrink-0 w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center mt-0.5">
+<span class="material-symbols-outlined text-primary text-[20px]">visibility_off</span>
+</div>
+<div>
+<p class="text-base font-medium text-slate-900 dark:text-white">Merchants see less</p>
+<p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Only the payment amount is shared, keeping your balance strictly confidential.</p>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="flex items-start gap-4">
+<div class="flex-shrink-0 w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center mt-0.5">
+<span class="material-symbols-outlined text-primary text-[20px]">history</span>
+</div>
+<div>
+<p class="text-base font-medium text-slate-900 dark:text-white">Hidden history</p>
+<p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Your full transaction history remains hidden from third-party vendors.</p>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="flex items-start gap-4">
+<div class="flex-shrink-0 w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center mt-0.5">
+<span class="material-symbols-outlined text-primary text-[20px]">verified_user</span>
+</div>
+<div>
+<p class="text-base font-medium text-slate-900 dark:text-white">Spend with confidence</p>
+<p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Enjoy bank-grade security on every purchase you make.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Action -->
+<div class="p-6 pb-8 md:pb-6">
+<button class="w-full cursor-pointer flex items-center justify-center rounded-xl h-14 bg-primary hover:bg-primary/90 transition-colors text-white text-lg font-bold leading-normal tracking-[0.015em] shadow-lg shadow-primary/25">
+<span class="truncate">Got it</span>
+</button>
+</div>
+</div>
+</body></html>

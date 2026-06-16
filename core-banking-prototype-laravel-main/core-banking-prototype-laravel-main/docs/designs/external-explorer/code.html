@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ShieldPay - External Explorer Handoff</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#19e680",
+                        "background-light": "#f6f8f7",
+                        "background-dark": "#112119",
+                        "surface-dark": "#1a2c24", 
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display antialiased overflow-hidden h-screen w-screen relative">
+<!-- Mock Background Content (Simulating the previous screen under blur) -->
+<div aria-hidden="true" class="absolute inset-0 flex flex-col pointer-events-none opacity-40 dark:opacity-20 blur-[2px]">
+<!-- Mock Header -->
+<div class="flex items-center justify-between p-6 pt-12">
+<div class="size-10 rounded-full bg-gray-200 dark:bg-gray-800"></div>
+<div class="h-4 w-32 rounded bg-gray-200 dark:bg-gray-800"></div>
+<div class="size-10 rounded-full bg-gray-200 dark:bg-gray-800"></div>
+</div>
+<!-- Mock Transaction List -->
+<div class="flex-1 px-6 space-y-4">
+<div class="h-24 w-full rounded-xl bg-gray-200 dark:bg-gray-800"></div>
+<div class="h-24 w-full rounded-xl bg-gray-200 dark:bg-gray-800"></div>
+<div class="h-24 w-full rounded-xl bg-gray-200 dark:bg-gray-800"></div>
+<div class="h-24 w-full rounded-xl bg-gray-200 dark:bg-gray-800"></div>
+<div class="h-24 w-full rounded-xl bg-gray-200 dark:bg-gray-800"></div>
+</div>
+</div>
+<!-- Overlay Backdrop -->
+<div class="absolute inset-0 bg-black/60 backdrop-blur-sm z-10"></div>
+<!-- Main Content Area (Modal Wrapper) -->
+<div class="absolute inset-0 z-20 flex flex-col items-center justify-end sm:justify-center p-4">
+<!-- Modal Card -->
+<div class="w-full max-w-md bg-white dark:bg-[#151e19] rounded-t-[2rem] sm:rounded-[2rem] border border-gray-100 dark:border-white/10 shadow-2xl overflow-hidden flex flex-col animate-in slide-in-from-bottom-10 fade-in duration-300">
+<!-- Handle bar for mobile feel -->
+<div class="w-full flex justify-center pt-4 pb-2 sm:hidden">
+<div class="w-12 h-1.5 rounded-full bg-gray-300 dark:bg-white/20"></div>
+</div>
+<div class="p-6 sm:p-8 flex flex-col items-center text-center gap-6">
+<!-- Icon with Glow -->
+<div class="relative flex items-center justify-center">
+<div class="absolute inset-0 bg-primary/20 blur-xl rounded-full scale-150"></div>
+<div class="relative flex items-center justify-center size-20 rounded-full bg-surface-dark border border-primary/20 text-primary">
+<span class="material-symbols-outlined text-4xl">public</span>
+<div class="absolute -right-1 -top-1 bg-surface-dark rounded-full p-1 border border-primary/20">
+<span class="material-symbols-outlined text-primary text-sm">arrow_outward</span>
+</div>
+</div>
+</div>
+<!-- Text Content -->
+<div class="space-y-3">
+<h2 class="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white tracking-tight">
+                        Leaving ShieldPay
+                    </h2>
+<p class="text-gray-600 dark:text-gray-400 text-base leading-relaxed max-w-xs mx-auto">
+                        You are about to view this transaction on the blockchain via an external explorer.
+                    </p>
+</div>
+<!-- Safety Tip Box -->
+<div class="w-full bg-yellow-50 dark:bg-yellow-900/10 border border-yellow-200 dark:border-yellow-500/20 rounded-xl p-4 flex gap-3 items-start text-left">
+<span class="material-symbols-outlined text-yellow-600 dark:text-yellow-500 shrink-0 text-[20px] mt-0.5">verified_user</span>
+<div>
+<p class="text-xs font-bold text-yellow-800 dark:text-yellow-500 uppercase tracking-wider mb-0.5">Safety Tip</p>
+<p class="text-sm text-yellow-800/80 dark:text-yellow-200/80 leading-snug">
+                            Always verify the URL in your browser address bar.
+                        </p>
+</div>
+</div>
+<!-- Spacer -->
+<div class="h-2"></div>
+<!-- Actions -->
+<div class="flex flex-col gap-3 w-full">
+<button class="group relative flex w-full items-center justify-center overflow-hidden rounded-xl bg-primary h-14 px-8 transition-all hover:bg-primary/90 hover:scale-[1.02] active:scale-[0.98]">
+<span class="relative text-background-dark text-lg font-bold tracking-wide">Continue to Explorer</span>
+<span class="material-symbols-outlined absolute right-4 text-background-dark opacity-0 group-hover:opacity-100 transition-opacity transform group-hover:translate-x-0 -translate-x-2">arrow_forward</span>
+</button>
+<button class="flex w-full items-center justify-center rounded-xl bg-transparent border border-gray-200 dark:border-white/10 h-14 px-8 text-gray-600 dark:text-white/70 font-bold text-lg hover:bg-gray-50 dark:hover:bg-white/5 transition-colors active:scale-[0.98]">
+                        Cancel
+                    </button>
+</div>
+<!-- Footer Disclaimer -->
+<p class="text-xs text-gray-400 dark:text-gray-600 max-w-[280px]">
+                    ShieldPay is not responsible for content on external websites.
+                </p>
+</div>
+</div>
+</div>
+</body></html>

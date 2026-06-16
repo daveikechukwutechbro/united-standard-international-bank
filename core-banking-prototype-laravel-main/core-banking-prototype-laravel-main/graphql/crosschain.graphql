@@ -1,0 +1,50 @@
+type BridgeTransaction @model(class: "App\\Domain\\CrossChain\\Models\\BridgeTransaction") {
+    id: ID!
+    user_id: Int
+    source_chain: String!
+    dest_chain: String!
+    token: String!
+    amount: Float!
+    provider: String
+    status: String!
+    sender_address: String
+    recipient_address: String
+    source_tx_hash: String
+    dest_tx_hash: String
+    fee_amount: Float
+    fee_currency: String
+    completed_at: DateTime
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+input InitiateBridgeTransferInput {
+    source_chain: String!
+    dest_chain: String!
+    token: String!
+    amount: Float!
+    recipient_address: String!
+    provider: String
+}
+
+extend type Query {
+    bridgeTransaction(id: ID! @eq): BridgeTransaction
+        @find
+        @guard(with: ["sanctum"])
+
+    bridgeTransactions(
+        page: Int @rules(apply: ["integer", "min:1"])
+        first: Int @rules(apply: ["integer", "min:1", "max:100"])
+        status: String @where(operator: "=")
+        source_chain: String @where(operator: "=")
+        dest_chain: String @where(operator: "=")
+    ): [BridgeTransaction!]!
+        @paginate(defaultCount: 15, model: "App\\Domain\\CrossChain\\Models\\BridgeTransaction")
+        @guard(with: ["sanctum"])
+}
+
+extend type Mutation {
+    initiateBridgeTransfer(input: InitiateBridgeTransferInput! @spread): BridgeTransaction!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Mutations\\CrossChain\\InitiateBridgeTransferMutation")
+}

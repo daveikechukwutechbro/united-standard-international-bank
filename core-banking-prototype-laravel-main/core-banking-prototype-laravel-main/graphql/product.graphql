@@ -1,0 +1,50 @@
+type Product @model(class: "App\\Domain\\Product\\Models\\Product") {
+    id: ID!
+    name: String!
+    description: String
+    category: String
+    type: String
+    status: String!
+    features: [String]
+    prices: [String]
+    popularity_score: Int
+    activated_at: DateTime
+    deactivated_at: DateTime
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+input CreateProductInput {
+    name: String!
+    description: String
+    category: String!
+    type: String!
+}
+
+input ActivateProductInput {
+    id: ID!
+}
+
+extend type Query {
+    product(id: ID! @eq): Product
+        @find
+        @guard(with: ["sanctum"])
+
+    products(
+        page: Int @rules(apply: ["integer", "min:1"])
+        first: Int @rules(apply: ["integer", "min:1", "max:100"])
+        status: String @where(operator: "=")
+    ): [Product!]!
+        @paginate(defaultCount: 15, model: "App\\Domain\\Product\\Models\\Product")
+        @guard(with: ["sanctum"])
+}
+
+extend type Mutation {
+    createProduct(input: CreateProductInput! @spread): Product!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Mutations\\Product\\CreateProductMutation")
+
+    activateProduct(input: ActivateProductInput! @spread): Product!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Mutations\\Product\\ActivateProductMutation")
+}

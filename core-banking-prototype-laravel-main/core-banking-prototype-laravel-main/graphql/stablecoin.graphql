@@ -1,0 +1,56 @@
+type StablecoinReserve @model(class: "App\\Domain\\Stablecoin\\Models\\StablecoinReserve") {
+    id: ID!
+    reserve_id: String!
+    pool_id: String!
+    stablecoin_code: String!
+    asset_code: String!
+    amount: Float!
+    value_usd: Float!
+    allocation_percentage: Float
+    custodian_id: String
+    custodian_name: String
+    custodian_type: String!
+    wallet_address: String
+    last_verified_at: DateTime
+    verification_source: String
+    status: String!
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+input MintStablecoinInput {
+    stablecoin_code: String!
+    amount: Float!
+    pool_id: String!
+}
+
+input RedeemStablecoinInput {
+    reserve_id: String!
+    amount: Float!
+}
+
+extend type Query {
+    stablecoinReserve(id: ID! @eq): StablecoinReserve
+        @find
+        @guard(with: ["sanctum"])
+
+    stablecoinReserves(
+        page: Int @rules(apply: ["integer", "min:1"])
+        first: Int @rules(apply: ["integer", "min:1", "max:100"])
+        stablecoin_code: String @where(operator: "=")
+        status: String @where(operator: "=")
+        pool_id: String @where(operator: "=")
+    ): [StablecoinReserve!]!
+        @paginate(defaultCount: 15, model: "App\\Domain\\Stablecoin\\Models\\StablecoinReserve")
+        @guard(with: ["sanctum"])
+}
+
+extend type Mutation {
+    mintStablecoin(input: MintStablecoinInput! @spread): StablecoinReserve!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Mutations\\Stablecoin\\MintStablecoinMutation")
+
+    redeemStablecoin(input: RedeemStablecoinInput! @spread): StablecoinReserve!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Mutations\\Stablecoin\\RedeemStablecoinMutation")
+}

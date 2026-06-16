@@ -1,0 +1,39 @@
+{
+    "$schema": "https://finaegis.io/schemas/module.json",
+    "name": "finaegis/cross-chain",
+    "version": "1.1.0",
+    "description": "Bridge protocols (Wormhole, LayerZero, Axelar), cross-chain swaps, multi-chain portfolio",
+    "type": "optional",
+    "dependencies": {
+        "required": {
+            "finaegis/shared": "^1.0",
+            "finaegis/wallet": "^1.0",
+            "finaegis/asset": "^1.0"
+        },
+        "optional": {
+            "finaegis/treasury": "^1.0",
+            "finaegis/defi": "^1.0"
+        }
+    },
+    "provides": {
+        "interfaces": [
+            "App\\Domain\\CrossChain\\Contracts\\BridgeAdapterInterface",
+            "App\\Domain\\CrossChain\\Contracts\\AssetMapperInterface",
+            "App\\Domain\\CrossChain\\Contracts\\CrossChainMessageInterface"
+        ],
+        "events": [
+            "BridgeTransactionInitiated",
+            "BridgeTransactionCompleted",
+            "BridgeTransactionFailed",
+            "CrossChainSwapInitiated",
+            "CrossChainSwapCompleted"
+        ],
+        "commands": []
+    },
+    "paths": {
+        "routes": "Routes/api.php",
+        "migrations": "Database/Migrations",
+        "config": "Config/cross-chain.php",
+        "tests": "Tests"
+    }
+}

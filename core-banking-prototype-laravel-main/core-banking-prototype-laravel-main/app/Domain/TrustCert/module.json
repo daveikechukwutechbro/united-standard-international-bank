@@ -1,0 +1,40 @@
+{
+    "$schema": "https://finaegis.io/schemas/module.json",
+    "name": "finaegis/trust-cert",
+    "version": "1.2.0",
+    "description": "W3C Verifiable Credentials, Certificate Authority, trust framework, credential export",
+    "type": "optional",
+    "dependencies": {
+        "required": {
+            "finaegis/shared": "^1.0",
+            "finaegis/account": "^1.0",
+            "finaegis/wallet": "^1.0",
+            "finaegis/compliance": "^1.0"
+        },
+        "optional": {
+            "finaegis/commerce": "^1.0"
+        }
+    },
+    "provides": {
+        "interfaces": [
+            "App\\Domain\\TrustCert\\Contracts\\TrustFrameworkInterface",
+            "App\\Domain\\TrustCert\\Contracts\\RevocationRegistryInterface",
+            "App\\Domain\\TrustCert\\Contracts\\CertificateAuthorityInterface"
+        ],
+        "events": [
+            "CertificateIssued",
+            "CertificateRevoked",
+            "CertificateExpired",
+            "TrustLevelChanged",
+            "IssuerRegistered",
+            "CredentialRevoked"
+        ],
+        "commands": []
+    },
+    "paths": {
+        "routes": "Routes/api.php",
+        "migrations": "Database/Migrations",
+        "config": "Config/trust-cert.php",
+        "tests": "Tests"
+    }
+}

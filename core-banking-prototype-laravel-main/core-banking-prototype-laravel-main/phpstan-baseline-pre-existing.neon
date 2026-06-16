@@ -1,0 +1,115 @@
+parameters:
+	ignoreErrors:
+		-
+			message: '#^Return type of call to method Illuminate\\Database\\Eloquent\\Collection\<\(int\|string\),Spatie\\EventSourcing\\StoredEvents\\Models\\EloquentStoredEvent\>\:\:map\(\) contains unresolvable type\.$#'
+			identifier: method.unresolvableReturnType
+			count: 1
+			path: app/Domain/Account/Services/AccountQueryService.php
+
+		-
+			message: '#^Call to an undefined method Pest\\PendingCalls\\TestCall\|Pest\\Support\\HigherOrderTapProxy\:\:throws\(\)\.$#'
+			identifier: method.notFound
+			count: 2
+			path: tests/Domain/X402/HeaderCodecServiceTest.php
+
+		-
+			message: '#^Call to an undefined method Pest\\PendingCalls\\TestCall\|Pest\\Support\\HigherOrderTapProxy\:\:with\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: tests/Feature/Api/X402/X402IntegrationTest.php
+
+		-
+			message: '#^Call to an undefined method Spatie\\EventSourcing\\AggregateRoots\\FakeAggregateRoot\<App\\Domain\\Account\\Aggregates\\TransactionAggregate\>\:\:credit\(\)\.$#'
+			identifier: method.notFound
+			count: 14
+			path: tests/Unit/Domain/Account/Aggregates/TransactionAggregateTest.php
+
+		-
+			message: '#^Call to an undefined method Spatie\\EventSourcing\\AggregateRoots\\FakeAggregateRoot\<App\\Domain\\Account\\Aggregates\\TransactionAggregate\>\:\:debit\(\)\.$#'
+			identifier: method.notFound
+			count: 5
+			path: tests/Unit/Domain/Account/Aggregates/TransactionAggregateTest.php
+
+		-
+			message: '#^Call to an undefined method Spatie\\EventSourcing\\AggregateRoots\\FakeAggregateRoot\<App\\Domain\\Account\\Aggregates\\TransferAggregate\>\:\:transfer\(\)\.$#'
+			identifier: method.notFound
+			count: 10
+			path: tests/Unit/Domain/Account/Aggregates/TransferAggregateTest.php
+
+		-
+			message: '#^Call to an undefined method Spatie\\EventSourcing\\AggregateRoots\\FakeAggregateRoot\<App\\Domain\\Compliance\\Aggregates\\AmlScreeningAggregate\>\:\:completeScreening\(\)\.$#'
+			identifier: method.notFound
+			count: 2
+			path: tests/Unit/Domain/Compliance/Aggregates/AmlScreeningAggregateTest.php
+
+		-
+			message: '#^Call to an undefined method Spatie\\EventSourcing\\AggregateRoots\\FakeAggregateRoot\<App\\Domain\\Compliance\\Aggregates\\AmlScreeningAggregate\>\:\:recordResults\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: tests/Unit/Domain/Compliance/Aggregates/AmlScreeningAggregateTest.php
+
+		-
+			message: '#^Call to an undefined method Spatie\\EventSourcing\\AggregateRoots\\FakeAggregateRoot\<App\\Domain\\Compliance\\Aggregates\\AmlScreeningAggregate\>\:\:reviewScreening\(\)\.$#'
+			identifier: method.notFound
+			count: 2
+			path: tests/Unit/Domain/Compliance/Aggregates/AmlScreeningAggregateTest.php
+
+		-
+			message: '#^Call to an undefined method Spatie\\EventSourcing\\AggregateRoots\\FakeAggregateRoot\<App\\Domain\\Compliance\\Aggregates\\AmlScreeningAggregate\>\:\:startScreening\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: tests/Unit/Domain/Compliance/Aggregates/AmlScreeningAggregateTest.php
+
+		-
+			message: '#^Call to an undefined method Spatie\\EventSourcing\\AggregateRoots\\FakeAggregateRoot\<App\\Domain\\Compliance\\Aggregates\\AmlScreeningAggregate\>\:\:updateMatchStatus\(\)\.$#'
+			identifier: method.notFound
+			count: 2
+			path: tests/Unit/Domain/Compliance/Aggregates/AmlScreeningAggregateTest.php
+
+		-
+			message: '#^Call to an undefined method Spatie\\EventSourcing\\AggregateRoots\\FakeAggregateRoot\<App\\Domain\\Compliance\\Aggregates\\ComplianceAggregate\>\:\:approveKyc\(\)\.$#'
+			identifier: method.notFound
+			count: 2
+			path: tests/Unit/Domain/Compliance/Aggregates/ComplianceAggregateTest.php
+
+		-
+			message: '#^Call to an undefined method Spatie\\EventSourcing\\AggregateRoots\\FakeAggregateRoot\<App\\Domain\\Compliance\\Aggregates\\ComplianceAggregate\>\:\:completeGdprDeletion\(\)\.$#'
+			identifier: method.notFound
+			count: 2
+			path: tests/Unit/Domain/Compliance/Aggregates/ComplianceAggregateTest.php
+
+		-
+			message: '#^Call to an undefined method Spatie\\EventSourcing\\AggregateRoots\\FakeAggregateRoot\<App\\Domain\\Compliance\\Aggregates\\ComplianceAggregate\>\:\:completeGdprExport\(\)\.$#'
+			identifier: method.notFound
+			count: 2
+			path: tests/Unit/Domain/Compliance/Aggregates/ComplianceAggregateTest.php
+
+		-
+			message: '#^Call to an undefined method Spatie\\EventSourcing\\AggregateRoots\\FakeAggregateRoot\<App\\Domain\\Compliance\\Aggregates\\ComplianceAggregate\>\:\:generateRegulatoryReport\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: tests/Unit/Domain/Compliance/Aggregates/ComplianceAggregateTest.php
+
+		-
+			message: '#^Call to an undefined method Spatie\\EventSourcing\\AggregateRoots\\FakeAggregateRoot\<App\\Domain\\Compliance\\Aggregates\\ComplianceAggregate\>\:\:rejectKyc\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: tests/Unit/Domain/Compliance/Aggregates/ComplianceAggregateTest.php
+
+		-
+			message: '#^Call to an undefined method Spatie\\EventSourcing\\AggregateRoots\\FakeAggregateRoot\<App\\Domain\\Compliance\\Aggregates\\ComplianceAggregate\>\:\:requestGdprDeletion\(\)\.$#'
+			identifier: method.notFound
+			count: 2
+			path: tests/Unit/Domain/Compliance/Aggregates/ComplianceAggregateTest.php
+
+		-
+			message: '#^Call to an undefined method Spatie\\EventSourcing\\AggregateRoots\\FakeAggregateRoot\<App\\Domain\\Compliance\\Aggregates\\ComplianceAggregate\>\:\:requestGdprExport\(\)\.$#'
+			identifier: method.notFound
+			count: 2
+			path: tests/Unit/Domain/Compliance/Aggregates/ComplianceAggregateTest.php
+
+		-
+			message: '#^Call to an undefined method Spatie\\EventSourcing\\AggregateRoots\\FakeAggregateRoot\<App\\Domain\\Compliance\\Aggregates\\ComplianceAggregate\>\:\:submitKyc\(\)\.$#'
+			identifier: method.notFound
+			count: 2
+			path: tests/Unit/Domain/Compliance/Aggregates/ComplianceAggregateTest.php

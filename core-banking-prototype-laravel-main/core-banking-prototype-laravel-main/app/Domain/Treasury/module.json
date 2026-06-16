@@ -1,0 +1,40 @@
+{
+    "$schema": "https://finaegis.io/schemas/module.json",
+    "name": "finaegis/treasury",
+    "version": "1.3.0",
+    "description": "Portfolio management, yield optimization, and cash allocation",
+    "type": "optional",
+    "dependencies": {
+        "required": {
+            "finaegis/shared": "^1.0",
+            "finaegis/account": "^1.0"
+        },
+        "optional": {
+            "finaegis/exchange": "^1.0",
+            "finaegis/stablecoin": "^1.0"
+        }
+    },
+    "provides": {
+        "interfaces": [
+            "App\\Domain\\Treasury\\Contracts\\PortfolioServiceInterface",
+            "App\\Domain\\Treasury\\Contracts\\YieldOptimizationInterface"
+        ],
+        "events": [
+            "PortfolioCreated",
+            "PortfolioRebalanced",
+            "YieldHarvested",
+            "CashAllocated"
+        ],
+        "commands": [
+            "CreatePortfolioCommand",
+            "RebalancePortfolioCommand",
+            "AllocateCashCommand"
+        ]
+    },
+    "paths": {
+        "routes": "Routes/api.php",
+        "migrations": "Database/Migrations",
+        "config": "Config/treasury.php",
+        "tests": "Tests"
+    }
+}

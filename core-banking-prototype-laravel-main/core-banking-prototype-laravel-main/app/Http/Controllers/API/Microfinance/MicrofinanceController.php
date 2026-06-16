@@ -1,0 +1,259 @@
+<?php
+
+declare(strict_types=1);
+
+namespace App\Http\Controllers\Api\Microfinance;
+
+use App\Domain\Microfinance\Services\FieldOfficerService;
+use App\Domain\Microfinance\Services\GroupLendingService;
+use App\Domain\Microfinance\Services\LoanProvisioningService;
+use App\Domain\Microfinance\Services\ShareAccountService;
+use App\Http\Controllers\Controller;
+use Carbon\Carbon;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
+use Throwable;
+
+class MicrofinanceController extends Controller
+{
+    public function __construct(
+        private readonly GroupLendingService $groupLendingService,
+        private readonly ShareAccountService $shareAccountService,
+        private readonly LoanProvisioningService $loanProvisioningService,
+        private readonly FieldOfficerService $fieldOfficerService,
+    ) {
+    }
+
+    // -----------------------------------------------------------------------
+    // Groups
+    // -----------------------------------------------------------------------
+
+    public function createGroup(Request $request): JsonResponse
+    {
+        $validated = $request->validate([
+            'name'        => ['required', 'string', 'max:255'],
+            'frequency'   => ['sometimes', 'string', 'in:daily,weekly,biweekly,monthly'],
+            'center'      => ['sometimes', 'nullable', 'string', 'max:255'],
+            'meeting_day' => ['sometimes', 'nullable', 'string', 'max:50'],
+        ]);
+
+        try {
+            $group = $this->groupLendingService->createGroup(
+                name: $validated['name'],
+                meetingFrequency: $validated['frequency'] ?? 'weekly',
+                centerName: $validated['center'] ?? null,
+                meetingDay: $validated['meeting_day'] ?? null,
+            );
+
+            return response()->json(['data' => $group], 201);
+        } catch (Throwable $e) {
+            return response()->json(['error' => $e->getMessage()], 422);
+        }
+    }
+
+    public function activateGroup(string $id): JsonResponse
+    {
+        try {
+            $group = $this->groupLendingService->activateGroup($id);
+
+            return response()->json(['data' => $group]);
+        } catch (Throwable $e) {
+            return response()->json(['error' => $e->getMessage()], 422);
+        }
+    }
+
+    public function closeGroup(string $id): JsonResponse
+    {
+        try {
+            $group = $this->groupLendingService->closeGroup($id);
+
+            return response()->json(['data' => $group]);
+        } catch (Throwable $e) {
+            return response()->json(['error' => $e->getMessage()], 422);
+        }
+    }
+
+    public function addMember(Request $request, string $id): JsonResponse
+    {
+        $validated = $request->validate([
+            'user_id' => ['required', 'integer'],
+            'role'    => ['sometimes', 'string', 'in:member,leader,treasurer'],
+        ]);
+
+        try {
+            $member = $this->groupLendingService->addMember(
+                groupId: $id,
+                userId: (int) $validated['user_id'],
+                role: $validated['role'] ?? 'member',
+            );
+
+            return response()->json(['data' => $member], 201);
+        } catch (Throwable $e) {
+            return response()->json(['error' => $e->getMessage()], 422);
+        }
+    }
+
+    public function removeMember(string $id, int $userId): JsonResponse
+    {
+        try {
+            $this->groupLendingService->removeMember($id, $userId);
+
+            return response()->json(['message' => 'Member removed successfully']);
+        } catch (Throwable $e) {
+            return response()->json(['error' => $e->getMessage()], 422);
+        }
+    }
+
+    public function listMembers(string $id): JsonResponse
+    {
+        try {
+            $members = $this->groupLendingService->getGroupMembers($id);
+
+            return response()->json(['data' => $members]);
+        } catch (Throwable $e) {
+            return response()->json(['error' => $e->getMessage()], 404);
+        }
+    }
+
+    public function recordMeeting(Request $request, string $id): JsonResponse
+    {
+        $validated = $request->validate([
+            'attendees_count' => ['required', 'integer', 'min:0'],
+            'minutes'         => ['sometimes', 'nullable', 'string'],
+        ]);
+
+        try {
+            $meeting = $this->groupLendingService->recordMeeting(
+                groupId: $id,
+                attendeesCount: (int) $validated['attendees_count'],
+                minutes: $validated['minutes'] ?? null,
+            );
+
+            return response()->json(['data' => $meeting], 201);
+        } catch (Throwable $e) {
+            return response()->json(['error' => $e->getMessage()], 422);
+        }
+    }
+
+    // -----------------------------------------------------------------------
+    // Share Accounts
+    // -----------------------------------------------------------------------
+
+    public function listShareAccounts(Request $request): JsonResponse
+    {
+        $user = $request->user();
+
+        if ($user === null) {
+            return response()->json(['error' => 'Unauthenticated'], 401);
+        }
+
+        $accounts = \App\Domain\Microfinance\Models\ShareAccount::forUser($user->id)->get();
+
+        return response()->json(['data' => $accounts]);
+    }
+
+    public function openShareAccount(Request $request): JsonResponse
+    {
+        $user = $request->user();
+
+        if ($user === null) {
+            return response()->json(['error' => 'Unauthenticated'], 401);
+        }
+
+        $validated = $request->validate([
+            'group_id' => ['sometimes', 'nullable', 'string'],
+            'currency' => ['sometimes', 'string', 'size:3'],
+        ]);
+
+        try {
+            $account = $this->shareAccountService->openAccount(
+                userId: $user->id,
+                groupId: $validated['group_id'] ?? null,
+                currency: $validated['currency'] ?? 'USD',
+            );
+
+            return response()->json(['data' => $account], 201);
+        } catch (Throwable $e) {
+            return response()->json(['error' => $e->getMessage()], 422);
+        }
+    }
+
+    public function purchaseShares(Request $request, string $id): JsonResponse
+    {
+        $validated = $request->validate([
+            'shares' => ['required', 'integer', 'min:1'],
+        ]);
+
+        try {
+            $account = $this->shareAccountService->purchaseShares($id, (int) $validated['shares']);
+
+            return response()->json(['data' => $account]);
+        } catch (Throwable $e) {
+            return response()->json(['error' => $e->getMessage()], 422);
+        }
+    }
+
+    public function redeemShares(Request $request, string $id): JsonResponse
+    {
+        $validated = $request->validate([
+            'shares' => ['required', 'integer', 'min:1'],
+        ]);
+
+        try {
+            $account = $this->shareAccountService->redeemShares($id, (int) $validated['shares']);
+
+            return response()->json(['data' => $account]);
+        } catch (Throwable $e) {
+            return response()->json(['error' => $e->getMessage()], 422);
+        }
+    }
+
+    // -----------------------------------------------------------------------
+    // Provisioning
+    // -----------------------------------------------------------------------
+
+    public function getProvisionSummary(): JsonResponse
+    {
+        $totals = $this->loanProvisioningService->getTotalProvisions();
+
+        return response()->json(['data' => $totals]);
+    }
+
+    public function getProvisionsByCategory(string $category): JsonResponse
+    {
+        try {
+            $provisions = $this->loanProvisioningService->getProvisionsByCategory($category);
+
+            return response()->json(['data' => $provisions]);
+        } catch (Throwable $e) {
+            return response()->json(['error' => $e->getMessage()], 422);
+        }
+    }
+
+    // -----------------------------------------------------------------------
+    // Collection Sheets
+    // -----------------------------------------------------------------------
+
+    public function generateCollectionSheet(Request $request): JsonResponse
+    {
+        $validated = $request->validate([
+            'officer_id'      => ['required', 'string'],
+            'group_id'        => ['required', 'string'],
+            'collection_date' => ['sometimes', 'date'],
+            'expected_amount' => ['required', 'numeric', 'min:0'],
+        ]);
+
+        try {
+            $sheet = $this->fieldOfficerService->generateCollectionSheet(
+                officerId: $validated['officer_id'],
+                groupId: $validated['group_id'],
+                collectionDate: $validated['collection_date'] ?? Carbon::today()->toDateString(),
+                expectedAmount: number_format((float) $validated['expected_amount'], 2, '.', ''),
+            );
+
+            return response()->json(['data' => $sheet], 201);
+        } catch (Throwable $e) {
+            return response()->json(['error' => $e->getMessage()], 422);
+        }
+    }
+}

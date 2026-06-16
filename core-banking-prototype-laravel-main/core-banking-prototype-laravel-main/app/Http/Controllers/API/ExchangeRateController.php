@@ -1,0 +1,418 @@
+<?php
+
+declare(strict_types=1);
+
+namespace App\Http\Controllers\Api;
+
+use App\Domain\Asset\Models\ExchangeRate;
+use App\Domain\Asset\Services\ExchangeRateService;
+use App\Http\Controllers\Controller;
+use Exception;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
+use OpenApi\Attributes as OA;
+
+#[OA\Tag(
+    name: 'Exchange Rates',
+    description: 'APIs for managing exchange rates between different assets'
+)]
+class ExchangeRateController extends Controller
+{
+    public function __construct(
+        private readonly ExchangeRateService $exchangeRateService
+    ) {
+    }
+
+        #[OA\Get(
+            path: '/api/exchange-rates/{from}/{to}',
+            operationId: 'getExchangeRate',
+            tags: ['Exchange Rates'],
+            summary: 'Get current exchange rate',
+            description: 'Retrieve the current exchange rate between two assets',
+            security: [['sanctum' => []]],
+            parameters: [
+            new OA\Parameter(name: 'from', in: 'path', required: true, description: 'The source asset code', schema: new OA\Schema(type: 'string', example: 'USD')),
+            new OA\Parameter(name: 'to', in: 'path', required: true, description: 'The target asset code', schema: new OA\Schema(type: 'string', example: 'EUR')),
+            ]
+        )]
+    #[OA\Response(
+        response: 200,
+        description: 'Successful operation',
+        content: new OA\JsonContent(properties: [
+        new OA\Property(property: 'data', type: 'object', properties: [
+        new OA\Property(property: 'from_asset', type: 'string'),
+        new OA\Property(property: 'to_asset', type: 'string'),
+        new OA\Property(property: 'rate', type: 'string'),
+        new OA\Property(property: 'inverse_rate', type: 'string'),
+        new OA\Property(property: 'source', type: 'string'),
+        new OA\Property(property: 'valid_at', type: 'string', format: 'date-time'),
+        new OA\Property(property: 'expires_at', type: 'string', format: 'date-time'),
+        new OA\Property(property: 'is_active', type: 'boolean'),
+        new OA\Property(property: 'age_minutes', type: 'integer'),
+        new OA\Property(property: 'metadata', type: 'object'),
+        ]),
+        ])
+    )]
+    #[OA\Response(
+        response: 404,
+        description: 'Exchange rate not found',
+        content: new OA\JsonContent(properties: [
+        new OA\Property(property: 'message', type: 'string'),
+        new OA\Property(property: 'error', type: 'string'),
+        ])
+    )]
+    public function show(string $from, string $to): JsonResponse
+    {
+        $fromAsset = strtoupper($from);
+        $toAsset = strtoupper($to);
+
+        $rate = $this->exchangeRateService->getRate($fromAsset, $toAsset);
+
+        if (! $rate) {
+            return response()->json(
+                [
+                    'message' => 'Exchange rate not found',
+                    'error'   => 'No active exchange rate found for the specified asset pair',
+                ],
+                404
+            );
+        }
+
+        return response()->json(
+            [
+                'data' => [
+                    'from_asset'   => $rate->from_asset_code,
+                    'to_asset'     => $rate->to_asset_code,
+                    'rate'         => $rate->rate,
+                    'inverse_rate' => number_format($rate->getInverseRate(), 10, '.', ''),
+                    'source'       => $rate->source,
+                    'valid_at'     => $rate->valid_at->toISOString(),
+                    'expires_at'   => $rate->expires_at?->toISOString(),
+                    'is_active'    => $rate->is_active,
+                    'age_minutes'  => $rate->getAgeInMinutes(),
+                    'metadata'     => $rate->metadata,
+                ],
+            ]
+        );
+    }
+
+        #[OA\Get(
+            path: '/api/exchange-rates/{from}/{to}/convert',
+            operationId: 'convertCurrency',
+            tags: ['Exchange Rates'],
+            summary: 'Convert amount between assets',
+            description: 'Convert an amount from one asset to another using current exchange rates',
+            security: [['sanctum' => []]],
+            parameters: [
+            new OA\Parameter(name: 'from', in: 'path', required: true, description: 'The source asset code', schema: new OA\Schema(type: 'string', example: 'USD')),
+            new OA\Parameter(name: 'to', in: 'path', required: true, description: 'The target asset code', schema: new OA\Schema(type: 'string', example: 'EUR')),
+            new OA\Parameter(name: 'amount', in: 'query', required: true, description: 'The amount to convert (in smallest unit)', schema: new OA\Schema(type: 'integer', example: 10000)),
+            ]
+        )]
+    #[OA\Response(
+        response: 200,
+        description: 'Successful operation',
+        content: new OA\JsonContent(properties: [
+        new OA\Property(property: 'data', type: 'object', properties: [
+        new OA\Property(property: 'from_asset', type: 'string'),
+        new OA\Property(property: 'to_asset', type: 'string'),
+        new OA\Property(property: 'from_amount', type: 'integer'),
+        new OA\Property(property: 'to_amount', type: 'integer'),
+        new OA\Property(property: 'from_formatted', type: 'string'),
+        new OA\Property(property: 'to_formatted', type: 'string'),
+        new OA\Property(property: 'rate', type: 'string'),
+        new OA\Property(property: 'rate_age_minutes', type: 'integer'),
+        ]),
+        ])
+    )]
+    #[OA\Response(
+        response: 422,
+        description: 'Validation error',
+        content: new OA\JsonContent(ref: '#/components/schemas/ValidationError')
+    )]
+    #[OA\Response(
+        response: 404,
+        description: 'Conversion not available'
+    )]
+    public function convert(Request $request, string $from, string $to): JsonResponse
+    {
+        $request->validate(
+            [
+                'amount' => 'required|numeric|min:0',
+            ]
+        );
+
+        $fromAsset = strtoupper($from);
+        $toAsset = strtoupper($to);
+        $amount = (int) $request->input('amount');
+
+        $convertedAmount = $this->exchangeRateService->convert($amount, $fromAsset, $toAsset);
+
+        if ($convertedAmount === null) {
+            return response()->json(
+                [
+                    'message' => 'Conversion not available',
+                    'error'   => 'No active exchange rate found for the specified asset pair',
+                ],
+                404
+            );
+        }
+
+        $rate = $this->exchangeRateService->getRate($fromAsset, $toAsset);
+
+        // Get asset details for formatting
+        $fromAssetModel = \App\Domain\Asset\Models\Asset::where('code', $fromAsset)->first();
+        $toAssetModel = \App\Domain\Asset\Models\Asset::where('code', $toAsset)->first();
+
+        $fromFormatted = $this->formatAmount($amount, $fromAssetModel);
+        $toFormatted = $this->formatAmount($convertedAmount, $toAssetModel);
+
+        return response()->json(
+            [
+                'data' => [
+                    'from_asset'       => $fromAsset,
+                    'to_asset'         => $toAsset,
+                    'from_amount'      => $amount,
+                    'to_amount'        => $convertedAmount,
+                    'from_formatted'   => $fromFormatted,
+                    'to_formatted'     => $toFormatted,
+                    'rate'             => $rate->rate,
+                    'rate_age_minutes' => $rate->getAgeInMinutes(),
+                ],
+            ]
+        );
+    }
+
+        #[OA\Get(
+            path: '/api/exchange-rates',
+            operationId: 'listExchangeRates',
+            tags: ['Exchange Rates'],
+            summary: 'List exchange rates',
+            description: 'Get a list of available exchange rates with filtering options',
+            security: [['sanctum' => []]],
+            parameters: [
+            new OA\Parameter(name: 'from', in: 'query', required: false, description: 'Filter by source asset code', schema: new OA\Schema(type: 'string', example: 'USD')),
+            new OA\Parameter(name: 'to', in: 'query', required: false, description: 'Filter by target asset code', schema: new OA\Schema(type: 'string', example: 'EUR')),
+            new OA\Parameter(name: 'source', in: 'query', required: false, description: 'Filter by rate source', schema: new OA\Schema(type: 'string', enum: ['manual', 'api', 'oracle', 'market'])),
+            new OA\Parameter(name: 'active', in: 'query', required: false, description: 'Filter by active status', schema: new OA\Schema(type: 'boolean')),
+            new OA\Parameter(name: 'valid', in: 'query', required: false, description: 'Filter by validity (not expired)', schema: new OA\Schema(type: 'boolean')),
+            new OA\Parameter(name: 'limit', in: 'query', required: false, description: 'Number of results per page (max 100)', schema: new OA\Schema(type: 'integer', minimum: 1, maximum: 100)),
+            ]
+        )]
+    #[OA\Response(
+        response: 200,
+        description: 'Successful operation',
+        content: new OA\JsonContent(properties: [
+        new OA\Property(property: 'data', type: 'array', items: new OA\Items(properties: [
+        new OA\Property(property: 'id', type: 'integer'),
+        new OA\Property(property: 'from_asset', type: 'string'),
+        new OA\Property(property: 'to_asset', type: 'string'),
+        new OA\Property(property: 'rate', type: 'string'),
+        new OA\Property(property: 'inverse_rate', type: 'string'),
+        new OA\Property(property: 'source', type: 'string'),
+        new OA\Property(property: 'valid_at', type: 'string', format: 'date-time'),
+        new OA\Property(property: 'expires_at', type: 'string', format: 'date-time'),
+        new OA\Property(property: 'is_active', type: 'boolean'),
+        new OA\Property(property: 'age_minutes', type: 'integer'),
+        ])),
+        new OA\Property(property: 'meta', type: 'object', properties: [
+        new OA\Property(property: 'total', type: 'integer'),
+        new OA\Property(property: 'valid', type: 'integer'),
+        new OA\Property(property: 'stale', type: 'integer'),
+        ]),
+        ])
+    )]
+    public function index(Request $request): JsonResponse
+    {
+        $request->validate(
+            [
+                'from'   => 'sometimes|string|size:3',
+                'to'     => 'sometimes|string|size:3',
+                'asset'  => 'sometimes|string|size:3',
+                'source' => ['sometimes', Rule::in(['manual', 'api', 'oracle', 'market'])],
+                'active' => ['sometimes', 'string', Rule::in(['true', 'false', '1', '0'])],
+                'valid'  => ['sometimes', 'string', Rule::in(['true', 'false', '1', '0'])],
+                'limit'  => 'sometimes|integer|min:1|max:100',
+            ]
+        );
+
+        $query = ExchangeRate::query();
+
+        // Apply filters
+        if ($request->has('from')) {
+            $query->where('from_asset_code', strtoupper($request->string('from')->toString()));
+        }
+
+        if ($request->has('to')) {
+            $query->where('to_asset_code', strtoupper($request->string('to')->toString()));
+        }
+
+        if ($request->has('asset')) {
+            $asset = strtoupper($request->string('asset')->toString());
+            $query->where(function ($q) use ($asset) {
+                $q->where('from_asset_code', $asset)
+                  ->orWhere('to_asset_code', $asset);
+            });
+        }
+
+        if ($request->has('source')) {
+            $query->where('source', $request->string('source')->toString());
+        }
+
+        if ($request->has('active')) {
+            $query->where('is_active', $request->boolean('active'));
+        }
+
+        if ($request->has('valid') && $request->boolean('valid')) {
+            $query->valid();
+        }
+
+        $limit = $request->integer('limit', 50);
+        $rates = $query->orderBy('valid_at', 'desc')->limit($limit)->get();
+
+        // Calculate metadata
+        $total = ExchangeRate::count();
+        $valid = ExchangeRate::valid()->count();
+        $stale = ExchangeRate::where('valid_at', '<=', now()->subDay())->count();
+
+        return response()->json(
+            [
+                'data' => $rates->map(
+                    function (ExchangeRate $rate) {
+                        return [
+                            'id'           => $rate->id,
+                            'from_asset'   => $rate->from_asset_code,
+                            'to_asset'     => $rate->to_asset_code,
+                            'rate'         => $rate->rate,
+                            'inverse_rate' => number_format($rate->getInverseRate(), 10, '.', ''),
+                            'source'       => $rate->source,
+                            'valid_at'     => $rate->valid_at->toISOString(),
+                            'expires_at'   => $rate->expires_at?->toISOString(),
+                            'is_active'    => $rate->is_active,
+                            'age_minutes'  => $rate->getAgeInMinutes(),
+                        ];
+                    }
+                ),
+                'meta' => [
+                    'total' => $total,
+                    'valid' => $valid,
+                    'stale' => $stale,
+                ],
+            ]
+        );
+    }
+
+    /**
+     * Convert currency for an account.
+     */
+    public function convertCurrency(Request $request): JsonResponse
+    {
+        $validated = $request->validate(
+            [
+                'account_uuid'  => 'required|string|exists:accounts,uuid',
+                'from_currency' => 'required|string|exists:assets,code',
+                'to_currency'   => 'required|string|exists:assets,code',
+                'amount'        => 'required|numeric|min:0.01',
+            ]
+        );
+
+        // Get exchange rate
+        $exchangeRate = ExchangeRate::where('from_asset_code', $validated['from_currency'])
+            ->where('to_asset_code', $validated['to_currency'])
+            ->valid()
+            ->first();
+
+        if (! $exchangeRate) {
+            return response()->json(
+                [
+                    'message' => "Exchange rate not available for {$validated['from_currency']} to {$validated['to_currency']}",
+                ],
+                422
+            );
+        }
+
+        $account = \App\Domain\Account\Models\Account::where('uuid', $validated['account_uuid'])->firstOrFail();
+        $fromAsset = \App\Domain\Asset\Models\Asset::where('code', $validated['from_currency'])->firstOrFail();
+        $toAsset = \App\Domain\Asset\Models\Asset::where('code', $validated['to_currency'])->firstOrFail();
+
+        $fromAmountInMinorUnits = (int) round($validated['amount'] * (10 ** $fromAsset->precision));
+        $toAmountInMinorUnits = (int) round($fromAmountInMinorUnits * $exchangeRate->rate);
+
+        // Check sufficient balance
+        $balance = $account->getBalance($validated['from_currency']);
+        if ($balance < $fromAmountInMinorUnits) {
+            return response()->json(
+                [
+                    'message' => 'Insufficient balance',
+                    'errors'  => [
+                        'amount' => ['Insufficient balance'],
+                    ],
+                ],
+                422
+            );
+        }
+
+        try {
+            // For USD, use legacy workflows
+            if ($validated['from_currency'] === 'USD') {
+                $accountUuid = new \App\Domain\Account\DataObjects\AccountUuid($validated['account_uuid']);
+                $money = new \App\Domain\Account\DataObjects\Money($fromAmountInMinorUnits);
+
+                // Withdraw USD using legacy workflow
+                $withdrawWorkflow = \Workflow\WorkflowStub::make(\App\Domain\Account\Workflows\WithdrawAccountWorkflow::class);
+                $withdrawWorkflow->start($accountUuid, $money);
+
+                // Deposit target asset using asset workflow
+                $depositWorkflow = \Workflow\WorkflowStub::make(\App\Domain\Asset\Workflows\AssetDepositWorkflow::class);
+                $depositWorkflow->start($accountUuid, $validated['to_currency'], $toAmountInMinorUnits);
+            } else {
+                // Use asset workflows for both sides
+                $accountUuid = new \App\Domain\Account\DataObjects\AccountUuid($validated['account_uuid']);
+
+                $withdrawWorkflow = \Workflow\WorkflowStub::make(\App\Domain\Asset\Workflows\AssetWithdrawWorkflow::class);
+                $withdrawWorkflow->start($accountUuid, $validated['from_currency'], $fromAmountInMinorUnits);
+
+                $depositWorkflow = \Workflow\WorkflowStub::make(\App\Domain\Asset\Workflows\AssetDepositWorkflow::class);
+                $depositWorkflow->start($accountUuid, $validated['to_currency'], $toAmountInMinorUnits);
+            }
+
+            return response()->json(
+                [
+                    'message' => 'Currency conversion initiated successfully',
+                    'data'    => [
+                        'from_amount'   => $validated['amount'],
+                        'to_amount'     => $toAmountInMinorUnits / (10 ** $toAsset->precision),
+                        'from_currency' => $validated['from_currency'],
+                        'to_currency'   => $validated['to_currency'],
+                        'exchange_rate' => $exchangeRate->rate,
+                    ],
+                ]
+            );
+        } catch (Exception $e) {
+            return response()->json(
+                [
+                    'message' => 'Currency conversion failed',
+                    'error'   => 'CONVERSION_FAILED',
+                ],
+                422
+            );
+        }
+    }
+
+    private function formatAmount(int $amount, ?\App\Domain\Asset\Models\Asset $asset): string
+    {
+        if (! $asset) {
+            return (string) $amount;
+        }
+
+        $formatted = number_format(
+            $amount / (10 ** $asset->precision),
+            $asset->precision,
+            '.',
+            ''
+        );
+
+        return "{$formatted} {$asset->code}";
+    }
+}

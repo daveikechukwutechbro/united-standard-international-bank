@@ -1,0 +1,106 @@
+type ExchangeOrder @model(class: "App\\Domain\\Exchange\\Projections\\Order") {
+    id: ID!
+    order_id: String!
+    account_id: String!
+    type: String!
+    order_type: String!
+    base_currency: String!
+    quote_currency: String!
+    amount: Float!
+    filled_amount: Float
+    price: Float
+    stop_price: Float
+    average_price: Float
+    status: String!
+    cancelled_at: DateTime
+    filled_at: DateTime
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+type Trade @model(class: "App\\Domain\\Exchange\\Projections\\Trade") {
+    id: ID!
+    trade_id: String!
+    buy_order_id: String!
+    sell_order_id: String!
+    buyer_account_id: String!
+    seller_account_id: String!
+    base_currency: String!
+    quote_currency: String!
+    price: Float!
+    amount: Float!
+    value: Float!
+    maker_fee: Float
+    taker_fee: Float
+    maker_side: String
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+type OrderBook @model(class: "App\\Domain\\Exchange\\Projections\\OrderBook") {
+    id: ID!
+    order_book_id: String!
+    base_currency: String!
+    quote_currency: String!
+    best_bid: Float
+    best_ask: Float
+    last_price: Float
+    volume_24h: Float
+    high_24h: Float
+    low_24h: Float
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+extend type Query {
+    order(id: ID! @eq): ExchangeOrder
+        @find
+        @guard(with: ["sanctum"])
+
+    orders(
+        page: Int @rules(apply: ["integer", "min:1"])
+        first: Int @rules(apply: ["integer", "min:1", "max:100"])
+        status: String @where(operator: "=")
+        base_currency: String @where(operator: "=")
+    ): [ExchangeOrder!]!
+        @paginate(defaultCount: 15, model: "App\\Domain\\Exchange\\Projections\\Order")
+        @guard(with: ["sanctum"])
+
+    trades(
+        page: Int @rules(apply: ["integer", "min:1"])
+        first: Int @rules(apply: ["integer", "min:1", "max:100"])
+        base_currency: String @where(operator: "=")
+    ): [Trade!]!
+        @paginate(defaultCount: 15, model: "App\\Domain\\Exchange\\Projections\\Trade")
+        @guard(with: ["sanctum"])
+
+    orderBook(order_book_id: String! @eq): OrderBook
+        @find
+        @guard(with: ["sanctum"])
+
+    orderBooks(
+        page: Int @rules(apply: ["integer", "min:1"])
+        first: Int @rules(apply: ["integer", "min:1", "max:100"])
+    ): [OrderBook!]!
+        @paginate(defaultCount: 15, model: "App\\Domain\\Exchange\\Projections\\OrderBook")
+        @guard(with: ["sanctum"])
+}
+
+input PlaceOrderInput {
+    base_currency: String!
+    quote_currency: String!
+    type: String!
+    order_type: String!
+    amount: Float!
+    price: Float
+}
+
+extend type Mutation {
+    placeOrder(input: PlaceOrderInput! @spread): ExchangeOrder!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Mutations\\Exchange\\PlaceOrderMutation")
+
+    cancelOrder(order_id: String!): ExchangeOrder!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Mutations\\Exchange\\CancelOrderMutation")
+}

@@ -1,0 +1,45 @@
+#!/bin/bash
+
+# Behat CI runner - runs only implemented features without interaction
+# This prevents the undefined steps prompt in CI/CD environments
+
+export BEHAT_BASE_URL="${BEHAT_BASE_URL:-http://localhost}"
+export QUEUE_CONNECTION=sync
+
+# Default to all feature files if no arguments provided
+if [ $# -eq 0 ]; then
+    # List of implemented feature files
+    FEATURES=(
+        "features/account_management.feature"
+        "features/basket_management.feature"
+    )
+    
+    # Run each feature file separately to avoid the multiple paths issue
+    EXIT_CODE=0
+    for feature in "${FEATURES[@]}"; do
+        echo "Running: $feature"
+        vendor/bin/behat \
+            --no-interaction \
+            --format=progress \
+            --no-colors \
+            --stop-on-failure \
+            "$feature"
+        
+        # Capture exit code
+        if [ $? -ne 0 ]; then
+            EXIT_CODE=1
+            # Stop on failure
+            break
+        fi
+    done
+    
+    exit $EXIT_CODE
+else
+    # Run with provided arguments
+    vendor/bin/behat \
+        --no-interaction \
+        --format=progress \
+        --no-colors \
+        --stop-on-failure \
+        "$@"
+fi

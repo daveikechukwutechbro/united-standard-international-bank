@@ -1,0 +1,31 @@
+{
+    "$schema": "https://finaegis.io/schemas/module.json",
+    "name": "finaegis/batch",
+    "version": "1.3.0",
+    "description": "Batch processing for bulk operations and scheduled jobs",
+    "type": "optional",
+    "dependencies": {
+        "required": {
+            "finaegis/shared": "^1.0"
+        },
+        "optional": {}
+    },
+    "provides": {
+        "interfaces": [],
+        "events": [
+            "BatchJobStarted",
+            "BatchJobCompleted",
+            "BatchJobFailed",
+            "BatchItemProcessed"
+        ],
+        "commands": [
+            "StartBatchJobCommand",
+            "CancelBatchJobCommand"
+        ]
+    },
+    "paths": {
+        "routes": "Routes/api.php",
+        "migrations": "Database/Migrations",
+        "tests": "Tests"
+    }
+}

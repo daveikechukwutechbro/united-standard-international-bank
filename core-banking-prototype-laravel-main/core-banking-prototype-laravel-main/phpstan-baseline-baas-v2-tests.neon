@@ -1,0 +1,193 @@
+parameters:
+	ignoreErrors:
+		-
+			message: '#^Property Tests\\Feature\\Api\\Partner\\PartnerSdkControllerTest\:\:\$partner is never read, only written\.$#'
+			identifier: property.onlyWritten
+			count: 1
+			path: tests/Feature/Api/Partner/PartnerSdkControllerTest.php
+
+		-
+			message: '#^Method Tests\\Feature\\Api\\Partner\\PartnerSdkControllerTest\:\:createPartner\(\) has parameter \$attributes with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: tests/Feature/Api/Partner/PartnerSdkControllerTest.php
+
+		-
+			message: '#^Method Tests\\Feature\\Api\\Partner\\PartnerSdkControllerTest\:\:partnerHeaders\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: tests/Feature/Api/Partner/PartnerSdkControllerTest.php
+
+		-
+			message: '#^Method Tests\\Unit\\Domain\\FinancialInstitution\\Middleware\\PartnerAuthMiddlewareTest\:\:createPartner\(\) has parameter \$attributes with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: tests/Unit/Domain/FinancialInstitution/Middleware/PartnerAuthMiddlewareTest.php
+
+		-
+			message: '#^Method Tests\\Unit\\Domain\\FinancialInstitution\\Middleware\\PartnerAuthMiddlewareTest\:\:createRequest\(\) has parameter \$headers with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: tests/Unit/Domain/FinancialInstitution/Middleware/PartnerAuthMiddlewareTest.php
+
+		-
+			message: '#^Parameter \#1 \$json of function json_decode expects string, string\|false given\.$#'
+			identifier: argument.type
+			count: 3
+			path: tests/Unit/Domain/FinancialInstitution/Middleware/PartnerAuthMiddlewareTest.php
+
+		-
+			message: '#^Method Tests\\Unit\\Domain\\FinancialInstitution\\Services\\EmbeddableWidgetServiceTest\:\:createMockPartner\(\) has parameter \$attributes with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: tests/Unit/Domain/FinancialInstitution/Services/EmbeddableWidgetServiceTest.php
+
+		-
+			message: '#^Method Tests\\Unit\\Domain\\FinancialInstitution\\Services\\EmbeddableWidgetServiceTest\:\:createMockPartner\(\) should return App\\Domain\\FinancialInstitution\\Models\\FinancialInstitutionPartner but returns Mockery\\LegacyMockInterface\.$#'
+			identifier: return.type
+			count: 1
+			path: tests/Unit/Domain/FinancialInstitution/Services/EmbeddableWidgetServiceTest.php
+
+		-
+			message: '#^Method Tests\\Unit\\Domain\\FinancialInstitution\\Services\\EmbeddableWidgetServiceTest\:\:createMockBranding\(\) should return App\\Domain\\FinancialInstitution\\Models\\PartnerBranding but returns Mockery\\LegacyMockInterface\.$#'
+			identifier: return.type
+			count: 1
+			path: tests/Unit/Domain/FinancialInstitution/Services/EmbeddableWidgetServiceTest.php
+
+		-
+			message: '#^Parameter \#2 \$haystack of method PHPUnit\\Framework\\Assert\:\:assertStringContainsString\(\) expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 5
+			path: tests/Unit/Domain/FinancialInstitution/Services/EmbeddableWidgetServiceTest.php
+
+		-
+			message: '#^Method Tests\\Unit\\Domain\\FinancialInstitution\\Services\\PartnerBillingServiceTest\:\:createPartner\(\) has parameter \$attributes with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: tests/Unit/Domain/FinancialInstitution/Services/PartnerBillingServiceTest.php
+
+		-
+			message: '#^Method Tests\\Unit\\Domain\\FinancialInstitution\\Services\\PartnerMarketplaceServiceTest\:\:createPartner\(\) has parameter \$attributes with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: tests/Unit/Domain/FinancialInstitution/Services/PartnerMarketplaceServiceTest.php
+
+		-
+			message: '#^Cannot call method recordError\(\) on App\\Domain\\FinancialInstitution\\Models\\PartnerIntegration\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: tests/Unit/Domain/FinancialInstitution/Services/PartnerMarketplaceServiceTest.php
+
+		-
+			message: '#^Method Tests\\Unit\\Domain\\FinancialInstitution\\Services\\PartnerUsageMeteringServiceTest\:\:createPartner\(\) has parameter \$attributes with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: tests/Unit/Domain/FinancialInstitution/Services/PartnerUsageMeteringServiceTest.php
+
+		-
+			message: '#^Offset ''/api/accounts'' might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: tests/Unit/Domain/FinancialInstitution/Services/PartnerUsageMeteringServiceTest.php
+
+		-
+			message: '#^Offset ''/api/transfers'' might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: tests/Unit/Domain/FinancialInstitution/Services/PartnerUsageMeteringServiceTest.php
+
+		-
+			message: '#^Cannot access property \$p99_response_time_ms on App\\Domain\\FinancialInstitution\\Models\\PartnerUsageRecord\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Unit/Domain/FinancialInstitution/Services/PartnerUsageMeteringServiceTest.php
+
+		-
+			message: '#^Method Tests\\Unit\\Domain\\FinancialInstitution\\Services\\SdkGeneratorServiceTest\:\:createMockPartner\(\) has parameter \$attributes with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: tests/Unit/Domain/FinancialInstitution/Services/SdkGeneratorServiceTest.php
+
+		-
+			message: '#^Method Tests\\Unit\\Domain\\FinancialInstitution\\Services\\SdkGeneratorServiceTest\:\:createMockPartner\(\) should return App\\Domain\\FinancialInstitution\\Models\\FinancialInstitutionPartner but returns Mockery\\LegacyMockInterface\.$#'
+			identifier: return.type
+			count: 1
+			path: tests/Unit/Domain/FinancialInstitution/Services/SdkGeneratorServiceTest.php
+
+		-
+			message: '#^Parameter \#1 \$directory of static method Illuminate\\Support\\Facades\\File\:\:isDirectory\(\) expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: tests/Unit/Domain/FinancialInstitution/Services/SdkGeneratorServiceTest.php
+
+		-
+			message: '#^Call to function is_string\(\) with string will always evaluate to true\.$#'
+			identifier: function.alreadyNarrowedType
+			count: 1
+			path: tests/Unit/Domain/FinancialInstitution/Services/SdkGeneratorServiceTest.php
+
+		-
+			message: '#^Method Tests\\Feature\\Api\\Partner\\PartnerBillingControllerTest\:\:createPartner\(\) has parameter \$attributes with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: tests/Feature/Api/Partner/PartnerBillingControllerTest.php
+
+		-
+			message: '#^Method Tests\\Feature\\Api\\Partner\\PartnerBillingControllerTest\:\:partnerHeaders\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: tests/Feature/Api/Partner/PartnerBillingControllerTest.php
+
+		-
+			message: '#^Method Tests\\Feature\\Api\\Partner\\PartnerBillingControllerTest\:\:createInvoice\(\) has parameter \$attributes with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: tests/Feature/Api/Partner/PartnerBillingControllerTest.php
+
+		-
+			message: '#^Method Tests\\Feature\\Api\\Partner\\PartnerDashboardControllerTest\:\:createPartner\(\) has parameter \$attributes with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: tests/Feature/Api/Partner/PartnerDashboardControllerTest.php
+
+		-
+			message: '#^Method Tests\\Feature\\Api\\Partner\\PartnerDashboardControllerTest\:\:partnerHeaders\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: tests/Feature/Api/Partner/PartnerDashboardControllerTest.php
+
+		-
+			message: '#^Method Tests\\Feature\\Api\\Partner\\PartnerMarketplaceControllerTest\:\:createPartner\(\) has parameter \$attributes with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: tests/Feature/Api/Partner/PartnerMarketplaceControllerTest.php
+
+		-
+			message: '#^Method Tests\\Feature\\Api\\Partner\\PartnerMarketplaceControllerTest\:\:partnerHeaders\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: tests/Feature/Api/Partner/PartnerMarketplaceControllerTest.php
+
+		-
+			message: '#^Method Tests\\Feature\\Api\\Partner\\PartnerMarketplaceControllerTest\:\:createIntegration\(\) has parameter \$attributes with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: tests/Feature/Api/Partner/PartnerMarketplaceControllerTest.php
+
+		-
+			message: '#^Method Tests\\Feature\\Api\\Partner\\PartnerWidgetControllerTest\:\:createPartner\(\) has parameter \$attributes with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: tests/Feature/Api/Partner/PartnerWidgetControllerTest.php
+
+		-
+			message: '#^Method Tests\\Feature\\Api\\Partner\\PartnerWidgetControllerTest\:\:partnerHeaders\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: tests/Feature/Api/Partner/PartnerWidgetControllerTest.php
+
+		-
+			message: '#^Method Tests\\Integration\\BaaS\\BaaSWorkflowTest\:\:createPartner\(\) has parameter \$attributes with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: tests/Integration/BaaS/BaaSWorkflowTest.php

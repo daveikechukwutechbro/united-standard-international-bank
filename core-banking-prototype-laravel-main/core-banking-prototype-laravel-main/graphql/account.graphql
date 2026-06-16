@@ -1,0 +1,51 @@
+type Account @model(class: "App\\Domain\\Account\\Models\\Account") {
+    id: ID!
+    uuid: String!
+    name: String!
+    balance: Float!
+    frozen: Boolean!
+    user_uuid: String
+    team_uuid: String
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+input CreateAccountInput {
+    name: String!
+}
+
+extend type Query {
+    account(id: ID! @eq): Account
+        @find
+        @guard(with: ["sanctum"])
+
+    accounts(
+        page: Int @rules(apply: ["integer", "min:1"])
+        first: Int @rules(apply: ["integer", "min:1", "max:100"])
+    ): [Account!]!
+        @paginate(defaultCount: 15, model: "App\\Domain\\Account\\Models\\Account")
+        @guard(with: ["sanctum"])
+
+    accountByUuid(uuid: String! @eq): Account
+        @find
+        @guard(with: ["sanctum"])
+}
+
+input FreezeAccountInput {
+    id: ID!
+    reason: String
+}
+
+extend type Mutation {
+    createAccount(input: CreateAccountInput! @spread): Account!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Mutations\\Account\\CreateAccountMutation")
+
+    freezeAccount(input: FreezeAccountInput! @spread): Account!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Mutations\\Account\\FreezeAccountMutation")
+
+    unfreezeAccount(id: ID!): Account!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Mutations\\Account\\UnfreezeAccountMutation")
+}

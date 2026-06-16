@@ -1,0 +1,120 @@
+type CustodianAccount @model(class: "App\\Domain\\Custodian\\Models\\CustodianAccount") {
+    id: ID!
+    account_uuid: String!
+    custodian_name: String!
+    custodian_account_id: String
+    custodian_account_name: String
+    status: String!
+    is_primary: Boolean!
+    metadata: String
+    last_known_balance: Float
+    last_synced_at: DateTime
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+type CustodianTransfer @model(class: "App\\Domain\\Custodian\\Models\\CustodianTransfer") {
+    id: ID!
+    from_account_uuid: String
+    to_account_uuid: String
+    from_custodian_account_id: String
+    to_custodian_account_id: String
+    amount: Float!
+    asset_code: String!
+    reference: String
+    status: String!
+    transfer_type: String
+    failure_reason: String
+    completed_at: DateTime
+    metadata: String
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+type CustodianWebhook @model(class: "App\\Domain\\Custodian\\Models\\CustodianWebhook") {
+    id: ID!
+    uuid: String!
+    custodian_name: String!
+    event_type: String!
+    event_id: String
+    status: String!
+    attempts: Int!
+    processed_at: DateTime
+    error_message: String
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+extend type Query {
+    custodianAccount(id: ID! @eq): CustodianAccount
+        @find
+        @guard(with: ["sanctum"])
+
+    custodianAccounts(
+        page: Int @rules(apply: ["integer", "min:1"])
+        first: Int @rules(apply: ["integer", "min:1", "max:100"])
+        custodian_name: String @where(operator: "=")
+        status: String @where(operator: "=")
+    ): [CustodianAccount!]!
+        @paginate(defaultCount: 15, model: "App\\Domain\\Custodian\\Models\\CustodianAccount")
+        @guard(with: ["sanctum"])
+
+    custodianTransfer(id: ID! @eq): CustodianTransfer
+        @find
+        @guard(with: ["sanctum"])
+
+    custodianTransfers(
+        page: Int @rules(apply: ["integer", "min:1"])
+        first: Int @rules(apply: ["integer", "min:1", "max:100"])
+        status: String @where(operator: "=")
+        asset_code: String @where(operator: "=")
+    ): [CustodianTransfer!]!
+        @paginate(defaultCount: 15, model: "App\\Domain\\Custodian\\Models\\CustodianTransfer")
+        @guard(with: ["sanctum"])
+
+    custodianWebhooks(
+        page: Int @rules(apply: ["integer", "min:1"])
+        first: Int @rules(apply: ["integer", "min:1", "max:100"])
+        custodian_name: String @where(operator: "=")
+        status: String @where(operator: "=")
+    ): [CustodianWebhook!]!
+        @paginate(defaultCount: 15, model: "App\\Domain\\Custodian\\Models\\CustodianWebhook")
+        @guard(with: ["sanctum"])
+
+    custodianBalance(account_id: ID!): Float
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Queries\\Custodian\\CustodianBalanceQuery")
+}
+
+input LinkCustodianAccountInput {
+    account_uuid: String!
+    custodian_name: String!
+    custodian_account_id: String!
+    custodian_account_name: String
+}
+
+input InitiateCustodianTransferInput {
+    from_account_uuid: String!
+    to_account_uuid: String!
+    amount: Float!
+    asset_code: String!
+    reference: String
+}
+
+extend type Mutation {
+    linkCustodianAccount(input: LinkCustodianAccountInput! @spread): CustodianAccount!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Mutations\\Custodian\\LinkCustodianAccountMutation")
+
+    unlinkCustodianAccount(id: ID!): Boolean!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Mutations\\Custodian\\UnlinkCustodianAccountMutation")
+
+    initiateCustodianTransfer(input: InitiateCustodianTransferInput! @spread): CustodianTransfer!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Mutations\\Custodian\\InitiateCustodianTransferMutation")
+
+    syncCustodianAccount(id: ID!): CustodianAccount!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Mutations\\Custodian\\SyncCustodianAccountMutation")
+}

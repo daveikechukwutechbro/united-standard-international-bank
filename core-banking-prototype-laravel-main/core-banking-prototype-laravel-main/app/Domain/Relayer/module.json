@@ -1,0 +1,37 @@
+{
+    "$schema": "https://finaegis.io/schemas/module.json",
+    "name": "finaegis/relayer",
+    "version": "1.2.0",
+    "description": "ERC-4337 gas abstraction, smart accounts, UserOp signing, gas station, paymaster integration",
+    "type": "optional",
+    "dependencies": {
+        "required": {
+            "finaegis/shared": "^1.0",
+            "finaegis/wallet": "^1.0",
+            "finaegis/account": "^1.0"
+        },
+        "optional": {
+            "finaegis/key-management": "^1.0",
+            "finaegis/mobile": "^1.0"
+        }
+    },
+    "provides": {
+        "interfaces": [
+            "App\\Domain\\Relayer\\Contracts\\PaymasterInterface",
+            "App\\Domain\\Relayer\\Contracts\\BundlerInterface",
+            "App\\Domain\\Relayer\\Contracts\\SmartAccountFactoryInterface",
+            "App\\Domain\\Relayer\\Contracts\\UserOperationSignerInterface",
+            "App\\Domain\\Relayer\\Contracts\\WalletBalanceProviderInterface"
+        ],
+        "events": [
+            "TransactionSponsored"
+        ],
+        "commands": []
+    },
+    "paths": {
+        "routes": "Routes/api.php",
+        "migrations": "Database/Migrations",
+        "config": "Config/relayer.php",
+        "tests": "Tests"
+    }
+}

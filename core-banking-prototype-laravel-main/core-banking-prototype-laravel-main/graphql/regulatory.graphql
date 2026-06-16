@@ -1,0 +1,46 @@
+type RegulatoryReport @model(class: "App\\Domain\\Regulatory\\Models\\RegulatoryReport") {
+    id: ID!
+    report_id: String
+    report_type: String!
+    jurisdiction: String!
+    status: String!
+    priority: Int
+    is_mandatory: Boolean
+    is_overdue: Boolean
+    due_date: DateTime
+    reporting_period_start: Date
+    reporting_period_end: Date
+    submitted_at: DateTime
+    submitted_by: String
+    reviewed_at: DateTime
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+input SubmitReportInput {
+    report_type: String!
+    jurisdiction: String!
+    reporting_period_start: Date
+    reporting_period_end: Date
+}
+
+extend type Query {
+    regulatoryReport(id: ID! @eq): RegulatoryReport
+        @find
+        @guard(with: ["sanctum"])
+
+    regulatoryReports(
+        page: Int @rules(apply: ["integer", "min:1"])
+        first: Int @rules(apply: ["integer", "min:1", "max:100"])
+        status: String @where(operator: "=")
+        jurisdiction: String @where(operator: "=")
+    ): [RegulatoryReport!]!
+        @paginate(defaultCount: 15, model: "App\\Domain\\Regulatory\\Models\\RegulatoryReport")
+        @guard(with: ["sanctum"])
+}
+
+extend type Mutation {
+    submitReport(input: SubmitReportInput! @spread): RegulatoryReport!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Mutations\\Regulatory\\SubmitReportMutation")
+}

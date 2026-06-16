@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Secure Wallet Creation</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#df2020",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#211111",
+                        "surface-dark": "#2d1a1a", // Slightly lighter than background-dark for cards
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-900 dark:text-white antialiased selection:bg-primary selection:text-white">
+<div class="relative flex min-h-screen w-full flex-col overflow-hidden max-w-md mx-auto shadow-2xl">
+<!-- Header -->
+<header class="sticky top-0 z-10 flex flex-col bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-md pb-4 pt-safe-top px-6 transition-colors">
+<!-- Nav Bar -->
+<div class="flex items-center justify-between py-4">
+<button class="flex size-10 items-center justify-center rounded-full bg-transparent text-gray-900 dark:text-white hover:bg-black/5 dark:hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="text-lg font-bold tracking-tight">Secure Setup</h1>
+<div class="w-10 text-right text-sm font-medium text-gray-500 dark:text-gray-400">1/4</div>
+</div>
+<!-- Progress Bar -->
+<div class="flex w-full gap-2">
+<div class="h-1.5 flex-1 rounded-full bg-primary"></div>
+<div class="h-1.5 flex-1 rounded-full bg-gray-300 dark:bg-[#3d2525]"></div>
+<div class="h-1.5 flex-1 rounded-full bg-gray-300 dark:bg-[#3d2525]"></div>
+<div class="h-1.5 flex-1 rounded-full bg-gray-300 dark:bg-[#3d2525]"></div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex flex-1 flex-col items-center justify-start px-6 pb-32 pt-6">
+<!-- Hero Illustration: Key Splitting -->
+<div class="relative mb-10 mt-4 flex w-full aspect-square max-h-[360px] flex-col items-center justify-center rounded-2xl bg-white dark:bg-surface-dark p-6 shadow-sm border border-gray-200 dark:border-[#3d2525]">
+<!-- Center: Master Key Icon -->
+<div class="absolute z-10 flex size-20 items-center justify-center rounded-full bg-gradient-to-br from-primary to-red-800 shadow-lg shadow-primary/20 ring-4 ring-background-light dark:ring-background-dark">
+<span class="material-symbols-outlined text-4xl text-white">key</span>
+</div>
+<!-- Connecting Lines -->
+<div class="absolute h-[60%] w-[60%] animate-pulse opacity-20">
+<svg class="h-full w-full stroke-primary" fill="none" stroke-dasharray="4 4" stroke-width="1.5" viewbox="0 0 100 100">
+<line x1="50" x2="50" y1="50" y2="10"></line> <!-- Top -->
+<line x1="50" x2="15" y1="50" y2="80"></line> <!-- Bottom Left -->
+<line x1="50" x2="85" y1="50" y2="80"></line> <!-- Bottom Right -->
+</svg>
+</div>
+<!-- Orbiting Shards -->
+<!-- Shard 1: Cloud -->
+<div class="absolute top-8 flex flex-col items-center gap-2">
+<div class="flex size-14 items-center justify-center rounded-xl bg-gray-100 dark:bg-[#3d2525] text-primary shadow-sm border border-gray-200 dark:border-transparent">
+<span class="material-symbols-outlined text-2xl">cloud</span>
+</div>
+<span class="text-xs font-semibold text-gray-500 dark:text-gray-400">Cloud</span>
+</div>
+<!-- Shard 2: Device -->
+<div class="absolute bottom-8 left-8 flex flex-col items-center gap-2">
+<div class="flex size-14 items-center justify-center rounded-xl bg-gray-100 dark:bg-[#3d2525] text-primary shadow-sm border border-gray-200 dark:border-transparent">
+<span class="material-symbols-outlined text-2xl">smartphone</span>
+</div>
+<span class="text-xs font-semibold text-gray-500 dark:text-gray-400">Device</span>
+</div>
+<!-- Shard 3: Recovery -->
+<div class="absolute bottom-8 right-8 flex flex-col items-center gap-2">
+<div class="flex size-14 items-center justify-center rounded-xl bg-gray-100 dark:bg-[#3d2525] text-primary shadow-sm border border-gray-200 dark:border-transparent">
+<span class="material-symbols-outlined text-2xl">shield_lock</span>
+</div>
+<span class="text-xs font-semibold text-gray-500 dark:text-gray-400">Recovery</span>
+</div>
+</div>
+<!-- Informational Text -->
+<div class="flex flex-col items-center text-center space-y-4 max-w-xs mx-auto">
+<h2 class="text-3xl font-bold leading-tight tracking-tight text-gray-900 dark:text-white">
+                    Maximum Security<br/><span class="text-primary">Key Splitting</span>
+</h2>
+<p class="text-base text-gray-600 dark:text-gray-400 font-normal leading-relaxed">
+                    Your private key never exists in one place. It is split into three secret shards. You only need <strong class="text-gray-900 dark:text-white font-bold">2 of 3</strong> to recover your funds.
+                </p>
+</div>
+<!-- Optional: Info Card / Trust Signal -->
+<div class="mt-8 flex items-center gap-3 rounded-lg bg-primary/10 px-4 py-3 border border-primary/20">
+<span class="material-symbols-outlined text-primary text-xl">verified_user</span>
+<p class="text-sm font-medium text-primary">Bank-grade encryption enabled</p>
+</div>
+</main>
+<!-- Sticky Bottom Action -->
+<div class="fixed bottom-0 left-0 right-0 z-20 bg-background-light dark:bg-background-dark p-6 pb-8 border-t border-gray-200 dark:border-[#3d2525] max-w-md mx-auto">
+<button class="group relative flex w-full items-center justify-center gap-3 rounded-xl bg-primary px-6 py-4 text-white shadow-lg shadow-primary/30 transition-all hover:bg-red-600 hover:shadow-primary/50 hover:-translate-y-0.5 active:translate-y-0 disabled:opacity-50">
+<span class="text-lg font-bold tracking-wide">Create Wallet</span>
+<span class="material-symbols-outlined transition-transform group-hover:translate-x-1">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Background Texture/Gradient for aesthetics -->
+<div class="fixed inset-0 pointer-events-none -z-10 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/5 via-background-light to-background-light dark:from-primary/10 dark:via-background-dark dark:to-background-dark"></div>
+</body></html>

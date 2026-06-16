@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Consolidated Success Screen</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#10b981",
+                        "background-dark": "#0B0E14",
+                        "surface-dark": "#161b22",
+                        "accent-green": "#10b981",
+                        "xp-purple": "#8b5cf6"
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    }
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        .checkmark-glow {
+            box-shadow: 0 0 40px rgba(16, 185, 129, 0.2);
+        }
+        .noise-bg {
+            background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuBQ_XmPQr9hAa2e-FLEzfdpt724EvKe5d0kZhg3TvlzUzu_eyKWvFAbQ2_yWXwVuJwT9H8_E4zG7vydjNIlXYBFiZyoVJQC3Mh_Ur2Dsr_LcJ41xMuLKQ_S2Hu9A94GtF133cSV3wdBM4eMxzOfwKllEY_WJYbipIC7-uzT8c8j14_acQQkgAFxef9AEkee2RtKD-Dkr7RmbqcVFZt_CLjejgmA8UXWb9BehJkYqGwpadc8YJ7oC3XuPHeLPXUu9nkObFGpWadcmPBl);
+            mix-blend-mode: overlay;
+            opacity: 0.1;
+        }
+        .progress-gradient {
+            background: linear-gradient(90deg, #8b5cf6 0%, #d946ef 100%);
+        }
+    </style>
+<style>
+        body {
+            min-height: max(844px, 100dvh);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-dark font-display antialiased min-h-screen flex flex-col items-center justify-center text-slate-200">
+<div class="relative flex h-full w-full flex-col max-w-md mx-auto min-h-screen bg-background-dark border-x border-slate-800 overflow-hidden">
+<div class="flex items-center justify-between p-6 z-10">
+<button class="p-2 -ml-2 text-slate-400 hover:text-white transition-colors">
+<span class="material-symbols-outlined">close</span>
+</button>
+<div class="flex items-center gap-2">
+<span class="text-sm font-bold tracking-widest uppercase text-slate-500">Privacy Protection</span>
+</div>
+<div class="w-10"></div>
+</div>
+<div class="flex-1 px-6 flex flex-col items-center justify-start pt-12 relative z-10">
+<div class="absolute top-20 left-1/2 -translate-x-1/2 w-64 h-64 bg-emerald-500/10 rounded-full blur-[80px] pointer-events-none"></div>
+<div class="relative mb-8">
+<div class="w-24 h-24 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center checkmark-glow">
+<span class="material-symbols-outlined text-6xl text-emerald-500 filled">check_circle</span>
+</div>
+</div>
+<h1 class="text-3xl font-bold text-white mb-2 tracking-tight">Payment Successful</h1>
+<p class="text-slate-400 text-center text-lg mb-8">
+                Sent <span class="text-white font-semibold">12.00 USDC</span> to <br/>
+<span class="text-white font-medium">Starbolt Coffee</span>
+</p>
+<div class="w-full bg-surface-dark border border-slate-800 rounded-2xl p-5 mb-6 relative overflow-hidden">
+<div class="absolute inset-0 noise-bg pointer-events-none"></div>
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-xp-purple/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-xp-purple text-2xl">military_tech</span>
+</div>
+<div>
+<h3 class="text-sm font-bold text-white uppercase tracking-wider">Reward Earned</h3>
+<p class="text-xs text-slate-400">Activity Multiplier active</p>
+</div>
+</div>
+<div class="text-xp-purple font-bold text-xl">+10 XP</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between items-end">
+<span class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Daily Quest Progress</span>
+<span class="text-xs font-medium text-slate-300">80%</span>
+</div>
+<div class="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden">
+<div class="h-full w-[80%] progress-gradient rounded-full"></div>
+</div>
+</div>
+</div>
+<button class="w-full py-3.5 mb-2 bg-slate-800 hover:bg-slate-700 text-white font-semibold rounded-2xl transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-xl">ios_share</span>
+<span>Share Receipt</span>
+</button>
+</div>
+<div class="w-full p-6 space-y-4 z-20 bg-background-dark/95 backdrop-blur-sm">
+<div class="text-center">
+<p class="text-xs text-slate-500 font-medium">Updated balance available</p>
+</div>
+<button class="w-full py-4 bg-white text-black font-bold rounded-2xl active:scale-[0.98] transition-transform shadow-lg shadow-white/5">
+                Done
+            </button>
+<div class="flex justify-center pt-2">
+<button class="flex items-center gap-2 text-slate-500 hover:text-emerald-500 transition-colors py-2 text-sm font-medium">
+<span>Transaction Details</span>
+<span class="material-symbols-outlined text-base">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</body></html>

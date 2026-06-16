@@ -1,0 +1,48 @@
+type AssetAllocation @model(class: "App\\Domain\\Treasury\\Models\\AssetAllocation") {
+    id: ID!
+    portfolio_id: String
+    asset_class: String!
+    target_weight: Float!
+    current_weight: Float!
+    drift: Float!
+    target_amount: Float
+    current_amount: Float
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+input CreatePortfolioInput {
+    asset_class: String!
+    target_weight: Float!
+    target_amount: Float
+}
+
+input RebalancePortfolioInput {
+    portfolio_id: String!
+    threshold: Float
+}
+
+extend type Query {
+    portfolio(id: ID! @eq): AssetAllocation
+        @find
+        @guard(with: ["sanctum"])
+
+    portfolios(
+        page: Int @rules(apply: ["integer", "min:1"])
+        first: Int @rules(apply: ["integer", "min:1", "max:100"])
+        asset_class: String @where(operator: "=")
+        portfolio_id: String @where(operator: "=")
+    ): [AssetAllocation!]!
+        @paginate(defaultCount: 15, model: "App\\Domain\\Treasury\\Models\\AssetAllocation")
+        @guard(with: ["sanctum"])
+}
+
+extend type Mutation {
+    createPortfolio(input: CreatePortfolioInput! @spread): AssetAllocation!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Mutations\\Treasury\\CreatePortfolioMutation")
+
+    rebalancePortfolio(input: RebalancePortfolioInput! @spread): AssetAllocation!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Mutations\\Treasury\\RebalancePortfolioMutation")
+}

@@ -1,0 +1,32 @@
+{
+    "$schema": "https://finaegis.io/schemas/module.json",
+    "name": "finaegis/product",
+    "version": "1.3.0",
+    "description": "Financial product catalog and configuration management",
+    "type": "optional",
+    "dependencies": {
+        "required": {
+            "finaegis/shared": "^1.0"
+        },
+        "optional": {
+            "finaegis/account": "^1.0"
+        }
+    },
+    "provides": {
+        "interfaces": [],
+        "events": [
+            "ProductCreated",
+            "ProductUpdated",
+            "ProductActivated",
+            "ProductDeactivated"
+        ],
+        "commands": [
+            "CreateProductCommand",
+            "UpdateProductCommand"
+        ]
+    },
+    "paths": {
+        "migrations": "Database/Migrations",
+        "tests": "Tests"
+    }
+}

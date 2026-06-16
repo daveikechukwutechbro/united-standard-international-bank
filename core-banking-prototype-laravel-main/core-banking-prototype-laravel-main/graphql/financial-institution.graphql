@@ -1,0 +1,45 @@
+type Partner @model(class: "App\\Domain\\FinancialInstitution\\Models\\FinancialInstitutionPartner") {
+    id: ID!
+    partner_code: String
+    institution_name: String
+    legal_name: String
+    institution_type: String
+    country: String
+    status: String!
+    tier: String
+    sandbox_enabled: Boolean
+    production_enabled: Boolean
+    enabled_features: [String]
+    risk_rating: String
+    activated_at: DateTime
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+input OnboardPartnerInput {
+    institution_name: String!
+    legal_name: String!
+    institution_type: String!
+    country: String!
+    tier: String
+}
+
+extend type Query {
+    partner(id: ID! @eq): Partner
+        @find
+        @guard(with: ["sanctum"])
+
+    partners(
+        page: Int @rules(apply: ["integer", "min:1"])
+        first: Int @rules(apply: ["integer", "min:1", "max:100"])
+        status: String @where(operator: "=")
+    ): [Partner!]!
+        @paginate(defaultCount: 15, model: "App\\Domain\\FinancialInstitution\\Models\\FinancialInstitutionPartner")
+        @guard(with: ["sanctum"])
+}
+
+extend type Mutation {
+    onboardPartner(input: OnboardPartnerInput! @spread): Partner!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Mutations\\FinancialInstitution\\OnboardPartnerMutation")
+}

@@ -1,0 +1,33 @@
+{
+    "name": "audit-exporter",
+    "version": "1.0.0",
+    "description": "Exports audit logs to configurable destinations (file, S3, external API)",
+    "author": "FinAegis",
+    "license": "Apache-2.0",
+    "provider": "AuditExporterServiceProvider",
+    "hooks": [],
+    "permissions": [
+        "filesystem:write",
+        "http:outbound"
+    ],
+    "config": {
+        "export_path": {
+            "type": "string",
+            "required": false,
+            "default": "storage/exports/audit",
+            "description": "Local file path for audit exports"
+        },
+        "format": {
+            "type": "string",
+            "required": false,
+            "default": "json",
+            "description": "Export format: json, csv"
+        },
+        "retention_days": {
+            "type": "integer",
+            "required": false,
+            "default": 90,
+            "description": "Number of days of audit data to export"
+        }
+    }
+}

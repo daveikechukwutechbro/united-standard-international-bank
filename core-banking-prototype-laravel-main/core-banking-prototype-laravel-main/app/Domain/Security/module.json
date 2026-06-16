@@ -1,0 +1,30 @@
+{
+    "$schema": "https://finaegis.io/schemas/module.json",
+    "name": "finaegis/security",
+    "version": "1.1.0",
+    "description": "Security audit framework with automated vulnerability checks and compliance scanning",
+    "type": "core",
+    "dependencies": {
+        "required": {
+            "finaegis/shared": "^1.0",
+            "finaegis/account": "^1.0"
+        },
+        "optional": {
+            "finaegis/compliance": "^1.0",
+            "finaegis/key-management": "^1.0"
+        }
+    },
+    "provides": {
+        "interfaces": [
+            "App\\Domain\\Security\\Contracts\\SecurityCheckInterface"
+        ],
+        "events": [],
+        "commands": []
+    },
+    "paths": {
+        "routes": "Routes/api.php",
+        "migrations": "Database/Migrations",
+        "config": "Config/security.php",
+        "tests": "Tests"
+    }
+}

@@ -1,0 +1,78 @@
+type Asset @model(class: "App\\Domain\\Asset\\Models\\Asset") {
+    id: ID!
+    code: String!
+    name: String!
+    type: String!
+    precision: Int!
+    is_active: Boolean!
+    is_basket: Boolean!
+    is_tradeable: Boolean!
+    metadata: String
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+type ExchangeRate @model(class: "App\\Domain\\Asset\\Models\\ExchangeRate") {
+    id: ID!
+    from_asset_code: String!
+    to_asset_code: String!
+    rate: Float!
+    source: String!
+    valid_at: DateTime
+    expires_at: DateTime
+    is_active: Boolean!
+    metadata: String
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+extend type Query {
+    asset(id: ID! @eq): Asset
+        @find
+        @guard(with: ["sanctum"])
+
+    assets(
+        page: Int @rules(apply: ["integer", "min:1"])
+        first: Int @rules(apply: ["integer", "min:1", "max:100"])
+        type: String @where(operator: "=")
+        is_active: Boolean @where(operator: "=")
+        is_tradeable: Boolean @where(operator: "=")
+    ): [Asset!]!
+        @paginate(defaultCount: 15, model: "App\\Domain\\Asset\\Models\\Asset")
+        @guard(with: ["sanctum"])
+
+    assetByCode(code: String! @eq): Asset
+        @find
+        @guard(with: ["sanctum"])
+
+    exchangeRate(id: ID! @eq): ExchangeRate
+        @find
+        @guard(with: ["sanctum"])
+
+    exchangeRates(
+        page: Int @rules(apply: ["integer", "min:1"])
+        first: Int @rules(apply: ["integer", "min:1", "max:100"])
+        from_asset_code: String @where(operator: "=")
+        to_asset_code: String @where(operator: "=")
+        is_active: Boolean @where(operator: "=")
+    ): [ExchangeRate!]!
+        @paginate(defaultCount: 15, model: "App\\Domain\\Asset\\Models\\ExchangeRate")
+        @guard(with: ["sanctum"])
+
+    latestExchangeRate(from_asset_code: String!, to_asset_code: String!): ExchangeRate
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Queries\\Asset\\LatestExchangeRateQuery")
+}
+
+input InitiateAssetTransferInput {
+    from_account_uuid: String!
+    to_account_uuid: String!
+    asset_code: String!
+    amount: Float!
+}
+
+extend type Mutation {
+    initiateAssetTransfer(input: InitiateAssetTransferInput! @spread): String!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Mutations\\Asset\\InitiateAssetTransferMutation")
+}

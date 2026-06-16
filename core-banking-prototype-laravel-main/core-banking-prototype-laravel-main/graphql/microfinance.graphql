@@ -1,0 +1,135 @@
+type MfiGroup {
+    id: ID!
+    name: String!
+    center_name: String
+    office_name: String
+    status: String!
+    meeting_frequency: String!
+    meeting_day: String
+    activation_date: Date
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+type MfiGroupMember {
+    id: ID!
+    group_id: ID!
+    user_id: Int!
+    role: String!
+    joined_at: Date!
+    left_at: Date
+    is_active: Boolean!
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+type MfiShareAccount {
+    id: ID!
+    user_id: Int!
+    group_id: ID
+    account_number: String!
+    shares_purchased: Int!
+    nominal_value: Float!
+    total_value: Float!
+    status: String!
+    currency: String!
+    dividend_balance: Float!
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+type MfiLoanProvision {
+    id: ID!
+    loan_id: String!
+    category: String!
+    provision_amount: Float!
+    days_overdue: Int!
+    review_date: Date!
+    notes: String
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+type MfiCollectionSheet {
+    id: ID!
+    officer_id: ID!
+    group_id: ID!
+    collection_date: Date!
+    expected_amount: Float!
+    collected_amount: Float!
+    status: String!
+    notes: String
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+type MfiProvisionSummary {
+    standard: String!
+    substandard: String!
+    doubtful: String!
+    loss: String!
+    total: String!
+}
+
+input MfiCreateGroupInput {
+    name: String!
+    meeting_frequency: String!
+    center_name: String
+    meeting_day: String
+}
+
+input MfiAddMemberInput {
+    group_id: ID!
+    user_id: Int!
+    role: String
+}
+
+input MfiOpenShareAccountInput {
+    group_id: ID
+    currency: String
+}
+
+input MfiPurchaseSharesInput {
+    account_id: ID!
+    shares: Int!
+}
+
+extend type Query {
+    mfiGroups(
+        status: String @where(operator: "=")
+        first: Int @rules(apply: ["integer", "min:1", "max:100"])
+        page: Int @rules(apply: ["integer", "min:1"])
+    ): [MfiGroup!]!
+        @paginate(defaultCount: 15, model: "App\\Domain\\Microfinance\\Models\\Group")
+        @guard(with: ["sanctum"])
+
+    mfiShareAccounts: [MfiShareAccount!]!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Queries\\Microfinance\\ShareAccountsQuery")
+
+    mfiProvisionSummary: MfiProvisionSummary!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Queries\\Microfinance\\ProvisionSummaryQuery")
+}
+
+extend type Mutation {
+    mfiCreateGroup(input: MfiCreateGroupInput! @spread): MfiGroup!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Mutations\\Microfinance\\CreateGroupMutation")
+
+    mfiActivateGroup(id: ID!): MfiGroup!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Mutations\\Microfinance\\ActivateGroupMutation")
+
+    mfiAddMember(input: MfiAddMemberInput! @spread): MfiGroupMember!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Mutations\\Microfinance\\AddMemberMutation")
+
+    mfiOpenShareAccount(input: MfiOpenShareAccountInput! @spread): MfiShareAccount!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Mutations\\Microfinance\\OpenShareAccountMutation")
+
+    mfiPurchaseShares(input: MfiPurchaseSharesInput! @spread): MfiShareAccount!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Mutations\\Microfinance\\PurchaseSharesMutation")
+}

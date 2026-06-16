@@ -1,0 +1,86 @@
+{
+  "description": "FinAegis Stablecoin Domain - Token supply and reserve metrics",
+  "editable": true,
+  "id": null,
+  "panels": [
+    {
+      "datasource": {"type": "prometheus", "uid": "prometheus"},
+      "fieldConfig": {"defaults": {"unit": "currencyUSD"}},
+      "gridPos": {"h": 4, "w": 6, "x": 0, "y": 0},
+      "id": 1,
+      "title": "Total Supply",
+      "type": "stat",
+      "targets": [{"expr": "stablecoin_total_supply", "refId": "A"}]
+    },
+    {
+      "datasource": {"type": "prometheus", "uid": "prometheus"},
+      "fieldConfig": {"defaults": {"unit": "currencyUSD"}},
+      "gridPos": {"h": 4, "w": 6, "x": 6, "y": 0},
+      "id": 2,
+      "title": "Total Reserves",
+      "type": "stat",
+      "targets": [{"expr": "stablecoin_reserves_total", "refId": "A"}]
+    },
+    {
+      "datasource": {"type": "prometheus", "uid": "prometheus"},
+      "fieldConfig": {"defaults": {"unit": "percentunit", "thresholds": {"steps": [{"color": "red", "value": null}, {"color": "yellow", "value": 0.95}, {"color": "green", "value": 1.0}]}}},
+      "gridPos": {"h": 4, "w": 6, "x": 12, "y": 0},
+      "id": 3,
+      "title": "Collateralization Ratio",
+      "type": "stat",
+      "targets": [{"expr": "stablecoin_collateralization_ratio", "refId": "A"}]
+    },
+    {
+      "datasource": {"type": "prometheus", "uid": "prometheus"},
+      "fieldConfig": {"defaults": {"unit": "short"}},
+      "gridPos": {"h": 4, "w": 6, "x": 18, "y": 0},
+      "id": 4,
+      "title": "Token Holders",
+      "type": "stat",
+      "targets": [{"expr": "stablecoin_holders_count", "refId": "A"}]
+    },
+    {
+      "datasource": {"type": "prometheus", "uid": "prometheus"},
+      "gridPos": {"h": 8, "w": 12, "x": 0, "y": 4},
+      "id": 5,
+      "title": "Mint/Burn Activity",
+      "type": "timeseries",
+      "targets": [
+        {"expr": "rate(stablecoin_minted_total[5m])", "legendFormat": "Minted", "refId": "A"},
+        {"expr": "rate(stablecoin_burned_total[5m])", "legendFormat": "Burned", "refId": "B"}
+      ]
+    },
+    {
+      "datasource": {"type": "prometheus", "uid": "prometheus"},
+      "gridPos": {"h": 8, "w": 12, "x": 12, "y": 4},
+      "id": 6,
+      "title": "Reserve Composition",
+      "type": "piechart",
+      "targets": [{"expr": "stablecoin_reserve_by_type", "legendFormat": "{{type}}", "refId": "A"}]
+    },
+    {
+      "datasource": {"type": "prometheus", "uid": "prometheus"},
+      "gridPos": {"h": 8, "w": 12, "x": 0, "y": 12},
+      "id": 7,
+      "title": "Supply History",
+      "type": "timeseries",
+      "targets": [{"expr": "stablecoin_total_supply", "legendFormat": "Total Supply", "refId": "A"}]
+    },
+    {
+      "datasource": {"type": "prometheus", "uid": "prometheus"},
+      "gridPos": {"h": 8, "w": 12, "x": 12, "y": 12},
+      "id": 8,
+      "title": "Peg Deviation",
+      "type": "timeseries",
+      "fieldConfig": {"defaults": {"unit": "percentunit", "thresholds": {"steps": [{"color": "green", "value": null}, {"color": "yellow", "value": 0.001}, {"color": "red", "value": 0.005}]}}},
+      "targets": [{"expr": "abs(stablecoin_peg_deviation)", "legendFormat": "Deviation from $1", "refId": "A"}]
+    }
+  ],
+  "refresh": "30s",
+  "schemaVersion": 38,
+  "tags": ["finaegis", "stablecoin", "reserves"],
+  "time": {"from": "now-1h", "to": "now"},
+  "title": "FinAegis Stablecoin Domain",
+  "uid": "finaegis-stablecoin",
+  "version": 1
+}

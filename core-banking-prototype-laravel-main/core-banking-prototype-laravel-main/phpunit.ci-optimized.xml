@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
+         bootstrap="vendor/autoload.php"
+         colors="true"
+         enforceTimeLimit="true"
+         defaultTimeLimit="180"
+>
+    <testsuites>
+        <testsuite name="Unit">
+            <directory>tests/Unit</directory>
+        </testsuite>
+        <testsuite name="Feature">
+            <directory>tests/Feature</directory>
+        </testsuite>
+        <testsuite name="Integration">
+            <directory>tests/Domain</directory>
+            <directory>tests/Console</directory>
+        </testsuite>
+        <testsuite name="Security">
+            <directory>tests/Security</directory>
+        </testsuite>
+    </testsuites>
+    <source>
+        <include>
+            <directory>app</directory>
+        </include>
+        <exclude>
+            <directory>app/Console/Commands</directory>
+            <file>app/Http/Kernel.php</file>
+            <directory>app/Providers</directory>
+            <!-- Exclude vendor and other large directories from coverage -->
+            <directory>vendor</directory>
+            <directory>node_modules</directory>
+            <directory>storage</directory>
+            <directory>public</directory>
+            <directory>bootstrap/cache</directory>
+        </exclude>
+    </source>
+    <!-- Coverage disabled to improve performance and reduce memory usage
+    <coverage>
+        <report>
+            <text outputFile="php://stdout" showUncoveredFiles="false"/>
+            <xml outputDirectory="."/>
+        </report>
+    </coverage>
+    -->
+    <php>
+        <env name="APP_ENV" value="testing"/>
+        <env name="APP_MAINTENANCE_DRIVER" value="file"/>
+        <env name="BCRYPT_ROUNDS" value="4"/>
+        <env name="CACHE_STORE" value="redis"/>
+        <!-- Use MySQL if available in CI, otherwise SQLite -->
+        <!-- Note: DB settings can be overridden by environment variables -->
+        <env name="DB_CONNECTION" value="sqlite" force="false"/>
+        <env name="DB_DATABASE" value=":memory:" force="false"/>
+        <env name="DB_TIMEOUT" value="300"/>
+        <env name="MAIL_MAILER" value="array"/>
+        <env name="PULSE_ENABLED" value="false"/>
+        <env name="QUEUE_CONNECTION" value="sync"/>
+        <env name="SESSION_DRIVER" value="array"/>
+        <env name="TELESCOPE_ENABLED" value="false"/>
+        <!-- Parallel testing configuration -->
+        <!-- Re-enabled with 2 processes after memory increase to 1G -->
+        <!-- Can be disabled by setting PEST_PARALLEL=false in environment -->
+        <env name="PEST_PARALLEL" value="true" force="false"/>
+        <env name="PEST_PARALLEL_PROCESSES" value="2" force="false"/>
+        <!-- Redis configuration for parallel testing -->
+        <env name="REDIS_CLIENT" value="phpredis"/>
+        <env name="REDIS_HOST" value="127.0.0.1"/>
+        <env name="REDIS_PORT" value="6379"/>
+    </php>
+</phpunit>

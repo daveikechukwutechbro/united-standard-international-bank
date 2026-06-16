@@ -1,0 +1,36 @@
+{
+    "$schema": "https://finaegis.io/schemas/module.json",
+    "name": "finaegis/key-management",
+    "version": "1.2.0",
+    "description": "Shamir's Secret Sharing, HSM integration (AWS KMS, Azure Key Vault), key rotation and reconstruction",
+    "type": "core",
+    "dependencies": {
+        "required": {
+            "finaegis/shared": "^1.0",
+            "finaegis/account": "^1.0"
+        },
+        "optional": {
+            "finaegis/wallet": "^1.0",
+            "finaegis/security": "^1.0"
+        }
+    },
+    "provides": {
+        "interfaces": [
+            "App\\Domain\\KeyManagement\\Contracts\\ShamirServiceInterface",
+            "App\\Domain\\KeyManagement\\Contracts\\HsmProviderInterface"
+        ],
+        "events": [
+            "KeyShardsCreated",
+            "KeyReconstructed",
+            "KeyShardsRotated",
+            "KeyReconstructionFailed"
+        ],
+        "commands": []
+    },
+    "paths": {
+        "routes": "Routes/api.php",
+        "migrations": "Database/Migrations",
+        "config": "Config/key-management.php",
+        "tests": "Tests"
+    }
+}

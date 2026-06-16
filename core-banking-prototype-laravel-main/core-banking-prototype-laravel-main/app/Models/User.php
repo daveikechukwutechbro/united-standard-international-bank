@@ -1,0 +1,417 @@
+<?php
+
+namespace App\Models;
+
+// use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Domain\Account\Models\Account;
+use App\Domain\Account\Models\BlockchainAddress;
+use App\Domain\Account\Models\BlockchainTransaction;
+use App\Domain\Account\Models\Transaction;
+use App\Domain\Banking\Models\BankAccountModel;
+use App\Domain\Banking\Models\UserBankPreference;
+use App\Domain\Cgo\Models\CgoInvestment;
+use App\Domain\Compliance\Models\KycDocument;
+use App\Domain\User\Values\UserRoles;
+use App\Domain\Wallet\Models\WalletSendRecord;
+use Filament\Models\Contracts\FilamentUser;
+use Filament\Panel;
+use Illuminate\Database\Eloquent\Concerns\HasUuids;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasManyThrough;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Laravel\Cashier\Billable;
+use Laravel\Fortify\TwoFactorAuthenticatable;
+use Laravel\Jetstream\HasProfilePhoto;
+use Laravel\Jetstream\HasTeams;
+use Laravel\Sanctum\HasApiTokens;
+use Spatie\Permission\Traits\HasRoles;
+
+/**
+ * @property \Illuminate\Support\Carbon|null $free_tx_until
+ * @property int $sponsored_tx_used
+ * @property int $sponsored_tx_limit
+ */
+class User extends Authenticatable implements FilamentUser
+{
+    use HasApiTokens;
+    use HasFactory;
+    use HasProfilePhoto;
+    use HasUuids;
+    use Notifiable;
+    use TwoFactorAuthenticatable;
+    use Billable;
+
+    // spatie/laravel-permission 7.4+ added a `teams()` method on HasRoles that
+    // collides with Jetstream's HasTeams::teams. Spatie's team-aware permission
+    // mode is disabled in config/permission.php, so Jetstream wins the method
+    // name and the unused Spatie variant is hidden.
+    use HasTeams, HasRoles {
+        HasTeams::teams insteadof HasRoles;
+    }
+
+    /**
+     * Get the columns that should receive a unique identifier.
+     *
+     * @return array<int, string>
+     */
+    public function uniqueIds(): array
+    {
+        return ['uuid'];
+    }
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = [
+        'name',
+        'email',
+        'password',
+        'email_verified_at',
+        'oauth_provider',
+        'oauth_id',
+        'avatar',
+        'privy_user_id',
+        'privy_linked_at',
+        'timezone',
+        'kyc_status',
+        'kyc_submitted_at',
+        'kyc_approved_at',
+        'kyc_rejected_at',
+        'kyc_expires_at',
+        'kyc_level',
+        'pep_status',
+        'risk_rating',
+        'kyc_data',
+        'privacy_policy_accepted_at',
+        'terms_accepted_at',
+        'marketing_consent_at',
+        'data_retention_consent',
+        'has_completed_onboarding',
+        'onboarding_completed_at',
+        'country_code', // Added for testing KYC/AML
+        'mobile_preferences',
+        'free_tx_until',
+        'sponsored_tx_used',
+        'sponsored_tx_limit',
+        'referral_code',
+        'referred_by',
+        // Plan B Slice 4 — cue queue columns (Backend-Q8)
+        'pro_marketing_opt_out',
+        'lifetime_spend_cents',
+        'kyc_completed_at',
+    ];
+
+    /**
+     * The attributes that should be hidden for serialization.
+     *
+     * @var array<int, string>
+     */
+    protected $hidden = [
+        'password',
+        'remember_token',
+        'two_factor_recovery_codes',
+        'two_factor_secret',
+    ];
+
+    /**
+     * The accessors to append to the model's array form.
+     *
+     * @var array<int, string>
+     */
+    protected $appends = [
+        'profile_photo_url',
+    ];
+
+    /**
+     * Get the attributes that should be cast.
+     *
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
+            'email_verified_at'          => 'datetime',
+            'password'                   => 'hashed',
+            'privy_linked_at'            => 'datetime',
+            'kyc_submitted_at'           => 'datetime',
+            'kyc_approved_at'            => 'datetime',
+            'kyc_expires_at'             => 'datetime',
+            'pep_status'                 => 'boolean',
+            'kyc_data'                   => 'encrypted:array',
+            'privacy_policy_accepted_at' => 'datetime',
+            'terms_accepted_at'          => 'datetime',
+            'marketing_consent_at'       => 'datetime',
+            'data_retention_consent'     => 'boolean',
+            'has_completed_onboarding'   => 'boolean',
+            'onboarding_completed_at'    => 'datetime',
+            'mobile_preferences'         => 'array',
+            'free_tx_until'              => 'datetime',
+            'sponsored_tx_used'          => 'integer',
+            'sponsored_tx_limit'         => 'integer',
+            // Plan B Slice 4 — cue queue columns (Backend-Q8)
+            'pro_marketing_opt_out' => 'boolean',
+            'lifetime_spend_cents'  => 'integer',
+            'kyc_completed_at'      => 'datetime',
+        ];
+    }
+
+    /**
+     * @return string
+     */
+    public function getRouteKeyName(): string
+    {
+        return 'uuid';
+    }
+
+    /**
+     * Determine if the user can access the Filament admin panel.
+     */
+    public function canAccessPanel(Panel $panel): bool
+    {
+        return $this->hasRole(UserRoles::ADMIN->value);
+    }
+
+    /**
+     * Get the accounts for the user.
+     */
+    /**
+     * @return HasMany
+     */
+    public function accounts()
+    {
+        return $this->hasMany(Account::class, 'user_uuid', 'uuid');
+    }
+
+    /**
+     * Get the primary account for the user.
+     * This returns the first account which is typically the default one created on registration.
+     */
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function account()
+    {
+        return $this->hasOne(Account::class, 'user_uuid', 'uuid');
+    }
+
+    /**
+     * Get the primary account for the user.
+     * Alias for account() to maintain backward compatibility.
+     */
+    public function primaryAccount()
+    {
+        return $this->account()->first();
+    }
+
+    /**
+     * Get the account flag row (reviewer/demo provisioning bypasses).
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne<\App\Domain\AccountProvisioning\Models\AccountFlag, $this>
+     */
+    public function accountFlag(): \Illuminate\Database\Eloquent\Relations\HasOne
+    {
+        return $this->hasOne(\App\Domain\AccountProvisioning\Models\AccountFlag::class);
+    }
+
+    /**
+     * Resolve the user's effective KYC level as an integer, applying any
+     * active AccountFlag override. When no flag override is present, the
+     * real `kyc_level` ENUM column (none/basic/enhanced/full) is mapped
+     * to its numeric tier (0/1/2/3).
+     */
+    public function effectiveKycLevel(): int
+    {
+        $service = app(\App\Domain\AccountProvisioning\Services\AccountFlagsService::class);
+        $override = $service->kycOverrideLevel($this);
+
+        if ($override !== null) {
+            return $override;
+        }
+
+        $raw = $this->kyc_level ?? 0;
+
+        if (is_int($raw)) {
+            return $raw;
+        }
+
+        return match ($raw) {
+            'basic'    => 1,
+            'enhanced' => 2,
+            'full'     => 3,
+            default    => 0,
+        };
+    }
+
+    /**
+     * Get the bank preferences for the user.
+     *
+     * @return HasMany<UserBankPreference, $this>
+     */
+    public function bankPreferences()
+    {
+        return $this->hasMany(UserBankPreference::class, 'user_uuid', 'uuid');
+    }
+
+    /**
+     * Get the bank accounts for the user.
+     */
+    /**
+     * @return HasMany
+     */
+    public function bankAccounts()
+    {
+        return $this->hasMany(BankAccountModel::class, 'user_uuid', 'uuid');
+    }
+
+    /**
+     * Get active bank preferences for the user.
+     *
+     * @return HasMany<UserBankPreference, $this>
+     */
+    public function activeBankPreferences(): HasMany
+    {
+        return $this->bankPreferences()->where('is_active', true);
+    }
+
+    /**
+     * Get the KYC documents for the user.
+     */
+    /**
+     * @return HasMany
+     */
+    public function kycDocuments()
+    {
+        return $this->hasMany(KycDocument::class, 'user_uuid', 'uuid');
+    }
+
+    /**
+     * Check if user has completed KYC.
+     */
+    public function hasCompletedKyc(): bool
+    {
+        return $this->kyc_status === 'approved' &&
+               ($this->kyc_expires_at === null || $this->kyc_expires_at->isFuture());
+    }
+
+    /**
+     * Check if user needs KYC.
+     */
+    public function needsKyc(): bool
+    {
+        return in_array($this->kyc_status, ['not_started', 'rejected', 'expired']) ||
+               ($this->kyc_status === 'approved' && $this->kyc_expires_at && $this->kyc_expires_at->isPast());
+    }
+
+    /**
+     * Check if user has completed onboarding.
+     */
+    public function hasCompletedOnboarding(): bool
+    {
+        return $this->has_completed_onboarding === true;
+    }
+
+    /**
+     * Mark onboarding as completed.
+     */
+    public function completeOnboarding(): void
+    {
+        $this->update(
+            [
+            'has_completed_onboarding' => true,
+            'onboarding_completed_at'  => now(),
+            ]
+        );
+    }
+
+    /**
+     * Get the CGO investments for the user.
+     */
+    public function cgoInvestments(): HasMany
+    {
+        return $this->hasMany(CgoInvestment::class);
+    }
+
+    /**
+     * Get the API keys for the user.
+     */
+    public function apiKeys(): HasMany
+    {
+        return $this->hasMany(ApiKey::class, 'user_uuid', 'uuid');
+    }
+
+    /**
+     * Get all transactions for the user through their accounts.
+     */
+    public function transactions(): HasManyThrough
+    {
+        return $this->hasManyThrough(
+            Transaction::class,
+            Account::class,
+            'user_uuid', // Foreign key on accounts table
+            'aggregate_uuid', // Foreign key on transactions table
+            'uuid', // Local key on users table
+            'uuid' // Local key on accounts table
+        );
+    }
+
+    /**
+     * The user's non-custodial wallet addresses — one row per chain.
+     *
+     * @return HasMany<BlockchainAddress, $this>
+     */
+    public function blockchainAddresses(): HasMany
+    {
+        return $this->hasMany(BlockchainAddress::class, 'user_uuid', 'uuid');
+    }
+
+    /**
+     * Every on-chain transaction mirrored across the user's wallet addresses.
+     *
+     * @return HasManyThrough<BlockchainTransaction, BlockchainAddress, $this>
+     */
+    public function blockchainTransactions(): HasManyThrough
+    {
+        return $this->hasManyThrough(
+            BlockchainTransaction::class,
+            BlockchainAddress::class,
+            'user_uuid',    // Foreign key on blockchain_addresses → users
+            'address_uuid', // Foreign key on blockchain_address_transactions → blockchain_addresses
+            'uuid',         // Local key on users
+            'uuid'          // Local key on blockchain_addresses
+        );
+    }
+
+    /**
+     * The user's outbound wallet sends (prepare/submit flow), all networks.
+     *
+     * @return HasMany<WalletSendRecord, $this>
+     */
+    public function walletSendRecords(): HasMany
+    {
+        return $this->hasMany(WalletSendRecord::class, 'user_id');
+    }
+
+    /**
+     * Get the user who referred this user.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<User, $this>
+     */
+    public function referrer(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(self::class, 'referred_by');
+    }
+
+    /**
+     * Get users referred by this user.
+     *
+     * @return HasMany<Referral, $this>
+     */
+    public function referrals(): HasMany
+    {
+        return $this->hasMany(Referral::class, 'referrer_id');
+    }
+}

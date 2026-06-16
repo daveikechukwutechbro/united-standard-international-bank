@@ -1,0 +1,40 @@
+type Agent @model(class: "App\\Domain\\AgentProtocol\\Models\\Agent") {
+    id: ID!
+    agent_id: String
+    name: String!
+    status: String!
+    type: String
+    capabilities: [String]
+    endpoints: [String]
+    organization: String
+    relay_score: Float
+    last_activity_at: DateTime
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+input RegisterAgentInput {
+    name: String!
+    type: String
+    capabilities: [String]
+}
+
+extend type Query {
+    agent(id: ID! @eq): Agent
+        @find
+        @guard(with: ["sanctum"])
+
+    agents(
+        page: Int @rules(apply: ["integer", "min:1"])
+        first: Int @rules(apply: ["integer", "min:1", "max:100"])
+        status: String @where(operator: "=")
+    ): [Agent!]!
+        @paginate(defaultCount: 15, model: "App\\Domain\\AgentProtocol\\Models\\Agent")
+        @guard(with: ["sanctum"])
+}
+
+extend type Mutation {
+    registerAgent(input: RegisterAgentInput! @spread): Agent!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Mutations\\AgentProtocol\\RegisterAgentMutation")
+}

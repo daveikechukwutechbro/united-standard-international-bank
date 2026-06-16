@@ -1,0 +1,27 @@
+{
+    "$schema": "https://finaegis.io/schemas/module.json",
+    "name": "finaegis/activity",
+    "version": "1.3.0",
+    "description": "Activity logging and user action tracking",
+    "type": "optional",
+    "dependencies": {
+        "required": {
+            "finaegis/shared": "^1.0",
+            "finaegis/user": "^1.0"
+        },
+        "optional": {}
+    },
+    "provides": {
+        "interfaces": [],
+        "events": [
+            "ActivityLogged"
+        ],
+        "commands": [
+            "LogActivityCommand"
+        ]
+    },
+    "paths": {
+        "migrations": "Database/Migrations",
+        "tests": "Tests"
+    }
+}

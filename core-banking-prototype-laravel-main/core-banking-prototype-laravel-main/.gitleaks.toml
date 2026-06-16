@@ -1,0 +1,46 @@
+# Gitleaks configuration for FinAegis project
+title = "FinAegis Gitleaks Configuration"
+
+[extend]
+# Extend the base configuration
+useDefault = true
+
+[allowlist]
+description = "Global allowlist for FinAegis"
+regexes = [
+    '''whsec_\[redacted\]|whsec_\[your_webhook_secret\]|whsec_[a-zA-Z0-9_\-]+example''',
+    '''(your|YOUR|example|EXAMPLE|test|TEST|demo|DEMO|placeholder|PLACEHOLDER)[\s_\-]*(api|API)?[\s_\-]*(key|KEY|token|TOKEN|secret|SECRET)''',
+    '''(api_key|apiKey|api_token|bearer_token|access_token|refresh_token|webhook_secret|client_secret)\s*[:=]\s*[\'"]?\$|process\.env|env\(|getenv\(|ENV\[|environ\[''',
+    '''[\'"]?(secret|token|key|password)[\'"]?\s*[:=]\s*[\'"]?(test|demo|example|placeholder|your_.*|my_.*|\*+|xxx+|\.\.\.+|<.*>|\$\{.*\})[\'"]?''',
+    '''test-santander-secret'''
+]
+paths = [
+    '''.*\.(md|MD|txt|TXT|rst|RST)$''',
+    '''(test|tests|spec|specs)/.*''',
+    '''(example|examples|sample|samples|demo|demos)/.*''',
+    '''.*\.postman_collection\.json$''',
+    '''\.env\.(example|sample|demo|test|dev)$''',
+    '''\.env\.[a-z]+\.example$''',
+    '''\.php-cs-fixer\.cache$''',
+    '''config/(crosschain|defi|relayer|privacy|cctp)\.php$''',
+    '''resources/views/developers/.*\.blade\.php$''',
+    '''resources/views/features/.*\.blade\.php$''',
+    '''bin/.*\.sh$'''
+]
+commits = [
+    '''(docs|doc|documentation|readme|example|sample|test)'''
+]
+
+# Custom rules to reduce false positives
+[[rules]]
+description = "Custom rule for actual secrets"
+id = "finaegis-real-secret"
+regex = '''(?i)(api[_\s\-]?key|secret|token|password|auth|bearer|private[_\s\-]?key)\s*[:=]\s*[\'"]?[a-zA-Z0-9+/]{32,}[\'"]?'''
+# Only match if the value is at least 32 characters and not a placeholder
+[rules.allowlist]
+regexes = [
+    '''(test|demo|example|placeholder|your|my|foo|bar|baz|xxx|fake|dummy|sample)''',
+    '''\$\{.*\}''',
+    '''process\.env''',
+    '''<.*>'''
+]

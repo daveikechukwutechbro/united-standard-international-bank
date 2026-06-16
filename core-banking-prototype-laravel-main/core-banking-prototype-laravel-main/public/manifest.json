@@ -1,0 +1,23 @@
+{
+    "name": "Zelta — Agentic Payments",
+    "short_name": "Zelta",
+    "description": "Get your personal card to spend anywhere. Get your agent a card to spend anywhere. Stablecoin-powered, non-custodial.",
+    "start_url": "/",
+    "display": "standalone",
+    "theme_color": "#0a0a0a",
+    "background_color": "#ffffff",
+    "icons": [
+        {
+            "src": "/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/android-chrome-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ]
+}

@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<ruleset name="Laravel Banking App Standards">
+    <description>The coding standard for the Laravel banking application.</description>
+    
+    <!-- Directories to check -->
+    <file>app</file>
+    <file>tests</file>
+    
+    <!-- Apply PSR-12 standard -->
+    <rule ref="PSR12">
+        <!-- Exclude line length rule -->
+        <exclude name="Generic.Files.LineLength"/>
+    </rule>
+    
+    <!-- Allow test_ prefixed methods in test files (Laravel convention) -->
+    <rule ref="PSR1.Methods.CamelCapsMethodName">
+        <exclude-pattern>tests/*</exclude-pattern>
+    </rule>
+    
+    <!-- Exclude side effects warning for Pest PHP test files -->
+    <rule ref="PSR1.Files.SideEffects">
+        <exclude-pattern>tests/Pest.php</exclude-pattern>
+        <exclude-pattern>tests/**/*Test.php</exclude-pattern>
+    </rule>
+    
+    <!-- Exclude vendor directory -->
+    <exclude-pattern>vendor/</exclude-pattern>
+    
+    <!-- Exclude storage directory -->
+    <exclude-pattern>storage/</exclude-pattern>
+    
+    <!-- Exclude bootstrap/cache -->
+    <exclude-pattern>bootstrap/cache/</exclude-pattern>
+
+    <!-- Exclude non-PHP files (k6 JavaScript tests) -->
+    <exclude-pattern>tests/k6/</exclude-pattern>
+</ruleset>

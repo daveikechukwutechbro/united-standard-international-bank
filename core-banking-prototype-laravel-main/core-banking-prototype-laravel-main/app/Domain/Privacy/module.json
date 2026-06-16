@@ -1,0 +1,41 @@
+{
+    "$schema": "https://finaegis.io/schemas/module.json",
+    "name": "finaegis/privacy",
+    "version": "1.2.0",
+    "description": "ZK-KYC, Proof of Innocence, Merkle trees, delegated proofs, selective disclosure, SRS manifests",
+    "type": "optional",
+    "dependencies": {
+        "required": {
+            "finaegis/shared": "^1.0",
+            "finaegis/account": "^1.0",
+            "finaegis/wallet": "^1.0"
+        },
+        "optional": {
+            "finaegis/security": "^1.0",
+            "finaegis/key-management": "^1.0"
+        }
+    },
+    "provides": {
+        "interfaces": [
+            "App\\Domain\\Privacy\\Contracts\\ZkProverInterface",
+            "App\\Domain\\Privacy\\Contracts\\MerkleTreeServiceInterface"
+        ],
+        "events": [
+            "ZkKycVerified",
+            "ZkKycVerificationFailed",
+            "ProofOfInnocenceGenerated",
+            "DelegatedProofRequested",
+            "DelegatedProofCompleted",
+            "DelegatedProofFailed",
+            "DelegatedProofProgress",
+            "MerkleRootUpdated"
+        ],
+        "commands": []
+    },
+    "paths": {
+        "routes": "Routes/api.php",
+        "migrations": "Database/Migrations",
+        "config": "Config/privacy.php",
+        "tests": "Tests"
+    }
+}

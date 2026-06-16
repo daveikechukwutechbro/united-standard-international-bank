@@ -1,0 +1,41 @@
+type BatchJob @model(class: "App\\Domain\\Batch\\Models\\BatchJob") {
+    id: ID!
+    uuid: String
+    name: String
+    type: String!
+    status: String!
+    total_items: Int
+    processed_items: Int
+    failed_items: Int
+    scheduled_at: DateTime
+    started_at: DateTime
+    completed_at: DateTime
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+input CreateBatchJobInput {
+    name: String!
+    type: String!
+    items: [String!]!
+}
+
+extend type Query {
+    batchJob(id: ID! @eq): BatchJob
+        @find
+        @guard(with: ["sanctum"])
+
+    batchJobs(
+        page: Int @rules(apply: ["integer", "min:1"])
+        first: Int @rules(apply: ["integer", "min:1", "max:100"])
+        status: String @where(operator: "=")
+    ): [BatchJob!]!
+        @paginate(defaultCount: 15, model: "App\\Domain\\Batch\\Models\\BatchJob")
+        @guard(with: ["sanctum"])
+}
+
+extend type Mutation {
+    createBatchJob(input: CreateBatchJobInput! @spread): BatchJob!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Mutations\\Batch\\CreateBatchJobMutation")
+}

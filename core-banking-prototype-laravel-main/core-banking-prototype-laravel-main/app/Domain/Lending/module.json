@@ -1,0 +1,43 @@
+{
+    "$schema": "https://finaegis.io/schemas/module.json",
+    "name": "finaegis/lending",
+    "version": "1.3.0",
+    "description": "P2P lending platform with loan origination and repayment management",
+    "type": "optional",
+    "dependencies": {
+        "required": {
+            "finaegis/shared": "^1.0",
+            "finaegis/account": "^1.0",
+            "finaegis/compliance": "^1.0"
+        },
+        "optional": {
+            "finaegis/payment": "^1.0"
+        }
+    },
+    "provides": {
+        "interfaces": [
+            "App\\Domain\\Lending\\Contracts\\LoanServiceInterface",
+            "App\\Domain\\Lending\\Contracts\\CollateralServiceInterface"
+        ],
+        "events": [
+            "LoanApplicationSubmitted",
+            "LoanApproved",
+            "LoanRejected",
+            "LoanDisbursed",
+            "LoanRepaymentReceived",
+            "LoanDefaulted"
+        ],
+        "commands": [
+            "ApplyForLoanCommand",
+            "ApproveLoanCommand",
+            "DisburseLoanCommand",
+            "RecordRepaymentCommand"
+        ]
+    },
+    "paths": {
+        "routes": "Routes/api.php",
+        "migrations": "Database/Migrations",
+        "config": "Config/lending.php",
+        "tests": "Tests"
+    }
+}

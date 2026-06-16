@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Recovery Shard Backup</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Noto+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#135bec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-white antialiased selection:bg-primary/30">
+<div class="relative flex h-full min-h-screen w-full flex-col overflow-x-hidden max-w-md mx-auto shadow-2xl bg-background-light dark:bg-background-dark">
+<!-- Top App Bar -->
+<div class="flex items-center p-4 justify-between z-10">
+<button class="text-slate-900 dark:text-white flex size-10 shrink-0 items-center justify-center hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition-colors">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<div class="px-2 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-emerald-500 text-[16px] fill-1">verified_user</span>
+<span class="text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">Secure</span>
+</div>
+<div class="size-10"></div> <!-- Spacer for centering -->
+</div>
+<!-- Main Content Area -->
+<div class="flex flex-col flex-1 px-6 pt-4 pb-8">
+<!-- Hero Illustration -->
+<div class="flex-1 flex flex-col items-center justify-center min-h-[280px] relative">
+<!-- Abstract Glow -->
+<div class="absolute w-64 h-64 bg-primary/20 blur-[100px] rounded-full pointer-events-none"></div>
+<!-- Illustration Container -->
+<div class="relative w-full max-w-[280px] aspect-square rounded-full flex items-center justify-center">
+<div class="absolute inset-0 rounded-full border border-dashed border-slate-300 dark:border-slate-700 animate-[spin_10s_linear_infinite]"></div>
+<div class="absolute inset-4 rounded-full border border-slate-200 dark:border-slate-800"></div>
+<!-- Central Shard Graphic -->
+<div class="w-32 h-32 bg-gradient-to-br from-primary via-blue-400 to-indigo-600 rounded-xl rotate-45 shadow-[0_0_40px_rgba(19,91,236,0.4)] flex items-center justify-center z-10 relative overflow-hidden" data-alt="Abstract glowing crystal shard symbolizing digital key">
+<div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-20 mix-blend-overlay"></div>
+<span class="material-symbols-outlined text-white text-[48px] -rotate-45">key</span>
+</div>
+<!-- Cloud Upload Graphic -->
+<div class="absolute top-10 right-10 bg-white dark:bg-slate-800 p-3 rounded-xl shadow-lg border border-slate-100 dark:border-slate-700 flex items-center justify-center z-20">
+<span class="material-symbols-outlined text-primary text-[24px]">cloud_upload</span>
+</div>
+</div>
+</div>
+<!-- Text Content -->
+<div class="flex flex-col items-center text-center space-y-4 mb-8">
+<h1 class="text-3xl md:text-4xl font-bold leading-tight tracking-tight">
+                    Back up your <br/>
+<span class="text-primary">recovery shard</span>
+</h1>
+<p class="text-slate-600 dark:text-slate-400 text-base leading-relaxed max-w-[280px]">
+                    This is essential to recover your account if you lose your device.
+                </p>
+</div>
+<!-- Action Area -->
+<div class="flex flex-col gap-4 w-full mt-auto">
+<!-- Trust Indicator -->
+<div class="flex items-center justify-center gap-2 mb-2 text-slate-500 dark:text-slate-500 text-xs">
+<span class="material-symbols-outlined text-[14px]">lock</span>
+<span>End-to-end encrypted backup</span>
+</div>
+<!-- Primary Button -->
+<button class="group relative flex w-full items-center justify-center overflow-hidden rounded-xl bg-primary hover:bg-blue-600 active:bg-blue-700 text-white h-14 px-6 transition-all shadow-lg shadow-primary/25">
+<div class="absolute inset-0 bg-white/20 group-hover:bg-transparent transition-colors"></div>
+<div class="relative flex items-center gap-3">
+<!-- Apple iCloud Icon Approximation using Material Symbol or SVG -->
+<svg class="w-6 h-6 fill-current" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M17.5,19c-0.26,0-0.5,0.02-0.74,0.05c-0.3-0.01-0.6-0.03-0.91-0.05H15h-0.85H14c-1.42,0-2.73,0.48-3.79,1.29 C9.57,19.92,8.81,19.5,8,19.5c-2.48,0-4.5,2.02-4.5,4.5S5.52,28.5,8,28.5c0.69,0,1.34-0.16,1.92-0.43 c0.95,0.85,2.2,1.38,3.58,1.42h0.62c0.2,0.01,0.4,0.01,0.61,0.01h0.25h1.99c2.75,0,4.98-2.22,5.03-4.98 C22.03,21.77,20.02,19.5,17.5,19z M12,23.5l0-4l-2.5,2.5H12z"></path>
+<path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z"></path>
+</svg>
+<span class="text-lg font-bold tracking-wide">Back up to iCloud</span>
+</div>
+</button>
+<!-- Secondary Link -->
+<button class="flex items-center justify-center gap-2 py-3 px-4 rounded-lg text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 transition-colors text-sm font-medium">
+<span class="material-symbols-outlined text-amber-500 text-[18px]">warning</span>
+<span>I'll do it later</span>
+</button>
+</div>
+</div>
+</div>
+</body></html>

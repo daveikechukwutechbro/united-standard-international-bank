@@ -1,0 +1,9 @@
+# Gitleaks fingerprint ignore list
+# Format: commit:file:rule:line (use gitleaks detect --report-format=json to get fingerprints)
+#
+# All entries below are false positives — public blockchain contract addresses,
+# env variable names (not values), and documentation code examples.
+
+# Development API keys from .env.dev
+5ef219fca15ff91e9c77b2ef1a00d37e8d08b0ee:.env.dev:generic-api-key:171
+5ef219fca15ff91e9c77b2ef1a00d37e8d08b0ee:.env.dev:generic-api-key:242

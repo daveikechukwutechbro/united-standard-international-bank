@@ -1,0 +1,56 @@
+type DeFiPosition @model(class: "App\\Domain\\DeFi\\Models\\DeFiPosition") {
+    id: ID!
+    user_id: Int
+    protocol: String!
+    type: String!
+    status: String!
+    chain: String!
+    asset: String!
+    amount: Float!
+    value_usd: Float
+    apy: Float
+    health_factor: Float
+    opened_at: DateTime
+    closed_at: DateTime
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+input OpenPositionInput {
+    protocol: String!
+    type: String!
+    chain: String!
+    asset: String!
+    amount: Float!
+}
+
+input ClosePositionInput {
+    position_id: ID!
+}
+
+extend type Query {
+    defiPosition(id: ID! @eq): DeFiPosition
+        @find
+        @guard(with: ["sanctum"])
+
+    defiPositions(
+        page: Int @rules(apply: ["integer", "min:1"])
+        first: Int @rules(apply: ["integer", "min:1", "max:100"])
+        status: String @where(operator: "=")
+        protocol: String @where(operator: "=")
+        chain: String @where(operator: "=")
+        type: String @where(operator: "=")
+    ): [DeFiPosition!]!
+        @paginate(defaultCount: 15, model: "App\\Domain\\DeFi\\Models\\DeFiPosition")
+        @guard(with: ["sanctum"])
+}
+
+extend type Mutation {
+    openPosition(input: OpenPositionInput! @spread): DeFiPosition!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Mutations\\DeFi\\OpenPositionMutation")
+
+    closePosition(input: ClosePositionInput! @spread): DeFiPosition!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Mutations\\DeFi\\ClosePositionMutation")
+}

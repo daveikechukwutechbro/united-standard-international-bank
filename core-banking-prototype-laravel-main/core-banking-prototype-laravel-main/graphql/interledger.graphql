@@ -1,0 +1,94 @@
+"A cross-currency payment quote produced by the ILP connector."
+type IlpQuote {
+    "Asset code the sender will send (e.g. USD)."
+    send_asset: String!
+    "Amount the sender will send."
+    send_amount: String!
+    "Asset code the receiver will receive (e.g. EUR)."
+    receive_asset: String!
+    "Amount the receiver will get after exchange and fees."
+    receive_amount: String!
+    "Exchange rate applied (receive_asset per send_asset unit)."
+    exchange_rate: Float!
+    "Connector fee deducted from the send amount."
+    fee: String!
+    "ISO-8601 timestamp when this quote expires (30 second TTL)."
+    expires_at: String!
+}
+
+"Represents an ILP payment tracked through its Open Payments lifecycle."
+type IlpPayment {
+    "Unique payment identifier."
+    payment_id: String!
+    "Current payment state (pending, sending, completed, failed, expired)."
+    status: String!
+    "ISO-8601 timestamp of the status check."
+    checked_at: String!
+}
+
+"A supported asset in the ILP connector."
+type IlpAsset {
+    "ISO 4217 or crypto asset code."
+    code: String!
+    "Decimal scale / precision (e.g. 2 for USD, 8 for BTC)."
+    scale: Int!
+}
+
+"Input for requesting a cross-currency ILP quote."
+input IlpQuoteInput {
+    "Asset the sender will send."
+    send_asset: String! @rules(apply: ["size:3"])
+    "Asset the receiver will receive."
+    receive_asset: String! @rules(apply: ["size:3"])
+    "Amount to send (as a decimal string)."
+    send_amount: String! @rules(apply: ["regex:/^\\d+(\\.\\d+)?$/"])
+}
+
+"Input for creating an Open Payments incoming payment."
+input IlpIncomingPaymentInput {
+    "Open Payments wallet address (payment pointer or URL)."
+    wallet_address: String!
+    "Amount to receive."
+    amount: String! @rules(apply: ["regex:/^\\d+(\\.\\d+)?$/"])
+    "Asset code (e.g. USD)."
+    asset_code: String! @rules(apply: ["size:3"])
+}
+
+"Input for creating an Open Payments outgoing payment."
+input IlpOutgoingPaymentInput {
+    "Open Payments wallet address of the sender."
+    wallet_address: String!
+    "Quote ID from a prior ilpCreateQuote call."
+    quote_id: String!
+    "GNAP continuation access token authorizing the payment."
+    grant_token: String!
+}
+
+extend type Query {
+    "List assets supported by the ILP connector."
+    ilpSupportedAssets: [IlpAsset!]!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Queries\\Interledger\\IlpSupportedAssetsQuery")
+
+    "Get the current status of an ILP payment."
+    ilpPayment(id: String!): IlpPayment!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Queries\\Interledger\\IlpPaymentQuery")
+}
+
+extend type Mutation {
+    "Request a cross-currency quote from the ILP connector."
+    ilpCreateQuote(input: IlpQuoteInput! @spread): IlpQuote!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Mutations\\Interledger\\IlpCreateQuoteMutation")
+
+    "Create an Open Payments incoming payment resource."
+    ilpCreateIncomingPayment(input: IlpIncomingPaymentInput! @spread): String!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Mutations\\Interledger\\IlpCreateIncomingPaymentMutation")
+
+    "Create an Open Payments outgoing payment resource."
+    ilpCreateOutgoingPayment(input: IlpOutgoingPaymentInput! @spread): IlpPayment!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Mutations\\Interledger\\IlpCreateOutgoingPaymentMutation")
+}

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ShieldPay Crypto Home Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#277bf1",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101722",
+                        "surface-dark": "#1b2027",
+                        "accent-blue": "#277bf1",
+                        "accent-emerald": "#10b981",
+                        "accent-purple": "#8b5cf6",
+                        "accent-gold": "#f59e0b",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px" },
+                    backgroundImage: {
+                        'holo-gradient': 'linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 50%, rgba(255,255,255,0.1) 100%)',
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .glowing-card {
+            background: linear-gradient(135deg, rgba(39, 123, 241, 0.15) 0%, rgba(16, 185, 129, 0.05) 100%);
+            box-shadow: 0 8px 32px 0 rgba(39, 123, 241, 0.1);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }.holo-card {
+            background: linear-gradient(125deg, rgba(255, 255, 255, 0.05) 0%, rgba(39, 123, 241, 0.1) 40%, rgba(139, 92, 246, 0.1) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 10px 40px -10px rgba(39, 123, 241, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        .holo-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -50%; width: 200%; height: 100%;
+            background: linear-gradient(60deg, transparent 40%, rgba(255,255,255,0.1) 50%, transparent 60%);
+            transform: skewX(-25deg);
+            pointer-events: none;
+            mix-blend-mode: overlay;
+        }
+        .quest-gradient {
+            background: linear-gradient(90deg, rgba(245, 158, 11, 0.1) 0%, rgba(139, 92, 246, 0.05) 100%);
+        }
+        .avatar-glow {
+            box-shadow: 0 0 15px rgba(39, 123, 241, 0.4);
+        }
+    </style>
+<style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display antialiased min-h-screen flex flex-col">
+<div class="relative flex h-full w-full flex-col max-w-md mx-auto min-h-screen overflow-x-hidden bg-background-light dark:bg-background-dark border-x border-slate-200 dark:border-slate-800">
+<div class="flex items-center p-4 pb-2 justify-between sticky top-0 z-50 bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-sm">
+<div class="flex items-center gap-2">
+<div class="bg-surface-dark/50 dark:bg-surface-dark border border-slate-200 dark:border-slate-700 rounded-full px-3 py-1.5 flex items-center gap-2">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent-emerald opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-accent-emerald"></span>
+</span>
+<span class="text-xs font-medium text-slate-700 dark:text-slate-300 tracking-wide">Mainnet</span>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<div class="flex items-center gap-1 bg-orange-500/10 border border-orange-500/20 rounded-full pl-2 pr-3 py-1 animate-pulse" style="animation-duration: 3s;">
+<span class="material-symbols-outlined text-orange-500 text-[18px] filled">local_fire_department</span>
+<span class="text-xs font-bold text-orange-500">7</span>
+</div>
+<div class="relative group cursor-pointer">
+<div class="absolute -inset-0.5 bg-gradient-to-br from-accent-blue to-accent-purple rounded-full opacity-60 blur group-hover:opacity-100 transition duration-500"></div>
+<img alt="3D Avatar" class="relative size-10 rounded-full bg-surface-dark border-2 border-slate-100 dark:border-surface-dark object-cover z-10 hover:scale-105 transition-transform" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZXsyuJO72CDZuuDL6NhK5AEB9x5jqfi0EBEUYQXxmQMztbcgd_HS18eyLErmK19niGiuAT3mHTNF2QFtm1RBoypEGqaz3NbM1IHopiyiIYK-KHilmhS79P8R0A5YsHyVqO8X2jZ9MfmNBR0dRiEKCXhwvpQWWXgg42e65c4TOGQpySlrsdpYrBxa8UXnqNk-KRne-g9zPrbjNGPnW18HpmURXRuRzmWjdFNtJQSmtPymeB9Hmwp_689llPwxMqvfqYXU225aISluC"/>
+<div class="absolute bottom-0 right-0 w-3 h-3 bg-accent-emerald border-2 border-surface-dark rounded-full z-20"></div>
+</div>
+</div>
+</div>
+<div class="flex-1 overflow-y-auto pb-20">
+<div class="p-4">
+<div class="holo-card rounded-2xl p-6 relative group transition-all duration-500 hover:shadow-[0_0_30px_rgba(39,123,241,0.2)]">
+<div class="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay"></div>
+<div class="flex justify-between items-start mb-8 relative z-10">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<p class="text-slate-500 dark:text-[#9ca8ba] text-sm font-medium">Total Balance</p>
+<span class="bg-gradient-to-r from-blue-500/20 to-purple-500/20 text-blue-300 text-[9px] font-bold px-1.5 py-0.5 rounded shadow-sm flex items-center gap-0.5 border border-blue-500/20">
+<span class="material-symbols-outlined text-[10px]">shield</span>
+                                    PROTECTED
+                                </span>
+</div>
+<h2 class="text-slate-900 dark:text-white text-3xl font-bold tracking-tight drop-shadow-lg">1,248.35 <span class="text-lg font-medium text-slate-500 dark:text-slate-400">USDC</span></h2>
+<p class="text-slate-400 text-xs mt-1">USDC on Solana</p>
+</div>
+<div class="size-8 rounded-full bg-white/10 flex items-center justify-center border border-white/20">
+<span class="material-symbols-outlined text-white">account_balance_wallet</span>
+</div>
+</div>
+<div class="flex items-end justify-between relative z-10">
+<div class="flex flex-col gap-1">
+<p class="text-slate-300/80 text-xs font-mono tracking-widest drop-shadow-sm">WALLET ID</p>
+<p class="text-white text-sm font-mono tracking-widest drop-shadow-md">8x...4921</p>
+</div>
+<button class="inline-flex items-center gap-1 bg-white/10 hover:bg-white/20 border border-white/10 px-2 py-1 rounded-lg transition-colors">
+<span class="material-symbols-outlined text-white text-[14px]">content_copy</span>
+<span class="text-[10px] font-medium text-white">Copy</span>
+</button>
+</div>
+</div>
+</div>
+<div class="px-4 py-2">
+<div class="grid grid-cols-3 gap-3">
+<button class="flex flex-col items-center justify-center gap-2 p-4 rounded-xl bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-700/50 shadow-sm hover:border-accent-blue dark:hover:border-accent-blue/50 transition-all group active:scale-95">
+<div class="size-10 rounded-full bg-accent-blue/10 flex items-center justify-center text-accent-blue group-hover:bg-accent-blue group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">qr_code_scanner</span>
+</div>
+<span class="text-xs font-bold text-slate-700 dark:text-white">Pay</span>
+</button>
+<button class="flex flex-col items-center justify-center gap-2 p-4 rounded-xl bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-700/50 shadow-sm hover:border-accent-blue dark:hover:border-accent-blue/50 transition-all group active:scale-95">
+<div class="size-10 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-500 group-hover:bg-emerald-500 group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">call_received</span>
+</div>
+<span class="text-xs font-bold text-slate-700 dark:text-white">Receive</span>
+</button>
+<button class="flex flex-col items-center justify-center gap-2 p-4 rounded-xl bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-700/50 shadow-sm hover:border-accent-blue dark:hover:border-accent-blue/50 transition-all group active:scale-95">
+<div class="size-10 rounded-full bg-orange-500/10 flex items-center justify-center text-orange-500 group-hover:bg-orange-500 group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">send</span>
+</div>
+<span class="text-xs font-bold text-slate-700 dark:text-white">Send</span>
+</button>
+</div>
+</div>
+<div class="px-4 py-6 flex flex-col gap-4">
+<h3 class="text-slate-800 dark:text-white text-lg font-bold">Security Status</h3>
+<div class="grid grid-cols-2 gap-3">
+<div class="bg-surface-dark border border-slate-200 dark:border-slate-700 p-4 rounded-xl flex flex-col justify-between h-32 relative overflow-hidden group hover:border-accent-blue/30 transition-colors">
+<div class="absolute -right-4 -top-4 text-slate-100/5 dark:text-white/5 group-hover:text-accent-blue/10 transition-colors">
+<span class="material-symbols-outlined text-[100px]">shield_lock</span>
+</div>
+<div class="text-accent-blue mb-2 z-10">
+<span class="material-symbols-outlined">shield_lock</span>
+</div>
+<div class="z-10">
+<h4 class="text-white text-sm font-bold leading-tight">Shielded</h4>
+<p class="text-slate-400 text-xs mt-1">Privacy Active</p>
+</div>
+</div>
+<div class="bg-surface-dark border border-slate-200 dark:border-slate-700 p-4 rounded-xl flex flex-col justify-between h-32 relative overflow-hidden group hover:border-accent-emerald/30 transition-colors">
+<div class="absolute -right-4 -top-4 text-slate-100/5 dark:text-white/5 group-hover:text-accent-emerald/10 transition-colors">
+<span class="material-symbols-outlined text-[100px]">verified</span>
+</div>
+<div class="text-accent-emerald mb-2 z-10">
+<span class="material-symbols-outlined fill-1">verified</span>
+</div>
+<div class="z-10">
+<h4 class="text-white text-sm font-bold leading-tight">Verified</h4>
+<p class="text-slate-400 text-xs mt-1">On-chain Identity</p>
+</div>
+</div>
+</div>
+</div>
+<div class="px-4 pb-8">
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-slate-800 dark:text-white text-lg font-bold">Recent Activity</h3>
+<button class="text-accent-blue text-sm font-medium hover:text-accent-blue/80">See All</button>
+</div>
+<div class="flex flex-col gap-3">
+<div class="flex items-center justify-between p-3 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800/50 transition-colors cursor-pointer">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-300">
+<span class="material-symbols-outlined">shopping_cart</span>
+</div>
+<div>
+<p class="text-slate-800 dark:text-white font-bold text-sm">Merchant Payment</p>
+<p class="text-slate-500 dark:text-slate-400 text-xs">Today, 10:42 AM</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-slate-800 dark:text-white font-bold text-sm">- 42.50 USDC</p>
+<div class="flex items-center justify-end gap-1 text-accent-emerald text-xs">
+<span class="material-symbols-outlined text-[12px]">check_circle</span>
+<span>Confirmed</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between p-3 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800/50 transition-colors cursor-pointer">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-300">
+<span class="material-symbols-outlined">swap_calls</span>
+</div>
+<div>
+<p class="text-slate-800 dark:text-white font-bold text-sm">Transfer to Wallet</p>
+<p class="text-slate-500 dark:text-slate-400 text-xs">Yesterday</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-slate-800 dark:text-white font-bold text-sm">- 14.99 USDC</p>
+<div class="flex items-center justify-end gap-1 text-accent-emerald text-xs">
+<span class="material-symbols-outlined text-[12px]">check_circle</span>
+<span>Confirmed</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sticky bottom-0 bg-white/90 dark:bg-[#111418]/90 backdrop-blur-md border-t border-slate-200 dark:border-slate-800 px-6 py-4 flex justify-between items-center z-50">
+<button class="flex flex-col items-center gap-1 text-accent-blue">
+<span class="material-symbols-outlined filled">home</span>
+<span class="text-[10px] font-bold">Home</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300">
+<span class="material-symbols-outlined">qr_code_scanner</span>
+<span class="text-[10px] font-medium">Pay</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300">
+<span class="material-symbols-outlined">history</span>
+<span class="text-[10px] font-medium">Activity</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-[10px] font-medium">Settings</span>
+</button>
+</div>
+</div>
+</body></html>

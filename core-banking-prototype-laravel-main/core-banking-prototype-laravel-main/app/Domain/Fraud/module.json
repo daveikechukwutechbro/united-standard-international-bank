@@ -1,0 +1,38 @@
+{
+    "$schema": "https://finaegis.io/schemas/module.json",
+    "name": "finaegis/fraud",
+    "version": "2.0.0",
+    "description": "Fraud detection with ML anomaly detection, behavioral profiling, and pattern analysis",
+    "type": "optional",
+    "dependencies": {
+        "required": {
+            "finaegis/shared": "^1.0",
+            "finaegis/account": "^1.0",
+            "finaegis/compliance": "^1.0"
+        },
+        "optional": {
+            "finaegis/ai": "^1.0"
+        }
+    },
+    "provides": {
+        "interfaces": [
+            "App\\Domain\\Fraud\\Contracts\\FraudDetectionInterface"
+        ],
+        "events": [
+            "FraudAlertRaised",
+            "FraudAlertResolved",
+            "SuspiciousActivityDetected",
+            "AccountFrozen"
+        ],
+        "commands": [
+            "AnalyzeTransactionCommand",
+            "ReportFraudCommand",
+            "FreezeAccountCommand"
+        ]
+    },
+    "paths": {
+        "migrations": "Database/Migrations",
+        "config": "Config/fraud.php",
+        "tests": "Tests"
+    }
+}

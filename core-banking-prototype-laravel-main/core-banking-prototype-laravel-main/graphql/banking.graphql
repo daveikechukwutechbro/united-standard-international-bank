@@ -1,0 +1,126 @@
+type BankAccountModel @model(class: "App\\Domain\\Banking\\Models\\BankAccountModel") {
+    id: ID!
+    user_uuid: String!
+    bank_code: String!
+    external_id: String
+    account_number: String
+    iban: String
+    swift: String
+    currency: String!
+    account_type: String!
+    status: String!
+    metadata: String
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+type BankConnectionModel @model(class: "App\\Domain\\Banking\\Models\\BankConnectionModel") {
+    id: ID!
+    user_uuid: String!
+    bank_code: String!
+    status: String!
+    last_sync_at: DateTime
+    expires_at: DateTime
+    metadata: String
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+type AggregatedBalance {
+    currency: String!
+    total_balance: Float!
+    account_count: Int!
+}
+
+type BankTransferModel {
+    id: String!
+    from_account_id: String!
+    to_account_id: String!
+    amount: String!
+    currency: String!
+    status: String!
+    reference: String
+    created_at: String
+}
+
+type BankTransferResult {
+    transfer_id: String!
+    status: String!
+    message: String
+}
+
+extend type Query {
+    bankAccount(id: ID! @eq): BankAccountModel
+        @find
+        @guard(with: ["sanctum"])
+
+    bankAccounts(
+        page: Int @rules(apply: ["integer", "min:1"])
+        first: Int @rules(apply: ["integer", "min:1", "max:100"])
+        bank_code: String @where(operator: "=")
+        status: String @where(operator: "=")
+        currency: String @where(operator: "=")
+    ): [BankAccountModel!]!
+        @paginate(defaultCount: 15, model: "App\\Domain\\Banking\\Models\\BankAccountModel")
+        @guard(with: ["sanctum"])
+
+    bankConnection(id: ID! @eq): BankConnectionModel
+        @find
+        @guard(with: ["sanctum"])
+
+    bankConnections(
+        page: Int @rules(apply: ["integer", "min:1"])
+        first: Int @rules(apply: ["integer", "min:1", "max:100"])
+        bank_code: String @where(operator: "=")
+        status: String @where(operator: "=")
+    ): [BankConnectionModel!]!
+        @paginate(defaultCount: 15, model: "App\\Domain\\Banking\\Models\\BankConnectionModel")
+        @guard(with: ["sanctum"])
+
+    aggregatedBalance(user_uuid: String!): [AggregatedBalance!]!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Queries\\Banking\\AggregatedBalanceQuery")
+
+    availableBanks: [String!]!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Queries\\Banking\\AvailableBanksQuery")
+
+    bankTransfers(page: Int, first: Int): [BankTransferModel!]!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Queries\\Banking\\BankTransfersQuery")
+}
+
+input ConnectBankInput {
+    bank_code: String!
+    credentials: String!
+}
+
+input InitiateBankTransferInput {
+    from_account_id: ID!
+    to_iban: String!
+    amount: Float!
+    currency: String!
+    reference: String
+}
+
+extend type Mutation {
+    connectBank(input: ConnectBankInput! @spread): BankConnectionModel!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Mutations\\Banking\\ConnectBankMutation")
+
+    disconnectBank(connection_id: ID!): Boolean!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Mutations\\Banking\\DisconnectBankMutation")
+
+    initiateBankTransfer(input: InitiateBankTransferInput! @spread): String!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Mutations\\Banking\\InitiateBankTransferMutation")
+
+    syncBankAccounts(connection_id: ID!): [BankAccountModel!]!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Mutations\\Banking\\SyncBankAccountsMutation")
+
+    cancelTransfer(transfer_id: String!): BankTransferResult!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Mutations\\Banking\\CancelTransferMutation")
+}

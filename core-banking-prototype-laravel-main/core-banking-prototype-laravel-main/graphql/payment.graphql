@@ -1,0 +1,51 @@
+type PaymentTransaction @model(class: "App\\Domain\\Payment\\Models\\PaymentTransaction") {
+    id: ID!
+    aggregate_uuid: String
+    account_uuid: String
+    type: String
+    status: String!
+    amount: Float!
+    currency: String!
+    reference: String
+    external_reference: String
+    transaction_id: String
+    payment_method: String
+    payment_method_type: String
+    initiated_at: DateTime
+    completed_at: DateTime
+    failed_at: DateTime
+    failed_reason: String
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+input InitiatePaymentInput {
+    account_uuid: String!
+    amount: Float!
+    currency: String!
+    type: String!
+    payment_method: String
+    reference: String
+}
+
+extend type Query {
+    payment(id: ID! @eq): PaymentTransaction
+        @find
+        @guard(with: ["sanctum"])
+
+    payments(
+        page: Int @rules(apply: ["integer", "min:1"])
+        first: Int @rules(apply: ["integer", "min:1", "max:100"])
+        status: String @where(operator: "=")
+        currency: String @where(operator: "=")
+        type: String @where(operator: "=")
+    ): [PaymentTransaction!]!
+        @paginate(defaultCount: 15, model: "App\\Domain\\Payment\\Models\\PaymentTransaction")
+        @guard(with: ["sanctum"])
+}
+
+extend type Mutation {
+    initiatePayment(input: InitiatePaymentInput! @spread): PaymentTransaction!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Mutations\\Payment\\InitiatePaymentMutation")
+}

@@ -1,0 +1,43 @@
+{
+  "name": "@finaegis/mcp",
+  "version": "0.1.6",
+  "description": "Stdio-to-remote relay for the Zelta MCP server. Lets stdio-only MCP clients (Claude Desktop, Cursor, Continue.dev) connect to https://mcp.zelta.app/mcp.",
+  "license": "Apache-2.0",
+  "type": "module",
+  "bin": {
+    "finaegis-mcp": "./dist/index.js"
+  },
+  "main": "./dist/index.js",
+  "files": ["dist", "README.md"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FinAegis/core-banking-prototype-laravel.git",
+    "directory": "packages/finaegis-mcp-stdio"
+  },
+  "homepage": "https://finaegis.org/features/mcp",
+  "bugs": {
+    "url": "https://github.com/FinAegis/core-banking-prototype-laravel/issues"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc -w",
+    "test": "vitest run",
+    "prepublishOnly": "npm run build"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "open": "^10.1.0",
+    "undici": "^6.21.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "typescript": "^5.7.0",
+    "vitest": "^2.1.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

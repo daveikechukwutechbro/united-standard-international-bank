@@ -1,0 +1,58 @@
+default:
+    suites:
+        acceptance:
+            paths:
+                features: features
+            contexts:
+                - FeatureContext
+                - LaravelFeatureContext
+            filters:
+                tags: "~@web&&~@wip"
+        api:
+            paths:
+                features: features/api
+            contexts:
+                - ApiContext
+        web:
+            paths:
+                features: features
+            contexts:
+                - WebContext
+                - SubproductContext
+            filters:
+                tags: "@web"
+
+    extensions:
+        Behat\MinkExtension:
+            base_url: '%env(BEHAT_BASE_URL)%'
+            sessions:
+                default:
+                    browserkit_http: ~
+
+    formatters:
+        pretty:
+            verbose: true
+            paths: false
+            snippets: false
+        progress:
+            timer: true
+        
+    gherkin:
+        cache: false
+
+# CI/CD profile - use with --profile=ci
+ci:
+    formatters:
+        progress: 
+            timer: false
+    
+    # Only run features that are fully implemented
+    suites:
+        acceptance:
+            paths:
+                features: features
+            contexts:
+                - FeatureContext
+                - LaravelFeatureContext
+            filters:
+                tags: "~@web&&~@skip&&~@wip"

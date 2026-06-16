@@ -1,0 +1,102 @@
+type KeyShardRecord @model(class: "App\\Domain\\KeyManagement\\Models\\KeyShardRecord") {
+    id: ID!
+    user_uuid: String!
+    shard_type: String!
+    shard_index: Int!
+    encrypted_for: String
+    key_version: Int!
+    status: String!
+    public_key_hash: String
+    last_accessed_at: DateTime
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+type KeyReconstructionLog @model(class: "App\\Domain\\KeyManagement\\Models\\KeyReconstructionLog") {
+    id: ID!
+    user_uuid: String!
+    key_version: Int!
+    shards_used: Int
+    purpose: String
+    ip_address: String
+    device_id: String
+    success: Boolean!
+    failure_reason: String
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+type RecoveryBackup @model(class: "App\\Domain\\KeyManagement\\Models\\RecoveryBackup") {
+    id: ID!
+    user_uuid: String!
+    encryption_method: String!
+    key_version: Int!
+    backup_hash: String!
+    is_verified: Boolean!
+    verified_at: DateTime
+    last_used_at: DateTime
+    usage_count: Int!
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+type KeyShardConfig {
+    threshold: Int!
+    total_shards: Int!
+}
+
+extend type Query {
+    keyShardRecord(id: ID! @eq): KeyShardRecord
+        @find
+        @guard(with: ["sanctum"])
+
+    keyShardRecords(
+        page: Int @rules(apply: ["integer", "min:1"])
+        first: Int @rules(apply: ["integer", "min:1", "max:100"])
+        user_uuid: String @where(operator: "=")
+        status: String @where(operator: "=")
+    ): [KeyShardRecord!]!
+        @paginate(defaultCount: 15, model: "App\\Domain\\KeyManagement\\Models\\KeyShardRecord")
+        @guard(with: ["sanctum"])
+
+    keyReconstructionLogs(
+        page: Int @rules(apply: ["integer", "min:1"])
+        first: Int @rules(apply: ["integer", "min:1", "max:100"])
+        user_uuid: String @where(operator: "=")
+        success: Boolean @where(operator: "=")
+    ): [KeyReconstructionLog!]!
+        @paginate(defaultCount: 15, model: "App\\Domain\\KeyManagement\\Models\\KeyReconstructionLog")
+        @guard(with: ["sanctum"])
+
+    recoveryBackups(
+        page: Int @rules(apply: ["integer", "min:1"])
+        first: Int @rules(apply: ["integer", "min:1", "max:100"])
+        user_uuid: String @where(operator: "=")
+    ): [RecoveryBackup!]!
+        @paginate(defaultCount: 15, model: "App\\Domain\\KeyManagement\\Models\\RecoveryBackup")
+        @guard(with: ["sanctum"])
+
+    keyShardConfig: KeyShardConfig!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Queries\\KeyManagement\\KeyShardConfigQuery")
+}
+
+input SplitKeyInput {
+    secret: String!
+}
+
+input VerifyShardsInput {
+    user_uuid: String!
+    key_version: Int!
+    expected_public_key: String!
+}
+
+extend type Mutation {
+    splitKey(input: SplitKeyInput! @spread): Boolean!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Mutations\\KeyManagement\\SplitKeyMutation")
+
+    verifyShards(input: VerifyShardsInput! @spread): Boolean!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Mutations\\KeyManagement\\VerifyShardsMutation")
+}

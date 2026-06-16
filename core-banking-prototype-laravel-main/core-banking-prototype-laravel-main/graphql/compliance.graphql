@@ -1,0 +1,127 @@
+type KycVerification @model(class: "App\\Domain\\Compliance\\Models\\KycVerification") {
+    id: ID!
+    user_id: Int!
+    verification_number: String
+    type: String!
+    status: String!
+    provider: String
+    confidence_score: Float
+    document_type: String
+    document_country: String
+    risk_level: String
+    pep_check: Boolean
+    sanctions_check: Boolean
+    adverse_media_check: Boolean
+    started_at: DateTime
+    completed_at: DateTime
+    expires_at: DateTime
+    failure_reason: String
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+type ComplianceAlert @model(class: "App\\Domain\\Compliance\\Models\\ComplianceAlert") {
+    id: ID!
+    alert_id: String!
+    type: String!
+    severity: String!
+    status: String!
+    title: String
+    description: String
+    source: String
+    entity_type: String
+    entity_id: String
+    risk_score: Float
+    confidence_score: Float
+    detected_at: DateTime
+    assigned_to: Int
+    resolved_at: DateTime
+    resolution: String
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+type ComplianceCase @model(class: "App\\Domain\\Compliance\\Models\\ComplianceCase") {
+    id: ID!
+    case_id: String
+    case_number: String
+    title: String!
+    description: String
+    type: String!
+    priority: String!
+    status: String!
+    alert_count: Int
+    total_risk_score: Float
+    assigned_to: Int
+    due_date: DateTime
+    sla_status: String
+    escalation_level: Int
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+extend type Query {
+    kycVerification(id: ID! @eq): KycVerification
+        @find
+        @guard(with: ["sanctum"])
+
+    kycVerifications(
+        page: Int @rules(apply: ["integer", "min:1"])
+        first: Int @rules(apply: ["integer", "min:1", "max:100"])
+        status: String @where(operator: "=")
+        type: String @where(operator: "=")
+    ): [KycVerification!]!
+        @paginate(defaultCount: 15, model: "App\\Domain\\Compliance\\Models\\KycVerification")
+        @guard(with: ["sanctum"])
+
+    complianceAlert(id: ID! @eq): ComplianceAlert
+        @find
+        @guard(with: ["sanctum"])
+
+    complianceAlerts(
+        page: Int @rules(apply: ["integer", "min:1"])
+        first: Int @rules(apply: ["integer", "min:1", "max:100"])
+        severity: String @where(operator: "=")
+        status: String @where(operator: "=")
+        type: String @where(operator: "=")
+    ): [ComplianceAlert!]!
+        @paginate(defaultCount: 15, model: "App\\Domain\\Compliance\\Models\\ComplianceAlert")
+        @guard(with: ["sanctum"])
+
+    complianceCase(id: ID! @eq): ComplianceCase
+        @find
+        @guard(with: ["sanctum"])
+
+    complianceCases(
+        page: Int @rules(apply: ["integer", "min:1"])
+        first: Int @rules(apply: ["integer", "min:1", "max:100"])
+        status: String @where(operator: "=")
+        priority: String @where(operator: "=")
+        type: String @where(operator: "=")
+    ): [ComplianceCase!]!
+        @paginate(defaultCount: 15, model: "App\\Domain\\Compliance\\Models\\ComplianceCase")
+        @guard(with: ["sanctum"])
+}
+
+input SubmitKycDocumentInput {
+    user_id: Int!
+    type: String!
+    document_type: String!
+    document_country: String!
+}
+
+input TriggerAmlCheckInput {
+    entity_type: String!
+    entity_id: String!
+    check_type: String
+}
+
+extend type Mutation {
+    submitKycDocument(input: SubmitKycDocumentInput! @spread): KycVerification!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Mutations\\Compliance\\SubmitKycDocumentMutation")
+
+    triggerAmlCheck(input: TriggerAmlCheckInput! @spread): ComplianceAlert!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Mutations\\Compliance\\TriggerAmlCheckMutation")
+}

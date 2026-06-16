@@ -1,0 +1,52 @@
+type MultiSigWallet @model(class: "App\\Domain\\Wallet\\Models\\MultiSigWallet") {
+    id: ID!
+    user_id: Int!
+    name: String!
+    address: String
+    chain: String!
+    required_signatures: Int!
+    total_signers: Int!
+    status: String!
+    metadata: String
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+extend type Query {
+    wallet(id: ID! @eq): MultiSigWallet
+        @find
+        @guard(with: ["sanctum"])
+
+    wallets(
+        page: Int @rules(apply: ["integer", "min:1"])
+        first: Int @rules(apply: ["integer", "min:1", "max:100"])
+        chain: String @where(operator: "=")
+        status: String @where(operator: "=")
+    ): [MultiSigWallet!]!
+        @paginate(defaultCount: 15, model: "App\\Domain\\Wallet\\Models\\MultiSigWallet")
+        @guard(with: ["sanctum"])
+}
+
+input CreateWalletInput {
+    name: String!
+    chain: String!
+    required_signatures: Int!
+    total_signers: Int!
+}
+
+input TransferFundsInput {
+    from_wallet_id: ID!
+    to_address: String!
+    amount: Float!
+    chain: String!
+}
+
+extend type Mutation {
+    createWallet(input: CreateWalletInput! @spread): MultiSigWallet!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Mutations\\Wallet\\CreateWalletMutation")
+
+    transferFunds(input: TransferFundsInput! @spread): MultiSigWallet!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Mutations\\Wallet\\TransferFundsMutation")
+}

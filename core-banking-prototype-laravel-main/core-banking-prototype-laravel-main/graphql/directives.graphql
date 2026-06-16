@@ -1,0 +1,2 @@
+# Custom directives are defined via PHP classes in app/GraphQL/Directives/
+# The @tenant directive is provided by TenantDirective.php

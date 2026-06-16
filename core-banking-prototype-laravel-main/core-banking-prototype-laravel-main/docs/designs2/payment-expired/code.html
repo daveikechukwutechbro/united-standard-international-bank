@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Payment Session Expired</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f4af25",
+                        "background-light": "#f8f7f5",
+                        "background-dark": "#221c10",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display min-h-screen flex items-center justify-center p-0 m-0">
+<!-- Mobile Container -->
+<div class="relative flex h-full min-h-screen w-full max-w-md flex-col overflow-hidden bg-background-light dark:bg-background-dark mx-auto shadow-2xl">
+<!-- Top Bar -->
+<div class="flex items-center p-4">
+<button class="text-neutral-900 dark:text-white flex size-12 shrink-0 items-center justify-center rounded-full hover:bg-neutral-200 dark:hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined" style="font-size: 24px;">arrow_back</span>
+</button>
+<div class="flex-1"></div> <!-- Spacer to center isn't needed here if we don't have a title, keeping it clean -->
+</div>
+<!-- Main Content Area -->
+<div class="flex flex-col items-center justify-center flex-1 px-6 pb-6 pt-2">
+<!-- Warning Icon Container with Glow -->
+<div class="relative mb-8">
+<div class="absolute inset-0 bg-primary/20 blur-2xl rounded-full scale-150"></div>
+<div class="relative flex items-center justify-center size-24 bg-primary/10 rounded-full border-2 border-primary/20">
+<span class="material-symbols-outlined text-primary" style="font-size: 48px;">schedule</span>
+</div>
+<!-- Warning badge overlay -->
+<div class="absolute bottom-0 right-0 bg-background-light dark:bg-background-dark rounded-full p-1">
+<span class="material-symbols-outlined text-primary fill-1" style="font-size: 24px;">warning</span>
+</div>
+</div>
+<!-- Title & Description -->
+<h1 class="text-neutral-900 dark:text-white text-[32px] font-bold leading-tight text-center mb-4 tracking-tight">Payment expired</h1>
+<p class="text-neutral-600 dark:text-neutral-400 text-base font-normal leading-relaxed text-center max-w-[280px]">
+                This payment session has timed out. Please ask the merchant for a new QR code.
+            </p>
+<!-- Spacing -->
+<div class="h-12 w-full"></div>
+<!-- Transaction Summary Card -->
+<div class="w-full bg-white dark:bg-[#2a2418] rounded-xl border border-neutral-200 dark:border-[#3e3625] overflow-hidden">
+<div class="p-5 flex flex-col gap-4">
+<div class="flex justify-between items-center border-b border-neutral-100 dark:border-[#3e3625] pb-4">
+<span class="text-neutral-500 dark:text-[#bab09c] text-sm font-medium">Merchant</span>
+<div class="flex items-center gap-2">
+<!-- Placeholder logo for merchant -->
+<div class="size-6 rounded-full bg-neutral-200 dark:bg-neutral-700 overflow-hidden" data-alt="Starbucks logo">
+<img alt="Starbucks Logo" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhdqZFvxR4fziOdCosRY-sMpEyUYtEP_bKHJJK0CJhW4O0Wi_A8-imVjJGotKcuyBIhbjWrtjQtYcL3yANKkum6t-E6mHxEoMP_3l2ckqSFqlEF5fAfbRyI1f0j4p7buofHf3ytj1mH0Rad8Zkn9a3wdj3T9E5at298t5MaHpwwCx68mmsuzWCniI6GQpHXzRtiY800Xk8xxuy-vUP74rsTdfGd1ZLYYA82POStnEFYOZx7Thwut4-x6yaxWSfXpXp7so3S6reGbE8"/>
+</div>
+<span class="text-neutral-900 dark:text-white text-base font-semibold">Starbucks</span>
+</div>
+</div>
+<div class="flex justify-between items-center pt-1">
+<span class="text-neutral-500 dark:text-[#bab09c] text-sm font-medium">Original Amount</span>
+<span class="text-neutral-900 dark:text-white text-xl font-bold tracking-tight">$12.50</span>
+</div>
+</div>
+<!-- Striped pattern decoration at bottom of card -->
+<div class="h-1 w-full bg-[linear-gradient(45deg,transparent_25%,rgba(244,175,37,0.3)_25%,rgba(244,175,37,0.3)_50%,transparent_50%,transparent_75%,rgba(244,175,37,0.3)_75%,rgba(244,175,37,0.3)_100%)] bg-[length:10px_10px]"></div>
+</div>
+</div>
+<!-- Sticky Bottom Action -->
+<div class="w-full p-6 bg-background-light dark:bg-background-dark mt-auto">
+<button class="w-full flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-background-dark font-bold text-base h-14 rounded-xl transition-all active:scale-[0.98]">
+<span>Back to Home</span>
+</button>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>FinAegis - Onboarding</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1152d4",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-white antialiased overflow-hidden">
+<div class="relative flex h-screen w-full flex-col justify-between">
+<!-- Header -->
+<div class="flex items-center justify-center pt-8 pb-4 z-10">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-3xl">shield_lock</span>
+<h2 class="text-xl font-bold tracking-tight">FinAegis</h2>
+</div>
+</div>
+<!-- Main Content Scrollable Area -->
+<div class="flex-1 flex flex-col items-center justify-center px-6 overflow-y-auto no-scrollbar">
+<!-- Hero Illustration -->
+<div class="relative w-full max-w-[320px] aspect-square mb-8">
+<!-- Glowing Background Effect -->
+<div class="absolute inset-0 bg-primary/20 rounded-full blur-3xl scale-75 animate-pulse"></div>
+<!-- Hero Image -->
+<div class="relative w-full h-full bg-center bg-contain bg-no-repeat z-10" data-alt="Abstract 3D blue shield lock floating in dark space" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD-Msdjpg5VDbBiIQ25lLI0OMX3wbPwbqLXHElZlH8A2iIkRwLnDoG3eZxWt_yNqAQ69_DyuEo8lIDrsOBROh6pNvF1Wda7l94yVWosYRdsNqacwg6OZPtk_H1WlhVPGBBw4orW5RFrF3s1UVNdFMGNsbBb_kgGNwLskFOXZzl4YD_sSSjeEUuAdmejmg2I1s6pd4pNifn-60CkKGmt8rcGkbrNN7ySXWp4OuC2sVYYSQ4YK1ICjOgxsXmSCHlxc6gWx_JsMhJsVeIa");'></div>
+</div>
+<!-- Headline -->
+<h1 class="text-3xl md:text-4xl font-extrabold text-center leading-tight mb-8">
+                Secure Stablecoin <br/> <span class="text-primary">Payments</span>
+</h1>
+<!-- Value Props -->
+<div class="w-full max-w-sm space-y-5">
+<div class="flex items-center gap-4 bg-white/5 dark:bg-white/5 p-3 rounded-xl border border-white/10 backdrop-blur-sm">
+<div class="flex items-center justify-center size-10 rounded-full bg-primary/20 shrink-0 text-primary">
+<span class="material-symbols-outlined text-xl">payments</span>
+</div>
+<div>
+<p class="font-semibold text-sm">Spend USDC anywhere</p>
+<p class="text-xs text-slate-500 dark:text-slate-400">Global acceptance, zero friction</p>
+</div>
+</div>
+<div class="flex items-center gap-4 bg-white/5 dark:bg-white/5 p-3 rounded-xl border border-white/10 backdrop-blur-sm">
+<div class="flex items-center justify-center size-10 rounded-full bg-primary/20 shrink-0 text-primary">
+<span class="material-symbols-outlined text-xl">visibility_off</span>
+</div>
+<div>
+<p class="font-semibold text-sm">Privacy by default</p>
+<p class="text-xs text-slate-500 dark:text-slate-400">Your transactions stay yours</p>
+</div>
+</div>
+<div class="flex items-center gap-4 bg-white/5 dark:bg-white/5 p-3 rounded-xl border border-white/10 backdrop-blur-sm">
+<div class="flex items-center justify-center size-10 rounded-full bg-primary/20 shrink-0 text-primary">
+<span class="material-symbols-outlined text-xl">verified_user</span>
+</div>
+<div>
+<p class="font-semibold text-sm">Bank-grade security</p>
+<p class="text-xs text-slate-500 dark:text-slate-400">Audited smart contracts</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Sticky Bottom Actions -->
+<div class="w-full p-6 pb-8 bg-gradient-to-t from-background-light dark:from-background-dark via-background-light dark:via-background-dark to-transparent pt-8 z-20">
+<div class="flex flex-col gap-3 max-w-sm mx-auto">
+<button class="w-full flex items-center justify-center h-12 bg-primary hover:bg-blue-700 text-white font-bold rounded-lg transition-colors duration-200">
+                    Create New Wallet
+                </button>
+<button class="w-full flex items-center justify-center h-12 bg-transparent border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-900 dark:text-white font-semibold rounded-lg transition-colors duration-200">
+                    Import Existing Wallet
+                </button>
+</div>
+<p class="text-center text-xs text-slate-500 mt-4">By continuing, you agree to our Terms &amp; Privacy Policy</p>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,43 @@
+parameters:
+	ignoreErrors:
+		-
+			message: '#^Access to an undefined property PHPUnit\\Framework\\TestCase\:\:\$service\.$#'
+			identifier: property.notFound
+			count: 28
+			path: tests/Unit/Domain/TrustCert/Services/CertificateAuthorityServiceTest.php
+
+		-
+			message: '#^Access to an undefined property PHPUnit\\Framework\\TestCase\:\:\$service\.$#'
+			identifier: property.notFound
+			count: 39
+			path: tests/Unit/Domain/TrustCert/Services/RevocationRegistryServiceTest.php
+
+		-
+			message: '#^Access to an undefined property PHPUnit\\Framework\\TestCase\:\:\$service\.$#'
+			identifier: property.notFound
+			count: 56
+			path: tests/Unit/Domain/TrustCert/Services/TrustFrameworkServiceTest.php
+
+		-
+			message: '#^Access to an undefined property PHPUnit\\Framework\\TestCase\:\:\$revocationRegistry\.$#'
+			identifier: property.notFound
+			count: 3
+			path: tests/Unit/Domain/TrustCert/Services/VerifiableCredentialServiceTest.php
+
+		-
+			message: '#^Access to an undefined property PHPUnit\\Framework\\TestCase\:\:\$service\.$#'
+			identifier: property.notFound
+			count: 26
+			path: tests/Unit/Domain/TrustCert/Services/VerifiableCredentialServiceTest.php
+
+		-
+			message: '#^Access to an undefined property PHPUnit\\Framework\\TestCase\:\:\$trustFramework\.$#'
+			identifier: property.notFound
+			count: 6
+			path: tests/Unit/Domain/TrustCert/Services/VerifiableCredentialServiceTest.php
+
+		-
+			message: '#^Cannot access property \$issuerId on App\\Domain\\TrustCert\\ValueObjects\\TrustedIssuer\|null\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: tests/Unit/Domain/TrustCert/ValueObjects/TrustChainTest.php

@@ -1,0 +1,38 @@
+{
+    "$schema": "https://finaegis.io/schemas/module.json",
+    "name": "finaegis/defi",
+    "version": "1.1.0",
+    "description": "DEX aggregation (Uniswap, Aave, Curve, Lido), flash loans, position tracking, yield optimization",
+    "type": "optional",
+    "dependencies": {
+        "required": {
+            "finaegis/shared": "^1.0",
+            "finaegis/wallet": "^1.0",
+            "finaegis/asset": "^1.0"
+        },
+        "optional": {
+            "finaegis/treasury": "^1.0",
+            "finaegis/cross-chain": "^1.0"
+        }
+    },
+    "provides": {
+        "interfaces": [
+            "App\\Domain\\DeFi\\Contracts\\SwapProtocolInterface",
+            "App\\Domain\\DeFi\\Contracts\\LendingProtocolInterface",
+            "App\\Domain\\DeFi\\Contracts\\LiquidStakingInterface",
+            "App\\Domain\\DeFi\\Contracts\\YieldVaultInterface"
+        ],
+        "events": [
+            "SwapExecuted",
+            "PositionOpened",
+            "PositionClosed"
+        ],
+        "commands": []
+    },
+    "paths": {
+        "routes": "Routes/api.php",
+        "migrations": "Database/Migrations",
+        "config": "Config/defi.php",
+        "tests": "Tests"
+    }
+}

@@ -1,0 +1,66 @@
+type RewardProfile {
+    id: ID!
+    xp: Int!
+    level: Int!
+    xp_for_next: Int!
+    xp_progress: Float!
+    current_streak: Int!
+    longest_streak: Int!
+    points_balance: Int!
+    quests_completed: Int!
+}
+
+type RewardQuest {
+    id: ID!
+    slug: String!
+    title: String!
+    description: String
+    xp_reward: Int!
+    points_reward: Int!
+    category: String!
+    icon: String
+    is_repeatable: Boolean!
+    completed: Boolean!
+}
+
+type RewardShopItem {
+    id: ID!
+    slug: String!
+    title: String!
+    description: String
+    points_cost: Int!
+    category: String!
+    icon: String
+    stock: Int
+    available: Boolean!
+}
+
+type RedemptionResult {
+    redemption_id: ID!
+    item_id: ID!
+    item_title: String!
+    points_spent: Int!
+    points_balance: Int!
+    status: String!
+    redeemed_at: String
+}
+
+extend type Query {
+    rewardProfile: RewardProfile!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Queries\\Rewards\\ProfileQuery")
+
+    rewardQuests(category: String): [RewardQuest!]!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Queries\\Rewards\\QuestsQuery")
+
+    rewardShopItems(category: String): [RewardShopItem!]!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Queries\\Rewards\\ShopQuery")
+}
+
+extend type Mutation {
+    redeemShopItem(item_id: ID!): RedemptionResult!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Mutations\\Rewards\\RedeemItemMutation")
+}

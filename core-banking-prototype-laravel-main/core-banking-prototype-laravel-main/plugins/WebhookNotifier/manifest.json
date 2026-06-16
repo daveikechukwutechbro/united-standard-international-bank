@@ -1,0 +1,34 @@
+{
+    "name": "webhook-notifier",
+    "version": "1.0.0",
+    "description": "Sends HTTP webhooks when configured platform events occur",
+    "author": "FinAegis",
+    "license": "Apache-2.0",
+    "provider": "WebhookNotifierServiceProvider",
+    "hooks": [
+        "account.created",
+        "payment.completed",
+        "compliance.alert",
+        "wallet.transfer"
+    ],
+    "permissions": [
+        "http:outbound"
+    ],
+    "config": {
+        "webhook_url": {
+            "type": "string",
+            "required": true,
+            "description": "The URL to send webhook notifications to"
+        },
+        "secret": {
+            "type": "string",
+            "required": false,
+            "description": "Secret for HMAC signature verification"
+        },
+        "events": {
+            "type": "array",
+            "required": false,
+            "description": "List of events to listen for (defaults to all)"
+        }
+    }
+}

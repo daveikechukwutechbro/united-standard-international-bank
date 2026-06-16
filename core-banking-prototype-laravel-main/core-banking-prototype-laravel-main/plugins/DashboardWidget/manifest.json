@@ -1,0 +1,22 @@
+{
+    "name": "dashboard-widget",
+    "vendor": "finaegis",
+    "version": "1.0.0",
+    "description": "Custom Filament dashboard widget plugin for domain health overview",
+    "type": "widget",
+    "permissions": {
+        "database": ["read"],
+        "cache": ["read"]
+    },
+    "hooks": ["system.boot"],
+    "entry_point": "DashboardWidgetServiceProvider",
+    "requires": {
+        "php": ">=8.2",
+        "filament/filament": "^3.0"
+    },
+    "metadata": {
+        "author": "FinAegis Team",
+        "license": "MIT",
+        "category": "admin"
+    }
+}

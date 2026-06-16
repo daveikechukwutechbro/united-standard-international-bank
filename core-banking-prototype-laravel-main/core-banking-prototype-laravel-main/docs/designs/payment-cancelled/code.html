@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Payment Cancelled</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#df2020",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#211111",
+                        "surface-dark": "#2a1d1d",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem", 
+                        "lg": "1rem", 
+                        "xl": "1.5rem", 
+                        "2xl": "2rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display antialiased min-h-screen flex flex-col items-center justify-center overflow-hidden">
+<!-- Main Container -->
+<div class="relative w-full max-w-md h-screen max-h-[900px] flex flex-col bg-background-light dark:bg-background-dark overflow-hidden shadow-2xl">
+<!-- Status Bar Area (Mock) -->
+<div class="h-12 w-full flex items-center justify-between px-6 z-10">
+<span class="text-sm font-medium text-black dark:text-white/60">9:41</span>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px] text-black dark:text-white/60">signal_cellular_alt</span>
+<span class="material-symbols-outlined text-[18px] text-black dark:text-white/60">wifi</span>
+<span class="material-symbols-outlined text-[18px] text-black dark:text-white/60">battery_full</span>
+</div>
+</div>
+<!-- Content Area -->
+<div class="flex-1 flex flex-col items-center justify-center px-6 pb-20 pt-10">
+<!-- Icon Container -->
+<div class="relative mb-8 group">
+<!-- Outer Glow/Ring -->
+<div class="absolute inset-0 bg-primary/20 rounded-full blur-xl scale-150 opacity-50"></div>
+<!-- Icon Circle -->
+<div class="relative w-24 h-24 bg-surface-dark rounded-full flex items-center justify-center border border-white/5 shadow-inner">
+<span class="material-symbols-outlined text-5xl text-primary font-light">close</span>
+</div>
+<!-- Decorative Elements -->
+<div class="absolute -right-2 -top-2 w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center animate-bounce duration-[3000ms]">
+<div class="w-2 h-2 rounded-full bg-primary"></div>
+</div>
+</div>
+<!-- Text Content -->
+<div class="flex flex-col items-center gap-3 text-center max-w-[320px]">
+<h1 class="text-3xl font-bold text-gray-900 dark:text-white tracking-tight">Payment cancelled</h1>
+<p class="text-gray-500 dark:text-gray-400 text-base font-normal leading-relaxed">
+                    You have cancelled the payment to the merchant. No funds have been deducted.
+                </p>
+</div>
+<!-- Receipt/Details Card (Optional Context) -->
+<div class="mt-10 w-full bg-white dark:bg-surface-dark/50 rounded-2xl p-4 border border-gray-200 dark:border-white/5">
+<div class="flex justify-between items-center mb-3">
+<span class="text-xs font-medium uppercase tracking-wider text-gray-400">Merchant</span>
+<span class="text-sm font-semibold text-gray-900 dark:text-white">Netflix Subscription</span>
+</div>
+<div class="w-full h-px bg-gray-200 dark:bg-white/5 mb-3"></div>
+<div class="flex justify-between items-center">
+<span class="text-xs font-medium uppercase tracking-wider text-gray-400">Amount</span>
+<span class="text-sm font-semibold text-gray-900 dark:text-white">$14.99</span>
+</div>
+</div>
+</div>
+<!-- Action Buttons Footer -->
+<div class="w-full px-6 pb-8 pt-4 bg-gradient-to-t from-background-light via-background-light to-transparent dark:from-background-dark dark:via-background-dark dark:to-transparent z-10">
+<div class="flex flex-col gap-3">
+<button class="w-full h-14 bg-primary hover:bg-red-600 active:scale-[0.98] transition-all duration-200 rounded-xl flex items-center justify-center text-white font-bold text-base shadow-lg shadow-primary/25">
+                    Try again
+                </button>
+<button class="w-full h-14 bg-transparent hover:bg-black/5 dark:hover:bg-white/5 active:scale-[0.98] transition-all duration-200 rounded-xl flex items-center justify-center text-gray-900 dark:text-white font-medium text-base border border-gray-300 dark:border-white/10">
+                    Back to Home
+                </button>
+</div>
+<!-- iOS Home Indicator Safe Area -->
+<div class="h-1 mt-6 w-32 bg-gray-300 dark:bg-white/20 mx-auto rounded-full"></div>
+</div>
+</div>
+</body></html>

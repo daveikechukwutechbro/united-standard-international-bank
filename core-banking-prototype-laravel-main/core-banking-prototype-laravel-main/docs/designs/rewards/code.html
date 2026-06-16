@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Rewards &amp; XP Progress</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#277bf1",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101722",
+                        "surface-dark": "#1b2027",
+                        "accent-blue": "#277bf1",
+                        "accent-emerald": "#10b981",
+                        "accent-purple": "#8b5cf6",
+                        "accent-gold": "#f59e0b",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px" },
+                    backgroundImage: {
+                        'holo-gradient': 'linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 50%, rgba(255,255,255,0.1) 100%)',
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .glowing-card {
+            background: linear-gradient(135deg, rgba(39, 123, 241, 0.15) 0%, rgba(16, 185, 129, 0.05) 100%);
+            box-shadow: 0 8px 32px 0 rgba(39, 123, 241, 0.1);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }.holo-card {
+            background: linear-gradient(125deg, rgba(255, 255, 255, 0.05) 0%, rgba(39, 123, 241, 0.1) 40%, rgba(139, 92, 246, 0.1) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 10px 40px -10px rgba(39, 123, 241, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        .holo-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -50%; width: 200%; height: 100%;
+            background: linear-gradient(60deg, transparent 40%, rgba(255,255,255,0.1) 50%, transparent 60%);
+            transform: skewX(-25deg);
+            pointer-events: none;
+            mix-blend-mode: overlay;
+        }
+        .quest-gradient {
+            background: linear-gradient(90deg, rgba(245, 158, 11, 0.1) 0%, rgba(139, 92, 246, 0.05) 100%);
+        }
+        .progress-glow {
+            box-shadow: 0 0 15px rgba(39, 123, 241, 0.6);
+        }
+    </style>
+<style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display antialiased min-h-screen flex flex-col">
+<div class="relative flex h-full w-full flex-col max-w-md mx-auto min-h-screen overflow-x-hidden bg-background-light dark:bg-background-dark border-x border-slate-200 dark:border-slate-800">
+<div class="flex items-center p-4 pb-2 justify-between sticky top-0 z-50 bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-sm">
+<h1 class="text-2xl font-bold text-slate-800 dark:text-white tracking-tight">Rewards</h1>
+<div class="flex items-center gap-3">
+<div class="flex items-center gap-1 bg-orange-500/10 border border-orange-500/20 rounded-full pl-2 pr-3 py-1">
+<span class="material-symbols-outlined text-orange-500 text-[18px] filled">local_fire_department</span>
+<span class="text-xs font-bold text-orange-500">7</span>
+</div>
+<div class="relative group cursor-pointer">
+<div class="absolute -inset-0.5 bg-gradient-to-br from-accent-blue to-accent-purple rounded-full opacity-60 blur group-hover:opacity-100 transition duration-500"></div>
+<img alt="3D Avatar" class="relative size-10 rounded-full bg-surface-dark border-2 border-slate-100 dark:border-surface-dark object-cover z-10 hover:scale-105 transition-transform" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZXsyuJO72CDZuuDL6NhK5AEB9x5jqfi0EBEUYQXxmQMztbcgd_HS18eyLErmK19niGiuAT3mHTNF2QFtm1RBoypEGqaz3NbM1IHopiyiIYK-KHilmhS79P8R0A5YsHyVqO8X2jZ9MfmNBR0dRiEKCXhwvpQWWXgg42e65c4TOGQpySlrsdpYrBxa8UXnqNk-KRne-g9zPrbjNGPnW18HpmURXRuRzmWjdFNtJQSmtPymeB9Hmwp_689llPwxMqvfqYXU225aISluC"/>
+<div class="absolute bottom-0 right-0 w-3 h-3 bg-accent-emerald border-2 border-surface-dark rounded-full z-20"></div>
+</div>
+</div>
+</div>
+<div class="flex-1 overflow-y-auto pb-24">
+<div class="p-4 pt-2">
+<div class="holo-card rounded-2xl p-6 relative group transition-all duration-500 hover:shadow-[0_0_30px_rgba(39,123,241,0.2)]">
+<div class="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay"></div>
+<div class="absolute -right-6 -top-6 text-white/5 rotate-12">
+<span class="material-symbols-outlined text-[140px] filled">stars</span>
+</div>
+<div class="relative z-10 flex flex-col items-center text-center">
+<div class="flex items-center gap-2 mb-2">
+<span class="bg-white/10 text-accent-gold text-[10px] font-bold px-2 py-0.5 rounded border border-accent-gold/20 flex items-center gap-1 backdrop-blur-sm">
+<span class="material-symbols-outlined text-[12px] filled">military_tech</span>
+                            ELITE MEMBER
+                        </span>
+</div>
+<h2 class="text-white text-5xl font-bold tracking-tighter drop-shadow-xl mb-1 mt-2">Level 5</h2>
+<p class="text-slate-300 text-sm font-medium mb-6">Master of Coin</p>
+<div class="w-full">
+<div class="flex justify-between items-end mb-2 px-1">
+<span class="text-white font-bold text-sm">1,250 XP</span>
+<span class="text-slate-400 text-xs">Target: 2,000 XP</span>
+</div>
+<div class="h-4 w-full bg-slate-800/80 rounded-full overflow-hidden border border-slate-700 backdrop-blur-sm p-0.5">
+<div class="h-full bg-gradient-to-r from-accent-blue via-accent-purple to-accent-gold rounded-full relative progress-glow" style="width: 62%">
+<div class="absolute right-0 top-0 bottom-0 w-1 bg-white/50 blur-[1px]"></div>
+</div>
+</div>
+<p class="text-xs text-slate-400 mt-2 text-left flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-accent-blue">info</span>
+                            Earn <span class="text-white font-bold">750 XP</span> more to reach Level 6
+                        </p>
+</div>
+</div>
+</div>
+</div>
+<div class="px-4 py-2 flex flex-col gap-4">
+<div class="flex items-center justify-between">
+<h3 class="text-slate-800 dark:text-white text-lg font-bold">Daily Quests</h3>
+<span class="text-xs font-medium text-slate-500 bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded-lg">Reset in 4h</span>
+</div>
+<div class="space-y-3">
+<div class="bg-surface-dark border border-slate-200 dark:border-slate-700/50 p-3.5 rounded-xl flex items-center justify-between shadow-sm relative overflow-hidden group">
+<div class="absolute inset-0 bg-gradient-to-r from-accent-blue/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="flex items-center gap-3 relative z-10">
+<div class="size-10 rounded-full bg-accent-blue/10 flex items-center justify-center text-accent-blue">
+<span class="material-symbols-outlined">credit_card</span>
+</div>
+<div>
+<h4 class="text-white text-sm font-bold">Pay with Card</h4>
+<div class="flex items-center gap-2 mt-0.5">
+<div class="h-1.5 w-16 bg-slate-700 rounded-full overflow-hidden">
+<div class="h-full bg-accent-blue w-1/3"></div>
+</div>
+<span class="text-[10px] text-slate-400">1/3</span>
+</div>
+</div>
+</div>
+<div class="relative z-10">
+<span class="inline-flex items-center gap-1 bg-accent-blue/10 text-accent-blue text-xs font-bold px-2.5 py-1 rounded-full border border-accent-blue/20">
+                            +50 XP
+                        </span>
+</div>
+</div>
+<div class="bg-surface-dark border border-slate-200 dark:border-slate-700/50 p-3.5 rounded-xl flex items-center justify-between shadow-sm relative overflow-hidden group">
+<div class="absolute inset-0 bg-gradient-to-r from-accent-purple/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="flex items-center gap-3 relative z-10">
+<div class="size-10 rounded-full bg-accent-purple/10 flex items-center justify-center text-accent-purple">
+<span class="material-symbols-outlined">person_add</span>
+</div>
+<div>
+<h4 class="text-white text-sm font-bold">Invite a Friend</h4>
+<p class="text-xs text-slate-400">Expand your squad</p>
+</div>
+</div>
+<button class="relative z-10 bg-accent-purple text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg shadow-accent-purple/20 hover:scale-105 transition-transform">
+                        Start
+                    </button>
+</div>
+<div class="bg-surface-dark/50 border border-slate-200 dark:border-slate-800 p-3.5 rounded-xl flex items-center justify-between opacity-60">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-full bg-accent-emerald/10 flex items-center justify-center text-accent-emerald">
+<span class="material-symbols-outlined">verified_user</span>
+</div>
+<div>
+<h4 class="text-white text-sm font-bold line-through decoration-slate-500">Complete Profile</h4>
+<p class="text-xs text-slate-500">Identity Verified</p>
+</div>
+</div>
+<div class="flex items-center gap-1 text-accent-emerald text-xs font-bold">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+<span>Done</span>
+</div>
+</div>
+</div>
+</div>
+<div class="px-4 py-4">
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-slate-800 dark:text-white text-lg font-bold">Rewards Shop</h3>
+<button class="text-accent-blue text-sm font-medium hover:text-accent-blue/80">See All</button>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<div class="bg-surface-dark border border-slate-200 dark:border-slate-700 rounded-xl p-3 flex flex-col justify-between h-36 relative overflow-hidden group hover:border-accent-gold/50 transition-all cursor-pointer">
+<div class="absolute top-0 right-0 p-2">
+<span class="bg-accent-gold text-white text-[9px] font-bold px-1.5 py-0.5 rounded shadow-sm">HOT</span>
+</div>
+<div class="flex justify-center py-2">
+<div class="size-12 rounded-full bg-gradient-to-br from-amber-300 to-yellow-600 flex items-center justify-center text-white shadow-lg">
+<span class="material-symbols-outlined text-[24px]">workspace_premium</span>
+</div>
+</div>
+<div>
+<h4 class="text-white text-sm font-bold text-center">Gold Badge</h4>
+<p class="text-accent-gold text-xs font-bold text-center mt-1">2,500 XP</p>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-accent-gold/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
+</div>
+<div class="bg-surface-dark border border-slate-200 dark:border-slate-700 rounded-xl p-3 flex flex-col justify-between h-36 relative overflow-hidden group hover:border-accent-blue/50 transition-all cursor-pointer">
+<div class="flex justify-center py-2">
+<div class="size-12 rounded-full bg-slate-800 border border-slate-600 flex items-center justify-center text-accent-blue shadow-lg">
+<span class="material-symbols-outlined text-[24px]">shopping_bag</span>
+</div>
+</div>
+<div>
+<h4 class="text-white text-sm font-bold text-center">5% Cashback</h4>
+<p class="text-accent-blue text-xs font-bold text-center mt-1">500 XP</p>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-accent-blue/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="sticky bottom-0 bg-white/90 dark:bg-[#111418]/90 backdrop-blur-md border-t border-slate-200 dark:border-slate-800 px-6 py-4 flex justify-between items-center z-50">
+<button class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-medium">Home</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300">
+<span class="material-symbols-outlined">credit_card</span>
+<span class="text-[10px] font-medium">Cards</span>
+</button>
+<button class="flex items-center justify-center size-12 -mt-8 bg-surface-dark rounded-full shadow-lg shadow-black/20 text-slate-400 hover:text-white transition-colors border-4 border-background-light dark:border-background-dark">
+<span class="material-symbols-outlined">swap_horiz</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-accent-purple dark:text-accent-purple hover:text-purple-400 dark:hover:text-purple-300 relative group">
+<div class="absolute -top-3 right-0 left-0 mx-auto w-8 h-1 bg-accent-purple rounded-b-lg shadow-[0_0_8px_rgba(139,92,246,0.8)]"></div>
+<span class="material-symbols-outlined filled drop-shadow-[0_0_8px_rgba(139,92,246,0.5)]">emoji_events</span>
+<span class="text-[10px] font-bold">Rewards</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-[10px] font-medium">Settings</span>
+</button>
+</div>
+</div>
+
+</body></html>

@@ -1,0 +1,95 @@
+type RegulatoryEndpoint @model(class: "App\\Domain\\RegTech\\Models\\RegulatoryEndpoint") {
+    id: ID!
+    uuid: String!
+    name: String!
+    regulator: String!
+    jurisdiction: String!
+    endpoint_type: String!
+    base_url: String!
+    api_version: String
+    is_sandbox: Boolean!
+    is_active: Boolean!
+    rate_limit_per_minute: Int
+    timeout_seconds: Int
+    last_health_check: DateTime
+    health_status: String
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+type FilingSchedule @model(class: "App\\Domain\\RegTech\\Models\\FilingSchedule") {
+    id: ID!
+    uuid: String!
+    name: String!
+    report_type: String!
+    jurisdiction: String!
+    regulator: String!
+    frequency: String!
+    deadline_days: Int
+    deadline_time: String
+    next_due_date: DateTime
+    last_filed_at: DateTime
+    is_active: Boolean!
+    auto_generate: Boolean!
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+type ComplianceSummary {
+    jurisdiction: String!
+    regulations: [String!]!
+    status: String!
+    last_check: DateTime
+}
+
+extend type Query {
+    regulatoryEndpoint(id: ID! @eq): RegulatoryEndpoint
+        @find
+        @guard(with: ["sanctum"])
+
+    regulatoryEndpoints(
+        page: Int @rules(apply: ["integer", "min:1"])
+        first: Int @rules(apply: ["integer", "min:1", "max:100"])
+        jurisdiction: String @where(operator: "=")
+        is_active: Boolean @where(operator: "=")
+    ): [RegulatoryEndpoint!]!
+        @paginate(defaultCount: 15, model: "App\\Domain\\RegTech\\Models\\RegulatoryEndpoint")
+        @guard(with: ["sanctum"])
+
+    filingSchedule(id: ID! @eq): FilingSchedule
+        @find
+        @guard(with: ["sanctum"])
+
+    filingSchedules(
+        page: Int @rules(apply: ["integer", "min:1"])
+        first: Int @rules(apply: ["integer", "min:1", "max:100"])
+        jurisdiction: String @where(operator: "=")
+        is_active: Boolean @where(operator: "=")
+    ): [FilingSchedule!]!
+        @paginate(defaultCount: 15, model: "App\\Domain\\RegTech\\Models\\FilingSchedule")
+        @guard(with: ["sanctum"])
+
+    complianceSummary(jurisdiction: String!): ComplianceSummary
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Queries\\RegTech\\ComplianceSummaryQuery")
+
+    endpointHealth: [RegulatoryEndpoint!]!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Queries\\RegTech\\EndpointHealthQuery")
+}
+
+input SubmitRegulatoryReportInput {
+    jurisdiction: String!
+    report_type: String!
+    report_data: String!
+}
+
+extend type Mutation {
+    submitRegulatoryReport(input: SubmitRegulatoryReportInput! @spread): String!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Mutations\\RegTech\\SubmitRegulatoryReportMutation")
+
+    runHealthChecks: Boolean!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Mutations\\RegTech\\RunHealthChecksMutation")
+}

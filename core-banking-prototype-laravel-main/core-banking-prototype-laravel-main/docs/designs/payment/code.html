@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Confirm Crypto Payment</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#277bf1",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101722",
+                        "surface-dark": "#1b2027",
+                        "accent-blue": "#277bf1",
+                        "accent-emerald": "#10b981",
+                        "accent-purple": "#8b5cf6",
+                        "accent-gold": "#f59e0b",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px" },
+                    backgroundImage: {
+                        'holo-gradient': 'linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 50%, rgba(255,255,255,0.1) 100%)',
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .numpad-btn {
+            background: rgba(27, 32, 39, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            transition: all 0.2s;
+        }
+        .numpad-btn:active {
+            background: rgba(39, 123, 241, 0.1);
+            transform: scale(0.95);
+        }
+        .shield-glow {
+             box-shadow: 0 0 15px rgba(16, 185, 129, 0.2);
+        }
+        body {
+            min-height: max(844px, 100dvh);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display antialiased min-h-screen flex flex-col text-slate-900 dark:text-white">
+<div class="relative flex h-full w-full flex-col max-w-md mx-auto min-h-screen overflow-hidden bg-background-light dark:bg-background-dark border-x border-slate-200 dark:border-slate-800">
+<div class="px-6 py-6 flex items-center justify-between">
+<button class="flex items-center justify-center w-10 h-10 rounded-full bg-surface-dark/50 hover:bg-surface-dark transition-colors border border-slate-700/50 text-slate-400">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<div class="flex flex-col items-center">
+<span class="text-xs font-medium text-slate-500 uppercase tracking-widest mb-1">Paying</span>
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-green-500"></div>
+<span class="text-lg font-bold">Starbolt Coffee</span>
+</div>
+</div>
+<button class="flex items-center justify-center w-10 h-10 rounded-full bg-surface-dark/50 hover:bg-surface-dark transition-colors border border-slate-700/50 text-slate-400">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+<div class="flex-1 flex flex-col px-6">
+<div class="flex-1 flex flex-col items-center justify-center min-h-[160px]">
+<div class="flex items-baseline gap-1">
+<span class="text-6xl font-bold tracking-tight">12.00</span>
+<span class="text-xl font-medium text-accent-blue mt-2">USDC</span>
+</div>
+<div class="mt-2 text-sm text-slate-500">~ $12.00 USD</div>
+</div>
+<div class="bg-surface-dark border border-slate-700/50 rounded-2xl p-4 mb-8 shield-glow relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-10">
+<span class="material-symbols-outlined text-6xl text-emerald-500">shield_lock</span>
+</div>
+<div class="flex items-center justify-between relative z-10">
+<div class="flex items-start gap-3">
+<div class="w-10 h-10 rounded-full bg-emerald-500/20 flex items-center justify-center text-emerald-500 mt-1">
+<span class="material-symbols-outlined">encrypted</span>
+</div>
+<div>
+<h3 class="font-bold text-white text-base">Shield Protection</h3>
+<p class="text-xs text-slate-400 mt-1 max-w-[200px]">Merchant does not see your balance.</p>
+</div>
+</div>
+<label class="inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="relative w-11 h-6 bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-emerald-500"></div>
+</label>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-4 mb-8 max-w-[320px] mx-auto w-full">
+<button class="numpad-btn aspect-square rounded-full flex items-center justify-center text-2xl font-medium text-white hover:bg-slate-700/50">1</button>
+<button class="numpad-btn aspect-square rounded-full flex items-center justify-center text-2xl font-medium text-white hover:bg-slate-700/50">2</button>
+<button class="numpad-btn aspect-square rounded-full flex items-center justify-center text-2xl font-medium text-white hover:bg-slate-700/50">3</button>
+<button class="numpad-btn aspect-square rounded-full flex items-center justify-center text-2xl font-medium text-white hover:bg-slate-700/50">4</button>
+<button class="numpad-btn aspect-square rounded-full flex items-center justify-center text-2xl font-medium text-white hover:bg-slate-700/50">5</button>
+<button class="numpad-btn aspect-square rounded-full flex items-center justify-center text-2xl font-medium text-white hover:bg-slate-700/50">6</button>
+<button class="numpad-btn aspect-square rounded-full flex items-center justify-center text-2xl font-medium text-white hover:bg-slate-700/50">7</button>
+<button class="numpad-btn aspect-square rounded-full flex items-center justify-center text-2xl font-medium text-white hover:bg-slate-700/50">8</button>
+<button class="numpad-btn aspect-square rounded-full flex items-center justify-center text-2xl font-medium text-white hover:bg-slate-700/50">9</button>
+<button class="aspect-square rounded-full flex items-center justify-center text-2xl font-medium text-slate-500 hover:text-white transition-colors">.</button>
+<button class="numpad-btn aspect-square rounded-full flex items-center justify-center text-2xl font-medium text-white hover:bg-slate-700/50">0</button>
+<button class="aspect-square rounded-full flex items-center justify-center text-2xl font-medium text-slate-500 hover:text-white transition-colors">
+<span class="material-symbols-outlined">backspace</span>
+</button>
+</div>
+</div>
+<div class="p-6 pt-2 bg-background-dark/95 backdrop-blur sticky bottom-0 z-50">
+<button class="w-full bg-accent-blue hover:bg-blue-600 text-white font-bold py-4 rounded-xl shadow-[0_0_20px_rgba(39,123,241,0.4)] transition-all active:scale-[0.98] flex items-center justify-center gap-2 group">
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">check</span>
+<span>Confirm Payment</span>
+</button>
+</div>
+</div>
+</body></html>

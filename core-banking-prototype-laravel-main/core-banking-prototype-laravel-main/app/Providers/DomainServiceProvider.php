@@ -1,0 +1,245 @@
+<?php
+
+declare(strict_types=1);
+
+namespace App\Providers;
+
+use App\Domain\Account\Services\AccountOperationsAdapter;
+use App\Domain\Account\Services\AccountQueryService;
+use App\Domain\Asset\Services\AssetTransferService;
+use App\Domain\Compliance\Projectors\ComplianceAlertProjector;
+// Repository Interfaces and Implementations
+use App\Domain\Compliance\Projectors\TransactionMonitoringProjector;
+// Shared Contracts for domain decoupling
+use App\Domain\Compliance\Repositories\ComplianceEventRepository;
+use App\Domain\Compliance\Repositories\ComplianceSnapshotRepository;
+use App\Domain\Exchange\Contracts\LiquidityPoolRepositoryInterface;
+use App\Domain\Exchange\Contracts\OrderRepositoryInterface;
+use App\Domain\Exchange\Repositories\LiquidityPoolRepository;
+use App\Domain\Exchange\Repositories\OrderRepository;
+use App\Domain\Payment\Services\PaymentProcessingService;
+use App\Domain\Shared\Contracts\AccountOperationsInterface;
+use App\Domain\Shared\Contracts\AccountQueryInterface;
+// CQRS Infrastructure
+use App\Domain\Shared\Contracts\AssetTransferInterface;
+use App\Domain\Shared\Contracts\PaymentProcessingInterface;
+// Compliance domain repositories (Spatie Event Sourcing)
+use App\Domain\Shared\Contracts\WalletOperationsInterface;
+use App\Domain\Shared\CQRS\CommandBus;
+// Compliance projectors
+use App\Domain\Shared\CQRS\QueryBus;
+use App\Domain\Shared\Events\DomainEventBus;
+use App\Domain\Stablecoin\Contracts\StablecoinAggregateRepositoryInterface;
+use App\Domain\Stablecoin\Repositories\StablecoinAggregateRepository;
+use App\Domain\Wallet\Services\WalletOperationsService;
+use App\Infrastructure\CQRS\LaravelCommandBus;
+use App\Infrastructure\CQRS\LaravelQueryBus;
+// Domain Event Bus
+use App\Infrastructure\Events\LaravelDomainEventBus;
+use Illuminate\Support\ServiceProvider;
+use Spatie\EventSourcing\Facades\Projectionist;
+
+/**
+ * Service provider for domain layer bindings and configuration.
+ * Implements dependency inversion for repositories, services, and infrastructure.
+ */
+class DomainServiceProvider extends ServiceProvider
+{
+    /**
+     * Register services.
+     */
+    public function register(): void
+    {
+        $this->registerSharedContracts();
+        $this->registerRepositories();
+        $this->registerCQRSInfrastructure();
+        $this->registerDomainEventBus();
+        $this->registerSagas();
+        $this->registerEventSourcingRepositories();
+    }
+
+    /**
+     * Register shared contracts for domain decoupling.
+     *
+     * These bindings enable domains to depend on abstractions rather than
+     * concrete implementations, supporting the platform's modularity goals.
+     *
+     * @see \App\Domain\Shared\Contracts\README.md
+     */
+    private function registerSharedContracts(): void
+    {
+        // Account operations - used by 17+ domains
+        $this->app->bind(AccountOperationsInterface::class, AccountOperationsAdapter::class);
+
+        // Wallet operations - used by Exchange, Stablecoin, Basket, Custodian, AgentProtocol
+        $this->app->bind(WalletOperationsInterface::class, WalletOperationsService::class);
+
+        // Asset transfer operations - used by Exchange, Stablecoin, AI, AgentProtocol, Treasury
+        $this->app->bind(AssetTransferInterface::class, AssetTransferService::class);
+
+        // Payment processing - used by AgentProtocol, Exchange, Stablecoin, Banking
+        $this->app->bind(PaymentProcessingInterface::class, PaymentProcessingService::class);
+
+        // Account queries (read-only) - used by Exchange, Lending, Treasury, Basket, AI
+        $this->app->bind(AccountQueryInterface::class, AccountQueryService::class);
+
+        // Additional contracts can be bound here as implementations are created:
+        // $this->app->bind(ComplianceCheckInterface::class, ComplianceCheckAdapter::class);
+        // $this->app->bind(ExchangeRateInterface::class, ExchangeRateAdapter::class);
+        // $this->app->bind(GovernanceVotingInterface::class, GovernanceVotingAdapter::class);
+    }
+
+    /**
+     * Bootstrap services.
+     */
+    public function boot(): void
+    {
+        $this->registerEventSubscribers();
+        $this->registerCommandHandlers();
+        $this->registerQueryHandlers();
+        $this->registerProjectors();
+    }
+
+    /**
+     * Register repository bindings.
+     */
+    private function registerRepositories(): void
+    {
+        // Exchange domain repositories
+        $this->app->bind(OrderRepositoryInterface::class, function ($app) {
+            return new OrderRepository();
+        });
+
+        $this->app->bind(LiquidityPoolRepositoryInterface::class, function ($app) {
+            return new LiquidityPoolRepository();
+        });
+
+        // Stablecoin domain repositories
+        $this->app->bind(StablecoinAggregateRepositoryInterface::class, function ($app) {
+            return new StablecoinAggregateRepository();
+        });
+    }
+
+    /**
+     * Register Event Sourcing repositories for Compliance domain.
+     */
+    private function registerEventSourcingRepositories(): void
+    {
+        // Compliance Event Sourcing repositories (Spatie)
+        $this->app->singleton(ComplianceEventRepository::class, function ($app) {
+            return new ComplianceEventRepository();
+        });
+
+        $this->app->singleton(ComplianceSnapshotRepository::class, function ($app) {
+            return new ComplianceSnapshotRepository();
+        });
+    }
+
+    /**
+     * Register CQRS infrastructure.
+     */
+    private function registerCQRSInfrastructure(): void
+    {
+        // Command Bus
+        $this->app->singleton(CommandBus::class, function ($app) {
+            return new LaravelCommandBus($app);
+        });
+
+        // Query Bus
+        $this->app->singleton(QueryBus::class, function ($app) {
+            return new LaravelQueryBus($app, $app['cache.store']);
+        });
+    }
+
+    /**
+     * Register Domain Event Bus.
+     */
+    private function registerDomainEventBus(): void
+    {
+        $this->app->singleton(DomainEventBus::class, function ($app) {
+            return new LaravelDomainEventBus($app['events'], $app);
+        });
+    }
+
+    /**
+     * Register saga workflows.
+     */
+    private function registerSagas(): void
+    {
+        // Register saga workflows with Laravel Workflow
+        $this->app->tag([
+            \App\Domain\Exchange\Sagas\OrderFulfillmentSaga::class,
+            \App\Domain\Stablecoin\Sagas\StablecoinIssuanceSaga::class,
+            \App\Domain\Lending\Sagas\LoanDisbursementSaga::class,
+        ], 'sagas');
+    }
+
+    /**
+     * Register event subscribers.
+     */
+    private function registerEventSubscribers(): void
+    {
+        // Only register if not in demo mode or if explicitly enabled
+        if (config('app.env') === 'production' || config('domain.enable_handlers', false)) {
+            $eventBus = $this->app->make(DomainEventBus::class);
+
+            // Note: Handlers will be implemented as features are developed
+            // Example pattern for future implementation:
+            // $eventBus->subscribe(
+            //     \App\Domain\Exchange\Events\OrderPlaced::class,
+            //     \App\Domain\Exchange\Handlers\OrderPlacedHandler::class
+            // );
+        }
+    }
+
+    /**
+     * Register command handlers.
+     */
+    private function registerCommandHandlers(): void
+    {
+        // Only register if not in demo mode or if explicitly enabled
+        if (config('app.env') === 'production' || config('domain.enable_handlers', false)) {
+            $commandBus = $this->app->make(CommandBus::class);
+
+            // Note: Command handlers will be registered as features are developed
+            // Example pattern for future implementation:
+            // $commandBus->register(
+            //     \App\Domain\Exchange\Commands\PlaceOrderCommand::class,
+            //     \App\Domain\Exchange\Handlers\PlaceOrderHandler::class
+            // );
+        }
+    }
+
+    /**
+     * Register query handlers.
+     */
+    private function registerQueryHandlers(): void
+    {
+        // Only register if not in demo mode or if explicitly enabled
+        if (config('app.env') === 'production' || config('domain.enable_handlers', false)) {
+            $queryBus = $this->app->make(QueryBus::class);
+
+            // Note: Query handlers will be registered as features are developed
+            // Example pattern for future implementation:
+            // $queryBus->register(
+            //     \App\Domain\Exchange\Queries\GetOrderQuery::class,
+            //     \App\Domain\Exchange\Handlers\GetOrderHandler::class
+            // );
+        }
+    }
+
+    /**
+     * Register Spatie Event Sourcing projectors.
+     */
+    private function registerProjectors(): void
+    {
+        // Register Compliance projectors
+        Projectionist::addProjector(ComplianceAlertProjector::class);
+        Projectionist::addProjector(TransactionMonitoringProjector::class);
+
+        // Other domain projectors can be added here as they are implemented
+        // Example:
+        // Projectionist::addProjector(TreasuryProjector::class);
+        // Projectionist::addProjector(LendingProjector::class);
+    }
+}

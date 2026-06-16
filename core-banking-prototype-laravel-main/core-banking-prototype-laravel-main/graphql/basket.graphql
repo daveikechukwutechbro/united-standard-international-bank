@@ -1,0 +1,46 @@
+type BasketPortfolio @model(class: "App\\Domain\\Basket\\Models\\BasketAsset") {
+    id: ID!
+    code: String
+    name: String!
+    description: String
+    type: String
+    rebalance_frequency: String
+    is_active: Boolean
+    last_rebalanced_at: DateTime
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+input CreateBasketInput {
+    name: String!
+    description: String
+    type: String
+    rebalance_frequency: String
+}
+
+input RebalanceBasketInput {
+    id: ID!
+}
+
+extend type Query {
+    basket(id: ID! @eq): BasketPortfolio
+        @find
+        @guard(with: ["sanctum"])
+
+    baskets(
+        page: Int @rules(apply: ["integer", "min:1"])
+        first: Int @rules(apply: ["integer", "min:1", "max:100"])
+    ): [BasketPortfolio!]!
+        @paginate(defaultCount: 15, model: "App\\Domain\\Basket\\Models\\BasketAsset")
+        @guard(with: ["sanctum"])
+}
+
+extend type Mutation {
+    createBasket(input: CreateBasketInput! @spread): BasketPortfolio!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Mutations\\Basket\\CreateBasketMutation")
+
+    rebalanceBasket(input: RebalanceBasketInput! @spread): BasketPortfolio!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Mutations\\Basket\\RebalanceBasketMutation")
+}

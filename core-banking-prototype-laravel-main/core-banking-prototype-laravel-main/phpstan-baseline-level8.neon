@@ -1,0 +1,4843 @@
+parameters:
+	ignoreErrors:
+		-
+			message: '#^Cannot access property \$id on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Actions/Jetstream/RemoveTeamMember.php
+
+		-
+			message: '#^Parameter \#1 \$accountUuid of method App\\Domain\\Account\\Services\\Cache\\CacheManager\:\:warmUp\(\) expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Console/Commands/CacheWarmup.php
+
+		-
+			message: '#^Parameter \#1 \$string of function strtoupper expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Console/Commands/DemoDepositCommand.php
+
+		-
+			message: '#^Parameter \#1 \$test of method App\\Console\\Commands\\RunLoadTests\:\:runTest\(\) expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Console/Commands/RunLoadTests.php
+
+		-
+			message: '#^Parameter \#1 \$message of class Exception constructor expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 2
+			path: app/Domain/AI/MCP/MCPServer.php
+
+		-
+			message: '#^Parameter \#1 \$uuid of static method Spatie\\EventSourcing\\AggregateRoots\\AggregateRoot\:\:retrieve\(\) expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Domain/AI/MCP/MCPServer.php
+
+		-
+			message: '#^Cannot call method toIso8601String\(\) on Illuminate\\Support\\Carbon\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Domain/AI/MCP/Tools/Account/AccountBalanceTool.php
+
+		-
+			message: '#^Cannot call method toIso8601String\(\) on Illuminate\\Support\\Carbon\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Domain/AI/MCP/Tools/Account/CreateAccountTool.php
+
+		-
+			message: '#^Cannot call method getBalance\(\) on App\\Domain\\Account\\Models\\Account\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Domain/AI/MCP/Tools/Account/DepositTool.php
+
+		-
+			message: '#^Cannot call method getBalance\(\) on App\\Domain\\Account\\Models\\Account\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Domain/AI/MCP/Tools/Account/WithdrawTool.php
+
+		-
+			message: '#^Parameter \#1 \$results of method App\\Domain\\AI\\MCP\\Tools\\Compliance\\AmlScreeningTool\:\:calculateRiskFromAdverseMedia\(\) expects array, array\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Domain/AI/MCP/Tools/Compliance/AmlScreeningTool.php
+
+		-
+			message: '#^Parameter \#1 \$results of method App\\Domain\\AI\\MCP\\Tools\\Compliance\\AmlScreeningTool\:\:calculateRiskFromPep\(\) expects array, array\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Domain/AI/MCP/Tools/Compliance/AmlScreeningTool.php
+
+		-
+			message: '#^Parameter \#1 \$results of method App\\Domain\\AI\\MCP\\Tools\\Compliance\\AmlScreeningTool\:\:calculateRiskFromSanctions\(\) expects array, array\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Domain/AI/MCP/Tools/Compliance/AmlScreeningTool.php
+
+		-
+			message: '#^Cannot access property \$base_currency on App\\Domain\\Exchange\\Projections\\LiquidityPool\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Domain/AI/MCP/Tools/Exchange/LiquidityPoolTool.php
+
+		-
+			message: '#^Cannot access property \$fee_rate on App\\Domain\\Exchange\\Projections\\LiquidityPool\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Domain/AI/MCP/Tools/Exchange/LiquidityPoolTool.php
+
+		-
+			message: '#^Cannot access property \$quote_currency on App\\Domain\\Exchange\\Projections\\LiquidityPool\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Domain/AI/MCP/Tools/Exchange/LiquidityPoolTool.php
+
+		-
+			message: '#^Cannot access property \$status on App\\Domain\\Exchange\\Projections\\LiquidityPool\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Domain/AI/MCP/Tools/Exchange/LiquidityPoolTool.php
+
+		-
+			message: '#^Cannot call method toIso8601String\(\) on Illuminate\\Support\\Carbon\|null\.$#'
+			identifier: method.nonObject
+			count: 2
+			path: app/Domain/AI/MCP/Tools/Payment/PaymentStatusTool.php
+
+		-
+			message: '#^Cannot call method getBalance\(\) on App\\Domain\\Account\\Models\\Account\|null\.$#'
+			identifier: method.nonObject
+			count: 2
+			path: app/Domain/AI/MCP/Tools/Payment/TransferTool.php
+
+		-
+			message: '#^Parameter \#1 \$uuid of method App\\Domain\\Account\\DataObjects\\Account\:\:withUuid\(\) expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Domain/Account/Actions/CreateAccount.php
+
+		-
+			message: '#^Method App\\Domain\\Account\\Actions\\CreditAccount\:\:__invoke\(\) should return App\\Domain\\Account\\Models\\Account but returns App\\Domain\\Account\\Models\\Account\|null\.$#'
+			identifier: return.type
+			count: 1
+			path: app/Domain/Account/Actions/CreditAccount.php
+
+		-
+			message: '#^Parameter \#1 \$uuid of method App\\Domain\\Account\\Repositories\\AccountRepository\:\:findByUuid\(\) expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Domain/Account/Actions/CreditAccount.php
+
+		-
+			message: '#^Method App\\Domain\\Account\\Actions\\CreditAssetBalance\:\:__invoke\(\) should return App\\Domain\\Account\\Models\\Account but returns App\\Domain\\Account\\Models\\Account\|null\.$#'
+			identifier: return.type
+			count: 1
+			path: app/Domain/Account/Actions/CreditAssetBalance.php
+
+		-
+			message: '#^Parameter \#1 \$uuid of method App\\Domain\\Account\\Repositories\\AccountRepository\:\:findByUuid\(\) expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Domain/Account/Actions/CreditAssetBalance.php
+
+		-
+			message: '#^Method App\\Domain\\Account\\Actions\\DebitAccount\:\:__invoke\(\) should return App\\Domain\\Account\\Models\\Account but returns App\\Domain\\Account\\Models\\Account\|null\.$#'
+			identifier: return.type
+			count: 1
+			path: app/Domain/Account/Actions/DebitAccount.php
+
+		-
+			message: '#^Parameter \#1 \$uuid of method App\\Domain\\Account\\Repositories\\AccountRepository\:\:findByUuid\(\) expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Domain/Account/Actions/DebitAccount.php
+
+		-
+			message: '#^Method App\\Domain\\Account\\Actions\\DebitAssetBalance\:\:__invoke\(\) should return App\\Domain\\Account\\Models\\Account but returns App\\Domain\\Account\\Models\\Account\|null\.$#'
+			identifier: return.type
+			count: 1
+			path: app/Domain/Account/Actions/DebitAssetBalance.php
+
+		-
+			message: '#^Parameter \#1 \$uuid of method App\\Domain\\Account\\Repositories\\AccountRepository\:\:findByUuid\(\) expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Domain/Account/Actions/DebitAssetBalance.php
+
+		-
+			message: '#^Parameter \#1 \$uuid of method App\\Domain\\Account\\Repositories\\AccountRepository\:\:findByUuid\(\) expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Domain/Account/Actions/DeleteAccount.php
+
+		-
+			message: '#^Parameter \#2 \$accountUuid of method App\\Domain\\Account\\Repositories\\TurnoverRepository\:\:incrementForDateById\(\) expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Domain/Account/Actions/UpdateTurnover.php
+
+		-
+			message: '#^Method App\\Domain\\Account\\Events\\AssetTransferred\:\:getFromAccount\(\) should return string but returns string\|null\.$#'
+			identifier: return.type
+			count: 1
+			path: app/Domain/Account/Events/AssetTransferred.php
+
+		-
+			message: '#^Method App\\Domain\\Account\\Events\\AssetTransferred\:\:getToAccount\(\) should return string but returns string\|null\.$#'
+			identifier: return.type
+			count: 1
+			path: app/Domain/Account/Events/AssetTransferred.php
+
+		-
+			message: '#^Function __account__uuid\(\) should return string but returns string\|null\.$#'
+			identifier: return.type
+			count: 2
+			path: app/Domain/Account/Helpers/objects.php
+
+		-
+			message: '#^Parameter \#2 \$accountUuid of method App\\Domain\\Webhook\\Services\\WebhookService\:\:dispatchAccountEvent\(\) expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 6
+			path: app/Domain/Account/Listeners/WebhookEventListener.php
+
+		-
+			message: '#^Cannot access property \$currentTeam on App\\Models\\User\|null\.$#'
+			identifier: property.nonObject
+			count: 4
+			path: app/Domain/Account/Models/Account.php
+
+		-
+			message: '#^Parameter \#1 \$accountUuid of method App\\Domain\\Account\\Services\\Cache\\CacheManager\:\:onAccountDeleted\(\) expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Domain/Account/Projectors/AccountProjector.php
+
+		-
+			message: '#^Parameter \#1 \$uuid of method Spatie\\EventSourcing\\AggregateRoots\\AggregateRoot\:\:loadUuid\(\) expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Domain/Account/Reactors/SnapshotTransactionsReactor.php
+
+		-
+			message: '#^Parameter \#1 \$uuid of method Spatie\\EventSourcing\\AggregateRoots\\AggregateRoot\:\:loadUuid\(\) expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Domain/Account/Reactors/SnapshotTransfersReactor.php
+
+		-
+			message: '#^Method App\\Domain\\Account\\Services\\BankAllocationService\:\:setPrimaryBank\(\) should return App\\Domain\\Banking\\Models\\UserBankPreference but returns App\\Domain\\Banking\\Models\\UserBankPreference\|null\.$#'
+			identifier: return.type
+			count: 1
+			path: app/Domain/Account/Services/BankAllocationService.php
+
+		-
+			message: '#^Parameter \#1 \$accountUuid of method App\\Domain\\Account\\Services\\Cache\\TransactionCacheService\:\:forget\(\) expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Domain/Account/Services/Cache/TransactionCacheService.php
+
+		-
+			message: '#^Parameter \#1 \$account of method App\\Domain\\Account\\Workflows\\AccountValidationActivity\:\:performComplianceScreening\(\) expects App\\Domain\\Account\\Models\\Account, App\\Domain\\Account\\Models\\Account\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Domain/Account/Workflows/AccountValidationActivity.php
+
+		-
+			message: '#^Parameter \#1 \$account of method App\\Domain\\Account\\Workflows\\AccountValidationActivity\:\:validateAddress\(\) expects App\\Domain\\Account\\Models\\Account, App\\Domain\\Account\\Models\\Account\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Domain/Account/Workflows/AccountValidationActivity.php
+
+		-
+			message: '#^Parameter \#1 \$account of method App\\Domain\\Account\\Workflows\\AccountValidationActivity\:\:validateIdentity\(\) expects App\\Domain\\Account\\Models\\Account, App\\Domain\\Account\\Models\\Account\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Domain/Account/Workflows/AccountValidationActivity.php
+
+		-
+			message: '#^Parameter \#1 \$account of method App\\Domain\\Account\\Workflows\\AccountValidationActivity\:\:validateKycDocuments\(\) expects App\\Domain\\Account\\Models\\Account, App\\Domain\\Account\\Models\\Account\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Domain/Account/Workflows/AccountValidationActivity.php
+
+		-
+			message: '#^Parameter \#1 \$uuid of method Spatie\\EventSourcing\\AggregateRoots\\AggregateRoot\:\:retrieve\(\) expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Domain/Account/Workflows/BalanceInquiryActivity.php
+
+		-
+			message: '#^Cannot call method toDateString\(\) on Illuminate\\Support\\Carbon\|null\.$#'
+			identifier: method.nonObject
+			count: 2
+			path: app/Domain/Account/Workflows/BatchProcessingActivity.php
+
+		-
+			message: '#^Parameter \#1 \$uuid of method Spatie\\EventSourcing\\AggregateRoots\\AggregateRoot\:\:retrieve\(\) expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Domain/Account/Workflows/DepositAccountActivity.php
+
+		-
+			message: '#^Parameter \#1 \$uuid of method Spatie\\EventSourcing\\AggregateRoots\\AggregateRoot\:\:retrieve\(\) expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Domain/Account/Workflows/DestroyAccountActivity.php
+
+		-
+			message: '#^Parameter \#1 \$uuid of method Spatie\\EventSourcing\\AggregateRoots\\AggregateRoot\:\:retrieve\(\) expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Domain/Account/Workflows/FreezeAccountActivity.php
+
+		-
+			message: '#^Cannot call method toDateString\(\) on Illuminate\\Support\\Carbon\|null\.$#'
+			identifier: method.nonObject
+			count: 2
+			path: app/Domain/Account/Workflows/SingleBatchOperationActivity.php
+
+		-
+			message: '#^Parameter \#1 \$uuid of method Spatie\\EventSourcing\\AggregateRoots\\AggregateRoot\:\:retrieve\(\) expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Domain/Account/Workflows/TransactionReversalActivity.php
+
+		-
+			message: '#^Parameter \#1 \$uuid of method Spatie\\EventSourcing\\AggregateRoots\\AggregateRoot\:\:retrieve\(\) expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Domain/Account/Workflows/UnfreezeAccountActivity.php
+
+		-
+			message: '#^Parameter \#1 \$uuid of method Spatie\\EventSourcing\\AggregateRoots\\AggregateRoot\:\:retrieve\(\) expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Domain/Account/Workflows/WithdrawAccountActivity.php
+
+		-
+			message: '#^Method App\\Domain\\AgentProtocol\\Aggregates\\EscrowAggregate\:\:getDisputeDetails\(\) should return array but returns array\|null\.$#'
+			identifier: return.type
+			count: 1
+			path: app/Domain/AgentProtocol/Aggregates/EscrowAggregate.php
+
+		-
+			message: '#^Method App\\Domain\\AgentProtocol\\Aggregates\\EscrowAggregate\:\:getResolutionDetails\(\) should return array but returns array\|null\.$#'
+			identifier: return.type
+			count: 1
+			path: app/Domain/AgentProtocol/Aggregates/EscrowAggregate.php
+
+		-
+			message: '#^Parameter \#1 \$array of function array_column expects array, array\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Domain/AgentProtocol/DataObjects/AgentPaymentRequest.php
+
+		-
+			message: '#^Cannot call method getRequirements\(\) on App\\Domain\\Compliance\\Services\\KycService\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Domain/AgentProtocol/Services/AgentKycIntegrationService.php
+
+		-
+			message: '#^Cannot call method isKycApproved\(\) on App\\Domain\\Compliance\\Services\\KycService\|null\.$#'
+			identifier: method.nonObject
+			count: 2
+			path: app/Domain/AgentProtocol/Services/AgentKycIntegrationService.php
+
+		-
+			message: '#^Parameter \#1 \$string of function base64_encode expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Domain/AgentProtocol/Services/EncryptionService.php
+
+		-
+			message: '#^Cannot access property \$agent_id on App\\Models\\Agent\|null\.$#'
+			identifier: property.nonObject
+			count: 3
+			path: app/Domain/AgentProtocol/Services/RegulatoryReportingService.php
+
+		-
+			message: '#^Cannot access property \$country_code on App\\Models\\Agent\|null\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: app/Domain/AgentProtocol/Services/RegulatoryReportingService.php
+
+		-
+			message: '#^Cannot access property \$did on App\\Models\\Agent\|null\.$#'
+			identifier: property.nonObject
+			count: 3
+			path: app/Domain/AgentProtocol/Services/RegulatoryReportingService.php
+
+		-
+			message: '#^Cannot access property \$kyc_status on App\\Models\\Agent\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Domain/AgentProtocol/Services/RegulatoryReportingService.php
+
+		-
+			message: '#^Cannot access property \$kyc_verification_level on App\\Models\\Agent\|null\.$#'
+			identifier: property.nonObject
+			count: 3
+			path: app/Domain/AgentProtocol/Services/RegulatoryReportingService.php
+
+		-
+			message: '#^Cannot access property \$name on App\\Models\\Agent\|null\.$#'
+			identifier: property.nonObject
+			count: 3
+			path: app/Domain/AgentProtocol/Services/RegulatoryReportingService.php
+
+		-
+			message: '#^Cannot access property \$risk_score on App\\Models\\Agent\|null\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: app/Domain/AgentProtocol/Services/RegulatoryReportingService.php
+
+		-
+			message: '#^Cannot call method toArray\(\) on App\\Models\\RegulatoryReport\|null\.$#'
+			identifier: method.nonObject
+			count: 2
+			path: app/Domain/AgentProtocol/Services/RegulatoryReportingService.php
+
+		-
+			message: '#^Cannot call method toIso8601String\(\) on Carbon\\Carbon\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Domain/AgentProtocol/Workflows/Activities/GetRecentTransactionsActivity.php
+
+		-
+			message: '#^Parameter \#1 \.\.\.\$arrays of function array_merge expects array, array\|null given\.$#'
+			identifier: argument.type
+			count: 2
+			path: app/Domain/AgentProtocol/Workflows/Activities/ProcessPaymentActivity.php
+
+		-
+			message: '#^Parameter \#1 \.\.\.\$arrays of function array_merge expects array, array\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Domain/AgentProtocol/Workflows/Activities/RecordPaymentActivity.php
+
+		-
+			message: '#^Argument of an invalid type array\|null supplied for foreach, only iterables are supported\.$#'
+			identifier: foreach.nonIterable
+			count: 2
+			path: app/Domain/AgentProtocol/Workflows/Activities/ValidatePaymentActivity.php
+
+		-
+			message: '#^Argument of an invalid type array\|null supplied for foreach, only iterables are supported\.$#'
+			identifier: foreach.nonIterable
+			count: 1
+			path: app/Domain/AgentProtocol/Workflows/PaymentOrchestrationWorkflow.php
+
+		-
+			message: '#^Cannot access property \$score on App\\Domain\\AgentProtocol\\DataObjects\\ReputationScore\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Domain/AgentProtocol/Workflows/ReputationManagementWorkflow.php
+
+		-
+			message: '#^Cannot access property \$trustLevel on App\\Domain\\AgentProtocol\\DataObjects\\ReputationScore\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Domain/AgentProtocol/Workflows/ReputationManagementWorkflow.php
+
+		-
+			message: '#^Parameter \$fromAccountUuid of class App\\Domain\\Asset\\Events\\AssetTransferCompleted constructor expects App\\Domain\\Account\\DataObjects\\AccountUuid, App\\Domain\\Account\\DataObjects\\AccountUuid\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Domain/Asset/Aggregates/AssetTransferAggregate.php
+
+		-
+			message: '#^Parameter \$fromAccountUuid of class App\\Domain\\Asset\\Events\\AssetTransferFailed constructor expects App\\Domain\\Account\\DataObjects\\AccountUuid, App\\Domain\\Account\\DataObjects\\AccountUuid\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Domain/Asset/Aggregates/AssetTransferAggregate.php
+
+		-
+			message: '#^Parameter \$fromAmount of class App\\Domain\\Asset\\Events\\AssetTransferCompleted constructor expects App\\Domain\\Account\\DataObjects\\Money, App\\Domain\\Account\\DataObjects\\Money\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Domain/Asset/Aggregates/AssetTransferAggregate.php
+
+		-
+			message: '#^Parameter \$fromAmount of class App\\Domain\\Asset\\Events\\AssetTransferFailed constructor expects App\\Domain\\Account\\DataObjects\\Money, App\\Domain\\Account\\DataObjects\\Money\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Domain/Asset/Aggregates/AssetTransferAggregate.php
+
+		-
+			message: '#^Parameter \$fromAssetCode of class App\\Domain\\Asset\\Events\\AssetTransferCompleted constructor expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Domain/Asset/Aggregates/AssetTransferAggregate.php
+
+		-
+			message: '#^Parameter \$fromAssetCode of class App\\Domain\\Asset\\Events\\AssetTransferFailed constructor expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Domain/Asset/Aggregates/AssetTransferAggregate.php
+
+		-
+			message: '#^Parameter \$hash of class App\\Domain\\Asset\\Events\\AssetTransferCompleted constructor expects App\\Domain\\Account\\DataObjects\\Hash, App\\Domain\\Account\\DataObjects\\Hash\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Domain/Asset/Aggregates/AssetTransferAggregate.php
+
+		-
+			message: '#^Parameter \$hash of class App\\Domain\\Asset\\Events\\AssetTransferFailed constructor expects App\\Domain\\Account\\DataObjects\\Hash, App\\Domain\\Account\\DataObjects\\Hash\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Domain/Asset/Aggregates/AssetTransferAggregate.php
+
+		-
+			message: '#^Parameter \$toAccountUuid of class App\\Domain\\Asset\\Events\\AssetTransferCompleted constructor expects App\\Domain\\Account\\DataObjects\\AccountUuid, App\\Domain\\Account\\DataObjects\\AccountUuid\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Domain/Asset/Aggregates/AssetTransferAggregate.php
+
+		-
+			message: '#^Parameter \$toAccountUuid of class App\\Domain\\Asset\\Events\\AssetTransferFailed constructor expects App\\Domain\\Account\\DataObjects\\AccountUuid, App\\Domain\\Account\\DataObjects\\AccountUuid\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Domain/Asset/Aggregates/AssetTransferAggregate.php
+
+		-
+			message: '#^Parameter \$toAmount of class App\\Domain\\Asset\\Events\\AssetTransferCompleted constructor expects App\\Domain\\Account\\DataObjects\\Money, App\\Domain\\Account\\DataObjects\\Money\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Domain/Asset/Aggregates/AssetTransferAggregate.php
+
+		-
+			message: '#^Parameter \$toAssetCode of class App\\Domain\\Asset\\Events\\AssetTransferCompleted constructor expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Domain/Asset/Aggregates/AssetTransferAggregate.php
+
+		-
+			message: '#^Parameter \$toAssetCode of class App\\Domain\\Asset\\Events\\AssetTransferFailed constructor expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Domain/Asset/Aggregates/AssetTransferAggregate.php
+
+		-
+			message: '#^Parameter \$createdAt of class App\\Domain\\Banking\\Models\\BankTransfer constructor expects Carbon\\Carbon, Carbon\\Carbon\|null given\.$#'
+			identifier: argument.type
+			count: 2
+			path: app/Domain/Banking/Connectors/BankConnectorAdapter.php
+
+		-
+			message: '#^Parameter \$currency of class App\\Domain\\Banking\\Models\\BankAccount constructor expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Domain/Banking/Connectors/BankConnectorAdapter.php
+
+		-
+			message: '#^Parameter \#1 \$token of static method Illuminate\\Support\\Facades\\Http\:\:withToken\(\) expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Domain/Banking/Connectors/BaseBankConnector.php
+
+		-
+			message: '#^Method App\\Domain\\Banking\\Models\\BankStatement\:\:getAverageTransactionAmount\(\) should return float but returns float\|int\|null\.$#'
+			identifier: return.type
+			count: 1
+			path: app/Domain/Banking/Models/BankStatement.php
+
+		-
+			message: '#^Parameter \$createdAt of class App\\Domain\\Banking\\Models\\BankAccount constructor expects Carbon\\Carbon, Illuminate\\Support\\Carbon\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Domain/Banking/Services/BankIntegrationService.php
+
+		-
+			message: '#^Parameter \$metadata of class App\\Domain\\Banking\\Models\\BankAccount constructor expects array, array\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Domain/Banking/Services/BankIntegrationService.php
+
+		-
+			message: '#^Parameter \$swift of class App\\Domain\\Banking\\Models\\BankAccount constructor expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Domain/Banking/Services/BankIntegrationService.php
+
+		-
+			message: '#^Parameter \$updatedAt of class App\\Domain\\Banking\\Models\\BankAccount constructor expects Carbon\\Carbon, Illuminate\\Support\\Carbon\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Domain/Banking/Services/BankIntegrationService.php
+
+		-
+			message: '#^Cannot access property \$value on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: app/Domain/Basket/Services/BasketPerformanceService.php
+
+		-
+			message: '#^Cannot access property \$is_active on App\\Domain\\Basket\\Models\\BasketAsset\|null\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: app/Domain/Basket/Services/BasketService.php
+
+		-
+			message: '#^Cannot call method validateWeights\(\) on App\\Domain\\Basket\\Models\\BasketAsset\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Domain/Basket/Services/BasketService.php
+
+		-
+			message: '#^Parameter \#1 \$basket of method App\\Domain\\Basket\\Services\\BasketService\:\:calculateComponentAmounts\(\) expects App\\Domain\\Basket\\Models\\BasketAsset, App\\Domain\\Basket\\Models\\BasketAsset\|null given\.$#'
+			identifier: argument.type
+			count: 2
+			path: app/Domain/Basket/Services/BasketService.php
+
+		-
+			message: '#^Method App\\Domain\\Batch\\Services\\BatchProcessingService\:\:createBatchJob\(\) should return App\\Domain\\Batch\\Models\\BatchJob but returns App\\Domain\\Batch\\Models\\BatchJob\|null\.$#'
+			identifier: return.type
+			count: 1
+			path: app/Domain/Batch/Services/BatchProcessingService.php
+
+		-
+			message: '#^Cannot access property \$payment_method on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: property.nonObject
+			count: 4
+			path: app/Domain/Cgo/Activities/ProcessRefundActivity.php
+
+		-
+			message: '#^Cannot access property \$stripe_payment_intent_id on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Domain/Cgo/Activities/ProcessRefundActivity.php
+
+		-
+			message: '#^Cannot access property \$id on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: property.nonObject
+			count: 3
+			path: app/Domain/Cgo/Services/CgoKycService.php
+
+		-
+			message: '#^Cannot call method gt\(\) on Carbon\\Carbon\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Domain/Cgo/Services/CgoKycService.php
+
+		-
+			message: '#^Cannot access property \$email on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: app/Domain/Cgo/Services/InvestmentAgreementService.php
+
+		-
+			message: '#^Cannot access property \$name on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: property.nonObject
+			count: 3
+			path: app/Domain/Cgo/Services/InvestmentAgreementService.php
+
+		-
+			message: '#^Cannot access property \$pre_money_valuation on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Domain/Cgo/Services/InvestmentAgreementService.php
+
+		-
+			message: '#^Cannot call method format\(\) on Carbon\\Carbon\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Domain/Cgo/Services/InvestmentAgreementService.php
+
+		-
+			message: '#^Cannot call method addHours\(\) on Carbon\\Carbon\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Domain/Cgo/Services/PaymentVerificationService.php
+
+		-
+			message: '#^Cannot access property \$avg_processing_hours on App\\Domain\\Cgo\\Models\\CgoRefund\|null\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: app/Domain/Cgo/Services/RefundProcessingService.php
+
+		-
+			message: '#^Cannot call method addDays\(\) on Carbon\\Carbon\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Domain/Cgo/Services/RefundProcessingService.php
+
+		-
+			message: '#^Cannot call method toIso8601String\(\) on Carbon\\Carbon\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Domain/Cgo/Services/RefundProcessingService.php
+
+		-
+			message: '#^Cannot call method update\(\) on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Domain/Cgo/Services/RefundProcessingService.php
+
+		-
+			message: '#^Cannot access property \$email on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: app/Domain/Cgo/Services/StripePaymentService.php
+
+		-
+			message: '#^Cannot access property \$name on App\\Models\\User\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Domain/Compliance/Models/SuspiciousActivityReport.php
+
+		-
+			message: '#^Cannot call method diffInSeconds\(\) on Carbon\\Carbon\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Domain/Compliance/Services/AlertManagementService.php
+
+		-
+			message: '#^Method App\\Domain\\Compliance\\Services\\AlertManagementService\:\:addInvestigationNote\(\) should return App\\Domain\\Compliance\\Models\\ComplianceAlert but returns App\\Domain\\Compliance\\Models\\ComplianceAlert\|null\.$#'
+			identifier: return.type
+			count: 1
+			path: app/Domain/Compliance/Services/AlertManagementService.php
+
+		-
+			message: '#^Method App\\Domain\\Compliance\\Services\\AlertManagementService\:\:assignAlert\(\) should return App\\Domain\\Compliance\\Models\\ComplianceAlert but returns App\\Domain\\Compliance\\Models\\ComplianceAlert\|null\.$#'
+			identifier: return.type
+			count: 1
+			path: app/Domain/Compliance/Services/AlertManagementService.php
+
+		-
+			message: '#^Method App\\Domain\\Compliance\\Services\\AlertManagementService\:\:updateAlertStatus\(\) should return App\\Domain\\Compliance\\Models\\ComplianceAlert but returns App\\Domain\\Compliance\\Models\\ComplianceAlert\|null\.$#'
+			identifier: return.type
+			count: 1
+			path: app/Domain/Compliance/Services/AlertManagementService.php
+
+		-
+			message: '#^Offset ''has_adverse_media'' might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: app/Domain/Compliance/Services/AmlScreeningService.php
+
+		-
+			message: '#^Offset ''is_pep'' might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: app/Domain/Compliance/Services/AmlScreeningService.php
+
+		-
+			message: '#^Offset ''total_matches'' might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: app/Domain/Compliance/Services/AmlScreeningService.php
+
+		-
+			message: '#^Cannot access property \$id on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Domain/Compliance/Services/EnhancedKycService.php
+
+		-
+			message: '#^Cannot call method update\(\) on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Domain/Compliance/Services/EnhancedKycService.php
+
+		-
+			message: '#^Cannot call method diffInHours\(\) on string\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Domain/Compliance/Services/RegulatoryReportingService.php
+
+		-
+			message: '#^Cannot access property \$account_number on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Domain/Compliance/Services/SuspiciousActivityReportService.php
+
+		-
+			message: '#^Cannot access property \$uuid on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Domain/Compliance/Services/SuspiciousActivityReportService.php
+
+		-
+			message: '#^Method App\\Domain\\Custodian\\Connectors\\DeutscheBankConnector\:\:getAccessToken\(\) should return string but returns string\|null\.$#'
+			identifier: return.type
+			count: 1
+			path: app/Domain/Custodian/Connectors/DeutscheBankConnector.php
+
+		-
+			message: '#^Parameter \#2 \$offset of function array_slice expects int, int\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Domain/Custodian/Connectors/MockBankConnector.php
+
+		-
+			message: '#^Method App\\Domain\\Custodian\\Connectors\\PayseraConnector\:\:getAccessToken\(\) should return string but returns string\|null\.$#'
+			identifier: return.type
+			count: 1
+			path: app/Domain/Custodian/Connectors/PayseraConnector.php
+
+		-
+			message: '#^Parameter \#6 \$reference of method App\\Domain\\Custodian\\Services\\FallbackService\:\:queueTransferForRetry\(\) expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Domain/Custodian/Connectors/PayseraConnector.php
+
+		-
+			message: '#^Method App\\Domain\\Custodian\\Connectors\\SantanderConnector\:\:getAccessToken\(\) should return string but returns string\|null\.$#'
+			identifier: return.type
+			count: 1
+			path: app/Domain/Custodian/Connectors/SantanderConnector.php
+
+		-
+			message: '#^Parameter \#2 \$offset of function array_slice expects int, int\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Domain/Custodian/Connectors/SantanderConnector.php
+
+		-
+			message: '#^Parameter \#1 \.\.\.\$arrays of function array_merge expects array, array\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Domain/Custodian/Services/CustodianAccountService.php
+
+		-
+			message: '#^Parameter \#2 \.\.\.\$arrays of function array_merge expects array, array\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Domain/Custodian/Services/CustodianAccountService.php
+
+		-
+			message: '#^Cannot access property \$completed on object\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Domain/Custodian/Services/MultiCustodianTransferService.php
+
+		-
+			message: '#^Cannot access property \$total_transfers on object\|null\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: app/Domain/Custodian/Services/MultiCustodianTransferService.php
+
+		-
+			message: '#^Cannot access property \$custodian_name on array\<mixed\>\|object\|null\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: app/Domain/Custodian/Services/SettlementService.php
+
+		-
+			message: '#^Cannot access property \$total_gross on object\|null\.$#'
+			identifier: property.nonObject
+			count: 3
+			path: app/Domain/Custodian/Services/SettlementService.php
+
+		-
+			message: '#^Cannot access property \$total_net on object\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Domain/Custodian/Services/SettlementService.php
+
+		-
+			message: '#^Cannot access property \$base_reserve on App\\Domain\\Exchange\\Projections\\LiquidityPool\|null\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: app/Domain/Exchange/Activities/AdjustInventoryActivity.php
+
+		-
+			message: '#^Cannot access property \$quote_reserve on App\\Domain\\Exchange\\Projections\\LiquidityPool\|null\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: app/Domain/Exchange/Activities/AdjustInventoryActivity.php
+
+		-
+			message: '#^Parameter \#1 \$value of static method Brick\\Math\\BigNumber\:\:of\(\) expects Brick\\Math\\BigNumber\|float\|int\|string, float\|null given\.$#'
+			identifier: argument.type
+			count: 2
+			path: app/Domain/Exchange/Activities/MatchOrderActivity.php
+
+		-
+			message: '#^Cannot access property \$base_currency on App\\Domain\\Exchange\\Projections\\LiquidityPool\|null\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: app/Domain/Exchange/Activities/MonitorMarketConditionsActivity.php
+
+		-
+			message: '#^Cannot access property \$base_reserve on App\\Domain\\Exchange\\Projections\\LiquidityPool\|null\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: app/Domain/Exchange/Activities/MonitorMarketConditionsActivity.php
+
+		-
+			message: '#^Cannot access property \$quote_currency on App\\Domain\\Exchange\\Projections\\LiquidityPool\|null\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: app/Domain/Exchange/Activities/MonitorMarketConditionsActivity.php
+
+		-
+			message: '#^Cannot access property \$quote_reserve on App\\Domain\\Exchange\\Projections\\LiquidityPool\|null\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: app/Domain/Exchange/Activities/MonitorMarketConditionsActivity.php
+
+		-
+			message: '#^Parameter \$poolId of class App\\Domain\\Exchange\\Events\\ImpermanentLossProtectionClaimed constructor expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Domain/Exchange/Aggregates/LiquidityPool.php
+
+		-
+			message: '#^Parameter \$poolId of class App\\Domain\\Exchange\\Events\\ImpermanentLossProtectionEnabled constructor expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Domain/Exchange/Aggregates/LiquidityPool.php
+
+		-
+			message: '#^Parameter \$poolId of class App\\Domain\\Exchange\\Events\\LiquidityAdded constructor expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Domain/Exchange/Aggregates/LiquidityPool.php
+
+		-
+			message: '#^Parameter \$poolId of class App\\Domain\\Exchange\\Events\\LiquidityPoolRebalanced constructor expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Domain/Exchange/Aggregates/LiquidityPool.php
+
+		-
+			message: '#^Parameter \$poolId of class App\\Domain\\Exchange\\Events\\LiquidityRemoved constructor expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Domain/Exchange/Aggregates/LiquidityPool.php
+
+		-
+			message: '#^Parameter \$poolId of class App\\Domain\\Exchange\\Events\\LiquidityRewardsClaimed constructor expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Domain/Exchange/Aggregates/LiquidityPool.php
+
+		-
+			message: '#^Parameter \$poolId of class App\\Domain\\Exchange\\Events\\LiquidityRewardsDistributed constructor expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Domain/Exchange/Aggregates/LiquidityPool.php
+
+		-
+			message: '#^Parameter \$poolId of class App\\Domain\\Exchange\\Events\\PoolFeeCollected constructor expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Domain/Exchange/Aggregates/LiquidityPool.php
+
+		-
+			message: '#^Parameter \$poolId of class App\\Domain\\Exchange\\Events\\PoolParametersUpdated constructor expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Domain/Exchange/Aggregates/LiquidityPool.php
+
+		-
+			message: '#^Cannot access property \$execution_price on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: app/Domain/Exchange/LiquidityPool/Services/AutomatedMarketMakerService.php
+
+		-
+			message: '#^Cannot access property \$quote_currency on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Domain/Exchange/LiquidityPool/Services/ImpermanentLossProtectionService.php
+
+		-
+			message: '#^Cannot call method diffInDays\(\) on Carbon\\Carbon\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Domain/Exchange/LiquidityPool/Services/ImpermanentLossProtectionService.php
+
+		-
+			message: '#^Cannot call method diffInHours\(\) on Carbon\\Carbon\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Domain/Exchange/LiquidityPool/Services/ImpermanentLossProtectionService.php
+
+		-
+			message: '#^Cannot call method diffInDays\(\) on Carbon\\Carbon\|null\.$#'
+			identifier: method.nonObject
+			count: 2
+			path: app/Domain/Exchange/LiquidityPool/Services/LiquidityIncentivesService.php
+
+		-
+			message: '#^Cannot call method diffInDays\(\) on Illuminate\\Support\\Carbon\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Domain/Exchange/LiquidityPool/Services/LiquidityIncentivesService.php
+
+		-
+			message: '#^Parameter \#1 \$pool of method App\\Domain\\Exchange\\LiquidityPool\\Services\\LiquidityIncentivesService\:\:calculatePoolRewards\(\) expects App\\Domain\\Exchange\\Projections\\LiquidityPool, App\\Domain\\Exchange\\Projections\\LiquidityPool\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Domain/Exchange/LiquidityPool/Services/LiquidityIncentivesService.php
+
+		-
+			message: '#^Parameter \#1 \$pool of method App\\Domain\\Exchange\\LiquidityPool\\Services\\PoolRebalancingService\:\:calculateCurrentInventoryRatio\(\) expects App\\Domain\\Exchange\\Projections\\LiquidityPool, App\\Domain\\Exchange\\Projections\\LiquidityPool\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Domain/Exchange/LiquidityPool/Services/PoolRebalancingService.php
+
+		-
+			message: '#^Parameter \#1 \$num1 of function bcdiv expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 2
+			path: app/Domain/Exchange/Projections/OrderBook.php
+
+		-
+			message: '#^Cannot access property \$price on App\\Domain\\Exchange\\Projections\\Trade\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Domain/Exchange/Projectors/OrderBookProjector.php
+
+		-
+			message: '#^Cannot access property \$ask on Brick\\Math\\BigDecimal\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Domain/Exchange/Services/EnhancedExchangeRateService.php
+
+		-
+			message: '#^Cannot access property \$bid on Brick\\Math\\BigDecimal\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Domain/Exchange/Services/EnhancedExchangeRateService.php
+
+		-
+			message: '#^Cannot access property \$metadata on Brick\\Math\\BigDecimal\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Domain/Exchange/Services/EnhancedExchangeRateService.php
+
+		-
+			message: '#^Cannot access property \$rate on Brick\\Math\\BigDecimal\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Domain/Exchange/Services/EnhancedExchangeRateService.php
+
+		-
+			message: '#^Cannot call method diffInMinutes\(\) on Carbon\\Carbon\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Domain/Exchange/Services/EnhancedExchangeRateService.php
+
+		-
+			message: '#^Cannot call method getSpread\(\) on Brick\\Math\\BigDecimal\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Domain/Exchange/Services/EnhancedExchangeRateService.php
+
+		-
+			message: '#^Cannot call method getSpreadPercentage\(\) on Brick\\Math\\BigDecimal\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Domain/Exchange/Services/EnhancedExchangeRateService.php
+
+		-
+			message: '#^Cannot call method toISOString\(\) on Carbon\\Carbon\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Domain/Exchange/Services/EnhancedExchangeRateService.php
+
+		-
+			message: '#^Parameter \#1 \.\.\.\$arrays of function array_merge expects array, array\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Domain/Exchange/Services/EnhancedExchangeRateService.php
+
+		-
+			message: '#^Cannot access property \$total_fees on object\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Domain/Exchange/Services/FeeTierService.php
+
+		-
+			message: '#^Cannot access property \$total_volume on object\|null\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: app/Domain/Exchange/Services/FeeTierService.php
+
+		-
+			message: '#^Cannot access property \$base_reserve on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Domain/Exchange/Services/LiquidityPoolService.php
+
+		-
+			message: '#^Cannot access property \$quote_reserve on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Domain/Exchange/Services/LiquidityPoolService.php
+
+		-
+			message: '#^Parameter \#2 \$haystack of function in_array expects array, array\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Domain/Exchange/ValueObjects/RateProviderCapabilities.php
+
+		-
+			message: '#^Parameter \#1 \$value of function decrypt expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Domain/FinancialInstitution/Models/FinancialInstitutionPartner.php
+
+		-
+			message: '#^Cannot access property \$currentTeam on App\\Models\\User\|null\.$#'
+			identifier: property.nonObject
+			count: 4
+			path: app/Domain/Fraud/Models/FraudCase.php
+
+		-
+			message: '#^Cannot access property \$created_at on Spatie\\EventSourcing\\StoredEvents\\Models\\EloquentStoredEvent\|null\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: app/Domain/Fraud/Services/BehavioralAnalysisService.php
+
+		-
+			message: '#^Cannot call method diffInDays\(\) on Carbon\\Carbon\|null\.$#'
+			identifier: method.nonObject
+			count: 2
+			path: app/Domain/Fraud/Services/BehavioralAnalysisService.php
+
+		-
+			message: '#^Cannot access property \$user_id on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Domain/Fraud/Services/FraudCaseService.php
+
+		-
+			message: '#^Method App\\Domain\\Fraud\\Services\\FraudCaseService\:\:resolveCase\(\) should return App\\Domain\\Fraud\\Models\\FraudCase but returns App\\Domain\\Fraud\\Models\\FraudCase\|null\.$#'
+			identifier: return.type
+			count: 1
+			path: app/Domain/Fraud/Services/FraudCaseService.php
+
+		-
+			message: '#^Method App\\Domain\\Fraud\\Services\\FraudCaseService\:\:updateInvestigation\(\) should return App\\Domain\\Fraud\\Models\\FraudCase but returns App\\Domain\\Fraud\\Models\\FraudCase\|null\.$#'
+			identifier: return.type
+			count: 1
+			path: app/Domain/Fraud/Services/FraudCaseService.php
+
+		-
+			message: '#^Cannot access property \$user on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: app/Domain/Fraud/Services/FraudDetectionService.php
+
+		-
+			message: '#^Cannot access property \$user_uuid on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Domain/Fraud/Services/FraudDetectionService.php
+
+		-
+			message: '#^Cannot call method diffInDays\(\) on Carbon\\Carbon\|null\.$#'
+			identifier: method.nonObject
+			count: 2
+			path: app/Domain/Fraud/Services/FraudDetectionService.php
+
+		-
+			message: '#^Cannot call method getBalance\(\) on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Domain/Fraud/Services/FraudDetectionService.php
+
+		-
+			message: '#^Cannot call method toArray\(\) on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Domain/Fraud/Services/FraudDetectionService.php
+
+		-
+			message: '#^Cannot call method toIso8601String\(\) on Carbon\\Carbon\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Domain/Fraud/Services/FraudDetectionService.php
+
+		-
+			message: '#^Cannot access property \$month on Carbon\\Carbon\|null\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: app/Domain/Governance/Console/Commands/VotingSetupCommand.php
+
+		-
+			message: '#^Cannot access property \$year on Carbon\\Carbon\|null\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: app/Domain/Governance/Console/Commands/VotingSetupCommand.php
+
+		-
+			message: '#^Cannot call method addYear\(\) on Carbon\\Carbon\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Domain/Governance/Console/Commands/VotingSetupCommand.php
+
+		-
+			message: '#^Cannot call method copy\(\) on Carbon\\Carbon\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Domain/Governance/Console/Commands/VotingSetupCommand.php
+
+		-
+			message: '#^Cannot call method format\(\) on Carbon\\Carbon\|null\.$#'
+			identifier: method.nonObject
+			count: 5
+			path: app/Domain/Governance/Console/Commands/VotingSetupCommand.php
+
+		-
+			message: '#^Cannot call method lt\(\) on Carbon\\Carbon\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Domain/Governance/Console/Commands/VotingSetupCommand.php
+
+		-
+			message: '#^Cannot access property \$last_payment_date on App\\Domain\\Lending\\Models\\Loan\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Domain/Lending/Projectors/LoanProjector.php
+
+		-
+			message: '#^Cannot call method increment\(\) on App\\Domain\\Lending\\Models\\Loan\|null\.$#'
+			identifier: method.nonObject
+			count: 2
+			path: app/Domain/Lending/Projectors/LoanProjector.php
+
+		-
+			message: '#^Cannot call method save\(\) on App\\Domain\\Lending\\Models\\Loan\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Domain/Lending/Projectors/LoanProjector.php
+
+		-
+			message: '#^Cannot call method diffInDays\(\) on Carbon\\Carbon\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Domain/Lending/Services/DefaultCollateralManagementService.php
+
+		-
+			message: '#^Cannot access property \$created_at on App\\Models\\User\|null\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: app/Domain/Lending/Services/DefaultRiskAssessmentService.php
+
+		-
+			message: '#^Cannot access property \$kyc_status on App\\Models\\User\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Domain/Lending/Services/DefaultRiskAssessmentService.php
+
+		-
+			message: '#^Cannot call method diffInMonths\(\) on Carbon\\Carbon\|null\.$#'
+			identifier: method.nonObject
+			count: 2
+			path: app/Domain/Lending/Services/DefaultRiskAssessmentService.php
+
+		-
+			message: '#^Cannot call method diffInMonths\(\) on Carbon\\Carbon\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Domain/Lending/Services/MockCreditScoringService.php
+
+		-
+			message: '#^Cannot call method balances\(\) on App\\Domain\\Account\\Models\\Account\|null\.$#'
+			identifier: method.nonObject
+			count: 2
+			path: app/Domain/Payment/Activities/CreditAccountActivity.php
+
+		-
+			message: '#^Cannot call method balances\(\) on App\\Domain\\Account\\Models\\Account\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Domain/Payment/Activities/DebitAccountActivity.php
+
+		-
+			message: '#^Parameter \#1 \$data of method App\\Domain\\Payment\\Contracts\\PaymentServiceInterface\:\:processStripeDeposit\(\) expects array\{account_uuid\: string, amount\: int, currency\: string, reference\: string, external_reference\: string, payment_method\: string, payment_method_type\: string, metadata\?\: array\}, array\{account_uuid\: mixed, amount\: int, currency\: string, reference\: non\-falsy\-string, external_reference\: string, payment_method\: string\|Stripe\\PaymentMethod\|null, payment_method_type\: string, metadata\: array\{stripe_payment_intent_id\: string, processor\: ''stripe''\}\} given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Domain/Payment/Services/PaymentGatewayService.php
+
+		-
+			message: '#^Argument of an invalid type array\|null supplied for foreach, only iterables are supported\.$#'
+			identifier: foreach.nonIterable
+			count: 2
+			path: app/Domain/Product/Services/ProductCatalogService.php
+
+		-
+			message: '#^Method App\\Domain\\Product\\Services\\ProductCatalogService\:\:activateProduct\(\) should return App\\Domain\\Product\\Models\\Product but returns App\\Domain\\Product\\Models\\Product\|null\.$#'
+			identifier: return.type
+			count: 1
+			path: app/Domain/Product/Services/ProductCatalogService.php
+
+		-
+			message: '#^Method App\\Domain\\Product\\Services\\ProductCatalogService\:\:addFeature\(\) should return App\\Domain\\Product\\Models\\Product but returns App\\Domain\\Product\\Models\\Product\|null\.$#'
+			identifier: return.type
+			count: 1
+			path: app/Domain/Product/Services/ProductCatalogService.php
+
+		-
+			message: '#^Method App\\Domain\\Product\\Services\\ProductCatalogService\:\:createProduct\(\) should return App\\Domain\\Product\\Models\\Product but returns App\\Domain\\Product\\Models\\Product\|null\.$#'
+			identifier: return.type
+			count: 1
+			path: app/Domain/Product/Services/ProductCatalogService.php
+
+		-
+			message: '#^Method App\\Domain\\Product\\Services\\ProductCatalogService\:\:deactivateProduct\(\) should return App\\Domain\\Product\\Models\\Product but returns App\\Domain\\Product\\Models\\Product\|null\.$#'
+			identifier: return.type
+			count: 1
+			path: app/Domain/Product/Services/ProductCatalogService.php
+
+		-
+			message: '#^Method App\\Domain\\Product\\Services\\ProductCatalogService\:\:removeFeature\(\) should return App\\Domain\\Product\\Models\\Product but returns App\\Domain\\Product\\Models\\Product\|null\.$#'
+			identifier: return.type
+			count: 1
+			path: app/Domain/Product/Services/ProductCatalogService.php
+
+		-
+			message: '#^Method App\\Domain\\Product\\Services\\ProductCatalogService\:\:updatePricing\(\) should return App\\Domain\\Product\\Models\\Product but returns App\\Domain\\Product\\Models\\Product\|null\.$#'
+			identifier: return.type
+			count: 1
+			path: app/Domain/Product/Services/ProductCatalogService.php
+
+		-
+			message: '#^Method App\\Domain\\Product\\Services\\ProductCatalogService\:\:updateProduct\(\) should return App\\Domain\\Product\\Models\\Product but returns App\\Domain\\Product\\Models\\Product\|null\.$#'
+			identifier: return.type
+			count: 1
+			path: app/Domain/Product/Services/ProductCatalogService.php
+
+		-
+			message: '#^Cannot call method toDateString\(\) on Carbon\\Carbon\|null\.$#'
+			identifier: method.nonObject
+			count: 2
+			path: app/Domain/Regulatory/Console/Commands/RegulatoryManagement.php
+
+		-
+			message: '#^Cannot call method update\(\) on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: method.nonObject
+			count: 2
+			path: app/Domain/Regulatory/Models/RegulatoryFilingRecord.php
+
+		-
+			message: '#^Cannot call method markAsSubmitted\(\) on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Domain/Regulatory/Services/RegulatoryFilingService.php
+
+		-
+			message: '#^Method App\\Domain\\Regulatory\\Services\\RegulatoryFilingService\:\:retryFiling\(\) should return App\\Domain\\Regulatory\\Models\\RegulatoryFilingRecord but returns App\\Domain\\Regulatory\\Models\\RegulatoryFilingRecord\|null\.$#'
+			identifier: return.type
+			count: 1
+			path: app/Domain/Regulatory/Services/RegulatoryFilingService.php
+
+		-
+			message: '#^Parameter \#1 \$content of method App\\Domain\\Regulatory\\Services\\RegulatoryFilingService\:\:parseXml\(\) expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Domain/Regulatory/Services/RegulatoryFilingService.php
+
+		-
+			message: '#^Parameter \#1 \$json of function json_decode expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Domain/Regulatory/Services/RegulatoryFilingService.php
+
+		-
+			message: '#^Parameter \#1 \$json of function json_decode expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Domain/Regulatory/Services/ReportGeneratorService.php
+
+		-
+			message: '#^Cannot access property \$country on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Domain/Regulatory/Services/ThresholdMonitoringService.php
+
+		-
+			message: '#^Cannot access property \$created_at on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Domain/Regulatory/Services/ThresholdMonitoringService.php
+
+		-
+			message: '#^Cannot access property \$id on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: app/Domain/Regulatory/Services/ThresholdMonitoringService.php
+
+		-
+			message: '#^Cannot access property \$kyc_level on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Domain/Regulatory/Services/ThresholdMonitoringService.php
+
+		-
+			message: '#^Cannot access property \$risk_rating on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Domain/Regulatory/Services/ThresholdMonitoringService.php
+
+		-
+			message: '#^Cannot access property \$type on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Domain/Regulatory/Services/ThresholdMonitoringService.php
+
+		-
+			message: '#^Cannot access property \$user on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Domain/Regulatory/Services/ThresholdMonitoringService.php
+
+		-
+			message: '#^Cannot access property \$uuid on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Domain/Regulatory/Services/ThresholdMonitoringService.php
+
+		-
+			message: '#^Cannot call method diffInDays\(\) on Carbon\\Carbon\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Domain/Regulatory/Services/ThresholdMonitoringService.php
+
+		-
+			message: '#^Cannot call method diffInDays\(\) on Illuminate\\Support\\Carbon\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Domain/Regulatory/Services/ThresholdMonitoringService.php
+
+		-
+			message: '#^Cannot call method getBalance\(\) on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Domain/Regulatory/Services/ThresholdMonitoringService.php
+
+		-
+			message: '#^Cannot access property \$collateral_ratio on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Domain/Stablecoin/Models/StablecoinCollateralPosition.php
+
+		-
+			message: '#^Cannot access property \$min_collateral_ratio on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: property.nonObject
+			count: 3
+			path: app/Domain/Stablecoin/Models/StablecoinCollateralPosition.php
+
+		-
+			message: '#^Cannot access property \$peg_asset_code on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Domain/Stablecoin/Models/StablecoinCollateralPosition.php
+
+		-
+			message: '#^Parameter \$timestamp of class App\\Domain\\Stablecoin\\ValueObjects\\PriceData constructor expects Carbon\\Carbon, Illuminate\\Support\\Carbon\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Domain/Stablecoin/Oracles/InternalAMMOracle.php
+
+		-
+			message: '#^Parameter \#2 \$bidderId of method App\\Domain\\Stablecoin\\Sagas\\CollateralLiquidationSaga\:\:transferCollateralToBidder\(\) expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Domain/Stablecoin/Sagas/CollateralLiquidationSaga.php
+
+		-
+			message: '#^Cannot access property \$collateral_ratio on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Domain/Stablecoin/Services/CollateralService.php
+
+		-
+			message: '#^Cannot access property \$min_collateral_ratio on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: app/Domain/Stablecoin/Services/CollateralService.php
+
+		-
+			message: '#^Cannot access property \$peg_asset_code on App\\Domain\\Stablecoin\\Models\\Stablecoin\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Domain/Stablecoin/Services/CollateralService.php
+
+		-
+			message: '#^Cannot access property \$peg_asset_code on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: property.nonObject
+			count: 4
+			path: app/Domain/Stablecoin/Services/CollateralService.php
+
+		-
+			message: '#^Cannot access property \$code on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Domain/Stablecoin/Services/LiquidationService.php
+
+		-
+			message: '#^Cannot access property \$liquidation_penalty on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: app/Domain/Stablecoin/Services/LiquidationService.php
+
+		-
+			message: '#^Cannot access property \$min_collateral_ratio on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Domain/Stablecoin/Services/LiquidationService.php
+
+		-
+			message: '#^Cannot access property \$peg_asset_code on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Domain/Stablecoin/Services/LiquidationService.php
+
+		-
+			message: '#^Cannot access property \$uuid on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Domain/Stablecoin/Services/LiquidationService.php
+
+		-
+			message: '#^Cannot call method decrement\(\) on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: method.nonObject
+			count: 2
+			path: app/Domain/Stablecoin/Services/LiquidationService.php
+
+		-
+			message: '#^Cannot call method plus\(\) on Brick\\Math\\BigDecimal\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Domain/Stablecoin/Services/OracleAggregator.php
+
+		-
+			message: '#^Cannot call method toScale\(\) on Brick\\Math\\BigDecimal\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Domain/Stablecoin/Services/OracleAggregator.php
+
+		-
+			message: '#^Parameter \#2 \$median of method App\\Domain\\Stablecoin\\Services\\OracleAggregator\:\:calculateConfidence\(\) expects Brick\\Math\\BigDecimal, Brick\\Math\\BigDecimal\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Domain/Stablecoin/Services/OracleAggregator.php
+
+		-
+			message: '#^Cannot access property \$peg_asset_code on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Domain/Stablecoin/Services/StablecoinIssuanceService.php
+
+		-
+			message: '#^Cannot call method increment\(\) on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Domain/Stablecoin/Services/StablecoinIssuanceService.php
+
+		-
+			message: '#^Cannot access property \$peg_asset_code on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Domain/Stablecoin/Workflows/Activities/UpdatePositionActivity.php
+
+		-
+			message: '#^Parameter \#1 \$num of function sqrt expects float, float\|int\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Domain/Treasury/Services/LiquidityForecastingService.php
+
+		-
+			message: '#^Parameter \#1 \$string of function strtolower expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Domain/User/Projectors/UserProfileProjector.php
+
+		-
+			message: '#^Method App\\Domain\\User\\Services\\DemoUserProfileService\:\:updateDemoProfile\(\) should return App\\Domain\\User\\Models\\UserProfile but returns App\\Domain\\User\\Models\\UserProfile\|null\.$#'
+			identifier: return.type
+			count: 1
+			path: app/Domain/User/Services/DemoUserProfileService.php
+
+		-
+			message: '#^Cannot call method diffInDays\(\) on Carbon\\Carbon\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Domain/User/Services/UserAnalyticsService.php
+
+		-
+			message: '#^Method App\\Domain\\User\\Services\\UserProfileService\:\:createProfile\(\) should return App\\Domain\\User\\Models\\UserProfile but returns App\\Domain\\User\\Models\\UserProfile\|null\.$#'
+			identifier: return.type
+			count: 1
+			path: app/Domain/User/Services/UserProfileService.php
+
+		-
+			message: '#^Method App\\Domain\\User\\Services\\UserProfileService\:\:suspendProfile\(\) should return App\\Domain\\User\\Models\\UserProfile but returns App\\Domain\\User\\Models\\UserProfile\|null\.$#'
+			identifier: return.type
+			count: 1
+			path: app/Domain/User/Services/UserProfileService.php
+
+		-
+			message: '#^Method App\\Domain\\User\\Services\\UserProfileService\:\:updateNotificationPreferences\(\) should return App\\Domain\\User\\Models\\UserProfile but returns App\\Domain\\User\\Models\\UserProfile\|null\.$#'
+			identifier: return.type
+			count: 1
+			path: app/Domain/User/Services/UserProfileService.php
+
+		-
+			message: '#^Method App\\Domain\\User\\Services\\UserProfileService\:\:updatePreferences\(\) should return App\\Domain\\User\\Models\\UserProfile but returns App\\Domain\\User\\Models\\UserProfile\|null\.$#'
+			identifier: return.type
+			count: 1
+			path: app/Domain/User/Services/UserProfileService.php
+
+		-
+			message: '#^Method App\\Domain\\User\\Services\\UserProfileService\:\:updatePrivacySettings\(\) should return App\\Domain\\User\\Models\\UserProfile but returns App\\Domain\\User\\Models\\UserProfile\|null\.$#'
+			identifier: return.type
+			count: 1
+			path: app/Domain/User/Services/UserProfileService.php
+
+		-
+			message: '#^Method App\\Domain\\User\\Services\\UserProfileService\:\:updateProfile\(\) should return App\\Domain\\User\\Models\\UserProfile but returns App\\Domain\\User\\Models\\UserProfile\|null\.$#'
+			identifier: return.type
+			count: 1
+			path: app/Domain/User/Services/UserProfileService.php
+
+		-
+			message: '#^Method App\\Domain\\User\\Services\\UserProfileService\:\:verifyProfile\(\) should return App\\Domain\\User\\Models\\UserProfile but returns App\\Domain\\User\\Models\\UserProfile\|null\.$#'
+			identifier: return.type
+			count: 1
+			path: app/Domain/User/Services/UserProfileService.php
+
+		-
+			message: '#^Cannot access property \$eth on Web3\\Web3\|null\.$#'
+			identifier: property.nonObject
+			count: 11
+			path: app/Domain/Wallet/Connectors/EthereumConnector.php
+
+		-
+			message: '#^Cannot access property \$eth on Web3\\Web3\|null\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: app/Domain/Wallet/Connectors/PolygonConnector.php
+
+		-
+			message: '#^Cannot access property \$metadata on object\|null\.$#'
+			identifier: property.nonObject
+			count: 4
+			path: app/Domain/Wallet/Projectors/BlockchainWalletProjector.php
+
+		-
+			message: '#^Cannot access property \$address on object\|null\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: app/Domain/Wallet/Workflows/Activities/BlockchainWithdrawalActivities.php
+
+		-
+			message: '#^Cannot access property \$encrypted_private_key on object\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Domain/Wallet/Workflows/Activities/BlockchainWithdrawalActivities.php
+
+		-
+			message: '#^Cannot access property \$settings on object\|null\.$#'
+			identifier: property.nonObject
+			count: 3
+			path: app/Domain/Wallet/Workflows/Activities/BlockchainWithdrawalActivities.php
+
+		-
+			message: '#^Cannot access property \$is_active on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Domain/Webhook/Jobs/ProcessWebhookDelivery.php
+
+		-
+			message: '#^Cannot access property \$secret on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: app/Domain/Webhook/Jobs/ProcessWebhookDelivery.php
+
+		-
+			message: '#^Cannot access property \$timeout_seconds on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Domain/Webhook/Jobs/ProcessWebhookDelivery.php
+
+		-
+			message: '#^Cannot access property \$url on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Domain/Webhook/Jobs/ProcessWebhookDelivery.php
+
+		-
+			message: '#^Cannot access property \$uuid on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: property.nonObject
+			count: 4
+			path: app/Domain/Webhook/Jobs/ProcessWebhookDelivery.php
+
+		-
+			message: '#^Cannot call method markAsTriggered\(\) on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Domain/Webhook/Jobs/ProcessWebhookDelivery.php
+
+		-
+			message: '#^Cannot access property \$retry_attempts on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Domain/Webhook/Models/WebhookDelivery.php
+
+		-
+			message: '#^Cannot call method markAsFailed\(\) on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Domain/Webhook/Models/WebhookDelivery.php
+
+		-
+			message: '#^Cannot call method markAsSuccessful\(\) on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Domain/Webhook/Models/WebhookDelivery.php
+
+		-
+			message: '#^Parameter \#1 \$period of method App\\Filament\\Admin\\Resources\\AccountResource\\Widgets\\AccountBalanceChart\:\:getBalanceData\(\) expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Filament/Admin/Resources/AccountResource/Widgets/AccountBalanceChart.php
+
+		-
+			message: '#^Parameter \#1 \$period of method App\\Filament\\Admin\\Resources\\AccountResource\\Widgets\\AccountGrowthChart\:\:getGrowthData\(\) expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Filament/Admin/Resources/AccountResource/Widgets/AccountGrowthChart.php
+
+		-
+			message: '#^Parameter \#1 \$period of method App\\Filament\\Admin\\Resources\\AccountResource\\Widgets\\RecentTransactionsChart\:\:getTransactionData\(\) expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Filament/Admin/Resources/AccountResource/Widgets/RecentTransactionsChart.php
+
+		-
+			message: '#^Parameter \#1 \$period of method App\\Filament\\Admin\\Resources\\AccountResource\\Widgets\\TurnoverTrendChart\:\:getTurnoverData\(\) expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Filament/Admin/Resources/AccountResource/Widgets/TurnoverTrendChart.php
+
+		-
+			message: '#^Cannot access property \$code on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Filament/Admin/Resources/AssetResource/Pages/CreateAsset.php
+
+		-
+			message: '#^Cannot access property \$uuid on App\\Models\\User\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Filament/Admin/Resources/BasketAssetResource/Pages/CreateBasketAsset.php
+
+		-
+			message: '#^Cannot call method toAsset\(\) on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Filament/Admin/Resources/BasketAssetResource/Pages/CreateBasketAsset.php
+
+		-
+			message: '#^Cannot access property \$from_asset_code on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Filament/Admin/Resources/ExchangeRateResource/Pages/CreateExchangeRate.php
+
+		-
+			message: '#^Cannot access property \$to_asset_code on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Filament/Admin/Resources/ExchangeRateResource/Pages/CreateExchangeRate.php
+
+		-
+			message: '#^Cannot access property \$name on App\\Models\\User\|null\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: app/Filament/Admin/Resources/FinancialInstitutionApplicationResource.php
+
+		-
+			message: '#^Cannot access property \$order_id on Illuminate\\Database\\Eloquent\\Model\|int\|string\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Filament/Admin/Resources/OrderResource/Pages/ViewOrder.php
+
+		-
+			message: '#^Cannot call method canBeCancelled\(\) on Illuminate\\Database\\Eloquent\\Model\|int\|string\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Filament/Admin/Resources/OrderResource/Pages/ViewOrder.php
+
+		-
+			message: '#^Cannot access property \$uuid on App\\Models\\User\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Filament/Admin/Resources/PollResource/Pages/CreatePoll.php
+
+		-
+			message: '#^Parameter \$initiator of method App\\Domain\\Cgo\\Actions\\RequestRefundAction\:\:execute\(\) expects App\\Models\\User, App\\Models\\User\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Filament/Resources/CgoInvestmentResource.php
+
+		-
+			message: '#^Cannot access property \$id on Illuminate\\Database\\Eloquent\\Model\|int\|string\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Filament/Resources/CgoPricingRoundResource/Pages/EditCgoPricingRound.php
+
+		-
+			message: '#^Cannot access property \$code on App\\Domain\\Asset\\Models\\Asset\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Http/Controllers/Api/AccountBalanceController.php
+
+		-
+			message: '#^Cannot access property \$name on App\\Domain\\Asset\\Models\\Asset\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Http/Controllers/Api/AccountBalanceController.php
+
+		-
+			message: '#^Cannot access property \$precision on App\\Domain\\Asset\\Models\\Asset\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Http/Controllers/Api/AccountBalanceController.php
+
+		-
+			message: '#^Cannot access property \$symbol on App\\Domain\\Asset\\Models\\Asset\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Http/Controllers/Api/AccountBalanceController.php
+
+		-
+			message: '#^Cannot access property \$type on App\\Domain\\Asset\\Models\\Asset\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Http/Controllers/Api/AccountBalanceController.php
+
+		-
+			message: '#^Cannot access property \$user_uuid on App\\Domain\\Account\\Models\\Account\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Http/Controllers/Api/AccountBalanceController.php
+
+		-
+			message: '#^Cannot access property \$uuid on App\\Domain\\Account\\Models\\Account\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Http/Controllers/Api/AccountBalanceController.php
+
+		-
+			message: '#^Parameter \#2 \$asset of method App\\Http\\Controllers\\Api\\AccountBalanceController\:\:formatAmount\(\) expects App\\Domain\\Asset\\Models\\Asset, App\\Domain\\Asset\\Models\\Asset\|null given\.$#'
+			identifier: argument.type
+			count: 2
+			path: app/Http/Controllers/Api/AccountBalanceController.php
+
+		-
+			message: '#^Cannot access property \$uuid on App\\Models\\User\|null\.$#'
+			identifier: property.nonObject
+			count: 7
+			path: app/Http/Controllers/Api/AccountController.php
+
+		-
+			message: '#^Cannot call method hasRole\(\) on App\\Models\\User\|null\.$#'
+			identifier: method.nonObject
+			count: 2
+			path: app/Http/Controllers/Api/AccountController.php
+
+		-
+			message: '#^Parameter \#1 \$string of function trim expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Http/Controllers/Api/AccountController.php
+
+		-
+			message: '#^Parameter \#3 \$subject of function preg_replace expects array\<float\|int\|string\>\|string, string\|null given\.$#'
+			identifier: argument.type
+			count: 2
+			path: app/Http/Controllers/Api/AccountController.php
+
+		-
+			message: '#^Cannot access property \$agent_id on App\\Models\\Agent\|null\.$#'
+			identifier: property.nonObject
+			count: 3
+			path: app/Http/Controllers/Api/AgentProtocol/AgentAuthController.php
+
+		-
+			message: '#^Cannot access property \$did on App\\Models\\Agent\|null\.$#'
+			identifier: property.nonObject
+			count: 3
+			path: app/Http/Controllers/Api/AgentProtocol/AgentAuthController.php
+
+		-
+			message: '#^Cannot access property \$name on App\\Models\\Agent\|null\.$#'
+			identifier: property.nonObject
+			count: 3
+			path: app/Http/Controllers/Api/AgentProtocol/AgentAuthController.php
+
+		-
+			message: '#^Cannot access property \$status on App\\Models\\Agent\|null\.$#'
+			identifier: property.nonObject
+			count: 3
+			path: app/Http/Controllers/Api/AgentProtocol/AgentAuthController.php
+
+		-
+			message: '#^Cannot call method hasVerifiedEmail\(\) on App\\Models\\User\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Http/Controllers/Api/Auth/EmailVerificationController.php
+
+		-
+			message: '#^Cannot call method sendEmailVerificationNotification\(\) on App\\Models\\User\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Http/Controllers/Api/Auth/EmailVerificationController.php
+
+		-
+			message: '#^Cannot call method tokens\(\) on App\\Models\\User\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Http/Controllers/Api/Auth/LoginController.php
+
+		-
+			message: '#^Parameter \#1 \$ip of method App\\Services\\IpBlockingService\:\:getBlockInfo\(\) expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Http/Controllers/Api/Auth/LoginController.php
+
+		-
+			message: '#^Parameter \#1 \$ip of method App\\Services\\IpBlockingService\:\:isBlocked\(\) expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Http/Controllers/Api/Auth/LoginController.php
+
+		-
+			message: '#^Parameter \#1 \$ip of method App\\Services\\IpBlockingService\:\:recordFailedAttempt\(\) expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Http/Controllers/Api/Auth/LoginController.php
+
+		-
+			message: '#^Cannot access property \$password on App\\Models\\User\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Http/Controllers/Api/Auth/PasswordController.php
+
+		-
+			message: '#^Cannot call method createToken\(\) on App\\Models\\User\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Http/Controllers/Api/Auth/PasswordController.php
+
+		-
+			message: '#^Cannot call method tokens\(\) on App\\Models\\User\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Http/Controllers/Api/Auth/PasswordController.php
+
+		-
+			message: '#^Cannot call method update\(\) on App\\Models\\User\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Http/Controllers/Api/Auth/PasswordController.php
+
+		-
+			message: '#^Cannot access property \$two_factor_recovery_codes on App\\Models\\User\|null\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: app/Http/Controllers/Api/Auth/TwoFactorAuthController.php
+
+		-
+			message: '#^Cannot access property \$two_factor_secret on App\\Models\\User\|null\.$#'
+			identifier: property.nonObject
+			count: 4
+			path: app/Http/Controllers/Api/Auth/TwoFactorAuthController.php
+
+		-
+			message: '#^Cannot call method createToken\(\) on App\\Models\\User\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Http/Controllers/Api/Auth/TwoFactorAuthController.php
+
+		-
+			message: '#^Cannot call method forceFill\(\) on App\\Models\\User\|null\.$#'
+			identifier: method.nonObject
+			count: 2
+			path: app/Http/Controllers/Api/Auth/TwoFactorAuthController.php
+
+		-
+			message: '#^Cannot call method fresh\(\) on App\\Models\\User\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Http/Controllers/Api/Auth/TwoFactorAuthController.php
+
+		-
+			message: '#^Cannot call method recoveryCodes\(\) on App\\Models\\User\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Http/Controllers/Api/Auth/TwoFactorAuthController.php
+
+		-
+			message: '#^Cannot call method replaceRecoveryCode\(\) on App\\Models\\User\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Http/Controllers/Api/Auth/TwoFactorAuthController.php
+
+		-
+			message: '#^Cannot call method twoFactorQrCodeSvg\(\) on App\\Models\\User\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Http/Controllers/Api/Auth/TwoFactorAuthController.php
+
+		-
+			message: '#^Parameter \#1 \$value of function decrypt expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 4
+			path: app/Http/Controllers/Api/Auth/TwoFactorAuthController.php
+
+		-
+			message: '#^Cannot call method toDateString\(\) on Illuminate\\Support\\Carbon\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Http/Controllers/Api/BIAN/CurrentAccountController.php
+
+		-
+			message: '#^Cannot call method toIso8601String\(\) on Illuminate\\Support\\Carbon\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Http/Controllers/Api/BIAN/CurrentAccountController.php
+
+		-
+			message: '#^Cannot access property \$name on App\\Domain\\Account\\Models\\Account\|null\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: app/Http/Controllers/Api/BIAN/PaymentInitiationController.php
+
+		-
+			message: '#^Cannot call method getBalance\(\) on App\\Domain\\Account\\Models\\Account\|null\.$#'
+			identifier: method.nonObject
+			count: 3
+			path: app/Http/Controllers/Api/BIAN/PaymentInitiationController.php
+
+		-
+			message: '#^Cannot call method refresh\(\) on App\\Domain\\Account\\Models\\Account\|null\.$#'
+			identifier: method.nonObject
+			count: 2
+			path: app/Http/Controllers/Api/BIAN/PaymentInitiationController.php
+
+		-
+			message: '#^Cannot call method toDateString\(\) on Illuminate\\Support\\Carbon\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Http/Controllers/Api/BIAN/PaymentInitiationController.php
+
+		-
+			message: '#^Cannot access property \$email on App\\Models\\User\|null\.$#'
+			identifier: property.nonObject
+			count: 3
+			path: app/Http/Controllers/Api/BankAlertingController.php
+
+		-
+			message: '#^Cannot call method toISOString\(\) on Carbon\\Carbon\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Http/Controllers/Api/BankAllocationController.php
+
+		-
+			message: '#^Cannot call method toISOString\(\) on Carbon\\Carbon\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Http/Controllers/Api/BasketController.php
+
+		-
+			message: '#^Cannot access property \$email on App\\Models\\User\|null\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: app/Http/Controllers/Api/BatchProcessingController.php
+
+		-
+			message: '#^Cannot call method hasRole\(\) on App\\Models\\User\|null\.$#'
+			identifier: method.nonObject
+			count: 2
+			path: app/Http/Controllers/Api/BatchProcessingController.php
+
+		-
+			message: '#^Cannot access property \$id on App\\Models\\User\|null\.$#'
+			identifier: property.nonObject
+			count: 8
+			path: app/Http/Controllers/Api/BlockchainWalletController.php
+
+		-
+			message: '#^Cannot access property \$id on App\\Domain\\Compliance\\Models\\ComplianceAlert\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Http/Controllers/Api/ComplianceAlertController.php
+
+		-
+			message: '#^Cannot access property \$report_type on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Http/Controllers/Api/EnhancedRegulatoryController.php
+
+		-
+			message: '#^Parameter \#1 \$month of method App\\Domain\\Regulatory\\Services\\EnhancedRegulatoryReportingService\:\:generateAMLReport\(\) expects Carbon\\Carbon, Carbon\\Carbon\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Http/Controllers/Api/EnhancedRegulatoryController.php
+
+		-
+			message: '#^Cannot access property \$account on App\\Models\\User\|null\.$#'
+			identifier: property.nonObject
+			count: 4
+			path: app/Http/Controllers/Api/ExchangeController.php
+
+		-
+			message: '#^Cannot access property \$rate on App\\Domain\\Asset\\Models\\ExchangeRate\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Http/Controllers/Api/ExchangeRateController.php
+
+		-
+			message: '#^Cannot call method getAgeInMinutes\(\) on App\\Domain\\Asset\\Models\\ExchangeRate\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Http/Controllers/Api/ExchangeRateController.php
+
+		-
+			message: '#^Cannot call method toArray\(\) on Brick\\Math\\BigDecimal\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Http/Controllers/Api/ExchangeRateProviderController.php
+
+		-
+			message: '#^Cannot access property \$account on App\\Models\\User\|null\.$#'
+			identifier: property.nonObject
+			count: 5
+			path: app/Http/Controllers/Api/LiquidityPoolController.php
+
+		-
+			message: '#^Cannot access property \$id on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: property.nonObject
+			count: 5
+			path: app/Http/Controllers/Api/LiquidityPoolController.php
+
+		-
+			message: '#^Cannot access property \$id on App\\Models\\User\|null\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: app/Http/Controllers/Api/LoanApplicationController.php
+
+		-
+			message: '#^Cannot access property \$id on App\\Models\\User\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Http/Controllers/Api/LoanController.php
+
+		-
+			message: '#^Cannot access property \$uuid on App\\Models\\User\|null\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: app/Http/Controllers/Api/PollController.php
+
+		-
+			message: '#^Cannot call method toArray\(\) on App\\Domain\\Governance\\ValueObjects\\PollResult\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Http/Controllers/Api/PollController.php
+
+		-
+			message: '#^Parameter \#2 \$user of method App\\Domain\\Governance\\Services\\GovernanceService\:\:castVote\(\) expects App\\Models\\User, App\\Models\\User\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Http/Controllers/Api/PollController.php
+
+		-
+			message: '#^Cannot call method format\(\) on Carbon\\Carbon\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Http/Controllers/Api/RegulatoryReportingController.php
+
+		-
+			message: '#^Parameter \#1 \$json of function json_decode expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Http/Controllers/Api/RegulatoryReportingController.php
+
+		-
+			message: '#^Parameter \#1 \$month of method App\\Domain\\Compliance\\Services\\RegulatoryReportingService\:\:generateComplianceSummary\(\) expects Carbon\\Carbon, Carbon\\Carbon\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Http/Controllers/Api/RegulatoryReportingController.php
+
+		-
+			message: '#^Cannot access property \$uuid on App\\Models\\User\|null\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: app/Http/Controllers/Api/TransactionController.php
+
+		-
+			message: '#^Cannot access property \$name on App\\Models\\User\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Http/Controllers/Api/TransactionMonitoringController.php
+
+		-
+			message: '#^Cannot access property \$email on App\\Models\\User\|null\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: app/Http/Controllers/Api/TransactionReversalController.php
+
+		-
+			message: '#^Cannot access property \$uuid on App\\Models\\User\|null\.$#'
+			identifier: property.nonObject
+			count: 3
+			path: app/Http/Controllers/Api/TransactionReversalController.php
+
+		-
+			message: '#^Cannot call method hasRole\(\) on App\\Models\\User\|null\.$#'
+			identifier: method.nonObject
+			count: 3
+			path: app/Http/Controllers/Api/TransactionReversalController.php
+
+		-
+			message: '#^Cannot access property \$uuid on App\\Models\\User\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Http/Controllers/Api/TransferController.php
+
+		-
+			message: '#^Cannot call method getBalance\(\) on App\\Domain\\Account\\Models\\Account\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Http/Controllers/Api/TransferController.php
+
+		-
+			message: '#^Cannot call method format\(\) on Carbon\\Carbon\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Http/Controllers/Api/UserVotingController.php
+
+		-
+			message: '#^Offset ''template'' might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: app/Http/Controllers/Api/UserVotingController.php
+
+		-
+			message: '#^Cannot access property \$uuid on App\\Models\\User\|null\.$#'
+			identifier: property.nonObject
+			count: 8
+			path: app/Http/Controllers/Api/V2/BankIntegrationController.php
+
+		-
+			message: '#^Parameter \#1 \$user of method App\\Domain\\Banking\\Contracts\\IBankIntegrationService\:\:connectUserToBank\(\) expects App\\Models\\User, App\\Models\\User\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Http/Controllers/Api/V2/BankIntegrationController.php
+
+		-
+			message: '#^Parameter \#1 \$user of method App\\Domain\\Banking\\Contracts\\IBankIntegrationService\:\:disconnectUserFromBank\(\) expects App\\Models\\User, App\\Models\\User\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Http/Controllers/Api/V2/BankIntegrationController.php
+
+		-
+			message: '#^Parameter \#1 \$user of method App\\Domain\\Banking\\Contracts\\IBankIntegrationService\:\:getAggregatedBalance\(\) expects App\\Models\\User, App\\Models\\User\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Http/Controllers/Api/V2/BankIntegrationController.php
+
+		-
+			message: '#^Parameter \#1 \$user of method App\\Domain\\Banking\\Contracts\\IBankIntegrationService\:\:getUserBankAccounts\(\) expects App\\Models\\User, App\\Models\\User\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Http/Controllers/Api/V2/BankIntegrationController.php
+
+		-
+			message: '#^Parameter \#1 \$user of method App\\Domain\\Banking\\Contracts\\IBankIntegrationService\:\:getUserBankConnections\(\) expects App\\Models\\User, App\\Models\\User\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Http/Controllers/Api/V2/BankIntegrationController.php
+
+		-
+			message: '#^Parameter \#1 \$user of method App\\Domain\\Banking\\Contracts\\IBankIntegrationService\:\:initiateInterBankTransfer\(\) expects App\\Models\\User, App\\Models\\User\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Http/Controllers/Api/V2/BankIntegrationController.php
+
+		-
+			message: '#^Parameter \#1 \$user of method App\\Domain\\Banking\\Contracts\\IBankIntegrationService\:\:syncBankAccounts\(\) expects App\\Models\\User, App\\Models\\User\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Http/Controllers/Api/V2/BankIntegrationController.php
+
+		-
+			message: '#^Parameter \#1 \$user of method App\\Domain\\Banking\\Services\\BankRoutingService\:\:getRecommendedBanks\(\) expects App\\Models\\User, App\\Models\\User\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Http/Controllers/Api/V2/BankIntegrationController.php
+
+		-
+			message: '#^Cannot access property \$status on App\\Domain\\Compliance\\Models\\KycVerification\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Http/Controllers/Api/V2/ComplianceController.php
+
+		-
+			message: '#^Parameter \#1 \$verification of method App\\Http\\Controllers\\Api\\V2\\ComplianceController\:\:getVerificationNextSteps\(\) expects App\\Domain\\Compliance\\Models\\KycVerification, App\\Domain\\Compliance\\Models\\KycVerification\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Http/Controllers/Api/V2/ComplianceController.php
+
+		-
+			message: '#^Cannot call method toIso8601String\(\) on Carbon\\Carbon\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Http/Controllers/Api/V2/FinancialInstitutionController.php
+
+		-
+			message: '#^Cannot access property \$uuid on App\\Models\\User\|null\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: app/Http/Controllers/Api/V2/GCUTradingController.php
+
+		-
+			message: '#^Cannot call method primaryAccount\(\) on App\\Models\\User\|null\.$#'
+			identifier: method.nonObject
+			count: 2
+			path: app/Http/Controllers/Api/V2/GCUTradingController.php
+
+		-
+			message: '#^Cannot access property \$title on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Http/Controllers/Api/V2/VotingController.php
+
+		-
+			message: '#^Cannot access property \$uuid on App\\Models\\User\|null\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: app/Http/Controllers/Api/V2/VotingController.php
+
+		-
+			message: '#^Cannot call method accounts\(\) on App\\Models\\User\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Http/Controllers/Api/V2/VotingController.php
+
+		-
+			message: '#^Cannot call method toIso8601String\(\) on Carbon\\Carbon\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Http/Controllers/Api/V2/VotingController.php
+
+		-
+			message: '#^Cannot call method toIso8601String\(\) on Carbon\\Carbon\|null\.$#'
+			identifier: method.nonObject
+			count: 4
+			path: app/Http/Controllers/Api/V2/WebhookController.php
+
+		-
+			message: '#^Cannot access property \$uuid on App\\Models\\User\|null\.$#'
+			identifier: property.nonObject
+			count: 4
+			path: app/Http/Controllers/Api/VoteController.php
+
+		-
+			message: '#^Cannot call method diffInSeconds\(\) on Carbon\\Carbon\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Http/Controllers/Api/WorkflowMonitoringController.php
+
+		-
+			message: '#^Cannot access property \$uuid on App\\Models\\User\|null\.$#'
+			identifier: property.nonObject
+			count: 5
+			path: app/Http/Controllers/ApiKeyController.php
+
+		-
+			message: '#^Cannot call method apiKeys\(\) on App\\Models\\User\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Http/Controllers/ApiKeyController.php
+
+		-
+			message: '#^Parameter \#1 \$user of static method App\\Models\\ApiKey\:\:createForUser\(\) expects App\\Models\\User, App\\Models\\User\|null given\.$#'
+			identifier: argument.type
+			count: 2
+			path: app/Http/Controllers/ApiKeyController.php
+
+		-
+			message: '#^Cannot access property \$uuid on App\\Models\\User\|null\.$#'
+			identifier: property.nonObject
+			count: 5
+			path: app/Http/Controllers/BatchProcessingController.php
+
+		-
+			message: '#^Cannot call method format\(\) on Carbon\\Carbon\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Http/Controllers/BatchProcessingController.php
+
+		-
+			message: '#^Cannot access property \$uuid on App\\Models\\User\|null\.$#'
+			identifier: property.nonObject
+			count: 6
+			path: app/Http/Controllers/BlockchainWalletController.php
+
+		-
+			message: '#^Cannot call method hasRole\(\) on App\\Models\\User\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Http/Controllers/CgoAgreementController.php
+
+		-
+			message: '#^Cannot access property \$payment_status on App\\Domain\\Cgo\\Models\\CgoInvestment\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Http/Controllers/CgoPaymentVerificationController.php
+
+		-
+			message: '#^Cannot access property \$timestamp on Carbon\\Carbon\|null\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: app/Http/Controllers/CgoPaymentVerificationController.php
+
+		-
+			message: '#^Parameter \#1 \$string of function ucfirst expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Http/Controllers/CgoPaymentVerificationController.php
+
+		-
+			message: '#^Parameter \#1 \$user of method App\\Domain\\Payment\\Services\\PaymentGatewayService\:\:addPaymentMethod\(\) expects App\\Models\\User, App\\Models\\User\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Http/Controllers/DepositController.php
+
+		-
+			message: '#^Parameter \#1 \$user of method App\\Domain\\Payment\\Services\\PaymentGatewayService\:\:removePaymentMethod\(\) expects App\\Models\\User, App\\Models\\User\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Http/Controllers/DepositController.php
+
+		-
+			message: '#^Cannot access property \$account on App\\Models\\User\|null\.$#'
+			identifier: property.nonObject
+			count: 6
+			path: app/Http/Controllers/ExchangeController.php
+
+		-
+			message: '#^Cannot call method toIso8601String\(\) on Carbon\\Carbon\|null\.$#'
+			identifier: method.nonObject
+			count: 2
+			path: app/Http/Controllers/ExchangeRateViewController.php
+
+		-
+			message: '#^Cannot access property \$uuid on App\\Models\\User\|null\.$#'
+			identifier: property.nonObject
+			count: 8
+			path: app/Http/Controllers/ExternalExchangeController.php
+
+		-
+			message: '#^Cannot access property \$avg_daily_inflow on object\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Http/Controllers/FundFlowController.php
+
+		-
+			message: '#^Cannot access property \$avg_daily_outflow on object\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Http/Controllers/FundFlowController.php
+
+		-
+			message: '#^Cannot access property \$net_flow on object\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Http/Controllers/FundFlowController.php
+
+		-
+			message: '#^Cannot access property \$top_categories on object\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Http/Controllers/FundFlowController.php
+
+		-
+			message: '#^Cannot access property \$total_inflow on object\|null\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: app/Http/Controllers/FundFlowController.php
+
+		-
+			message: '#^Cannot access property \$total_outflow on object\|null\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: app/Http/Controllers/FundFlowController.php
+
+		-
+			message: '#^Cannot call method getBalance\(\) on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: method.nonObject
+			count: 2
+			path: app/Http/Controllers/GcuTradingController.php
+
+		-
+			message: '#^Cannot access property \$uuid on App\\Models\\User\|null\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: app/Http/Controllers/GcuVotingController.php
+
+		-
+			message: '#^Cannot call method accounts\(\) on App\\Models\\User\|null\.$#'
+			identifier: method.nonObject
+			count: 3
+			path: app/Http/Controllers/GcuVotingController.php
+
+		-
+			message: '#^Cannot access property \$uuid on App\\Models\\User\|null\.$#'
+			identifier: property.nonObject
+			count: 3
+			path: app/Http/Controllers/LendingController.php
+
+		-
+			message: '#^Cannot access property \$uuid on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Http/Controllers/LendingController.php
+
+		-
+			message: '#^Cannot call method accounts\(\) on App\\Models\\User\|null\.$#'
+			identifier: method.nonObject
+			count: 4
+			path: app/Http/Controllers/LendingController.php
+
+		-
+			message: '#^Cannot access property \$account on App\\Models\\User\|null\.$#'
+			identifier: property.nonObject
+			count: 5
+			path: app/Http/Controllers/LiquidityController.php
+
+		-
+			message: '#^Cannot access property \$id on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: property.nonObject
+			count: 5
+			path: app/Http/Controllers/LiquidityController.php
+
+		-
+			message: '#^Cannot call method completeOnboarding\(\) on App\\Models\\User\|null\.$#'
+			identifier: method.nonObject
+			count: 2
+			path: app/Http/Controllers/OnboardingController.php
+
+		-
+			message: '#^Cannot access property \$id on App\\Models\\User\|null\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: app/Http/Controllers/OpenBankingDepositController.php
+
+		-
+			message: '#^Cannot call method accounts\(\) on App\\Models\\User\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Http/Controllers/OpenBankingDepositController.php
+
+		-
+			message: '#^Cannot access property \$uuid on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Http/Controllers/OpenBankingWithdrawalController.php
+
+		-
+			message: '#^Cannot call method getBalance\(\) on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Http/Controllers/OpenBankingWithdrawalController.php
+
+		-
+			message: '#^Cannot access property \$avg_completion_time on object\|null\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: app/Http/Controllers/TransactionStatusController.php
+
+		-
+			message: '#^Cannot access property \$avg_completion_time_formatted on object\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Http/Controllers/TransactionStatusController.php
+
+		-
+			message: '#^Cannot access property \$completed on object\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Http/Controllers/TransactionStatusController.php
+
+		-
+			message: '#^Cannot access property \$success_rate on object\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Http/Controllers/TransactionStatusController.php
+
+		-
+			message: '#^Cannot access property \$total on object\|null\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: app/Http/Controllers/TransactionStatusController.php
+
+		-
+			message: '#^Cannot call method accounts\(\) on App\\Models\\User\|null\.$#'
+			identifier: method.nonObject
+			count: 5
+			path: app/Http/Controllers/WalletController.php
+
+		-
+			message: '#^Cannot access property \$uuid on App\\Models\\User\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Http/Controllers/WithdrawalController.php
+
+		-
+			message: '#^Method App\\Http\\Middleware\\ApiRateLimitMiddleware\:\:normalizeEndpoint\(\) should return string but returns string\|null\.$#'
+			identifier: return.type
+			count: 1
+			path: app/Http/Middleware/ApiRateLimitMiddleware.php
+
+		-
+			message: '#^Parameter \#3 \$subject of function preg_replace expects array\<float\|int\|string\>\|string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Http/Middleware/ApiRateLimitMiddleware.php
+
+		-
+			message: '#^Parameter \#1 \$ip of method App\\Models\\ApiKey\:\:isIpAllowed\(\) expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Http/Middleware/AuthenticateApiKey.php
+
+		-
+			message: '#^Parameter \#1 \$ip of method App\\Models\\ApiKey\:\:recordUsage\(\) expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Http/Middleware/AuthenticateApiKey.php
+
+		-
+			message: '#^Parameter \#1 \$ip of method App\\Models\\ApiKey\:\:isIpAllowed\(\) expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Http/Middleware/AuthenticateApiOrSanctum.php
+
+		-
+			message: '#^Parameter \#1 \$ip of method App\\Models\\ApiKey\:\:recordUsage\(\) expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Http/Middleware/AuthenticateApiOrSanctum.php
+
+		-
+			message: '#^Parameter \#1 \$plainKey of static method App\\Models\\ApiKey\:\:verify\(\) expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Http/Middleware/AuthenticateApiOrSanctum.php
+
+		-
+			message: '#^Parameter \#1 \$ip of method App\\Services\\IpBlockingService\:\:getBlockInfo\(\) expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Http/Middleware/CheckBlockedIp.php
+
+		-
+			message: '#^Parameter \#1 \$ip of method App\\Services\\IpBlockingService\:\:isBlocked\(\) expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Http/Middleware/CheckBlockedIp.php
+
+		-
+			message: '#^Parameter \#1 \$haystack of function str_contains expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Http/Middleware/DemoMode.php
+
+		-
+			message: '#^Parameter \#1 \$ip of method App\\Http\\Middleware\\IpBlocking\:\:getRemainingBlockTime\(\) expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Http/Middleware/IpBlocking.php
+
+		-
+			message: '#^Parameter \#1 \$ip of method App\\Http\\Middleware\\IpBlocking\:\:isPermanentlyBlacklisted\(\) expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Http/Middleware/IpBlocking.php
+
+		-
+			message: '#^Parameter \#1 \$ip of method App\\Http\\Middleware\\IpBlocking\:\:isTemporarilyBlocked\(\) expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Http/Middleware/IpBlocking.php
+
+		-
+			message: '#^Parameter \#1 \$ip of method App\\Http\\Middleware\\IpBlocking\:\:isWhitelisted\(\) expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Http/Middleware/IpBlocking.php
+
+		-
+			message: '#^Parameter \#1 \$ip of method App\\Http\\Middleware\\IpBlocking\:\:recordFailedAttempt\(\) expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Http/Middleware/IpBlocking.php
+
+		-
+			message: '#^Cannot call method can\(\) on App\\Models\\User\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Http/Requests/Treasury/Portfolio/AllocateAssetsRequest.php
+
+		-
+			message: '#^Cannot call method hasRole\(\) on App\\Models\\User\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Http/Requests/Treasury/Portfolio/AllocateAssetsRequest.php
+
+		-
+			message: '#^Cannot call method tokenCan\(\) on App\\Models\\User\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Http/Requests/Treasury/Portfolio/AllocateAssetsRequest.php
+
+		-
+			message: '#^Cannot call method can\(\) on App\\Models\\User\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Http/Requests/Treasury/Portfolio/ApproveRebalancingRequest.php
+
+		-
+			message: '#^Cannot call method hasRole\(\) on App\\Models\\User\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Http/Requests/Treasury/Portfolio/ApproveRebalancingRequest.php
+
+		-
+			message: '#^Cannot call method tokenCan\(\) on App\\Models\\User\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Http/Requests/Treasury/Portfolio/ApproveRebalancingRequest.php
+
+		-
+			message: '#^Cannot call method can\(\) on App\\Models\\User\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Http/Requests/Treasury/Portfolio/CreatePortfolioRequest.php
+
+		-
+			message: '#^Cannot call method hasRole\(\) on App\\Models\\User\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Http/Requests/Treasury/Portfolio/CreatePortfolioRequest.php
+
+		-
+			message: '#^Cannot call method tokenCan\(\) on App\\Models\\User\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Http/Requests/Treasury/Portfolio/CreatePortfolioRequest.php
+
+		-
+			message: '#^Cannot call method can\(\) on App\\Models\\User\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Http/Requests/Treasury/Portfolio/CreateReportRequest.php
+
+		-
+			message: '#^Cannot call method hasRole\(\) on App\\Models\\User\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Http/Requests/Treasury/Portfolio/CreateReportRequest.php
+
+		-
+			message: '#^Cannot call method tokenCan\(\) on App\\Models\\User\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Http/Requests/Treasury/Portfolio/CreateReportRequest.php
+
+		-
+			message: '#^Cannot call method can\(\) on App\\Models\\User\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Http/Requests/Treasury/Portfolio/TriggerRebalancingRequest.php
+
+		-
+			message: '#^Cannot call method hasRole\(\) on App\\Models\\User\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Http/Requests/Treasury/Portfolio/TriggerRebalancingRequest.php
+
+		-
+			message: '#^Cannot call method tokenCan\(\) on App\\Models\\User\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Http/Requests/Treasury/Portfolio/TriggerRebalancingRequest.php
+
+		-
+			message: '#^Cannot call method can\(\) on App\\Models\\User\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Http/Requests/Treasury/Portfolio/UpdatePortfolioRequest.php
+
+		-
+			message: '#^Cannot call method hasRole\(\) on App\\Models\\User\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Http/Requests/Treasury/Portfolio/UpdatePortfolioRequest.php
+
+		-
+			message: '#^Cannot call method tokenCan\(\) on App\\Models\\User\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Http/Requests/Treasury/Portfolio/UpdatePortfolioRequest.php
+
+		-
+			message: '#^Cannot call method toIso8601String\(\) on Carbon\\Carbon\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Notifications/CriticalComplianceAlert.php
+
+		-
+			message: '#^Cannot call method diffInDays\(\) on Carbon\\Carbon\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Services/DynamicRateLimitService.php
+
+		-
+			message: '#^Cannot call method findButton\(\) on Behat\\Mink\\Element\\NodeElement\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: tests/Behat/contexts/AccountCreationContext.php
+
+		-
+			message: '#^Parameter \#2 \$data of function hash expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: tests/Domain/Account/Aggregates/TransactionAggregateTest.php
+
+		-
+			message: '#^Parameter \#2 \$data of function hash expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: tests/Domain/Account/Aggregates/TransferAggregateTest.php
+
+		-
+			message: '#^Parameter \#1 \$string of function strlen expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: tests/Domain/Account/DataObjects/AccountUuidTest.php
+
+		-
+			message: '#^Cannot call method is\(\) on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: tests/Domain/Account/Projectors/AccountProjectorTest.php
+
+		-
+			message: '#^Cannot call method getMessage\(\) on Spatie\\EventSourcing\\AggregateRoots\\Exceptions\\InvalidEloquentStoredEventModel\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: tests/Domain/Account/Repositories/TransferRepositoryTest.php
+
+		-
+			message: '#^Cannot access property \$from_asset_code on App\\Domain\\Asset\\Models\\ExchangeRate\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Domain/Asset/Models/ExchangeRateTest.php
+
+		-
+			message: '#^Cannot access property \$to_asset_code on App\\Domain\\Asset\\Models\\ExchangeRate\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Domain/Asset/Models/ExchangeRateTest.php
+
+		-
+			message: '#^Cannot access property \$from_asset_code on App\\Domain\\Asset\\Models\\ExchangeRate\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Domain/Asset/Services/ExchangeRateServiceTest.php
+
+		-
+			message: '#^Cannot access property \$rate on App\\Domain\\Asset\\Models\\ExchangeRate\|null\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: tests/Domain/Asset/Services/ExchangeRateServiceTest.php
+
+		-
+			message: '#^Cannot access property \$to_asset_code on App\\Domain\\Asset\\Models\\ExchangeRate\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Domain/Asset/Services/ExchangeRateServiceTest.php
+
+		-
+			message: '#^Cannot access property \$valid_at on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: tests/Domain/Asset/Services/ExchangeRateServiceTest.php
+
+		-
+			message: '#^Offset ''test'' might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: tests/Domain/Asset/Services/ExchangeRateServiceTest.php
+
+		-
+			message: '#^Cannot access property \$code on App\\Domain\\Basket\\Models\\BasketAsset\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Domain/Basket/Models/BasketAssetTest.php
+
+		-
+			message: '#^Cannot access property \$id on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Domain/Basket/Models/BasketAssetTest.php
+
+		-
+			message: '#^Cannot access property \$uuid on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Domain/Basket/Models/BasketAssetTest.php
+
+		-
+			message: '#^Cannot access property \$value on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Domain/Basket/Models/BasketAssetTest.php
+
+		-
+			message: '#^Offset ''basket_id'' might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: tests/Domain/Basket/Models/BasketAssetTest.php
+
+		-
+			message: '#^Offset ''error'' might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: tests/Domain/Custodian/Connectors/MockBankConnectorTest.php
+
+		-
+			message: '#^Offset ''source'' might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: tests/Domain/Exchange/Providers/MockExchangeRateProviderTest.php
+
+		-
+			message: '#^Cannot access property \$account_uuid on App\\Domain\\Payment\\Models\\PaymentTransaction\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Domain/Payment/Projectors/PaymentDepositProjectorTest.php
+
+		-
+			message: '#^Cannot access property \$amount on App\\Domain\\Payment\\Models\\PaymentTransaction\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Domain/Payment/Projectors/PaymentDepositProjectorTest.php
+
+		-
+			message: '#^Cannot access property \$completed_at on App\\Domain\\Payment\\Models\\PaymentTransaction\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Domain/Payment/Projectors/PaymentDepositProjectorTest.php
+
+		-
+			message: '#^Cannot access property \$currency on App\\Domain\\Payment\\Models\\PaymentTransaction\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Domain/Payment/Projectors/PaymentDepositProjectorTest.php
+
+		-
+			message: '#^Cannot access property \$external_reference on App\\Domain\\Payment\\Models\\PaymentTransaction\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Domain/Payment/Projectors/PaymentDepositProjectorTest.php
+
+		-
+			message: '#^Cannot access property \$failed_at on App\\Domain\\Payment\\Models\\PaymentTransaction\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Domain/Payment/Projectors/PaymentDepositProjectorTest.php
+
+		-
+			message: '#^Cannot access property \$failed_reason on App\\Domain\\Payment\\Models\\PaymentTransaction\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Domain/Payment/Projectors/PaymentDepositProjectorTest.php
+
+		-
+			message: '#^Cannot access property \$metadata on App\\Domain\\Payment\\Models\\PaymentTransaction\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Domain/Payment/Projectors/PaymentDepositProjectorTest.php
+
+		-
+			message: '#^Cannot access property \$payment_method on App\\Domain\\Payment\\Models\\PaymentTransaction\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Domain/Payment/Projectors/PaymentDepositProjectorTest.php
+
+		-
+			message: '#^Cannot access property \$payment_method_type on App\\Domain\\Payment\\Models\\PaymentTransaction\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Domain/Payment/Projectors/PaymentDepositProjectorTest.php
+
+		-
+			message: '#^Cannot access property \$reference on App\\Domain\\Payment\\Models\\PaymentTransaction\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Domain/Payment/Projectors/PaymentDepositProjectorTest.php
+
+		-
+			message: '#^Cannot access property \$status on App\\Domain\\Payment\\Models\\PaymentTransaction\|null\.$#'
+			identifier: property.nonObject
+			count: 3
+			path: tests/Domain/Payment/Projectors/PaymentDepositProjectorTest.php
+
+		-
+			message: '#^Cannot access property \$transaction_id on App\\Domain\\Payment\\Models\\PaymentTransaction\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Domain/Payment/Projectors/PaymentDepositProjectorTest.php
+
+		-
+			message: '#^Cannot access property \$type on App\\Domain\\Payment\\Models\\PaymentTransaction\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Domain/Payment/Projectors/PaymentDepositProjectorTest.php
+
+		-
+			message: '#^Cannot call method toDateTimeString\(\) on Carbon\\Carbon\|null\.$#'
+			identifier: method.nonObject
+			count: 2
+			path: tests/Domain/Payment/Projectors/PaymentDepositProjectorTest.php
+
+		-
+			message: '#^Cannot access property \$account_uuid on App\\Domain\\Payment\\Models\\PaymentTransaction\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Domain/Payment/Projectors/PaymentWithdrawalProjectorTest.php
+
+		-
+			message: '#^Cannot access property \$amount on App\\Domain\\Payment\\Models\\PaymentTransaction\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Domain/Payment/Projectors/PaymentWithdrawalProjectorTest.php
+
+		-
+			message: '#^Cannot access property \$bank_account_name on App\\Domain\\Payment\\Models\\PaymentTransaction\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Domain/Payment/Projectors/PaymentWithdrawalProjectorTest.php
+
+		-
+			message: '#^Cannot access property \$bank_account_number on App\\Domain\\Payment\\Models\\PaymentTransaction\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Domain/Payment/Projectors/PaymentWithdrawalProjectorTest.php
+
+		-
+			message: '#^Cannot access property \$bank_routing_number on App\\Domain\\Payment\\Models\\PaymentTransaction\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Domain/Payment/Projectors/PaymentWithdrawalProjectorTest.php
+
+		-
+			message: '#^Cannot access property \$completed_at on App\\Domain\\Payment\\Models\\PaymentTransaction\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Domain/Payment/Projectors/PaymentWithdrawalProjectorTest.php
+
+		-
+			message: '#^Cannot access property \$currency on App\\Domain\\Payment\\Models\\PaymentTransaction\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Domain/Payment/Projectors/PaymentWithdrawalProjectorTest.php
+
+		-
+			message: '#^Cannot access property \$failed_at on App\\Domain\\Payment\\Models\\PaymentTransaction\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Domain/Payment/Projectors/PaymentWithdrawalProjectorTest.php
+
+		-
+			message: '#^Cannot access property \$failed_reason on App\\Domain\\Payment\\Models\\PaymentTransaction\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Domain/Payment/Projectors/PaymentWithdrawalProjectorTest.php
+
+		-
+			message: '#^Cannot access property \$metadata on App\\Domain\\Payment\\Models\\PaymentTransaction\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Domain/Payment/Projectors/PaymentWithdrawalProjectorTest.php
+
+		-
+			message: '#^Cannot access property \$reference on App\\Domain\\Payment\\Models\\PaymentTransaction\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Domain/Payment/Projectors/PaymentWithdrawalProjectorTest.php
+
+		-
+			message: '#^Cannot access property \$status on App\\Domain\\Payment\\Models\\PaymentTransaction\|null\.$#'
+			identifier: property.nonObject
+			count: 3
+			path: tests/Domain/Payment/Projectors/PaymentWithdrawalProjectorTest.php
+
+		-
+			message: '#^Cannot access property \$transaction_id on App\\Domain\\Payment\\Models\\PaymentTransaction\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Domain/Payment/Projectors/PaymentWithdrawalProjectorTest.php
+
+		-
+			message: '#^Cannot access property \$type on App\\Domain\\Payment\\Models\\PaymentTransaction\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Domain/Payment/Projectors/PaymentWithdrawalProjectorTest.php
+
+		-
+			message: '#^Cannot call method toDateTimeString\(\) on Carbon\\Carbon\|null\.$#'
+			identifier: method.nonObject
+			count: 2
+			path: tests/Domain/Payment/Projectors/PaymentWithdrawalProjectorTest.php
+
+		-
+			message: '#^Cannot access property \$event_class on Spatie\\EventSourcing\\StoredEvents\\Models\\EloquentStoredEvent\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Domain/Payment/Repositories/PaymentDepositRepositoryTest.php
+
+		-
+			message: '#^Cannot access property \$event_class on Spatie\\EventSourcing\\StoredEvents\\Models\\EloquentStoredEvent\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Domain/Payment/Repositories/PaymentWithdrawalRepositoryTest.php
+
+		-
+			message: '#^Cannot access property \$failed_reason on App\\Domain\\Payment\\Models\\PaymentTransaction\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Domain/Payment/Workflows/ProcessBankWithdrawalWorkflowTest.php
+
+		-
+			message: '#^Cannot access property \$status on App\\Domain\\Payment\\Models\\PaymentTransaction\|null\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: tests/Domain/Payment/Workflows/ProcessBankWithdrawalWorkflowTest.php
+
+		-
+			message: '#^Cannot access property \$transaction_id on App\\Domain\\Payment\\Models\\PaymentTransaction\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Domain/Payment/Workflows/ProcessBankWithdrawalWorkflowTest.php
+
+		-
+			message: '#^Cannot access property \$status on App\\Domain\\Payment\\Models\\PaymentTransaction\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Domain/Payment/Workflows/ProcessStripeDepositWorkflowTest.php
+
+		-
+			message: '#^Cannot access property \$transaction_id on App\\Domain\\Payment\\Models\\PaymentTransaction\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Domain/Payment/Workflows/ProcessStripeDepositWorkflowTest.php
+
+		-
+			message: '#^Cannot access property \$code on App\\Domain\\Asset\\Models\\Asset\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Feature/Account/AccountBalanceTest.php
+
+		-
+			message: '#^Cannot access property \$uuid on App\\Domain\\Account\\Models\\Account\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Feature/Account/AccountBalanceTest.php
+
+		-
+			message: '#^Parameter \#1 \$account of method Database\\Factories\\AccountBalanceFactory\:\:forAccount\(\) expects App\\Domain\\Account\\Models\\Account\|string, App\\Domain\\Account\\Models\\Account\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: tests/Feature/Account/AccountBalanceTest.php
+
+		-
+			message: '#^Parameter \#1 \$asset of method Database\\Factories\\AccountBalanceFactory\:\:forAsset\(\) expects App\\Domain\\Asset\\Models\\Asset\|string, App\\Domain\\Asset\\Models\\Asset\|null given\.$#'
+			identifier: argument.type
+			count: 11
+			path: tests/Feature/Account/AccountBalanceTest.php
+
+		-
+			message: '#^Cannot access property \$asset_code on App\\Domain\\Account\\Models\\AccountBalance\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Feature/Account/MultiAssetAccountTest.php
+
+		-
+			message: '#^Cannot access property \$balance on App\\Domain\\Account\\Models\\AccountBalance\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Feature/Account/MultiAssetAccountTest.php
+
+		-
+			message: '#^Cannot access property \$id on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: tests/Feature/Actions/Jetstream/AddTeamMemberTest.php
+
+		-
+			message: '#^Cannot access property \$role on object\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Feature/Actions/Jetstream/AddTeamMemberTest.php
+
+		-
+			message: '#^Cannot call method users\(\) on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: tests/Feature/Actions/Jetstream/AddTeamMemberTest.php
+
+		-
+			message: '#^Offset ''linked_main_account'' might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: tests/Feature/AgentProtocol/AgentPaymentIntegrationTest.php
+
+		-
+			message: '#^Offset 0 might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 3
+			path: tests/Feature/AgentProtocol/PaymentOrchestrationWorkflowTest.php
+
+		-
+			message: '#^Offset 1 might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 3
+			path: tests/Feature/AgentProtocol/PaymentOrchestrationWorkflowTest.php
+
+		-
+			message: '#^Parameter \#1 \$array of function array_column expects array, array\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: tests/Feature/AgentProtocol/PaymentOrchestrationWorkflowTest.php
+
+		-
+			message: '#^Parameter \#2 \$haystack of method PHPUnit\\Framework\\Assert\:\:assertCount\(\) expects Countable\|iterable, array\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: tests/Feature/AgentProtocol/PaymentOrchestrationWorkflowTest.php
+
+		-
+			message: '#^Cannot call method hasRole\(\) on App\\Models\\User\|null\.$#'
+			identifier: method.nonObject
+			count: 2
+			path: tests/Feature/Api/Auth/RegisterControllerTest.php
+
+		-
+			message: '#^Cannot access property \$basket on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Feature/Basket/BasketAssetTest.php
+
+		-
+			message: '#^Cannot access property \$basket_asset_id on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Feature/Basket/BasketAssetTest.php
+
+		-
+			message: '#^Cannot access property \$weight on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: property.nonObject
+			count: 9
+			path: tests/Feature/Basket/BasketRebalancingServiceTest.php
+
+		-
+			message: '#^Cannot call method update\(\) on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: tests/Feature/Basket/BasketValueCalculationServiceTest.php
+
+		-
+			message: '#^Offset ''EUR'' might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 3
+			path: tests/Feature/Basket/BasketValueCalculationServiceTest.php
+
+		-
+			message: '#^Offset ''GBP'' might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 3
+			path: tests/Feature/Basket/BasketValueCalculationServiceTest.php
+
+		-
+			message: '#^Offset ''USD'' might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 3
+			path: tests/Feature/Basket/BasketValueCalculationServiceTest.php
+
+		-
+			message: '#^Offset ''_metadata'' might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: tests/Feature/Basket/BasketValueCalculationServiceTest.php
+
+		-
+			message: '#^Parameter \#2 \$array of method PHPUnit\\Framework\\Assert\:\:assertArrayHasKey\(\) expects array\<mixed\>\|ArrayAccess\<\(int\|string\), mixed\>, array\|null given\.$#'
+			identifier: argument.type
+			count: 4
+			path: tests/Feature/Basket/BasketValueCalculationServiceTest.php
+
+		-
+			message: '#^Parameter \#2 \$array of method PHPUnit\\Framework\\Assert\:\:assertArrayNotHasKey\(\) expects array\<mixed\>\|ArrayAccess\<\(int\|string\), mixed\>, array\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: tests/Feature/Basket/BasketValueCalculationServiceTest.php
+
+		-
+			message: '#^Cannot access property \$uuid on App\\Domain\\Account\\Models\\Account\|null\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: tests/Feature/Cache/AccountCacheTest.php
+
+		-
+			message: '#^Cannot call method getBalance\(\) on App\\Domain\\Account\\Models\\Account\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: tests/Feature/Cache/AccountCacheTest.php
+
+		-
+			message: '#^Parameter \#1 \$account of method App\\Domain\\Account\\Services\\Cache\\AccountCacheService\:\:put\(\) expects App\\Domain\\Account\\Models\\Account, App\\Domain\\Account\\Models\\Account\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: tests/Feature/Cache/AccountCacheTest.php
+
+		-
+			message: '#^Cannot access property \$id on App\\Domain\\Account\\Models\\Turnover\|null\.$#'
+			identifier: property.nonObject
+			count: 3
+			path: tests/Feature/Cache/TurnoverCacheTest.php
+
+		-
+			message: '#^Cannot access property \$new_values on App\\Domain\\Compliance\\Models\\AuditLog\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Feature/Compliance/GdprServiceTest.php
+
+		-
+			message: '#^Cannot access property \$old_values on App\\Domain\\Compliance\\Models\\AuditLog\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Feature/Compliance/GdprServiceTest.php
+
+		-
+			message: '#^Cannot access property \$user_uuid on App\\Domain\\Compliance\\Models\\AuditLog\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Feature/Compliance/GdprServiceTest.php
+
+		-
+			message: '#^Cannot access property \$metadata on App\\Domain\\Compliance\\Models\\AuditLog\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Feature/Compliance/KycServiceTest.php
+
+		-
+			message: '#^Cannot access property \$user_uuid on App\\Domain\\Compliance\\Models\\AuditLog\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Feature/Compliance/KycServiceTest.php
+
+		-
+			message: '#^Offset ''reason'' might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: tests/Feature/Compliance/KycServiceTest.php
+
+		-
+			message: '#^Parameter \#1 \$json of function json_decode expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 5
+			path: tests/Feature/Compliance/RegulatoryReportingServiceTest.php
+
+		-
+			message: '#^Cannot access property \$email_verified_at on App\\Models\\User\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Feature/Console/PopulateDemoDataCommandTest.php
+
+		-
+			message: '#^Cannot access property \$id on App\\Domain\\Governance\\Models\\Poll\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Feature/Console/PopulateDemoDataCommandTest.php
+
+		-
+			message: '#^Cannot access property \$metadata on App\\Domain\\Governance\\Models\\Poll\|null\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: tests/Feature/Console/PopulateDemoDataCommandTest.php
+
+		-
+			message: '#^Cannot access property \$name on App\\Models\\User\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Feature/Console/PopulateDemoDataCommandTest.php
+
+		-
+			message: '#^Cannot access property \$selected_options on App\\Domain\\Governance\\Models\\Vote\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Feature/Console/PopulateDemoDataCommandTest.php
+
+		-
+			message: '#^Cannot access property \$signature on App\\Domain\\Governance\\Models\\Vote\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Feature/Console/PopulateDemoDataCommandTest.php
+
+		-
+			message: '#^Cannot access property \$uuid on App\\Models\\User\|null\.$#'
+			identifier: property.nonObject
+			count: 5
+			path: tests/Feature/Console/PopulateDemoDataCommandTest.php
+
+		-
+			message: '#^Cannot access property \$voting_power on App\\Domain\\Governance\\Models\\Vote\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Feature/Console/PopulateDemoDataCommandTest.php
+
+		-
+			message: '#^Cannot call method accounts\(\) on App\\Models\\User\|null\.$#'
+			identifier: method.nonObject
+			count: 2
+			path: tests/Feature/Console/PopulateDemoDataCommandTest.php
+
+		-
+			message: '#^Cannot call method balances\(\) on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: method.nonObject
+			count: 2
+			path: tests/Feature/Console/PopulateDemoDataCommandTest.php
+
+		-
+			message: '#^Cannot call method getBalance\(\) on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: tests/Feature/Console/PopulateDemoDataCommandTest.php
+
+		-
+			message: '#^Offset ''results'' might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: tests/Feature/Console/PopulateDemoDataCommandTest.php
+
+		-
+			message: '#^Cannot access property \$id on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Feature/Coverage/ExtensiveCoverageTest.php
+
+		-
+			message: '#^Cannot access property \$name on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Feature/CreateTeamTest.php
+
+		-
+			message: '#^Cannot access property \$ownedTeams on App\\Models\\User\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Feature/CreateTeamTest.php
+
+		-
+			message: '#^Cannot call method ownedTeams\(\) on App\\Models\\User\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: tests/Feature/CreateTeamTest.php
+
+		-
+			message: '#^Offset ''type'' might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: tests/Feature/Custodian/MultiCustodianTransferServiceTest.php
+
+		-
+			message: '#^Cannot access property \$id on object\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Feature/Custodian/SettlementServiceTest.php
+
+		-
+			message: '#^Cannot access property \$teams on App\\Models\\User\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Feature/DeleteTeamTest.php
+
+		-
+			message: '#^Cannot call method fresh\(\) on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: tests/Feature/DeleteTeamTest.php
+
+		-
+			message: '#^Parameter \#1 \$string of function strtolower expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 6
+			path: tests/Feature/Domain/AI/MCP/Tools/Account/CreateAccountToolTest.php
+
+		-
+			message: '#^Parameter \#1 \$string of function strtolower expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 2
+			path: tests/Feature/Domain/AI/MCP/Tools/Payment/PaymentStatusToolTest.php
+
+		-
+			message: '#^Parameter \#1 \$string of function strtolower expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 3
+			path: tests/Feature/Domain/AI/MCPServerTest.php
+
+		-
+			message: '#^Cannot access property \$activeComponents on App\\Domain\\Basket\\Models\\BasketAsset\|null\.$#'
+			identifier: property.nonObject
+			count: 3
+			path: tests/Feature/Domain/Basket/Services/BasketRebalancingServiceTest.php
+
+		-
+			message: '#^Cannot access property \$last_rebalanced_at on App\\Domain\\Basket\\Models\\BasketAsset\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Feature/Domain/Basket/Services/BasketRebalancingServiceTest.php
+
+		-
+			message: '#^Cannot access property \$weight on App\\Domain\\Basket\\Models\\BasketComponent\|null\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: tests/Feature/Domain/Basket/Services/BasketRebalancingServiceTest.php
+
+		-
+			message: '#^Cannot access property \$weight on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Feature/Domain/Basket/Services/BasketRebalancingServiceTest.php
+
+		-
+			message: '#^Offset ''EUR'' might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 2
+			path: tests/Feature/Domain/Basket/Services/BasketValueCalculationServiceTest.php
+
+		-
+			message: '#^Offset ''GBP'' might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: tests/Feature/Domain/Basket/Services/BasketValueCalculationServiceTest.php
+
+		-
+			message: '#^Offset ''USD'' might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: tests/Feature/Domain/Basket/Services/BasketValueCalculationServiceTest.php
+
+		-
+			message: '#^Offset ''_metadata'' might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 4
+			path: tests/Feature/Domain/Basket/Services/BasketValueCalculationServiceTest.php
+
+		-
+			message: '#^Parameter \#2 \$array of method PHPUnit\\Framework\\Assert\:\:assertArrayHasKey\(\) expects array\<mixed\>\|ArrayAccess\<\(int\|string\), mixed\>, array\|null given\.$#'
+			identifier: argument.type
+			count: 4
+			path: tests/Feature/Domain/Basket/Services/BasketValueCalculationServiceTest.php
+
+		-
+			message: '#^Parameter \#2 \$array of method PHPUnit\\Framework\\Assert\:\:assertArrayNotHasKey\(\) expects array\<mixed\>\|ArrayAccess\<\(int\|string\), mixed\>, array\|null given\.$#'
+			identifier: argument.type
+			count: 2
+			path: tests/Feature/Domain/Basket/Services/BasketValueCalculationServiceTest.php
+
+		-
+			message: '#^Parameter \#2 \$haystack of method PHPUnit\\Framework\\Assert\:\:assertCount\(\) expects Countable\|iterable, array\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: tests/Feature/Domain/Basket/Services/BasketValueCalculationServiceTest.php
+
+		-
+			message: '#^Offset 0 might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 2
+			path: tests/Feature/Domain/Compliance/AlertManagementServiceTest.php
+
+		-
+			message: '#^Parameter \#2 \$haystack of method PHPUnit\\Framework\\Assert\:\:assertStringContainsString\(\) expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: tests/Feature/Domain/Compliance/AlertManagementServiceTest.php
+
+		-
+			message: '#^Offset ''bic'' might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: tests/Feature/Domain/Custodian/DeutscheBankConnectorTest.php
+
+		-
+			message: '#^Offset ''branch'' might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: tests/Feature/Domain/Custodian/DeutscheBankConnectorTest.php
+
+		-
+			message: '#^Offset ''iban'' might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: tests/Feature/Domain/Custodian/DeutscheBankConnectorTest.php
+
+		-
+			message: '#^Offset ''transfer_type'' might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 2
+			path: tests/Feature/Domain/Custodian/DeutscheBankConnectorTest.php
+
+		-
+			message: '#^Offset ''bic'' might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: tests/Feature/Domain/Custodian/PayseraConnectorTest.php
+
+		-
+			message: '#^Offset ''iban'' might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: tests/Feature/Domain/Custodian/PayseraConnectorTest.php
+
+		-
+			message: '#^Offset ''account_number'' might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: tests/Feature/Domain/Custodian/SantanderConnectorTest.php
+
+		-
+			message: '#^Offset ''consent_id'' might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: tests/Feature/Domain/Custodian/SantanderConnectorTest.php
+
+		-
+			message: '#^Offset ''queued'' might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: tests/Feature/Domain/Custodian/Services/FallbackServiceTest.php
+
+		-
+			message: '#^Cannot call method hasVerifiedEmail\(\) on App\\Models\\User\|null\.$#'
+			identifier: method.nonObject
+			count: 2
+			path: tests/Feature/EmailVerificationTest.php
+
+		-
+			message: '#^Cannot access property \$order_id on App\\Domain\\Exchange\\Projections\\Order\|null\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: tests/Feature/Exchange/ExchangeControllerTest.php
+
+		-
+			message: '#^Cannot access property \$email_verified_at on App\\Models\\User\|null\.$#'
+			identifier: property.nonObject
+			count: 4
+			path: tests/Feature/Http/Controllers/Api/Auth/EmailVerificationControllerTest.php
+
+		-
+			message: '#^Cannot access property \$password on App\\Models\\User\|null\.$#'
+			identifier: property.nonObject
+			count: 3
+			path: tests/Feature/Http/Controllers/Api/Auth/PasswordResetControllerTest.php
+
+		-
+			message: '#^Cannot access property \$remember_token on App\\Models\\User\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Feature/Http/Controllers/Api/Auth/PasswordResetControllerTest.php
+
+		-
+			message: '#^Cannot access property \$id on App\\Models\\User\|null\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: tests/Feature/Http/Controllers/Api/Auth/RegisterControllerTest.php
+
+		-
+			message: '#^Cannot access property \$password on App\\Models\\User\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Feature/Http/Controllers/Api/Auth/RegisterControllerTest.php
+
+		-
+			message: '#^Cannot call method hasRole\(\) on App\\Models\\User\|null\.$#'
+			identifier: method.nonObject
+			count: 2
+			path: tests/Feature/Http/Controllers/Api/Auth/RegisterControllerTest.php
+
+		-
+			message: '#^Cannot call method toDateString\(\) on Carbon\\Carbon\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: tests/Feature/Http/Controllers/Api/BalanceControllerTest.php
+
+		-
+			message: '#^Cannot access property \$acknowledged on object\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Feature/Http/Controllers/Api/MonitoringControllerTest.php
+
+		-
+			message: '#^Cannot access property \$acknowledged_at on object\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Feature/Http/Controllers/Api/MonitoringControllerTest.php
+
+		-
+			message: '#^Cannot access property \$acknowledged_by on object\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Feature/Http/Controllers/Api/MonitoringControllerTest.php
+
+		-
+			message: '#^Parameter \#2 \$haystack of method PHPUnit\\Framework\\Assert\:\:assertStringContainsString\(\) expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: tests/Feature/Http/Controllers/MonitoringControllerTest.php
+
+		-
+			message: '#^Cannot access property \$teamInvitations on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: property.nonObject
+			count: 3
+			path: tests/Feature/InviteTeamMemberTest.php
+
+		-
+			message: '#^Cannot call method fresh\(\) on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: method.nonObject
+			count: 3
+			path: tests/Feature/InviteTeamMemberTest.php
+
+		-
+			message: '#^Cannot access property \$users on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Feature/LeaveTeamTest.php
+
+		-
+			message: '#^Cannot call method fresh\(\) on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: method.nonObject
+			count: 2
+			path: tests/Feature/LeaveTeamTest.php
+
+		-
+			message: '#^Cannot call method users\(\) on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: tests/Feature/LeaveTeamTest.php
+
+		-
+			message: '#^Cannot call method getPayment\(\) on App\\Domain\\Lending\\ValueObjects\\RepaymentSchedule\|null\.$#'
+			identifier: method.nonObject
+			count: 4
+			path: tests/Feature/Lending/LoanAggregateTest.php
+
+		-
+			message: '#^Cannot access property \$base_reserve on App\\Domain\\Exchange\\Projections\\LiquidityPool\|null\.$#'
+			identifier: property.nonObject
+			count: 3
+			path: tests/Feature/LiquidityPoolTest.php
+
+		-
+			message: '#^Cannot access property \$quote_reserve on App\\Domain\\Exchange\\Projections\\LiquidityPool\|null\.$#'
+			identifier: property.nonObject
+			count: 3
+			path: tests/Feature/LiquidityPoolTest.php
+
+		-
+			message: '#^Cannot access property \$share_percentage on App\\Domain\\Exchange\\Projections\\LiquidityProvider\|null\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: tests/Feature/LiquidityPoolTest.php
+
+		-
+			message: '#^Cannot access property \$shares on App\\Domain\\Exchange\\Projections\\LiquidityProvider\|null\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: tests/Feature/LiquidityPoolTest.php
+
+		-
+			message: '#^Cannot access property \$total_shares on App\\Domain\\Exchange\\Projections\\LiquidityPool\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Feature/LiquidityPoolTest.php
+
+		-
+			message: '#^Cannot call method refresh\(\) on App\\Domain\\Exchange\\Projections\\LiquidityProvider\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: tests/Feature/LiquidityPoolTest.php
+
+		-
+			message: '#^Cannot access property \$balance on App\\Domain\\Account\\Models\\AccountBalance\|null\.$#'
+			identifier: property.nonObject
+			count: 4
+			path: tests/Feature/Models/AccountBalanceTest.php
+
+		-
+			message: '#^Cannot access property \$code on App\\Domain\\Asset\\Models\\Asset\|null\.$#'
+			identifier: property.nonObject
+			count: 9
+			path: tests/Feature/Models/AccountBalanceTest.php
+
+		-
+			message: '#^Cannot access property \$uuid on App\\Domain\\Account\\Models\\Account\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Feature/Models/AccountBalanceTest.php
+
+		-
+			message: '#^Cannot access property \$code on App\\Domain\\Asset\\Models\\Asset\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Feature/Models/AccountTest.php
+
+		-
+			message: '#^Cannot access property \$code on App\\Domain\\Basket\\Models\\BasketAsset\|null\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: tests/Feature/Models/BasketAssetTest.php
+
+		-
+			message: '#^Cannot access property \$is_active on App\\Domain\\Basket\\Models\\BasketAsset\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Feature/Models/BasketAssetTest.php
+
+		-
+			message: '#^Cannot access property \$last_rebalanced_at on App\\Domain\\Basket\\Models\\BasketAsset\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Feature/Models/BasketAssetTest.php
+
+		-
+			message: '#^Cannot access property \$metadata on App\\Domain\\Basket\\Models\\BasketAsset\|null\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: tests/Feature/Models/BasketAssetTest.php
+
+		-
+			message: '#^Cannot access property \$is_active on App\\Domain\\Basket\\Models\\BasketComponent\|Illuminate\\Database\\Eloquent\\Collection\<int, App\\Domain\\Basket\\Models\\BasketComponent\>\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Feature/Models/BasketComponentTest.php
+
+		-
+			message: '#^Cannot access property \$max_weight on App\\Domain\\Basket\\Models\\BasketComponent\|Illuminate\\Database\\Eloquent\\Collection\<int, App\\Domain\\Basket\\Models\\BasketComponent\>\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Feature/Models/BasketComponentTest.php
+
+		-
+			message: '#^Cannot access property \$min_weight on App\\Domain\\Basket\\Models\\BasketComponent\|Illuminate\\Database\\Eloquent\\Collection\<int, App\\Domain\\Basket\\Models\\BasketComponent\>\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Feature/Models/BasketComponentTest.php
+
+		-
+			message: '#^Cannot access property \$weight on App\\Domain\\Basket\\Models\\BasketComponent\|Illuminate\\Database\\Eloquent\\Collection\<int, App\\Domain\\Basket\\Models\\BasketComponent\>\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Feature/Models/BasketComponentTest.php
+
+		-
+			message: '#^Cannot access property \$calculated_at on App\\Domain\\Basket\\Models\\BasketValue\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Feature/Models/BasketValueTest.php
+
+		-
+			message: '#^Cannot access property \$component_values on App\\Domain\\Basket\\Models\\BasketValue\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Feature/Models/BasketValueTest.php
+
+		-
+			message: '#^Cannot access property \$value on App\\Domain\\Basket\\Models\\BasketValue\|null\.$#'
+			identifier: property.nonObject
+			count: 3
+			path: tests/Feature/Models/BasketValueTest.php
+
+		-
+			message: '#^Cannot access property \$id on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Feature/Models/TeamInvitationTest.php
+
+		-
+			message: '#^Cannot access property \$event_properties on Spatie\\EventSourcing\\StoredEvents\\Models\\EloquentStoredEvent\|null\.$#'
+			identifier: property.nonObject
+			count: 3
+			path: tests/Feature/Models/TransferTest.php
+
+		-
+			message: '#^Cannot access property \$id on App\\Domain\\Account\\Models\\Turnover\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Feature/Models/TurnoverTest.php
+
+		-
+			message: '#^Cannot access property \$uuid on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Feature/Models/TurnoverTest.php
+
+		-
+			message: '#^Parameter \#2 \$haystack of method PHPUnit\\Framework\\Assert\:\:assertStringContainsString\(\) expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: tests/Feature/Monitoring/MonitoringSystemTest.php
+
+		-
+			message: '#^Cannot access property \$users on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Feature/RemoveTeamMemberTest.php
+
+		-
+			message: '#^Cannot call method fresh\(\) on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: tests/Feature/RemoveTeamMemberTest.php
+
+		-
+			message: '#^Cannot call method users\(\) on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: method.nonObject
+			count: 2
+			path: tests/Feature/RemoveTeamMemberTest.php
+
+		-
+			message: '#^Cannot access property \$abilities on Laravel\\Sanctum\\PersonalAccessToken\|null\.$#'
+			identifier: property.nonObject
+			count: 3
+			path: tests/Feature/Security/ComprehensiveSecurityTest.php
+
+		-
+			message: '#^Parameter \#2 \$haystack of function in_array expects array, array\|null given\.$#'
+			identifier: argument.type
+			count: 3
+			path: tests/Feature/Security/ComprehensiveSecurityTest.php
+
+		-
+			message: '#^Cannot access property \$name on Laravel\\Sanctum\\PersonalAccessToken\|null\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: tests/Feature/Security/ConcurrentSessionTest.php
+
+		-
+			message: '#^Cannot call method tokens\(\) on App\\Models\\User\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: tests/Feature/Security/PasswordResetSecurityTest.php
+
+		-
+			message: '#^Cannot access property \$abilities on Laravel\\Sanctum\\PersonalAccessToken\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Feature/Security/TokenExpirationTest.php
+
+		-
+			message: '#^Cannot access property \$expires_at on Laravel\\Sanctum\\PersonalAccessToken\|null\.$#'
+			identifier: property.nonObject
+			count: 4
+			path: tests/Feature/Security/TokenExpirationTest.php
+
+		-
+			message: '#^Cannot call method update\(\) on Laravel\\Sanctum\\PersonalAccessToken\|null\.$#'
+			identifier: method.nonObject
+			count: 3
+			path: tests/Feature/Security/TokenExpirationTest.php
+
+		-
+			message: '#^Cannot access property \$allocation_percentage on App\\Domain\\Banking\\Models\\UserBankPreference\|null\.$#'
+			identifier: property.nonObject
+			count: 4
+			path: tests/Feature/Seeders/DemoDataSeederTest.php
+
+		-
+			message: '#^Cannot access property \$bank_code on App\\Domain\\Banking\\Models\\UserBankPreference\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Feature/Seeders/DemoDataSeederTest.php
+
+		-
+			message: '#^Cannot access property \$email_verified_at on App\\Models\\User\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Feature/Seeders/DemoDataSeederTest.php
+
+		-
+			message: '#^Cannot access property \$id on App\\Domain\\Governance\\Models\\Poll\|null\.$#'
+			identifier: property.nonObject
+			count: 3
+			path: tests/Feature/Seeders/DemoDataSeederTest.php
+
+		-
+			message: '#^Cannot access property \$is_primary on App\\Domain\\Banking\\Models\\UserBankPreference\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Feature/Seeders/DemoDataSeederTest.php
+
+		-
+			message: '#^Cannot access property \$metadata on App\\Domain\\Governance\\Models\\Poll\|null\.$#'
+			identifier: property.nonObject
+			count: 4
+			path: tests/Feature/Seeders/DemoDataSeederTest.php
+
+		-
+			message: '#^Cannot access property \$name on App\\Models\\User\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Feature/Seeders/DemoDataSeederTest.php
+
+		-
+			message: '#^Cannot access property \$password on App\\Models\\User\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Feature/Seeders/DemoDataSeederTest.php
+
+		-
+			message: '#^Cannot access property \$selected_options on App\\Domain\\Governance\\Models\\Vote\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Feature/Seeders/DemoDataSeederTest.php
+
+		-
+			message: '#^Cannot access property \$title on App\\Domain\\Governance\\Models\\Poll\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Feature/Seeders/DemoDataSeederTest.php
+
+		-
+			message: '#^Cannot access property \$uuid on App\\Models\\User\|null\.$#'
+			identifier: property.nonObject
+			count: 4
+			path: tests/Feature/Seeders/DemoDataSeederTest.php
+
+		-
+			message: '#^Cannot access property \$voting_power on App\\Domain\\Governance\\Models\\Vote\|null\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: tests/Feature/Seeders/DemoDataSeederTest.php
+
+		-
+			message: '#^Cannot call method accounts\(\) on App\\Models\\User\|null\.$#'
+			identifier: method.nonObject
+			count: 3
+			path: tests/Feature/Seeders/DemoDataSeederTest.php
+
+		-
+			message: '#^Cannot call method getBalance\(\) on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: method.nonObject
+			count: 7
+			path: tests/Feature/Seeders/DemoDataSeederTest.php
+
+		-
+			message: '#^Offset ''participation_rate'' might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: tests/Feature/Seeders/DemoDataSeederTest.php
+
+		-
+			message: '#^Offset ''results'' might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: tests/Feature/Seeders/DemoDataSeederTest.php
+
+		-
+			message: '#^Offset ''total_votes'' might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: tests/Feature/Seeders/DemoDataSeederTest.php
+
+		-
+			message: '#^Cannot call method getValue\(\) on App\\Domain\\Treasury\\ValueObjects\\AllocationStrategy\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: tests/Feature/Treasury/TreasuryAggregateTest.php
+
+		-
+			message: '#^Cannot access property \$password on App\\Models\\User\|null\.$#'
+			identifier: property.nonObject
+			count: 3
+			path: tests/Feature/UpdatePasswordTest.php
+
+		-
+			message: '#^Cannot call method fresh\(\) on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: method.nonObject
+			count: 2
+			path: tests/Feature/UpdateTeamMemberRoleTest.php
+
+		-
+			message: '#^Cannot call method hasTeamRole\(\) on App\\Models\\User\|null\.$#'
+			identifier: method.nonObject
+			count: 2
+			path: tests/Feature/UpdateTeamMemberRoleTest.php
+
+		-
+			message: '#^Cannot call method users\(\) on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: method.nonObject
+			count: 2
+			path: tests/Feature/UpdateTeamMemberRoleTest.php
+
+		-
+			message: '#^Cannot access property \$name on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Feature/UpdateTeamNameTest.php
+
+		-
+			message: '#^Cannot access property \$ownedTeams on App\\Models\\User\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Feature/UpdateTeamNameTest.php
+
+		-
+			message: '#^Cannot call method fresh\(\) on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: tests/Feature/UpdateTeamNameTest.php
+
+		-
+			message: '#^Cannot access property \$reference on App\\Domain\\Payment\\Models\\PaymentTransaction\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Models/PaymentTransactionTest.php
+
+		-
+			message: '#^Cannot access property \$uuid on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Models/PaymentTransactionTest.php
+
+		-
+			message: '#^Cannot access property \$uuid on App\\Domain\\Account\\Models\\Account\|null\.$#'
+			identifier: property.nonObject
+			count: 7
+			path: tests/Security/API/ApiSecurityTest.php
+
+		-
+			message: '#^Cannot call method getBalance\(\) on App\\Domain\\Account\\Models\\Account\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: tests/Security/API/ApiSecurityTest.php
+
+		-
+			message: '#^Parameter \#2 \$haystack of method PHPUnit\\Framework\\Assert\:\:assertStringContainsString\(\) expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 2
+			path: tests/Security/Authentication/AuthenticationSecurityTest.php
+
+		-
+			message: '#^Cannot access property \$balance on App\\Domain\\Account\\Models\\Account\|null\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: tests/Security/Authentication/AuthorizationSecurityTest.php
+
+		-
+			message: '#^Cannot access property \$token on object\|null\.$#'
+			identifier: property.nonObject
+			count: 3
+			path: tests/Security/Cryptography/CryptographySecurityTest.php
+
+		-
+			message: '#^Parameter \#1 \$haystack of function str_contains expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: tests/Security/Cryptography/CryptographySecurityTest.php
+
+		-
+			message: '#^Parameter \#1 \$payload of static method Illuminate\\Support\\Facades\\Crypt\:\:decryptString\(\) expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: tests/Security/Cryptography/CryptographySecurityTest.php
+
+		-
+			message: '#^Parameter \#2 \$haystack of method PHPUnit\\Framework\\Assert\:\:assertStringContainsString\(\) expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 2
+			path: tests/Security/Cryptography/CryptographySecurityTest.php
+
+		-
+			message: '#^Parameter \#2 \$string of method PHPUnit\\Framework\\Assert\:\:assertMatchesRegularExpression\(\) expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: tests/Security/Cryptography/CryptographySecurityTest.php
+
+		-
+			message: '#^Cannot access property \$uuid on App\\Domain\\Account\\Models\\Account\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Security/Penetration/CsrfTest.php
+
+		-
+			message: '#^Cannot call method tokens\(\) on App\\Models\\User\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: tests/Security/Penetration/CsrfTest.php
+
+		-
+			message: '#^Parameter \#1 \$haystack of function str_contains expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: tests/Security/Penetration/CsrfTest.php
+
+		-
+			message: '#^Parameter \#2 \$haystack of method PHPUnit\\Framework\\Assert\:\:assertStringContainsString\(\) expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: tests/Security/Penetration/CsrfTest.php
+
+		-
+			message: '#^Property Tests\\Security\\Penetration\\CsrfTest\:\:\$account \(App\\Domain\\Account\\Models\\Account\) does not accept App\\Domain\\Account\\Models\\Account\|null\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: tests/Security/Penetration/CsrfTest.php
+
+		-
+			message: '#^Cannot access property \$uuid on App\\Domain\\Account\\Models\\Account\|null\.$#'
+			identifier: property.nonObject
+			count: 6
+			path: tests/Security/Penetration/SqlInjectionTest.php
+
+		-
+			message: '#^Cannot access property \$uuid on App\\Domain\\Account\\Models\\Account\|null\.$#'
+			identifier: property.nonObject
+			count: 3
+			path: tests/Security/Penetration/XssTest.php
+
+		-
+			message: '#^Parameter \#2 \$haystack of method PHPUnit\\Framework\\Assert\:\:assertStringNotContainsString\(\) expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: tests/Security/Penetration/XssTest.php
+
+		-
+			message: '#^Parameter \#1 \$haystack of function str_contains expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: tests/Security/SecurityTestSuite.php
+
+		-
+			message: '#^Parameter \#2 \$haystack of method PHPUnit\\Framework\\Assert\:\:assertStringContainsString\(\) expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 4
+			path: tests/Unit/AI/MCP/Tools/AgentProtocol/AgentEscrowToolTest.php
+
+		-
+			message: '#^Parameter \#2 \$haystack of method PHPUnit\\Framework\\Assert\:\:assertStringContainsString\(\) expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: tests/Unit/AI/MCP/Tools/AgentProtocol/AgentPaymentToolTest.php
+
+		-
+			message: '#^Parameter \#2 \$haystack of method PHPUnit\\Framework\\Assert\:\:assertStringContainsString\(\) expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 4
+			path: tests/Unit/AI/MCP/Tools/AgentProtocol/AgentReputationToolTest.php
+
+		-
+			message: '#^Offset ''name'' might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: tests/Unit/AI/Services/AIAgentProtocolBridgeServiceTest.php
+
+		-
+			message: '#^Parameter \#2 \$haystack of method PHPUnit\\Framework\\Assert\:\:assertStringContainsString\(\) expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 2
+			path: tests/Unit/AgentProtocol/Messaging/AgentMessageBusServiceTest.php
+
+		-
+			message: '#^Cannot access property \$agent_id on App\\Models\\Agent\|null\.$#'
+			identifier: property.nonObject
+			count: 3
+			path: tests/Unit/AgentProtocol/Services/AgentAuthenticationServiceTest.php
+
+		-
+			message: '#^Cannot access property \$is_active on App\\Models\\AgentApiKey\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Unit/AgentProtocol/Services/AgentAuthenticationServiceTest.php
+
+		-
+			message: '#^Cannot access property \$last_used_at on App\\Models\\AgentApiKey\|null\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: tests/Unit/AgentProtocol/Services/AgentAuthenticationServiceTest.php
+
+		-
+			message: '#^Cannot access property \$revoked_at on App\\Models\\AgentApiKey\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Unit/AgentProtocol/Services/AgentAuthenticationServiceTest.php
+
+		-
+			message: '#^Cannot call method refresh\(\) on App\\Models\\AgentApiKey\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: tests/Unit/AgentProtocol/Services/AgentAuthenticationServiceTest.php
+
+		-
+			message: '#^Parameter \#1 \$token of method App\\Domain\\AgentProtocol\\Services\\AgentAuthenticationService\:\:revokeSession\(\) expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: tests/Unit/AgentProtocol/Services/AgentAuthenticationServiceTest.php
+
+		-
+			message: '#^Parameter \#1 \$token of method App\\Domain\\AgentProtocol\\Services\\AgentAuthenticationService\:\:validateSession\(\) expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 4
+			path: tests/Unit/AgentProtocol/Services/AgentAuthenticationServiceTest.php
+
+		-
+			message: '#^Cannot access property \$balance on App\\Domain\\Account\\Models\\AccountBalance\|null\.$#'
+			identifier: property.nonObject
+			count: 4
+			path: tests/Unit/Domain/Account/Actions/CreditAccountTest.php
+
+		-
+			message: '#^Cannot access property \$balance on App\\Domain\\Account\\Models\\AccountBalance\|null\.$#'
+			identifier: property.nonObject
+			count: 3
+			path: tests/Unit/Domain/Account/Actions/DebitAccountTest.php
+
+		-
+			message: '#^Cannot access property \$balance on App\\Domain\\Account\\Models\\AccountBalance\|null\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: tests/Unit/Domain/Account/Actions/FreezeAccountTest.php
+
+		-
+			message: '#^Cannot access property \$balance on App\\Domain\\Account\\Models\\AccountBalance\|null\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: tests/Unit/Domain/Account/Actions/UnfreezeAccountTest.php
+
+		-
+			message: '#^Offset ''fees'' might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: tests/Unit/Domain/Account/Events/AssetBalanceSubtractedTest.php
+
+		-
+			message: '#^Offset ''reason'' might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: tests/Unit/Domain/Account/Events/AssetBalanceSubtractedTest.php
+
+		-
+			message: '#^Offset ''transaction_type'' might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: tests/Unit/Domain/Account/Events/AssetBalanceSubtractedTest.php
+
+		-
+			message: '#^Cannot access property \$user_uuid on App\\Domain\\Account\\Models\\Account\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Unit/Domain/Compliance/Services/GdprServiceTest.php
+
+		-
+			message: '#^Offset ''requested_by'' might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: tests/Unit/Domain/Compliance/Services/GdprServiceTest.php
+
+		-
+			message: '#^Parameter \#2 \$haystack of method PHPUnit\\Framework\\Assert\:\:assertStringContainsString\(\) expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 4
+			path: tests/Unit/Domain/Compliance/Services/GdprServiceTest.php
+
+		-
+			message: '#^Offset ''document_types'' might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: tests/Unit/Domain/Compliance/Services/KycServiceTest.php
+
+		-
+			message: '#^Offset ''documents'' might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: tests/Unit/Domain/Compliance/Services/KycServiceTest.php
+
+		-
+			message: '#^Offset ''kyc_status'' might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 2
+			path: tests/Unit/Domain/Compliance/Services/KycServiceTest.php
+
+		-
+			message: '#^Offset ''verified_by'' might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: tests/Unit/Domain/Compliance/Services/KycServiceTest.php
+
+		-
+			message: '#^Parameter \#1 \$path of method Illuminate\\Filesystem\\FilesystemAdapter\:\:assertExists\(\) expects array\|string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: tests/Unit/Domain/Compliance/Services/KycServiceTest.php
+
+		-
+			message: '#^Offset ''demo_mode'' might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 3
+			path: tests/Unit/Domain/Custodian/Connectors/DemoBankConnectorTest.php
+
+		-
+			message: '#^Offset ''description'' might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: tests/Unit/Domain/Custodian/Connectors/DemoBankConnectorTest.php
+
+		-
+			message: '#^Cannot access property \$pool_id on App\\Domain\\Exchange\\Projections\\LiquidityPool\|null\.$#'
+			identifier: property.nonObject
+			count: 3
+			path: tests/Unit/Domain/Exchange/LiquidityPool/Services/ImpermanentLossProtectionServiceTest.php
+
+		-
+			message: '#^Cannot call method diffInHours\(\) on Carbon\\Carbon\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: tests/Unit/Domain/Exchange/LiquidityPool/Services/ImpermanentLossProtectionServiceTest.php
+
+		-
+			message: '#^Offset ''demo_mode'' might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 2
+			path: tests/Unit/Domain/Exchange/Services/DemoExchangeServiceTest.php
+
+		-
+			message: '#^Offset ''device_analysis'' might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: tests/Unit/Domain/Fraud/Services/FraudDetectionServiceTest.php
+
+		-
+			message: '#^Parameter \#2 \$array of method PHPUnit\\Framework\\Assert\:\:assertArrayHasKey\(\) expects array\<mixed\>\|ArrayAccess\<\(int\|string\), mixed\>, array\|null given\.$#'
+			identifier: argument.type
+			count: 2
+			path: tests/Unit/Domain/Fraud/Services/FraudDetectionServiceTest.php
+
+		-
+			message: '#^Parameter \#2 \$haystack of method PHPUnit\\Framework\\Assert\:\:assertContains\(\) expects iterable, array\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: tests/Unit/Domain/Lending/Services/DemoLendingServiceTest.php
+
+		-
+			message: '#^Offset ''payment_number'' might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 4
+			path: tests/Unit/Domain/Lending/ValueObjects/RepaymentScheduleTest.php
+
+		-
+			message: '#^Parameter \#2 \$string of method PHPUnit\\Framework\\Assert\:\:assertStringStartsWith\(\) expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: tests/Unit/Domain/Payment/Services/DemoPaymentGatewayServiceTest.php
+
+		-
+			message: '#^Offset ''method'' might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: tests/Unit/Domain/Performance/MetricsCollectorTest.php
+
+		-
+			message: '#^Offset ''type'' might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: tests/Unit/Domain/Performance/MetricsCollectorTest.php
+
+		-
+			message: '#^Offset ''name'' might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: tests/Unit/Domain/Product/ProductCatalogTest.php
+
+		-
+			message: '#^Offset ''high'' might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: tests/Unit/Domain/Stablecoin/Oracles/BinanceOracleTest.php
+
+		-
+			message: '#^Offset ''low'' might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: tests/Unit/Domain/Stablecoin/Oracles/BinanceOracleTest.php
+
+		-
+			message: '#^Offset ''open'' might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 2
+			path: tests/Unit/Domain/Stablecoin/Oracles/BinanceOracleTest.php
+
+		-
+			message: '#^Offset ''quote_volume'' might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: tests/Unit/Domain/Stablecoin/Oracles/BinanceOracleTest.php
+
+		-
+			message: '#^Offset ''symbol'' might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 3
+			path: tests/Unit/Domain/Stablecoin/Oracles/BinanceOracleTest.php
+
+		-
+			message: '#^Parameter \#2 \$array of method PHPUnit\\Framework\\Assert\:\:assertArrayHasKey\(\) expects array\<mixed\>\|ArrayAccess\<\(int\|string\), mixed\>, array\|null given\.$#'
+			identifier: argument.type
+			count: 8
+			path: tests/Unit/Domain/Stablecoin/Oracles/BinanceOracleTest.php
+
+		-
+			message: '#^Offset ''feed_address'' might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: tests/Unit/Domain/Stablecoin/Oracles/ChainlinkOracleTest.php
+
+		-
+			message: '#^Offset ''round_id'' might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: tests/Unit/Domain/Stablecoin/Oracles/ChainlinkOracleTest.php
+
+		-
+			message: '#^Offset ''updated_at'' might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: tests/Unit/Domain/Stablecoin/Oracles/ChainlinkOracleTest.php
+
+		-
+			message: '#^Parameter \#2 \$array of method PHPUnit\\Framework\\Assert\:\:assertArrayHasKey\(\) expects array\<mixed\>\|ArrayAccess\<\(int\|string\), mixed\>, array\|null given\.$#'
+			identifier: argument.type
+			count: 5
+			path: tests/Unit/Domain/Stablecoin/Oracles/ChainlinkOracleTest.php
+
+		-
+			message: '#^Cannot call method toIso8601String\(\) on Illuminate\\Support\\Carbon\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: tests/Unit/Domain/Stablecoin/Oracles/InternalAMMOracleTest.php
+
+		-
+			message: '#^Offset ''k_value'' might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 2
+			path: tests/Unit/Domain/Stablecoin/Oracles/InternalAMMOracleTest.php
+
+		-
+			message: '#^Offset ''liquidity'' might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: tests/Unit/Domain/Stablecoin/Oracles/InternalAMMOracleTest.php
+
+		-
+			message: '#^Offset ''pool_id'' might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: tests/Unit/Domain/Stablecoin/Oracles/InternalAMMOracleTest.php
+
+		-
+			message: '#^Offset ''total_shares'' might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: tests/Unit/Domain/Stablecoin/Oracles/InternalAMMOracleTest.php
+
+		-
+			message: '#^Cannot call method getDocComment\(\) on ReflectionMethod\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: tests/Unit/Domain/Stablecoin/Repositories/StablecoinEventRepositoryTest.php
+
+		-
+			message: '#^Cannot call method getEndLine\(\) on ReflectionMethod\|null\.$#'
+			identifier: method.nonObject
+			count: 2
+			path: tests/Unit/Domain/Stablecoin/Repositories/StablecoinEventRepositoryTest.php
+
+		-
+			message: '#^Cannot call method getStartLine\(\) on ReflectionMethod\|null\.$#'
+			identifier: method.nonObject
+			count: 2
+			path: tests/Unit/Domain/Stablecoin/Repositories/StablecoinEventRepositoryTest.php
+
+		-
+			message: '#^Cannot call method getDocComment\(\) on ReflectionMethod\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: tests/Unit/Domain/Stablecoin/Repositories/StablecoinSnapshotRepositoryTest.php
+
+		-
+			message: '#^Cannot call method getEndLine\(\) on ReflectionMethod\|null\.$#'
+			identifier: method.nonObject
+			count: 2
+			path: tests/Unit/Domain/Stablecoin/Repositories/StablecoinSnapshotRepositoryTest.php
+
+		-
+			message: '#^Cannot call method getStartLine\(\) on ReflectionMethod\|null\.$#'
+			identifier: method.nonObject
+			count: 2
+			path: tests/Unit/Domain/Stablecoin/Repositories/StablecoinSnapshotRepositoryTest.php
+
+		-
+			message: '#^Cannot access property \$debt_amount on App\\Domain\\Stablecoin\\Models\\StablecoinCollateralPosition\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Unit/Domain/Stablecoin/Services/DemoStablecoinServiceTest.php
+
+		-
+			message: '#^Cannot access property \$status on App\\Domain\\Stablecoin\\Models\\StablecoinCollateralPosition\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Unit/Domain/Stablecoin/Services/DemoStablecoinServiceTest.php
+
+		-
+			message: '#^Cannot access property \$uuid on App\\Domain\\Stablecoin\\Models\\StablecoinCollateralPosition\|null\.$#'
+			identifier: property.nonObject
+			count: 3
+			path: tests/Unit/Domain/Stablecoin/Services/DemoStablecoinServiceTest.php
+
+		-
+			message: '#^Cannot call method getEndLine\(\) on ReflectionMethod\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: tests/Unit/Domain/Stablecoin/Services/OracleAggregatorTest.php
+
+		-
+			message: '#^Cannot call method getStartLine\(\) on ReflectionMethod\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: tests/Unit/Domain/Stablecoin/Services/OracleAggregatorTest.php
+
+		-
+			message: '#^Offset ''quality_scores'' might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: tests/Unit/Domain/Stablecoin/ValueObjects/AggregatedPriceTest.php
+
+		-
+			message: '#^Offset ''weights'' might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: tests/Unit/Domain/Stablecoin/ValueObjects/AggregatedPriceTest.php
+
+		-
+			message: '#^Offset ''calculation'' might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: tests/Unit/Domain/Stablecoin/ValueObjects/PriceDataTest.php
+
+		-
+			message: '#^Offset ''sources'' might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: tests/Unit/Domain/Stablecoin/ValueObjects/PriceDataTest.php
+
+		-
+			message: '#^Offset ''currency'' might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: tests/Unit/Domain/User/UserProfileTest.php
+
+		-
+			message: '#^Offset ''darkMode'' might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: tests/Unit/Domain/User/UserProfileTest.php
+
+		-
+			message: '#^Offset ''language'' might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: tests/Unit/Domain/User/UserProfileTest.php
+
+		-
+			message: '#^Cannot access property \$id on App\\Domain\\Wallet\\Models\\SecureKeyStorage\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Unit/Domain/Wallet/Services/SecureKeyStorageServiceTest.php
+
+		-
+			message: '#^Cannot access property \$is_active on App\\Domain\\Wallet\\Models\\SecureKeyStorage\|null\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: tests/Unit/Domain/Wallet/Services/SecureKeyStorageServiceTest.php
+
+		-
+			message: '#^Cannot call method refresh\(\) on App\\Domain\\Wallet\\Models\\SecureKeyStorage\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: tests/Unit/Domain/Wallet/Services/SecureKeyStorageServiceTest.php
+
+		-
+			message: '#^Offset ''algorithm'' might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: tests/Unit/Domain/Wallet/Services/SecureKeyStorageServiceTest.php
+
+		-
+			message: '#^Offset ''created_by'' might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: tests/Unit/Domain/Wallet/Services/SecureKeyStorageServiceTest.php
+
+		-
+			message: '#^Offset ''permission_used'' might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: tests/Unit/Domain/Wallet/Services/SecureKeyStorageServiceTest.php
+
+		-
+			message: '#^Offset ''permissions'' might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: tests/Unit/Domain/Wallet/Services/SecureKeyStorageServiceTest.php
+
+		-
+			message: '#^Offset ''purpose'' might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: tests/Unit/Domain/Wallet/Services/SecureKeyStorageServiceTest.php
+
+		-
+			message: '#^Offset ''reason'' might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: tests/Unit/Domain/Wallet/Services/SecureKeyStorageServiceTest.php
+
+		-
+			message: '#^Offset ''rotation_reason'' might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: tests/Unit/Domain/Wallet/Services/SecureKeyStorageServiceTest.php
+
+		-
+			message: '#^Offset ''storage_type'' might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: tests/Unit/Domain/Wallet/Services/SecureKeyStorageServiceTest.php
+
+		-
+			message: '#^Offset ''ttl'' might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: tests/Unit/Domain/Wallet/Services/SecureKeyStorageServiceTest.php
+
+		-
+			message: '#^Parameter \#2 \$array of method PHPUnit\\Framework\\Assert\:\:assertArrayHasKey\(\) expects array\<mixed\>\|ArrayAccess\<\(int\|string\), mixed\>, array\|null given\.$#'
+			identifier: argument.type
+			count: 4
+			path: tests/Unit/Domain/Wallet/Services/SecureKeyStorageServiceTest.php
+
+		-
+			message: '#^Parameter \#1 \$object of class ReflectionObject constructor expects object, Filament\\Actions\\Exports\\ExportColumn\|null given\.$#'
+			identifier: argument.type
+			count: 2
+			path: tests/Unit/Filament/AccountExporterTest.php
+
+		-
+			message: '#^Cannot call method getName\(\) on ReflectionType\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: tests/Unit/Helpers/FakerHelperTest.php
+
+		-
+			message: '#^Offset ''attempts'' might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: tests/Unit/Http/Middleware/ValidateKeyAccessTest.php
+
+		-
+			message: '#^Offset ''new_ip'' might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: tests/Unit/Http/Middleware/ValidateKeyAccessTest.php
+
+		-
+			message: '#^Offset ''previous_ip'' might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: tests/Unit/Http/Middleware/ValidateKeyAccessTest.php
+
+		-
+			message: '#^Offset ''recent_accesses'' might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: tests/Unit/Http/Middleware/ValidateKeyAccessTest.php
+
+		-
+			message: '#^Offset ''retry_after'' might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: tests/Unit/Http/Middleware/ValidateKeyAccessTest.php
+
+		-
+			message: '#^Offset ''threshold'' might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: tests/Unit/Http/Middleware/ValidateKeyAccessTest.php
+
+		-
+			message: '#^Offset ''time_window'' might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: tests/Unit/Http/Middleware/ValidateKeyAccessTest.php
+
+		-
+			message: '#^Cannot call method getBody\(\) on Psr\\Http\\Message\\RequestInterface\|null\.$#'
+			identifier: method.nonObject
+			count: 3
+			path: tests/Unit/Infrastructure/AI/VectorDB/PineconeProviderTest.php
+
+		-
+			message: '#^Cannot access property \$is_encrypted on App\\Models\\Setting\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: tests/Unit/Services/SettingsServiceTest.php
+
+		-
+			message: '#^Cannot call method getRawOriginal\(\) on App\\Models\\Setting\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: tests/Unit/Services/SettingsServiceTest.php
+
+		-
+			message: '#^Offset ''enabled'' might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: tests/Unit/Services/SubProductServiceTest.php
+
+		-
+			message: '#^Parameter \#2 \$array of method PHPUnit\\Framework\\Assert\:\:assertArrayHasKey\(\) expects array\<mixed\>\|ArrayAccess\<\(int\|string\), mixed\>, array\|null given\.$#'
+			identifier: argument.type
+			count: 4
+			path: tests/Unit/Services/SubProductServiceTest.php
+
+		-
+			message: '#^Cannot call method format\(\) on Carbon\\Carbon\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: tests/Unit/Testing/TestEventSerializerTest.php

@@ -1,0 +1,41 @@
+{
+    "$schema": "https://finaegis.io/schemas/module.json",
+    "name": "finaegis/commerce",
+    "version": "1.2.0",
+    "description": "Soulbound tokens, merchant onboarding, payment attestations, and credential issuance",
+    "type": "optional",
+    "dependencies": {
+        "required": {
+            "finaegis/shared": "^1.0",
+            "finaegis/wallet": "^1.0",
+            "finaegis/account": "^1.0",
+            "finaegis/compliance": "^1.0"
+        },
+        "optional": {
+            "finaegis/trust-cert": "^1.0"
+        }
+    },
+    "provides": {
+        "interfaces": [
+            "App\\Domain\\Commerce\\Contracts\\TokenIssuerInterface",
+            "App\\Domain\\Commerce\\Contracts\\AttestationServiceInterface",
+            "App\\Domain\\Commerce\\Contracts\\OnChainSbtServiceInterface"
+        ],
+        "events": [
+            "SoulboundTokenIssued",
+            "SoulboundTokenRevoked",
+            "MerchantOnboarded",
+            "PaymentAttested",
+            "CredentialIssued",
+            "SoulboundTokenMintedOnChain",
+            "SoulboundTokenRevokedOnChain"
+        ],
+        "commands": []
+    },
+    "paths": {
+        "routes": "Routes/api.php",
+        "migrations": "Database/Migrations",
+        "config": "Config/commerce.php",
+        "tests": "Tests"
+    }
+}

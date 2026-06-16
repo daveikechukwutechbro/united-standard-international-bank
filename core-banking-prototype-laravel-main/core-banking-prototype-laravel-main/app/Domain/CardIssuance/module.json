@@ -1,0 +1,33 @@
+{
+    "$schema": "https://finaegis.io/schemas/module.json",
+    "name": "finaegis/card-issuance",
+    "version": "1.0.0",
+    "description": "Virtual card provisioning with JIT funding and wallet integration",
+    "type": "optional",
+    "dependencies": {
+        "required": {
+            "finaegis/shared": "^1.0",
+            "finaegis/wallet": "^1.0",
+            "finaegis/banking": "^1.0",
+            "finaegis/payment": "^1.0"
+        },
+        "optional": {}
+    },
+    "provides": {
+        "interfaces": [
+            "App\\Domain\\CardIssuance\\Contracts\\CardIssuerInterface"
+        ],
+        "events": [
+            "CardProvisioned",
+            "AuthorizationApproved",
+            "AuthorizationDeclined"
+        ],
+        "commands": []
+    },
+    "paths": {
+        "routes": "Routes/api.php",
+        "migrations": "Database/Migrations",
+        "config": "Config/card-issuance.php",
+        "tests": "Tests"
+    }
+}

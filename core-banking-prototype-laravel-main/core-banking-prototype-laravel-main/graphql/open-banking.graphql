@@ -1,0 +1,41 @@
+type OpenBankingConsent {
+    id: ID!
+    tpp_id: String!
+    user_id: Int!
+    status: String!
+    permissions: [String!]!
+    expires_at: String
+    authorized_at: String
+    revoked_at: String
+    created_at: String!
+}
+
+input CreateConsentInput {
+    tpp_id: String!
+    permissions: [String!]!
+    account_ids: [String!]
+}
+
+extend type Query {
+    openBankingConsent(id: ID!): OpenBankingConsent
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Queries\\OpenBanking\\ConsentQuery")
+
+    openBankingMyConsents: [OpenBankingConsent!]!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Queries\\OpenBanking\\MyConsentsQuery")
+}
+
+extend type Mutation {
+    openBankingCreateConsent(input: CreateConsentInput! @spread): OpenBankingConsent!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Mutations\\OpenBanking\\CreateConsentMutation")
+
+    openBankingAuthorizeConsent(id: ID!): OpenBankingConsent!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Mutations\\OpenBanking\\AuthorizeConsentMutation")
+
+    openBankingRevokeConsent(id: ID!): OpenBankingConsent!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Mutations\\OpenBanking\\RevokeConsentMutation")
+}

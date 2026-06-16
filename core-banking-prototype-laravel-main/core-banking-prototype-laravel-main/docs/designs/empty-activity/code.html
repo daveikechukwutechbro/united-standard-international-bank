@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Activity Empty State</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#277bf1",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101722",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-900 dark:text-white flex flex-col min-h-screen">
+<!-- Top Status Bar Area (Simulated) -->
+<div class="h-12 w-full bg-background-light dark:bg-background-dark shrink-0"></div>
+<!-- Top App Bar -->
+<div class="flex items-center justify-between px-4 py-3 bg-background-light dark:bg-background-dark sticky top-0 z-10">
+<!-- Spacer for centering title -->
+<div class="w-10"></div>
+<h2 class="text-lg font-bold leading-tight tracking-tight text-center">Activity</h2>
+<!-- Filter/Action Icon Placeholder -->
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors">
+<span class="material-symbols-outlined text-gray-900 dark:text-white" style="font-size: 24px;">tune</span>
+</button>
+</div>
+<!-- Main Content Area: Empty State -->
+<div class="flex-1 flex flex-col items-center justify-center px-6 pb-20">
+<!-- Illustration Container -->
+<div class="relative mb-8 p-8 rounded-full bg-primary/10 dark:bg-primary/5 flex items-center justify-center aspect-square w-40 h-40">
+<!-- Decorative circle blur behind -->
+<div class="absolute inset-0 bg-primary/20 blur-2xl rounded-full opacity-50"></div>
+<span class="material-symbols-outlined text-primary relative z-10" style="font-size: 64px;">shopping_bag</span>
+<!-- Decorative accent badge -->
+<div class="absolute top-8 right-8 w-4 h-4 bg-primary rounded-full border-2 border-background-light dark:border-background-dark z-20"></div>
+</div>
+<!-- Text Content -->
+<div class="flex flex-col items-center gap-3 text-center max-w-[320px]">
+<h3 class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                No activity yet
+            </h3>
+<p class="text-gray-500 dark:text-gray-400 text-base font-normal leading-relaxed">
+                Pay with stablecoins in shops to see your activity here.
+            </p>
+</div>
+<!-- Primary Action -->
+<div class="mt-10 w-full max-w-[280px]">
+<button class="w-full flex cursor-pointer items-center justify-center gap-2 rounded-xl h-12 bg-primary hover:bg-blue-600 transition-colors text-white text-base font-bold shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined" style="font-size: 20px;">payments</span>
+<span>Make your first payment</span>
+</button>
+</div>
+</div>
+<!-- Bottom Navigation Bar -->
+<div class="fixed bottom-0 left-0 w-full border-t border-gray-200 dark:border-gray-800 bg-background-light dark:bg-background-dark px-4 pb-6 pt-2 z-50">
+<div class="flex justify-between items-end">
+<a class="flex flex-1 flex-col items-center justify-end gap-1 group" href="#">
+<div class="flex h-7 items-center justify-center text-gray-400 dark:text-gray-500 group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined" style="font-size: 24px;">home</span>
+</div>
+<p class="text-[10px] font-medium tracking-wide text-gray-400 dark:text-gray-500 group-hover:text-primary transition-colors">Home</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-end gap-1 group" href="#">
+<div class="flex h-7 items-center justify-center text-gray-400 dark:text-gray-500 group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined" style="font-size: 24px;">storefront</span>
+</div>
+<p class="text-[10px] font-medium tracking-wide text-gray-400 dark:text-gray-500 group-hover:text-primary transition-colors">Shop</p>
+</a>
+<!-- Active Tab -->
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-primary" href="#">
+<div class="flex h-7 items-center justify-center relative">
+<span class="material-symbols-outlined fill-current" style="font-size: 24px; font-variation-settings: 'FILL' 1;">history</span>
+<!-- Active Indicator Dot -->
+<div class="absolute -top-1 right-3 w-1.5 h-1.5 bg-primary rounded-full"></div>
+</div>
+<p class="text-[10px] font-bold tracking-wide">Activity</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-end gap-1 group" href="#">
+<div class="flex h-7 items-center justify-center text-gray-400 dark:text-gray-500 group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined" style="font-size: 24px;">person</span>
+</div>
+<p class="text-[10px] font-medium tracking-wide text-gray-400 dark:text-gray-500 group-hover:text-primary transition-colors">Profile</p>
+</a>
+</div>
+</div>
+</body></html>

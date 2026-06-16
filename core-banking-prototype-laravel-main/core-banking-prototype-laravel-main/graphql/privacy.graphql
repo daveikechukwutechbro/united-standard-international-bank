@@ -1,0 +1,72 @@
+type DelegatedProofJob @model(class: "App\\Domain\\Privacy\\Models\\DelegatedProofJob") {
+    id: ID!
+    user_id: Int!
+    proof_type: String!
+    network: String!
+    status: String!
+    progress: Int!
+    proof: String
+    error: String
+    estimated_seconds: Int
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+extend type Query {
+    delegatedProofJob(id: ID! @eq): DelegatedProofJob
+        @find
+        @guard(with: ["sanctum"])
+
+    delegatedProofJobs(
+        page: Int @rules(apply: ["integer", "min:1"])
+        first: Int @rules(apply: ["integer", "min:1", "max:100"])
+        status: String @where(operator: "=")
+        proof_type: String @where(operator: "=")
+    ): [DelegatedProofJob!]!
+        @paginate(defaultCount: 15, model: "App\\Domain\\Privacy\\Models\\DelegatedProofJob")
+        @guard(with: ["sanctum"])
+
+    zkKycProofTypes: [String!]!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Queries\\Privacy\\ZkKycProofTypesQuery")
+
+    merkleSupportedNetworks: [String!]!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Queries\\Privacy\\MerkleSupportedNetworksQuery")
+}
+
+input RequestDelegatedProofInput {
+    proof_type: String!
+    network: String!
+    public_inputs: String!
+    encrypted_private_inputs: String!
+}
+
+input GenerateZkKycProofInput {
+    proof_type: String!
+    subject_data: String!
+    threshold: Int
+}
+
+input VerifyMerkleCommitmentInput {
+    network: String!
+    commitment: String!
+}
+
+extend type Mutation {
+    requestDelegatedProof(input: RequestDelegatedProofInput! @spread): DelegatedProofJob!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Mutations\\Privacy\\RequestDelegatedProofMutation")
+
+    cancelDelegatedProof(id: ID!): DelegatedProofJob!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Mutations\\Privacy\\CancelDelegatedProofMutation")
+
+    generateZkKycProof(input: GenerateZkKycProofInput! @spread): String!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Mutations\\Privacy\\GenerateZkKycProofMutation")
+
+    verifyMerkleCommitment(input: VerifyMerkleCommitmentInput! @spread): Boolean!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Mutations\\Privacy\\VerifyMerkleCommitmentMutation")
+}

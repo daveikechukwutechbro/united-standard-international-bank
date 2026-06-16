@@ -1,0 +1,48 @@
+type UserProfile @model(class: "App\\Domain\\User\\Models\\UserProfile") {
+    id: ID!
+    user_id: Int
+    email: String
+    first_name: String
+    last_name: String
+    phone_number: String
+    country: String
+    city: String
+    status: String
+    is_verified: Boolean
+    preferences: [String]
+    notification_preferences: [String]
+    privacy_settings: [String]
+    last_activity_at: DateTime
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+input UpdateProfileInput {
+    first_name: String
+    last_name: String
+    phone_number: String
+    country: String
+    city: String
+    address: String
+    postal_code: String
+}
+
+input UpdatePreferencesInput {
+    preferences: [String!]
+}
+
+extend type Query {
+    userProfile: UserProfile
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Queries\\User\\UserProfileQuery")
+}
+
+extend type Mutation {
+    updateProfile(input: UpdateProfileInput! @spread): UserProfile!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Mutations\\User\\UpdateProfileMutation")
+
+    updatePreferences(input: UpdatePreferencesInput! @spread): UserProfile!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Mutations\\User\\UpdatePreferencesMutation")
+}

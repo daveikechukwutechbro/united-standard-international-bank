@@ -1,0 +1,118 @@
+<?php
+
+namespace App\Actions\Fortify;
+
+use App\Models\Team;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Validator;
+use Laravel\Fortify\Contracts\CreatesNewUsers;
+use Laravel\Jetstream\Jetstream;
+
+class CreateNewUser implements CreatesNewUsers
+{
+    use PasswordValidationRules;
+
+    /**
+     * Create a newly registered user.
+     *
+     * @param  array<string, string>  $input
+     * @param  bool  $isApiRegistration  When true, skip the Fortify registration gate (API user signup is always allowed)
+     *
+     * @throws \Illuminate\Validation\ValidationException
+     */
+    public function create(array $input, bool $isApiRegistration = false): User
+    {
+        // Block Fortify web registration when disabled — API registration is always allowed
+        if (! $isApiRegistration && ! config('fortify.registration_enabled', false)) {
+            abort(403, 'Admin registration is disabled. Users register via the API or CLI.');
+        }
+
+        Validator::make(
+            $input,
+            [
+                'name'                 => ['required', 'string', 'max:255'],
+                'email'                => ['required', 'string', 'email', 'max:255', 'unique:users'],
+                'is_business_customer' => ['boolean'],
+                'referral_code'        => ['nullable', 'string', 'max:20'],
+                'password'             => $this->passwordRules(),
+                'terms'                => Jetstream::hasTermsAndPrivacyPolicyFeature() ? ['accepted', 'required'] : '',
+            ]
+        )->validate();
+
+        $user = User::create(
+            [
+                'name'     => $input['name'],
+                'email'    => $input['email'],
+                'password' => Hash::make($input['password']),
+            ]
+        );
+
+        // Track referral if code provided
+        if (! empty($input['referral_code'])) {
+            $referrer = User::where('referral_code', $input['referral_code'])->first();
+            if ($referrer && $referrer->id !== $user->id) {
+                $user->update(['referred_by' => $referrer->id]);
+                Log::info('Referral tracked', [
+                    'user_id'     => $user->id,
+                    'referrer_id' => $referrer->id,
+                    'code'        => $input['referral_code'],
+                ]);
+            } elseif (! $referrer) {
+                Log::warning('Invalid referral code used during registration', [
+                    'user_id' => $user->id,
+                    'code'    => $input['referral_code'],
+                ]);
+            }
+        }
+
+        $team = $this->createTeam($user);
+
+        if (isset($input['is_business_customer']) && $input['is_business_customer']) {
+            $user->assignRole('customer_business');
+
+            // Convert personal team to business organization
+            $team->update(
+                [
+                    'is_business_organization' => true,
+                    'organization_type'        => 'business',
+                    'max_users'                => 10, // Default limit for business accounts
+                    'allowed_roles'            => [
+                        'compliance_officer',
+                        'risk_manager',
+                        'accountant',
+                        'operations_manager',
+                        'customer_service',
+                    ],
+                ]
+            );
+
+            // Assign owner role in the team
+            $team->assignUserRole($user, 'owner');
+        } else {
+            $user->assignRole('customer_private');
+        }
+
+        return $user;
+    }
+
+    /**
+     * Create a personal team for the user.
+     */
+    protected function createTeam(User $user): Team
+    {
+        $team = $user->ownedTeams()->save(
+            Team::forceCreate(
+                [
+                    'user_id'       => $user->id,
+                    'name'          => explode(' ', $user->name, 2)[0] . "'s Team",
+                    'personal_team' => true,
+                ]
+            )
+        );
+
+        /** @var Team $team */
+        return $team;
+    }
+}

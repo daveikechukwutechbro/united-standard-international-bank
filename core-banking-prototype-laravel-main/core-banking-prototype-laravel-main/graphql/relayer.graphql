@@ -1,0 +1,79 @@
+type SmartAccount @model(class: "App\\Domain\\Relayer\\Models\\SmartAccount") {
+    id: ID!
+    user_id: Int!
+    owner_address: String!
+    account_address: String
+    network: String!
+    deployed: Boolean!
+    deploy_tx_hash: String
+    nonce: Int!
+    pending_ops: Int!
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+type GasEstimate {
+    network: String!
+    estimated_fee: Float!
+    max_fee_per_gas: String
+    max_priority_fee_per_gas: String
+    currency: String!
+}
+
+type NonceInfo {
+    nonce: Int!
+    pending_ops: Int!
+}
+
+extend type Query {
+    smartAccount(id: ID! @eq): SmartAccount
+        @find
+        @guard(with: ["sanctum"])
+
+    smartAccounts(
+        page: Int @rules(apply: ["integer", "min:1"])
+        first: Int @rules(apply: ["integer", "min:1", "max:100"])
+        network: String @where(operator: "=")
+        deployed: Boolean @where(operator: "=")
+    ): [SmartAccount!]!
+        @paginate(defaultCount: 15, model: "App\\Domain\\Relayer\\Models\\SmartAccount")
+        @guard(with: ["sanctum"])
+
+    smartAccountByAddress(account_address: String! @eq): SmartAccount
+        @find
+        @guard(with: ["sanctum"])
+
+    estimateGas(network: String!, data: String!): GasEstimate
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Queries\\Relayer\\EstimateGasQuery")
+
+    smartAccountNonce(account_id: ID!): NonceInfo
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Queries\\Relayer\\SmartAccountNonceQuery")
+
+    supportedRelayerNetworks: [String!]!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Queries\\Relayer\\SupportedNetworksQuery")
+}
+
+input CreateSmartAccountInput {
+    owner_address: String!
+    network: String!
+}
+
+input SponsorTransactionInput {
+    network: String!
+    sender: String!
+    data: String!
+    value: String
+}
+
+extend type Mutation {
+    createSmartAccount(input: CreateSmartAccountInput! @spread): SmartAccount!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Mutations\\Relayer\\CreateSmartAccountMutation")
+
+    sponsorTransaction(input: SponsorTransactionInput! @spread): String!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Mutations\\Relayer\\SponsorTransactionMutation")
+}

@@ -1,0 +1,39 @@
+{
+    "$schema": "https://finaegis.io/schemas/module.json",
+    "name": "finaegis/banking",
+    "version": "1.3.0",
+    "description": "Banking integrations including SEPA, SWIFT, and Open Banking",
+    "type": "optional",
+    "dependencies": {
+        "required": {
+            "finaegis/shared": "^1.0",
+            "finaegis/account": "^1.0",
+            "finaegis/compliance": "^1.0"
+        },
+        "optional": {
+            "finaegis/payment": "^1.0"
+        }
+    },
+    "provides": {
+        "interfaces": [
+            "App\\Domain\\Banking\\Contracts\\SepaServiceInterface",
+            "App\\Domain\\Banking\\Contracts\\SwiftServiceInterface"
+        ],
+        "events": [
+            "BankTransferInitiated",
+            "BankTransferCompleted",
+            "BankTransferFailed",
+            "AccountLinked"
+        ],
+        "commands": [
+            "InitiateBankTransferCommand",
+            "LinkBankAccountCommand"
+        ]
+    },
+    "paths": {
+        "routes": "Routes/api.php",
+        "migrations": "Database/Migrations",
+        "config": "Config/banking.php",
+        "tests": "Tests"
+    }
+}
