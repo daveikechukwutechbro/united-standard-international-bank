@@ -1,0 +1,32 @@
+node_modules/
+.next/
+out/
+vendor/
+bootstrap/cache/
+storage/
+.env
+*.zip
+*.log
+.DS_Store
+Thumbs.db
+
+# Ignore extracted MariaDB and Redis binaries
+mariadb_extracted/
+mariadb/
+redis/
+
+# Laravel specific
+core-banking-prototype-laravel/.env
+core-banking-prototype-laravel/vendor/
+core-banking-prototype-laravel/storage/framework/cache/
+core-banking-prototype-laravel/storage/framework/sessions/
+core-banking-prototype-laravel/storage/framework/views/
+core-banking-prototype-laravel/storage/logs/
+
+# finaegis frontend
+finaegis-frontend/node_modules/
+finaegis-frontend/.next/
+finaegis-frontend/.env.local
+
+# usib frontend
+usib-frontend/.env.local
