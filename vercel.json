@@ -1,7 +1,4 @@
 {
   "rootDirectory": "usib-frontend",
-  "framework": "nextjs",
-  "buildCommand": "npx next build",
-  "outputDirectory": ".next",
-  "installCommand": "npm install"
+  "framework": "nextjs"
 }
